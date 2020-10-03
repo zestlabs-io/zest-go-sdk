@@ -1,0 +1,3900 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: contact@zestlabs.io
+    name: Zest
+    url: https://zestlabs.io
+  title: Zest API
+  version: "1.0"
+servers:
+- url: /
+paths:
+  /api/auth/v1/accesskey:
+    post:
+      operationId: AuthService_CreateAccessKey
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1CreateAccessKeyRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1CreateAccessKeyResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: User Access Keys API
+      tags:
+      - AuthService
+      x-codegen-request-body-name: body
+  /api/auth/v1/accesskey/{accessKeyID}:
+    delete:
+      operationId: AuthService_DeleteAccessKey
+      parameters:
+      - in: path
+        name: accessKeyID
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1DeleteAccessKeyResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+  /api/auth/v1/account:
+    get:
+      operationId: AuthService_GetOwnAccount
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1GetAccountResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+    post:
+      operationId: AuthService_CreateAccount
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1CreateAccountRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1CreateAccountResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Account API
+      tags:
+      - AuthService
+      x-codegen-request-body-name: body
+  /api/auth/v1/account/{account.accountID}:
+    put:
+      operationId: AuthService_UpdateAccount
+      parameters:
+      - in: path
+        name: account.accountID
+        required: true
+        schema:
+          format: int64
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1UpdateAccountRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1UpdateAccountResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+      x-codegen-request-body-name: body
+  /api/auth/v1/account/{accountID}:
+    delete:
+      operationId: AuthService_DeleteAccount
+      parameters:
+      - in: path
+        name: accountID
+        required: true
+        schema:
+          format: int64
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1DeleteAccountResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+    get:
+      operationId: AuthService_GetAccount
+      parameters:
+      - in: path
+        name: accountID
+        required: true
+        schema:
+          format: int64
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1GetAccountResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+  /api/auth/v1/check-hmac:
+    post:
+      operationId: AuthService_CheckHMACAuth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1CheckHMACAuthRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1CheckHMACAuthResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Auth API
+      tags:
+      - AuthService
+      x-codegen-request-body-name: body
+  /api/auth/v1/default-policies:
+    get:
+      operationId: AuthService_GetDefaultPolicies
+      parameters:
+      - in: query
+        name: offset
+        schema:
+          type: string
+      - in: query
+        name: limit
+        schema:
+          format: int64
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1GetDefaultPoliciesResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+  /api/auth/v1/password-policy:
+    get:
+      operationId: AuthService_GetPasswordPolicy
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1GetPasswordPolicyResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+  /api/auth/v1/policies:
+    get:
+      operationId: AuthService_GetPolicies
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1GetPoliciesResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+  /api/auth/v1/policy:
+    post:
+      operationId: AuthService_CreatePolicy
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1CreatePolicyRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1CreatePolicyResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+      x-codegen-request-body-name: body
+    put:
+      operationId: AuthService_UpdatePolicy
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1UpdatePolicyRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1UpdatePolicyResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+      x-codegen-request-body-name: body
+  /api/auth/v1/policy/{policyID}:
+    delete:
+      operationId: AuthService_DeletePolicy
+      parameters:
+      - in: path
+        name: policyID
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1DeletePolicyResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+    get:
+      operationId: AuthService_GetPolicy
+      parameters:
+      - in: path
+        name: policyID
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1GetPolicyResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: RBAC API
+      tags:
+      - AuthService
+  /api/auth/v1/reset-password:
+    post:
+      operationId: AuthService_ResetPassword
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1ResetPasswordRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1ResetPasswordResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+      x-codegen-request-body-name: body
+  /api/auth/v1/role:
+    post:
+      operationId: AuthService_CreateRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1CreateRoleRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1CreateRoleResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+      x-codegen-request-body-name: body
+    put:
+      operationId: AuthService_UpdateRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1UpdateRoleRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1UpdateRoleResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+      x-codegen-request-body-name: body
+  /api/auth/v1/role/users/add:
+    post:
+      operationId: AuthService_AddUsersToRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1AddUsersToRoleRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1AddUsersToRoleResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+      x-codegen-request-body-name: body
+  /api/auth/v1/role/users/remove:
+    post:
+      operationId: AuthService_RemoveUsersFromRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1RemoveUsersFromRoleRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1RemoveUsersFromRoleResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+      x-codegen-request-body-name: body
+  /api/auth/v1/role/users/{roleID}:
+    get:
+      operationId: AuthService_GetUsersForRole
+      parameters:
+      - in: path
+        name: roleID
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: offset
+        schema:
+          format: int64
+          type: string
+      - in: query
+        name: limit
+        schema:
+          format: int64
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1GetUsersForRoleResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+  /api/auth/v1/role/{roleID}:
+    delete:
+      operationId: AuthService_DeleteRole
+      parameters:
+      - in: path
+        name: roleID
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1DeleteRoleResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+    get:
+      operationId: AuthService_GetRole
+      parameters:
+      - in: path
+        name: roleID
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1GetRoleResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+  /api/auth/v1/roles:
+    get:
+      operationId: AuthService_GetRoles
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1GetRolesResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+  /api/auth/v1/set-password:
+    post:
+      operationId: AuthService_SetPassword
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1SetPasswordRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1SetPasswordResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Password API
+      tags:
+      - AuthService
+      x-codegen-request-body-name: body
+  /api/auth/v1/user:
+    post:
+      operationId: AuthService_CreateUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1CreateUserRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1CreateUserResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+      x-codegen-request-body-name: body
+  /api/auth/v1/user-id-by-email/{email}:
+    get:
+      operationId: AuthService_GetUserIDByEmail
+      parameters:
+      - in: path
+        name: email
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1GetUserIDByEmailResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+  /api/auth/v1/user/accesskeys/{userID}:
+    get:
+      operationId: AuthService_GetUserAccessKeys
+      parameters:
+      - in: path
+        name: userID
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1GetUserAccessKeysResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+  /api/auth/v1/user/{user.userID}:
+    put:
+      operationId: AuthService_UpdateUser
+      parameters:
+      - in: path
+        name: user.userID
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1UpdateUserRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1UpdateUserResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+      x-codegen-request-body-name: body
+  /api/auth/v1/user/{userID}:
+    delete:
+      operationId: AuthService_DeleteUser
+      parameters:
+      - in: path
+        name: userID
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1DeleteUserResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+    get:
+      operationId: AuthService_GetUser
+      parameters:
+      - in: path
+        name: userID
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1GetUserResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+  /api/auth/v1/userinfo:
+    get:
+      operationId: AuthService_GetUserInfo
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1GetUserInfoResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: User API
+      tags:
+      - AuthService
+  /api/auth/v1/users:
+    get:
+      operationId: AuthService_GetUsers
+      parameters:
+      - in: query
+        name: offset
+        schema:
+          format: int64
+          type: string
+      - in: query
+        name: limit
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1GetUsersResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+  /api/func/v1/call-sync/{id}:
+    post:
+      operationId: FunctionsService_CallSyncFunction
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/functionsCallFunctionResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Call a function synchroniously
+      tags:
+      - FunctionsService
+      x-codegen-request-body-name: body
+  /api/func/v1/call-test/{id}:
+    post:
+      operationId: FunctionsService_CallTestFunction
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/functionsCallFunctionResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Test a function call
+      tags:
+      - FunctionsService
+      x-codegen-request-body-name: body
+  /api/func/v1/function:
+    post:
+      operationId: FunctionsService_CreateFunction
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/functionsCreateFunctionRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/functionsCreateFunctionResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Create function
+      tags:
+      - FunctionsService
+      x-codegen-request-body-name: body
+    put:
+      operationId: FunctionsService_UpdateFunction
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/functionsFunction'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/functionsUpdateFunctionResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Update function
+      tags:
+      - FunctionsService
+      x-codegen-request-body-name: body
+  /api/func/v1/function/{function.id}:
+    patch:
+      operationId: FunctionsService_UpdateFunction2
+      parameters:
+      - in: path
+        name: function.id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/functionsFunction'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/functionsUpdateFunctionResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Update function
+      tags:
+      - FunctionsService
+      x-codegen-request-body-name: body
+  /api/func/v1/function/{id}:
+    delete:
+      operationId: FunctionsService_DeleteFunction
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/functionsDeleteFunctionResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Delete function
+      tags:
+      - FunctionsService
+    get:
+      operationId: FunctionsService_GetFunction
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/functionsGetFunctionResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Get function
+      tags:
+      - FunctionsService
+  /api/func/v1/functions:
+    get:
+      operationId: FunctionsService_GetFunctions
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/functionsGetFunctionsResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Fetch all functions
+      tags:
+      - FunctionsService
+  /api/func/v1/post-call/{reason}/{call.id}:
+    post:
+      operationId: FunctionsService_CallAsyncFunction
+      parameters:
+      - in: path
+        name: reason
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: call.id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/functionsCallAsyncFunctionResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Post function for execution in async way
+      tags:
+      - FunctionsService
+      x-codegen-request-body-name: body
+  /api/distribution/v1/activate-pool:
+    post:
+      operationId: DistrConfigService_ActivatePool
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/distrconfigActivatePoolRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigActivatePoolResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: ActivatePool data pool task
+      tags:
+      - DistrConfigService
+      x-codegen-request-body-name: body
+  /api/distribution/v1/app:
+    post:
+      operationId: DistrConfigService_CreateApp
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/distrconfigMobileApp'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigCreateAppResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Create mobile application
+      tags:
+      - DistrConfigService
+      x-codegen-request-body-name: body
+  /api/distribution/v1/app/{id}:
+    delete:
+      operationId: DistrConfigService_DeleteApp
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigDeleteAppResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Delete mobile application
+      tags:
+      - DistrConfigService
+  /api/distribution/v1/apps:
+    get:
+      operationId: DistrConfigService_GetApps
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigGetAppsResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Get all mobile applications
+      tags:
+      - DistrConfigService
+  /api/distribution/v1/assign-app-pools:
+    post:
+      operationId: DistrConfigService_AssignAppPools
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/distrconfigAssignAppPoolsRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigAssignAppPoolsResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Assign data pools to mobile application
+      tags:
+      - DistrConfigService
+      x-codegen-request-body-name: body
+  /api/distribution/v1/assign-app-users:
+    post:
+      operationId: DistrConfigService_AssignAppUsers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/distrconfigAssignAppUsersRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigAssignAppUsersResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Assign mobile application to users
+      tags:
+      - DistrConfigService
+      x-codegen-request-body-name: body
+  /api/distribution/v1/assign-tag-to-user:
+    post:
+      operationId: DistrConfigService_AssignTagToUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/distrconfigAssignTagToUserRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigAssignTagToUserResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Assign filtering tag to user
+      tags:
+      - DistrConfigService
+      x-codegen-request-body-name: body
+  /api/distribution/v1/get-pool-distribution/{id}:
+    get:
+      operationId: DistrConfigService_GetPoolDistribution
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: userId
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigGetPoolDistributionResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: ActivatePool data pool task
+      tags:
+      - DistrConfigService
+  /api/distribution/v1/pool:
+    post:
+      operationId: DistrConfigService_CreatePool
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/distrconfigDataPool'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigCreatePoolResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: CreatePool new data pool task
+      tags:
+      - DistrConfigService
+      x-codegen-request-body-name: body
+    put:
+      operationId: DistrConfigService_UpdatePool
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/distrconfigDataPool'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigUpdatePoolResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: UpdatePool data pool task
+      tags:
+      - DistrConfigService
+      x-codegen-request-body-name: body
+  /api/distribution/v1/pool/{dataPool.id}:
+    patch:
+      operationId: DistrConfigService_UpdatePool2
+      parameters:
+      - description: Primary key together with accountId - should be unique by client
+          - used also as name of the pool
+        in: path
+        name: dataPool.id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/distrconfigDataPool'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigUpdatePoolResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: UpdatePool data pool task
+      tags:
+      - DistrConfigService
+      x-codegen-request-body-name: body
+  /api/distribution/v1/pool/{id}:
+    delete:
+      operationId: DistrConfigService_DeletePool
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigDeletePoolResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: DeletePool data pool task
+      tags:
+      - DistrConfigService
+    get:
+      operationId: DistrConfigService_GetPool
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigGetPoolResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Get data pool task
+      tags:
+      - DistrConfigService
+  /api/distribution/v1/pools:
+    get:
+      operationId: DistrConfigService_GetPools
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigGetPoolsResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Get all data pool tasks
+      tags:
+      - DistrConfigService
+    post:
+      operationId: DistrConfigService_CreatePools
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/distrconfigCreatePoolsRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigCreatePoolsResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: CreatePool new data pool task
+      tags:
+      - DistrConfigService
+      x-codegen-request-body-name: body
+  /api/distribution/v1/set-app-bundle:
+    post:
+      operationId: DistrConfigService_SetAppBundle
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/distrconfigSetAppBundleRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigSetAppBundleResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Set the mobile application bundle
+      tags:
+      - DistrConfigService
+      x-codegen-request-body-name: body
+  /api/distribution/v1/unassign-app-pools:
+    post:
+      operationId: DistrConfigService_UnassignAppPools
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/distrconfigUnassignAppPoolsRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigUnassignAppPoolsResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Unassign data pool from mobile application
+      tags:
+      - DistrConfigService
+      x-codegen-request-body-name: body
+  /api/distribution/v1/unassign-app-users:
+    post:
+      operationId: DistrConfigService_UnassignAppUsers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/distrconfigUnassignAppUsersRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigUnassignAppUsersResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Unassign mobile application from users
+      tags:
+      - DistrConfigService
+      x-codegen-request-body-name: body
+  /api/distribution/v1/unassign-tag-from-user:
+    post:
+      operationId: DistrConfigService_UnassignTagFromUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/distrconfigUnassignTagFromUserRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigUnassignTagFromUserResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Unassign filtering tag from user
+      tags:
+      - DistrConfigService
+      x-codegen-request-body-name: body
+  /api/distribution/v1/user:
+    post:
+      operationId: DistrConfigService_CreateUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/distrconfigCreateUserRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigCreateUserResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Registers user in distribution database
+      tags:
+      - DistrConfigService
+      x-codegen-request-body-name: body
+  /api/distribution/v1/user/{id}:
+    delete:
+      operationId: DistrConfigService_DeleteUser
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigDeleteUserResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Deletes user from distribution db
+      tags:
+      - DistrConfigService
+  /api/distribution/v1/users:
+    get:
+      operationId: DistrConfigService_GetUsers
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigGetUsersResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Fetch all users in account distribution db
+      tags:
+      - DistrConfigService
+  /api/distribution/v1/validate-pool-data:
+    post:
+      operationId: DistrConfigService_ValidatePoolData
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/distrconfigValidatePoolDataRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigValidatePoolDataResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Validate pool data against pool specification
+      tags:
+      - DistrConfigService
+      x-codegen-request-body-name: body
+  /api/data/_r/{poolId}:
+    delete:
+      operationId: PoolDataService_BulkDelete
+      parameters:
+      - description: Pool ID (e.g. orders)
+        in: path
+        name: poolId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dataBulkDeleteRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dataBulkDeleteResponse'
+          description: A successful response.
+        "400":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when input parameters are not provided
+      summary: Bulk delete records from mobile data pool
+      tags:
+      - PoolDataService
+      x-codegen-request-body-name: body
+    get:
+      operationId: PoolDataService_List
+      parameters:
+      - description: Pool ID (e.g. orders)
+        in: path
+        name: poolId
+        required: true
+        schema:
+          type: string
+      - description: The max number of records to fetch.
+        in: query
+        name: limit
+        required: true
+        schema:
+          type: number
+      - description: The records to skip from the beggining
+        in: query
+        name: skip
+        required: true
+        schema:
+          type: number
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dataListResponse'
+          description: A successful response.
+        "400":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when input parameters are not provided or correct
+      summary: List mobile data records
+      tags:
+      - PoolDataService
+    post:
+      operationId: PoolDataService_BulkCreate
+      parameters:
+      - description: Pool ID (e.g. orders)
+        in: path
+        name: poolId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dataBulkCreateRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dataBulkCreateResponse'
+          description: A successful response.
+        "400":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when input parameters are not provided
+      summary: Bulk create mobile data records in a pool
+      tags:
+      - PoolDataService
+      x-codegen-request-body-name: body
+    put:
+      operationId: PoolDataService_BulkUpdate
+      parameters:
+      - description: Pool ID (e.g. orders)
+        in: path
+        name: poolId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dataBulkUpdateRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dataBulkUpdateResponse'
+          description: A successful response.
+        "400":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when input parameters are not provided
+      summary: Bulk update records in mobile data pool
+      tags:
+      - PoolDataService
+      x-codegen-request-body-name: body
+  /api/data/_r/{poolId}/{id}:
+    get:
+      operationId: PoolDataService_Get
+      parameters:
+      - description: Pool ID (e.g. orders)
+        in: path
+        name: poolId
+        required: true
+        schema:
+          type: string
+      - description: The ID (Primary Key) of the record
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dataGetResponse'
+          description: A successful response.
+        "400":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when input parameters are not provided
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the document does not exist.
+      summary: Get single mobile data record
+      tags:
+      - PoolDataService
+components:
+  schemas:
+    AccountAccountStatus:
+      default: PENDING
+      enum:
+      - PENDING
+      - ACTIVE
+      - DISABLED
+      - DELETED
+      type: string
+    PaymentDetailsPaymentType:
+      default: CreditCard
+      enum:
+      - CreditCard
+      - Paypal
+      - DirectDebig
+      - Invoice
+      type: string
+    protobufAny:
+      description: |-
+        `Any` contains an arbitrary serialized protocol buffer message along with a
+        URL that describes the type of the serialized message.
+
+        Protobuf library provides support to pack/unpack Any values in the form
+        of utility functions or additional generated methods of the Any type.
+
+        Example 1: Pack and unpack a message in C++.
+
+            Foo foo = ...;
+            Any any;
+            any.PackFrom(foo);
+            ...
+            if (any.UnpackTo(&foo)) {
+              ...
+            }
+
+        Example 2: Pack and unpack a message in Java.
+
+            Foo foo = ...;
+            Any any = Any.pack(foo);
+            ...
+            if (any.is(Foo.class)) {
+              foo = any.unpack(Foo.class);
+            }
+
+         Example 3: Pack and unpack a message in Python.
+
+            foo = Foo(...)
+            any = Any()
+            any.Pack(foo)
+            ...
+            if any.Is(Foo.DESCRIPTOR):
+              any.Unpack(foo)
+              ...
+
+         Example 4: Pack and unpack a message in Go
+
+             foo := &pb.Foo{...}
+             any, err := ptypes.MarshalAny(foo)
+             ...
+             foo := &pb.Foo{}
+             if err := ptypes.UnmarshalAny(any, foo); err != nil {
+               ...
+             }
+
+        The pack methods provided by protobuf library will by default use
+        'type.googleapis.com/full.type.name' as the type URL and the unpack
+        methods only use the fully qualified type name after the last '/'
+        in the type URL, for example "foo.bar.com/x/y.z" will yield type
+        name "y.z".
+
+
+        JSON
+        ====
+        The JSON representation of an `Any` value uses the regular
+        representation of the deserialized, embedded message, with an
+        additional field `@type` which contains the type URL. Example:
+
+            package google.profile;
+            message Person {
+              string first_name = 1;
+              string last_name = 2;
+            }
+
+            {
+              "@type": "type.googleapis.com/google.profile.Person",
+              "firstName": <string>,
+              "lastName": <string>
+            }
+
+        If the embedded message type is well-known and has a custom JSON
+        representation, that representation will be embedded adding a field
+        `value` which holds the custom JSON in addition to the `@type`
+        field. Example (for message [google.protobuf.Duration][]):
+
+            {
+              "@type": "type.googleapis.com/google.protobuf.Duration",
+              "value": "1.212s"
+            }
+      properties:
+        type_url:
+          description: |-
+            A URL/resource name whose content describes the type of the
+            serialized protocol buffer message.
+
+            For URLs which use the scheme `http`, `https`, or no scheme, the
+            following restrictions and interpretations apply:
+
+            * If no scheme is provided, `https` is assumed.
+            * The last segment of the URL's path must represent the fully
+              qualified name of the type (as in `path/google.protobuf.Duration`).
+              The name should be in a canonical form (e.g., leading "." is
+              not accepted).
+            * An HTTP GET on the URL must yield a [google.protobuf.Type][]
+              value in binary format, or produce an error.
+            * Applications are allowed to cache lookup results based on the
+              URL, or have them precompiled into a binary to avoid any
+              lookup. Therefore, binary compatibility needs to be preserved
+              on changes to types. (Use versioned type names to manage
+              breaking changes.)
+
+            Schemes other than `http`, `https` (or the empty scheme) might be
+            used with implementation specific semantics.
+          type: string
+        value:
+          description: Must be a valid serialized protocol buffer of the above specified
+            type.
+          format: byte
+          pattern: ^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$
+          type: string
+      type: object
+    runtimeError:
+      properties:
+        error:
+          type: string
+        code:
+          format: int32
+          type: integer
+        message:
+          type: string
+        details:
+          items:
+            $ref: '#/components/schemas/protobufAny'
+          type: array
+      type: object
+    v1AccessKey:
+      example:
+        accessKeyID: accessKeyID
+        lastUsedAt: lastUsedAt
+      properties:
+        accessKeyID:
+          type: string
+        lastUsedAt:
+          format: int64
+          type: string
+      type: object
+    v1Account:
+      example:
+        accountID: accountID
+        name: name
+        description: description
+        paymentDetails:
+          info: info
+        contactDetails:
+          technical: technical
+          main: main
+          finance: finance
+      properties:
+        accountID:
+          format: int64
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        status:
+          $ref: '#/components/schemas/AccountAccountStatus'
+        paymentDetails:
+          $ref: '#/components/schemas/v1PaymentDetails'
+        contactDetails:
+          $ref: '#/components/schemas/v1ContactDetails'
+      type: object
+    v1Action:
+      example:
+        call: call
+        service: service
+      properties:
+        service:
+          type: string
+        call:
+          type: string
+      type: object
+    v1AddUsersToRoleRequest:
+      properties:
+        roleID:
+          type: string
+        userIDs:
+          items:
+            type: string
+          type: array
+      type: object
+    v1AddUsersToRoleResponse:
+      example:
+        failedUserIDs:
+        - failedUserIDs
+        - failedUserIDs
+      properties:
+        failedUserIDs:
+          items:
+            type: string
+          type: array
+      type: object
+    v1CheckHMACAuthRequest:
+      properties:
+        httpMethod:
+          type: string
+        requestPath:
+          type: string
+        contentType:
+          type: string
+        authKey:
+          type: string
+        signature:
+          type: string
+        md5Body:
+          type: string
+        validity:
+          format: int64
+          type: string
+      type: object
+    v1CheckHMACAuthResponse:
+      example:
+        error: error
+        token: token
+      properties:
+        token:
+          format: byte
+          pattern: ^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$
+          type: string
+        error:
+          type: string
+      type: object
+    v1ContactDetails:
+      example:
+        technical: technical
+        main: main
+        finance: finance
+      properties:
+        main:
+          type: string
+        finance:
+          type: string
+        technical:
+          type: string
+      type: object
+    v1CreateAccessKeyRequest:
+      properties:
+        userID:
+          type: string
+      type: object
+    v1CreateAccessKeyResponse:
+      example:
+        accessKeyID: accessKeyID
+        accessSecret: accessSecret
+      properties:
+        accessKeyID:
+          type: string
+        accessSecret:
+          type: string
+      type: object
+    v1CreateAccountRequest:
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        email:
+          type: string
+      type: object
+    v1CreateAccountResponse:
+      example:
+        accountID: accountID
+      properties:
+        accountID:
+          format: int64
+          type: string
+      type: object
+    v1CreatePolicyRequest:
+      properties:
+        policy:
+          $ref: '#/components/schemas/v1Policy'
+      type: object
+    v1CreatePolicyResponse:
+      example:
+        policyID: policyID
+      properties:
+        policyID:
+          type: string
+      type: object
+    v1CreateRoleRequest:
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+      type: object
+    v1CreateRoleResponse:
+      example:
+        roleID: roleID
+      properties:
+        roleID:
+          type: string
+      type: object
+    v1CreateUserRequest:
+      properties:
+        email:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+      type: object
+    v1CreateUserResponse:
+      example:
+        userID: userID
+      properties:
+        userID:
+          type: string
+      type: object
+    v1DeleteAccessKeyResponse:
+      type: object
+    v1DeleteAccountResponse:
+      type: object
+    v1DeletePolicyResponse:
+      type: object
+    v1DeleteRoleResponse:
+      type: object
+    v1DeleteUserResponse:
+      type: object
+    v1GetAccountResponse:
+      example:
+        account:
+          accountID: accountID
+          name: name
+          description: description
+          paymentDetails:
+            info: info
+          contactDetails:
+            technical: technical
+            main: main
+            finance: finance
+      properties:
+        account:
+          $ref: '#/components/schemas/v1Account'
+      type: object
+    v1GetDefaultPoliciesResponse:
+      example:
+        policies:
+        - policyID: policyID
+          permissions:
+          - effect: effect
+            scope:
+            - scope
+            - scope
+            actions:
+            - call: call
+              service: service
+            - call: call
+              service: service
+          - effect: effect
+            scope:
+            - scope
+            - scope
+            actions:
+            - call: call
+              service: service
+            - call: call
+              service: service
+          name: name
+        - policyID: policyID
+          permissions:
+          - effect: effect
+            scope:
+            - scope
+            - scope
+            actions:
+            - call: call
+              service: service
+            - call: call
+              service: service
+          - effect: effect
+            scope:
+            - scope
+            - scope
+            actions:
+            - call: call
+              service: service
+            - call: call
+              service: service
+          name: name
+      properties:
+        policies:
+          items:
+            $ref: '#/components/schemas/v1Policy'
+          type: array
+      type: object
+    v1GetPasswordPolicyResponse:
+      example:
+        policy:
+          useNumbers: true
+          useLowerLetters: true
+          minLength: minLength
+          useUpperLetters: true
+          useSpecialCharecters: true
+      properties:
+        policy:
+          $ref: '#/components/schemas/v1PasswordPolicy'
+      type: object
+    v1GetPoliciesResponse:
+      example:
+        policies:
+        - policyID: policyID
+          permissions:
+          - effect: effect
+            scope:
+            - scope
+            - scope
+            actions:
+            - call: call
+              service: service
+            - call: call
+              service: service
+          - effect: effect
+            scope:
+            - scope
+            - scope
+            actions:
+            - call: call
+              service: service
+            - call: call
+              service: service
+          name: name
+        - policyID: policyID
+          permissions:
+          - effect: effect
+            scope:
+            - scope
+            - scope
+            actions:
+            - call: call
+              service: service
+            - call: call
+              service: service
+          - effect: effect
+            scope:
+            - scope
+            - scope
+            actions:
+            - call: call
+              service: service
+            - call: call
+              service: service
+          name: name
+      properties:
+        policies:
+          items:
+            $ref: '#/components/schemas/v1Policy'
+          type: array
+      type: object
+    v1GetPolicyResponse:
+      example:
+        policy:
+          policyID: policyID
+          permissions:
+          - effect: effect
+            scope:
+            - scope
+            - scope
+            actions:
+            - call: call
+              service: service
+            - call: call
+              service: service
+          - effect: effect
+            scope:
+            - scope
+            - scope
+            actions:
+            - call: call
+              service: service
+            - call: call
+              service: service
+          name: name
+      properties:
+        policy:
+          $ref: '#/components/schemas/v1Policy'
+      type: object
+    v1GetRoleResponse:
+      example:
+        role:
+          roleID: roleID
+          name: name
+          description: description
+          policyIDs:
+          - policyIDs
+          - policyIDs
+      properties:
+        role:
+          $ref: '#/components/schemas/v1Role'
+      type: object
+    v1GetRolesResponse:
+      example:
+        roles:
+        - roleID: roleID
+          name: name
+          description: description
+          policyIDs:
+          - policyIDs
+          - policyIDs
+        - roleID: roleID
+          name: name
+          description: description
+          policyIDs:
+          - policyIDs
+          - policyIDs
+      properties:
+        roles:
+          items:
+            $ref: '#/components/schemas/v1Role'
+          type: array
+      type: object
+    v1GetUserAccessKeysResponse:
+      example:
+        keys:
+        - accessKeyID: accessKeyID
+          lastUsedAt: lastUsedAt
+        - accessKeyID: accessKeyID
+          lastUsedAt: lastUsedAt
+      properties:
+        keys:
+          items:
+            $ref: '#/components/schemas/v1AccessKey'
+          type: array
+      type: object
+    v1GetUserIDByEmailResponse:
+      example:
+        userID: userID
+      properties:
+        userID:
+          type: string
+      type: object
+    v1GetUserInfoResponse:
+      example:
+        userInfo:
+          accountID: accountID
+          name: name
+          policies:
+          - policyID: policyID
+            permissions:
+            - effect: effect
+              scope:
+              - scope
+              - scope
+              actions:
+              - call: call
+                service: service
+              - call: call
+                service: service
+            - effect: effect
+              scope:
+              - scope
+              - scope
+              actions:
+              - call: call
+                service: service
+              - call: call
+                service: service
+            name: name
+          - policyID: policyID
+            permissions:
+            - effect: effect
+              scope:
+              - scope
+              - scope
+              actions:
+              - call: call
+                service: service
+              - call: call
+                service: service
+            - effect: effect
+              scope:
+              - scope
+              - scope
+              actions:
+              - call: call
+                service: service
+              - call: call
+                service: service
+            name: name
+          userID: userID
+          email: email
+      properties:
+        userInfo:
+          $ref: '#/components/schemas/v1UserInfo'
+      type: object
+    v1GetUserResponse:
+      example:
+        user:
+          firstName: firstName
+          lastName: lastName
+          lastLogin: lastLogin
+          phoneNumber: phoneNumber
+          roleIDs:
+          - roleIDs
+          - roleIDs
+          language: language
+          policyIDs:
+          - policyIDs
+          - policyIDs
+          userID: userID
+          email: email
+      properties:
+        user:
+          $ref: '#/components/schemas/v1User'
+      type: object
+    v1GetUsersForRoleResponse:
+      example:
+        userIDs:
+        - userIDs
+        - userIDs
+      properties:
+        userIDs:
+          items:
+            type: string
+          type: array
+      type: object
+    v1GetUsersResponse:
+      example:
+        offset: offset
+        limit: 0
+        totalRows: totalRows
+        users:
+        - firstName: firstName
+          lastName: lastName
+          lastLogin: lastLogin
+          phoneNumber: phoneNumber
+          roleIDs:
+          - roleIDs
+          - roleIDs
+          language: language
+          policyIDs:
+          - policyIDs
+          - policyIDs
+          userID: userID
+          email: email
+        - firstName: firstName
+          lastName: lastName
+          lastLogin: lastLogin
+          phoneNumber: phoneNumber
+          roleIDs:
+          - roleIDs
+          - roleIDs
+          language: language
+          policyIDs:
+          - policyIDs
+          - policyIDs
+          userID: userID
+          email: email
+      properties:
+        totalRows:
+          format: int64
+          type: string
+        offset:
+          format: int64
+          type: string
+        limit:
+          format: int32
+          type: integer
+        users:
+          items:
+            $ref: '#/components/schemas/v1User'
+          title: string offsetID = 4
+          type: array
+      type: object
+    v1PasswordPolicy:
+      example:
+        useNumbers: true
+        useLowerLetters: true
+        minLength: minLength
+        useUpperLetters: true
+        useSpecialCharecters: true
+      properties:
+        minLength:
+          format: int64
+          type: string
+        useLowerLetters:
+          format: boolean
+          type: boolean
+        useUpperLetters:
+          format: boolean
+          type: boolean
+        useNumbers:
+          format: boolean
+          type: boolean
+        useSpecialCharecters:
+          format: boolean
+          type: boolean
+      type: object
+    v1PaymentDetails:
+      example:
+        info: info
+      properties:
+        type:
+          $ref: '#/components/schemas/PaymentDetailsPaymentType'
+        info:
+          type: string
+      type: object
+    v1Permission:
+      example:
+        effect: effect
+        scope:
+        - scope
+        - scope
+        actions:
+        - call: call
+          service: service
+        - call: call
+          service: service
+      properties:
+        effect:
+          type: string
+        actions:
+          items:
+            $ref: '#/components/schemas/v1Action'
+          type: array
+        scope:
+          items:
+            type: string
+          type: array
+      type: object
+    v1Policy:
+      example:
+        policyID: policyID
+        permissions:
+        - effect: effect
+          scope:
+          - scope
+          - scope
+          actions:
+          - call: call
+            service: service
+          - call: call
+            service: service
+        - effect: effect
+          scope:
+          - scope
+          - scope
+          actions:
+          - call: call
+            service: service
+          - call: call
+            service: service
+        name: name
+      properties:
+        policyID:
+          type: string
+        name:
+          type: string
+        permissions:
+          items:
+            $ref: '#/components/schemas/v1Permission'
+          type: array
+      type: object
+    v1RemoveUsersFromRoleRequest:
+      properties:
+        roleID:
+          type: string
+        userIDs:
+          items:
+            type: string
+          type: array
+      type: object
+    v1RemoveUsersFromRoleResponse:
+      example:
+        failedUserIDs:
+        - failedUserIDs
+        - failedUserIDs
+      properties:
+        failedUserIDs:
+          items:
+            type: string
+          type: array
+      type: object
+    v1ResetPasswordRequest:
+      properties:
+        userID:
+          type: string
+      type: object
+    v1ResetPasswordResponse:
+      type: object
+    v1Role:
+      example:
+        roleID: roleID
+        name: name
+        description: description
+        policyIDs:
+        - policyIDs
+        - policyIDs
+      properties:
+        roleID:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        policyIDs:
+          items:
+            type: string
+          type: array
+      type: object
+    v1SetPasswordRequest:
+      properties:
+        userID:
+          type: string
+        userPassword:
+          type: string
+        newPassword:
+          type: string
+      type: object
+    v1SetPasswordResponse:
+      type: object
+    v1UpdateAccountRequest:
+      properties:
+        account:
+          $ref: '#/components/schemas/v1Account'
+      type: object
+    v1UpdateAccountResponse:
+      type: object
+    v1UpdatePolicyRequest:
+      properties:
+        policy:
+          $ref: '#/components/schemas/v1Policy'
+      type: object
+    v1UpdatePolicyResponse:
+      type: object
+    v1UpdateRoleRequest:
+      properties:
+        role:
+          $ref: '#/components/schemas/v1Role'
+      type: object
+    v1UpdateRoleResponse:
+      type: object
+    v1UpdateUserRequest:
+      properties:
+        user:
+          $ref: '#/components/schemas/v1User'
+      type: object
+    v1UpdateUserResponse:
+      type: object
+    v1User:
+      example:
+        firstName: firstName
+        lastName: lastName
+        lastLogin: lastLogin
+        phoneNumber: phoneNumber
+        roleIDs:
+        - roleIDs
+        - roleIDs
+        language: language
+        policyIDs:
+        - policyIDs
+        - policyIDs
+        userID: userID
+        email: email
+      properties:
+        userID:
+          type: string
+        email:
+          type: string
+        phoneNumber:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        language:
+          type: string
+        lastLogin:
+          format: int64
+          type: string
+        policyIDs:
+          items:
+            type: string
+          type: array
+        roleIDs:
+          items:
+            type: string
+          type: array
+      type: object
+    v1UserInfo:
+      example:
+        accountID: accountID
+        name: name
+        policies:
+        - policyID: policyID
+          permissions:
+          - effect: effect
+            scope:
+            - scope
+            - scope
+            actions:
+            - call: call
+              service: service
+            - call: call
+              service: service
+          - effect: effect
+            scope:
+            - scope
+            - scope
+            actions:
+            - call: call
+              service: service
+            - call: call
+              service: service
+          name: name
+        - policyID: policyID
+          permissions:
+          - effect: effect
+            scope:
+            - scope
+            - scope
+            actions:
+            - call: call
+              service: service
+            - call: call
+              service: service
+          - effect: effect
+            scope:
+            - scope
+            - scope
+            actions:
+            - call: call
+              service: service
+            - call: call
+              service: service
+          name: name
+        userID: userID
+        email: email
+      properties:
+        accountID:
+          format: int64
+          type: string
+        userID:
+          type: string
+        email:
+          type: string
+        name:
+          type: string
+        policies:
+          items:
+            $ref: '#/components/schemas/v1Policy'
+          type: array
+      type: object
+    functionsCallAsyncFunctionRequest:
+      properties:
+        call:
+          $ref: '#/components/schemas/functionsCallFunctionRequest'
+        reason:
+          type: string
+      type: object
+    functionsCallAsyncFunctionResponse:
+      type: object
+    functionsCallFunctionRequest:
+      properties:
+        id:
+          type: string
+        payload:
+          properties: {}
+          type: object
+        payloadJSON:
+          format: byte
+          pattern: ^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$
+          type: string
+      type: object
+    functionsCallFunctionResponse:
+      example:
+        err: err
+        success: true
+        body: '{}'
+      properties:
+        success:
+          format: boolean
+          type: boolean
+        err:
+          type: string
+        body:
+          properties: {}
+          type: object
+      type: object
+    functionsCaller:
+      properties:
+        accountID:
+          format: int64
+          type: string
+        userID:
+          type: string
+        email:
+          type: string
+        policies:
+          type: string
+      type: object
+    functionsCreateFunctionRequest:
+      properties:
+        name:
+          type: string
+        funcType:
+          type: string
+        endpoint:
+          type: string
+        region:
+          type: string
+      type: object
+    functionsCreateFunctionResponse:
+      example:
+        id: id
+      properties:
+        id:
+          type: string
+      type: object
+    functionsDeleteFunctionResponse:
+      type: object
+    functionsFunction:
+      example:
+        endpoint: endpoint
+        name: name
+        id: id
+        region: region
+        funcType: funcType
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        funcType:
+          type: string
+        endpoint:
+          type: string
+        region:
+          type: string
+      type: object
+    functionsGetFunctionResponse:
+      example:
+        function:
+          endpoint: endpoint
+          name: name
+          id: id
+          region: region
+          funcType: funcType
+      properties:
+        function:
+          $ref: '#/components/schemas/functionsFunction'
+      type: object
+    functionsGetFunctionsResponse:
+      example:
+        functions:
+        - endpoint: endpoint
+          name: name
+          id: id
+          region: region
+          funcType: funcType
+        - endpoint: endpoint
+          name: name
+          id: id
+          region: region
+          funcType: funcType
+      properties:
+        functions:
+          items:
+            $ref: '#/components/schemas/functionsFunction'
+          type: array
+      type: object
+    functionsUpdateFunctionResponse:
+      type: object
+    protobufNullValue:
+      default: NULL_VALUE
+      description: |-
+        `NullValue` is a singleton enumeration to represent the null value for the
+        `Value` type union.
+
+         The JSON representation for `NullValue` is JSON `null`.
+
+         - NULL_VALUE: Null value.
+      enum:
+      - NULL_VALUE
+      type: string
+    distrconfigActivatePoolRequest:
+      properties:
+        id:
+          type: string
+      type: object
+    distrconfigActivatePoolResponse:
+      type: object
+    distrconfigAssignAppPoolsRequest:
+      properties:
+        appId:
+          type: string
+        poolIds:
+          items:
+            type: string
+          type: array
+      type: object
+    distrconfigAssignAppPoolsResponse:
+      type: object
+    distrconfigAssignAppUsersRequest:
+      properties:
+        appId:
+          type: string
+        userIds:
+          items:
+            type: string
+          type: array
+      type: object
+    distrconfigAssignAppUsersResponse:
+      type: object
+    distrconfigAssignTagToUserRequest:
+      properties:
+        poolId:
+          type: string
+        userId:
+          type: string
+        tagValue:
+          type: string
+      type: object
+    distrconfigAssignTagToUserResponse:
+      type: object
+    distrconfigCreateAppResponse:
+      type: object
+    distrconfigCreatePoolResponse:
+      title: Contains data of createPoold data pool task
+      type: object
+    distrconfigCreatePoolsRequest:
+      properties:
+        dataPools:
+          items:
+            $ref: '#/components/schemas/distrconfigDataPool'
+          type: array
+      type: object
+    distrconfigCreatePoolsResponse:
+      title: Contains data of createPoold data pool task
+      type: object
+    distrconfigCreateUserRequest:
+      properties:
+        id:
+          type: string
+      type: object
+    distrconfigCreateUserResponse:
+      type: object
+    distrconfigDataPool:
+      example:
+        schema: schema
+        active: true
+        onUploadFunction: onUploadFunction
+        tagExtractExpression: tagExtractExpression
+        id: id
+        pkExtractExpression: pkExtractExpression
+      properties:
+        id:
+          title: Primary key together with accountId - should be unique by client
+            - used also as name of the pool
+          type: string
+        poolType:
+          $ref: '#/components/schemas/distrconfigPoolType'
+        pkExtractExpression:
+          title: http://goessner.net/articles/JsonPath/ expression to extract the
+            primary key
+          type: string
+        tagExtractExpression:
+          title: http://goessner.net/articles/JsonPath/ expression to extract tags
+            from the documents. For user type pools this is the user id
+          type: string
+        active:
+          format: boolean
+          title: When activated it locks the record and cannot be changed
+          type: boolean
+        schema:
+          format: byte
+          pattern: ^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$
+          title: If set - should contain http://json-schema.org/ schema, that will
+            validate every document
+          type: string
+        onUploadFunction:
+          title: Function to be called onUpload
+          type: string
+      type: object
+    distrconfigDeleteAppResponse:
+      type: object
+    distrconfigDeletePoolResponse:
+      type: object
+    distrconfigDeleteUserResponse:
+      type: object
+    distrconfigDistributionUser:
+      example:
+        tagAssignments:
+        - poolId: poolId
+          value: value
+        - poolId: poolId
+          value: value
+        id: id
+        activeAppId: activeAppId
+      properties:
+        id:
+          type: string
+        activeAppId:
+          type: string
+        tagAssignments:
+          items:
+            $ref: '#/components/schemas/distrconfigUserTagAssignment'
+          type: array
+      type: object
+    distrconfigGetAppsResponse:
+      example:
+        apps:
+        - bundleUrl: bundleUrl
+          assignedPools:
+          - assignedPools
+          - assignedPools
+          active: true
+          id: id
+        - bundleUrl: bundleUrl
+          assignedPools:
+          - assignedPools
+          - assignedPools
+          active: true
+          id: id
+      properties:
+        apps:
+          items:
+            $ref: '#/components/schemas/distrconfigMobileAppWithPools'
+          type: array
+      type: object
+    distrconfigGetPoolDistributionResponse:
+      example:
+        tagPrefix: tagPrefix
+        dbUrl: dbUrl
+      properties:
+        dbUrl:
+          type: string
+        poolType:
+          $ref: '#/components/schemas/distrconfigPoolType'
+        tagPrefix:
+          title: Tag prefix used for determining if user assignments match the record
+          type: string
+      type: object
+    distrconfigGetPoolResponse:
+      example:
+        dataPool:
+          schema: schema
+          active: true
+          onUploadFunction: onUploadFunction
+          tagExtractExpression: tagExtractExpression
+          id: id
+          pkExtractExpression: pkExtractExpression
+      properties:
+        dataPool:
+          $ref: '#/components/schemas/distrconfigDataPool'
+      title: Contains data pool task data specified in by ID request
+      type: object
+    distrconfigGetPoolsResponse:
+      example:
+        poolSizes:
+          key:
+            userDataSizeBytes: userDataSizeBytes
+            poolId: poolId
+            globalDataSizeBytes: globalDataSizeBytes
+        dataPool:
+        - schema: schema
+          active: true
+          onUploadFunction: onUploadFunction
+          tagExtractExpression: tagExtractExpression
+          id: id
+          pkExtractExpression: pkExtractExpression
+        - schema: schema
+          active: true
+          onUploadFunction: onUploadFunction
+          tagExtractExpression: tagExtractExpression
+          id: id
+          pkExtractExpression: pkExtractExpression
+      properties:
+        dataPool:
+          items:
+            $ref: '#/components/schemas/distrconfigDataPool'
+          title: List of all data pool tasks
+          type: array
+        poolSizes:
+          additionalProperties:
+            $ref: '#/components/schemas/distrconfigPoolSize'
+          type: object
+      title: Contains list of all data pool tasks
+      type: object
+    distrconfigGetUsersResponse:
+      example:
+        users:
+        - tagAssignments:
+          - poolId: poolId
+            value: value
+          - poolId: poolId
+            value: value
+          id: id
+          activeAppId: activeAppId
+        - tagAssignments:
+          - poolId: poolId
+            value: value
+          - poolId: poolId
+            value: value
+          id: id
+          activeAppId: activeAppId
+      properties:
+        users:
+          items:
+            $ref: '#/components/schemas/distrconfigDistributionUser'
+          type: array
+      type: object
+    distrconfigMobileApp:
+      properties:
+        id:
+          title: Primary key - unique by account
+          type: string
+        bundleUrl:
+          title: Bundle URL for downloading the react bundle
+          type: string
+        active:
+          format: boolean
+          type: boolean
+      type: object
+    distrconfigMobileAppWithPools:
+      example:
+        bundleUrl: bundleUrl
+        assignedPools:
+        - assignedPools
+        - assignedPools
+        active: true
+        id: id
+      properties:
+        id:
+          type: string
+        bundleUrl:
+          type: string
+        active:
+          format: boolean
+          type: boolean
+        assignedPools:
+          items:
+            type: string
+          type: array
+      type: object
+    distrconfigPoolSize:
+      example:
+        userDataSizeBytes: userDataSizeBytes
+        poolId: poolId
+        globalDataSizeBytes: globalDataSizeBytes
+      properties:
+        poolId:
+          type: string
+        globalDataSizeBytes:
+          format: int64
+          type: string
+        userDataSizeBytes:
+          format: int64
+          type: string
+      type: object
+    distrconfigPoolType:
+      default: UNKNOWN
+      enum:
+      - UNKNOWN
+      - GLOBAL
+      - FILTERED
+      - USER
+      type: string
+    distrconfigSetAppBundleRequest:
+      properties:
+        id:
+          type: string
+        bundleUrl:
+          type: string
+      type: object
+    distrconfigSetAppBundleResponse:
+      type: object
+    distrconfigUnassignAppPoolsRequest:
+      properties:
+        appId:
+          type: string
+        poolIds:
+          items:
+            type: string
+          type: array
+      type: object
+    distrconfigUnassignAppPoolsResponse:
+      type: object
+    distrconfigUnassignAppUsersRequest:
+      properties:
+        appId:
+          type: string
+        userIds:
+          items:
+            type: string
+          type: array
+      type: object
+    distrconfigUnassignAppUsersResponse:
+      type: object
+    distrconfigUnassignTagFromUserRequest:
+      properties:
+        poolId:
+          type: string
+        userId:
+          type: string
+        tagValue:
+          type: string
+      type: object
+    distrconfigUnassignTagFromUserResponse:
+      type: object
+    distrconfigUpdatePoolResponse:
+      title: Contains status of UpdatePool operation
+      type: object
+    distrconfigUserTagAssignment:
+      example:
+        poolId: poolId
+        value: value
+      properties:
+        poolId:
+          type: string
+        value:
+          type: string
+      type: object
+    distrconfigValidatePoolDataRequest:
+      properties:
+        poolType:
+          $ref: '#/components/schemas/distrconfigPoolType'
+        pkExtractExpression:
+          title: http://goessner.net/articles/JsonPath/ expression to extract the
+            primary key
+          type: string
+        tagExtractExpression:
+          title: http://goessner.net/articles/JsonPath/ expression to extract tags
+            from the documents. For user type pools this is the user id
+          type: string
+        schema:
+          format: byte
+          pattern: ^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$
+          title: If set - should contain http://json-schema.org/ schema, that will
+            validate every document
+          type: string
+        data:
+          format: byte
+          pattern: ^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$
+          type: string
+      type: object
+    distrconfigValidatePoolDataResponse:
+      example:
+        derivedTag: derivedTag
+        validationErrors:
+        - validationErrors
+        - validationErrors
+        derivedPk: derivedPk
+      properties:
+        derivedPk:
+          type: string
+        derivedTag:
+          type: string
+        validationErrors:
+          items:
+            type: string
+          type: array
+      type: object
+    dataGetResponse:
+      $ref: '#/components/schemas/dataDocument'
+    dataBulkDeleteRequest:
+      items:
+        $ref: '#/components/schemas/dataDocument'
+      type: array
+    dataBulkDeleteResponse:
+      example:
+        result:
+        - rev: rev
+          id: id
+        - rev: rev
+          id: id
+        errors:
+        - errors
+        - errors
+      properties:
+        result:
+          description: Successful deletion
+          items:
+            $ref: '#/components/schemas/dataPersistResponse'
+          type: array
+        errors:
+          description: List of errors if any occur
+          items:
+            type: string
+          type: array
+      type: object
+    dataBulkCreateRequest:
+      items:
+        $ref: '#/components/schemas/dataDocument'
+      type: array
+    dataBulkCreateResponse:
+      example:
+        result:
+        - rev: rev
+          id: id
+        - rev: rev
+          id: id
+        errors:
+        - errors
+        - errors
+      properties:
+        result:
+          description: Successful creation
+          items:
+            $ref: '#/components/schemas/dataPersistResponse'
+          type: array
+        errors:
+          description: List of errors if any occur
+          items:
+            type: string
+          type: array
+      type: object
+    dataBulkUpdateRequest:
+      items:
+        $ref: '#/components/schemas/dataDocument'
+      type: array
+    dataBulkUpdateResponse:
+      example:
+        result:
+        - rev: rev
+          id: id
+        - rev: rev
+          id: id
+        errors:
+        - errors
+        - errors
+      properties:
+        result:
+          description: Successful creation
+          items:
+            $ref: '#/components/schemas/dataPersistResponse'
+          type: array
+        errors:
+          description: List of errors if any occur
+          items:
+            type: string
+          type: array
+      type: object
+    dataPersistResponse:
+      example:
+        rev: rev
+        id: id
+      properties:
+        id:
+          type: string
+        rev:
+          type: string
+      type: object
+    dataListResponse:
+      example:
+        offset: 6.027456183070403
+        total_rows: 0.8008281904610115
+        rows:
+        - _rev: _rev
+          _id: _id
+          "...": '...'
+          tags:
+          - tags
+          - tags
+        - _rev: _rev
+          _id: _id
+          "...": '...'
+          tags:
+          - tags
+          - tags
+      properties:
+        total_rows:
+          description: The number of rows in the database
+          type: number
+        offset:
+          description: Current offset
+          type: number
+        rows:
+          items:
+            $ref: '#/components/schemas/dataDocument'
+          type: array
+      type: object
+    dataDocument:
+      example:
+        _rev: _rev
+        _id: _id
+        "...": '...'
+        tags:
+        - tags
+        - tags
+      properties:
+        _id:
+          type: string
+        _rev:
+          type: string
+        tags:
+          description: Optional field for USER and FILTERED pools.
+          items:
+            type: string
+          type: array
+        "...":
+          description: Any other fields that are part of the structure
+          type: string
+      type: object
