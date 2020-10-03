@@ -21,10 +21,10 @@ import (
 
 func main() {
   ctx := context.TODO()
-	client := NewHMACAPIClient(&openapi.Configuration{
-		BasePath: "https://dev.zestlabs.cloud"},
-		os.Getenv("ZEST_KEY"),
-		os.Getenv("ZEST_SECRET"))
+  client := NewHMACAPIClient(&openapi.Configuration{
+    BasePath: "https://dev.zestlabs.cloud"},
+    os.Getenv("ZEST_KEY"),
+    os.Getenv("ZEST_SECRET"))
   _, _, _ = client.AuthServiceApi.GetOwnAccount(ctx)
 }
 ```
