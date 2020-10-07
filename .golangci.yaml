@@ -1,0 +1,30 @@
+enable:
+  - bodyclose
+  - deadcode
+  - errcheck
+  - goconst
+  - gocritic
+  - gocyclo
+  - gofmt
+  - goimports
+  - golint
+  - gomnd
+  - goprintffuncname
+  - gosec
+  - gosimple
+  - govet
+  - ineffassign
+  - interfacer
+  - lll
+  - misspell
+  - nakedret
+issues:
+  exclude-rules:
+    - path: openapi/*
+      linters:
+        - deadcode
+        - errcheck
+        - staticcheck
+        - unused
+        - structcheck
+        - govet
