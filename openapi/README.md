@@ -36,16 +36,13 @@ Class | Method | HTTP request | Description
 *AuthServiceApi* | [**AddUsersToRole**](docs/AuthServiceApi.md#adduserstorole) | **Post** /api/auth/v1/role/users/add | 
 *AuthServiceApi* | [**CheckHMACAuth**](docs/AuthServiceApi.md#checkhmacauth) | **Post** /api/auth/v1/check-hmac | Auth API
 *AuthServiceApi* | [**CreateAccessKey**](docs/AuthServiceApi.md#createaccesskey) | **Post** /api/auth/v1/accesskey | User Access Keys API
-*AuthServiceApi* | [**CreateAccount**](docs/AuthServiceApi.md#createaccount) | **Post** /api/auth/v1/account | Account API
 *AuthServiceApi* | [**CreatePolicy**](docs/AuthServiceApi.md#createpolicy) | **Post** /api/auth/v1/policy | 
 *AuthServiceApi* | [**CreateRole**](docs/AuthServiceApi.md#createrole) | **Post** /api/auth/v1/role | 
 *AuthServiceApi* | [**CreateUser**](docs/AuthServiceApi.md#createuser) | **Post** /api/auth/v1/user | 
 *AuthServiceApi* | [**DeleteAccessKey**](docs/AuthServiceApi.md#deleteaccesskey) | **Delete** /api/auth/v1/accesskey/{accessKeyID} | 
-*AuthServiceApi* | [**DeleteAccount**](docs/AuthServiceApi.md#deleteaccount) | **Delete** /api/auth/v1/account/{accountID} | 
 *AuthServiceApi* | [**DeletePolicy**](docs/AuthServiceApi.md#deletepolicy) | **Delete** /api/auth/v1/policy/{policyID} | 
 *AuthServiceApi* | [**DeleteRole**](docs/AuthServiceApi.md#deleterole) | **Delete** /api/auth/v1/role/{roleID} | 
 *AuthServiceApi* | [**DeleteUser**](docs/AuthServiceApi.md#deleteuser) | **Delete** /api/auth/v1/user/{userID} | 
-*AuthServiceApi* | [**GetAccount**](docs/AuthServiceApi.md#getaccount) | **Get** /api/auth/v1/account/{accountID} | 
 *AuthServiceApi* | [**GetDefaultPolicies**](docs/AuthServiceApi.md#getdefaultpolicies) | **Get** /api/auth/v1/default-policies | 
 *AuthServiceApi* | [**GetOwnAccount**](docs/AuthServiceApi.md#getownaccount) | **Get** /api/auth/v1/account | 
 *AuthServiceApi* | [**GetPasswordPolicy**](docs/AuthServiceApi.md#getpasswordpolicy) | **Get** /api/auth/v1/password-policy | 
@@ -161,7 +158,6 @@ Class | Method | HTTP request | Description
  - [V1ContactDetails](docs/V1ContactDetails.md)
  - [V1CreateAccessKeyRequest](docs/V1CreateAccessKeyRequest.md)
  - [V1CreateAccessKeyResponse](docs/V1CreateAccessKeyResponse.md)
- - [V1CreateAccountRequest](docs/V1CreateAccountRequest.md)
  - [V1CreateAccountResponse](docs/V1CreateAccountResponse.md)
  - [V1CreatePolicyRequest](docs/V1CreatePolicyRequest.md)
  - [V1CreatePolicyResponse](docs/V1CreatePolicyResponse.md)

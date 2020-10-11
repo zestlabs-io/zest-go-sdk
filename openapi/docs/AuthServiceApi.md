@@ -7,16 +7,13 @@ Method | HTTP request | Description
 [**AddUsersToRole**](AuthServiceApi.md#AddUsersToRole) | **Post** /api/auth/v1/role/users/add | 
 [**CheckHMACAuth**](AuthServiceApi.md#CheckHMACAuth) | **Post** /api/auth/v1/check-hmac | Auth API
 [**CreateAccessKey**](AuthServiceApi.md#CreateAccessKey) | **Post** /api/auth/v1/accesskey | User Access Keys API
-[**CreateAccount**](AuthServiceApi.md#CreateAccount) | **Post** /api/auth/v1/account | Account API
 [**CreatePolicy**](AuthServiceApi.md#CreatePolicy) | **Post** /api/auth/v1/policy | 
 [**CreateRole**](AuthServiceApi.md#CreateRole) | **Post** /api/auth/v1/role | 
 [**CreateUser**](AuthServiceApi.md#CreateUser) | **Post** /api/auth/v1/user | 
 [**DeleteAccessKey**](AuthServiceApi.md#DeleteAccessKey) | **Delete** /api/auth/v1/accesskey/{accessKeyID} | 
-[**DeleteAccount**](AuthServiceApi.md#DeleteAccount) | **Delete** /api/auth/v1/account/{accountID} | 
 [**DeletePolicy**](AuthServiceApi.md#DeletePolicy) | **Delete** /api/auth/v1/policy/{policyID} | 
 [**DeleteRole**](AuthServiceApi.md#DeleteRole) | **Delete** /api/auth/v1/role/{roleID} | 
 [**DeleteUser**](AuthServiceApi.md#DeleteUser) | **Delete** /api/auth/v1/user/{userID} | 
-[**GetAccount**](AuthServiceApi.md#GetAccount) | **Get** /api/auth/v1/account/{accountID} | 
 [**GetDefaultPolicies**](AuthServiceApi.md#GetDefaultPolicies) | **Get** /api/auth/v1/default-policies | 
 [**GetOwnAccount**](AuthServiceApi.md#GetOwnAccount) | **Get** /api/auth/v1/account | 
 [**GetPasswordPolicy**](AuthServiceApi.md#GetPasswordPolicy) | **Get** /api/auth/v1/password-policy | 
@@ -121,38 +118,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1CreateAccessKeyResponse**](v1CreateAccessKeyResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## CreateAccount
-
-> V1CreateAccountResponse CreateAccount(ctx, body)
-
-Account API
-
-### Required Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**body** | [**V1CreateAccountRequest**](V1CreateAccountRequest.md)|  | 
-
-### Return type
-
-[**V1CreateAccountResponse**](v1CreateAccountResponse.md)
 
 ### Authorization
 
@@ -296,38 +261,6 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## DeleteAccount
-
-> map[string]interface{} DeleteAccount(ctx, accountID)
-
-
-
-### Required Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**accountID** | **string**|  | 
-
-### Return type
-
-**map[string]interface{}**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## DeletePolicy
 
 > map[string]interface{} DeletePolicy(ctx, policyID)
@@ -409,38 +342,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 **map[string]interface{}**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetAccount
-
-> V1GetAccountResponse GetAccount(ctx, accountID)
-
-
-
-### Required Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**accountID** | **string**|  | 
-
-### Return type
-
-[**V1GetAccountResponse**](v1GetAccountResponse.md)
 
 ### Authorization
 

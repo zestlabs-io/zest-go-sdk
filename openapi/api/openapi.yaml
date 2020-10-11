@@ -98,38 +98,6 @@ paths:
           description: An unexpected error response
       tags:
       - AuthService
-    post:
-      operationId: AuthService_CreateAccount
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/v1CreateAccountRequest'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1CreateAccountResponse'
-          description: A successful response.
-        "404":
-          content:
-            application/json:
-              schema:
-                format: string
-                type: string
-          description: Returned when the resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response
-      summary: Account API
-      tags:
-      - AuthService
-      x-codegen-request-body-name: body
   /api/auth/v1/account/{account.accountID}:
     put:
       operationId: AuthService_UpdateAccount
@@ -169,69 +137,6 @@ paths:
       tags:
       - AuthService
       x-codegen-request-body-name: body
-  /api/auth/v1/account/{accountID}:
-    delete:
-      operationId: AuthService_DeleteAccount
-      parameters:
-      - in: path
-        name: accountID
-        required: true
-        schema:
-          format: int64
-          type: string
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1DeleteAccountResponse'
-          description: A successful response.
-        "404":
-          content:
-            application/json:
-              schema:
-                format: string
-                type: string
-          description: Returned when the resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response
-      tags:
-      - AuthService
-    get:
-      operationId: AuthService_GetAccount
-      parameters:
-      - in: path
-        name: accountID
-        required: true
-        schema:
-          format: int64
-          type: string
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/v1GetAccountResponse'
-          description: A successful response.
-        "404":
-          content:
-            application/json:
-              schema:
-                format: string
-                type: string
-          description: Returned when the resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response
-      tags:
-      - AuthService
   /api/auth/v1/check-hmac:
     post:
       operationId: AuthService_CheckHMACAuth
@@ -2554,18 +2459,7 @@ components:
         accessSecret:
           type: string
       type: object
-    v1CreateAccountRequest:
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        email:
-          type: string
-      type: object
     v1CreateAccountResponse:
-      example:
-        accountID: accountID
       properties:
         accountID:
           format: int64
