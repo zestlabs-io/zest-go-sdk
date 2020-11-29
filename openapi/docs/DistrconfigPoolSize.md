@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PoolId** | **string** |  | [optional] 
+**PoolID** | **string** |  | [optional] 
 **GlobalDataSizeBytes** | **string** |  | [optional] 
 **UserDataSizeBytes** | **string** |  | [optional] 
 

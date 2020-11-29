@@ -11,7 +11,7 @@
 package openapi
 // DistrconfigPoolSize struct for DistrconfigPoolSize
 type DistrconfigPoolSize struct {
-	PoolId string `json:"poolId,omitempty"`
+	PoolID string `json:"poolID,omitempty"`
 	GlobalDataSizeBytes string `json:"globalDataSizeBytes,omitempty"`
 	UserDataSizeBytes string `json:"userDataSizeBytes,omitempty"`
 }

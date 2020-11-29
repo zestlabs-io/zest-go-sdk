@@ -1269,39 +1269,6 @@ paths:
       tags:
       - FunctionsService
       x-codegen-request-body-name: body
-  /api/distribution/v1/activate-pool:
-    post:
-      operationId: DistrConfigService_ActivatePool
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/distrconfigActivatePoolRequest'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/distrconfigActivatePoolResponse'
-          description: A successful response.
-        "404":
-          content:
-            application/json:
-              schema:
-                format: string
-                type: string
-          description: Returned when the resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response
-      summary: ActivatePool data pool task
-      tags:
-      - DistrConfigService
-      x-codegen-request-body-name: body
   /api/distribution/v1/app:
     post:
       operationId: DistrConfigService_CreateApp
@@ -1332,6 +1299,138 @@ paths:
                 $ref: '#/components/schemas/runtimeError'
           description: An unexpected error response
       summary: Create mobile application
+      tags:
+      - DistrConfigService
+      x-codegen-request-body-name: body
+  /api/distribution/v1/app/pools/assign:
+    post:
+      operationId: DistrConfigService_AssignPoolsToApp
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/distrconfigAssignPoolsToAppRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigAssignPoolsToAppResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Assign data pools to mobile application
+      tags:
+      - DistrConfigService
+      x-codegen-request-body-name: body
+  /api/distribution/v1/app/pools/unassign:
+    post:
+      operationId: DistrConfigService_UnassignPoolsFromApp
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/distrconfigUnassignPoolsFromAppRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigUnassignPoolsFromAppResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Unassign data pool from mobile application
+      tags:
+      - DistrConfigService
+      x-codegen-request-body-name: body
+  /api/distribution/v1/app/users/assign:
+    post:
+      operationId: DistrConfigService_AssignAppToUsers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/distrconfigAssignAppToUsersRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigAssignAppToUsersResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Assign mobile application to users
+      tags:
+      - DistrConfigService
+      x-codegen-request-body-name: body
+  /api/distribution/v1/app/users/unassign:
+    post:
+      operationId: DistrConfigService_UnassignAppFromUsers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/distrconfigUnassignAppFromUsersRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigUnassignAppFromUsersResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Unassign mobile application from users
       tags:
       - DistrConfigService
       x-codegen-request-body-name: body
@@ -1367,6 +1466,76 @@ paths:
       summary: Delete mobile application
       tags:
       - DistrConfigService
+    get:
+      operationId: DistrConfigService_GetApp
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigGetAppResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Get a mobile application
+      tags:
+      - DistrConfigService
+  /api/distribution/v1/app/{id}/bundle:
+    post:
+      operationId: DistrConfigService_SetAppBundle
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/distrconfigSetAppBundleRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigSetAppBundleResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Set the mobile application bundle
+      tags:
+      - DistrConfigService
+      x-codegen-request-body-name: body
   /api/distribution/v1/apps:
     get:
       operationId: DistrConfigService_GetApps
@@ -1393,21 +1562,26 @@ paths:
       summary: Get all mobile applications
       tags:
       - DistrConfigService
-  /api/distribution/v1/assign-app-pools:
+  /api/distribution/v1/pool:
     post:
-      operationId: DistrConfigService_AssignAppPools
+      description: |-
+        Errors:
+        - 400    Returned when no valid pool definition is provided in the request
+        - 403    Returned when the caller is not allowed to perform this call
+        - 500    Returned whenever an internall error occurs
+      operationId: DistrConfigService_CreatePool
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/distrconfigAssignAppPoolsRequest'
+              $ref: '#/components/schemas/distrconfigDataPool'
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/distrconfigAssignAppPoolsResponse'
+                $ref: '#/components/schemas/distrconfigCreatePoolResponse'
           description: A successful response.
         "404":
           content:
@@ -1422,25 +1596,30 @@ paths:
               schema:
                 $ref: '#/components/schemas/runtimeError'
           description: An unexpected error response
-      summary: Assign data pools to mobile application
+      summary: Create a data pool that can be used to distribute data to mobile users.
       tags:
       - DistrConfigService
       x-codegen-request-body-name: body
-  /api/distribution/v1/assign-app-users:
-    post:
-      operationId: DistrConfigService_AssignAppUsers
+    put:
+      description: |-
+        Errors:
+        - 400    Returned when no valid pool definition is provided in the request
+        - 404    Returned when a pool with the given ID does not exist
+        - 403    Returned when the caller is not allowed to perform this call
+        - 500    Returned whenever an internall error occurs
+      operationId: DistrConfigService_UpdatePool
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/distrconfigAssignAppUsersRequest'
+              $ref: '#/components/schemas/distrconfigDataPool'
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/distrconfigAssignAppUsersResponse'
+                $ref: '#/components/schemas/distrconfigUpdatePoolResponse'
           description: A successful response.
         "404":
           content:
@@ -1455,25 +1634,29 @@ paths:
               schema:
                 $ref: '#/components/schemas/runtimeError'
           description: An unexpected error response
-      summary: Assign mobile application to users
+      summary: Update an already existing data pool.
       tags:
       - DistrConfigService
       x-codegen-request-body-name: body
-  /api/distribution/v1/assign-tag-to-user:
+  /api/distribution/v1/pool/activate:
     post:
-      operationId: DistrConfigService_AssignTagToUser
+      description: "Errors:\n- 400    Returned when no valid pool ID is provided in\
+        \ the request, or \n         when the pool is already active\n- 403    Returned\
+        \ when the caller is not allowed to perform this call\n- 500    Returned whenever\
+        \ an internall error occurs"
+      operationId: DistrConfigService_ActivatePool
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/distrconfigAssignTagToUserRequest'
+              $ref: '#/components/schemas/distrconfigActivatePoolRequest'
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/distrconfigAssignTagToUserResponse'
+                $ref: '#/components/schemas/distrconfigActivatePoolResponse'
           description: A successful response.
         "404":
           content:
@@ -1488,12 +1671,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/runtimeError'
           description: An unexpected error response
-      summary: Assign filtering tag to user
+      summary: "Activate data pool, which will enable the distribution of its data\
+        \ to \nmobile users."
       tags:
       - DistrConfigService
       x-codegen-request-body-name: body
-  /api/distribution/v1/get-pool-distribution/{id}:
+  /api/distribution/v1/pool/distribution/{id}:
     get:
+      description: |-
+        Errors:
+        - 400    Returned when no valid pool ID is provided in the request
+        - 403    Returned when the caller is not allowed to perform this call
+        - 500    Returned whenever an internall error occurs
       operationId: DistrConfigService_GetPoolDistribution
       parameters:
       - in: path
@@ -1525,24 +1714,29 @@ paths:
               schema:
                 $ref: '#/components/schemas/runtimeError'
           description: An unexpected error response
-      summary: ActivatePool data pool task
+      summary: Get the data distribution details for the pool.
       tags:
       - DistrConfigService
-  /api/distribution/v1/pool:
+  /api/distribution/v1/pool/validate:
     post:
-      operationId: DistrConfigService_CreatePool
+      description: |-
+        Errors:
+        - 400    Returned when no valid pool definition is provided in the request
+        - 403    Returned when the caller is not allowed to perform this call
+        - 500    Returned whenever an internall error occurs
+      operationId: DistrConfigService_ValidatePoolData
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/distrconfigDataPool'
+              $ref: '#/components/schemas/distrconfigValidatePoolDataRequest'
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/distrconfigCreatePoolResponse'
+                $ref: '#/components/schemas/distrconfigValidatePoolDataResponse'
           description: A successful response.
         "404":
           content:
@@ -1557,44 +1751,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/runtimeError'
           description: An unexpected error response
-      summary: CreatePool new data pool task
-      tags:
-      - DistrConfigService
-      x-codegen-request-body-name: body
-    put:
-      operationId: DistrConfigService_UpdatePool
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/distrconfigDataPool'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/distrconfigUpdatePoolResponse'
-          description: A successful response.
-        "404":
-          content:
-            application/json:
-              schema:
-                format: string
-                type: string
-          description: Returned when the resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response
-      summary: UpdatePool data pool task
+      summary: Validate pool data against pool specification
       tags:
       - DistrConfigService
       x-codegen-request-body-name: body
   /api/distribution/v1/pool/{dataPool.id}:
     patch:
+      description: |-
+        Errors:
+        - 400    Returned when no valid pool definition is provided in the request
+        - 404    Returned when a pool with the given ID does not exist
+        - 403    Returned when the caller is not allowed to perform this call
+        - 500    Returned whenever an internall error occurs
       operationId: DistrConfigService_UpdatePool2
       parameters:
       - description: Primary key together with accountId - should be unique by client
@@ -1630,12 +1798,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/runtimeError'
           description: An unexpected error response
-      summary: UpdatePool data pool task
+      summary: Update an already existing data pool.
       tags:
       - DistrConfigService
       x-codegen-request-body-name: body
   /api/distribution/v1/pool/{id}:
     delete:
+      description: |-
+        Errors:
+        - 400    Returned when no valid pool ID is provided in the request
+        - 403    Returned when the caller is not allowed to perform this call
+        - 500    Returned whenever an internall error occurs
       operationId: DistrConfigService_DeletePool
       parameters:
       - in: path
@@ -1663,10 +1836,16 @@ paths:
               schema:
                 $ref: '#/components/schemas/runtimeError'
           description: An unexpected error response
-      summary: DeletePool data pool task
+      summary: "Delete data pool with all its data from the system and the mobile\
+        \ users' \ndevices."
       tags:
       - DistrConfigService
     get:
+      description: |-
+        Errors:
+        - 400    Returned when no valid pool ID is provided in the request
+        - 403    Returned when the caller is not allowed to perform this call
+        - 500    Returned whenever an internall error occurs
       operationId: DistrConfigService_GetPool
       parameters:
       - in: path
@@ -1694,11 +1873,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/runtimeError'
           description: An unexpected error response
-      summary: Get data pool task
+      summary: Get the data pool with the given ID.
       tags:
       - DistrConfigService
   /api/distribution/v1/pools:
     get:
+      description: |-
+        Errors:
+        - 403    Returned when the caller is not allowed to perform this call
+        - 500    Returned whenever an internall error occurs
       operationId: DistrConfigService_GetPools
       responses:
         "200":
@@ -1720,10 +1903,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/runtimeError'
           description: An unexpected error response
-      summary: Get all data pool tasks
+      summary: Get the list of all data pool that have been created in the system.
       tags:
       - DistrConfigService
     post:
+      description: |-
+        Errors:
+        - 400    Returned when no valid pool definitions are provided in the request
+        - 403    Returned when the caller is not allowed to perform this call
+        - 500    Returned whenever an internall error occurs
       operationId: DistrConfigService_CreatePools
       requestBody:
         content:
@@ -1751,139 +1939,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/runtimeError'
           description: An unexpected error response
-      summary: CreatePool new data pool task
-      tags:
-      - DistrConfigService
-      x-codegen-request-body-name: body
-  /api/distribution/v1/set-app-bundle:
-    post:
-      operationId: DistrConfigService_SetAppBundle
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/distrconfigSetAppBundleRequest'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/distrconfigSetAppBundleResponse'
-          description: A successful response.
-        "404":
-          content:
-            application/json:
-              schema:
-                format: string
-                type: string
-          description: Returned when the resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response
-      summary: Set the mobile application bundle
-      tags:
-      - DistrConfigService
-      x-codegen-request-body-name: body
-  /api/distribution/v1/unassign-app-pools:
-    post:
-      operationId: DistrConfigService_UnassignAppPools
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/distrconfigUnassignAppPoolsRequest'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/distrconfigUnassignAppPoolsResponse'
-          description: A successful response.
-        "404":
-          content:
-            application/json:
-              schema:
-                format: string
-                type: string
-          description: Returned when the resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response
-      summary: Unassign data pool from mobile application
-      tags:
-      - DistrConfigService
-      x-codegen-request-body-name: body
-  /api/distribution/v1/unassign-app-users:
-    post:
-      operationId: DistrConfigService_UnassignAppUsers
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/distrconfigUnassignAppUsersRequest'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/distrconfigUnassignAppUsersResponse'
-          description: A successful response.
-        "404":
-          content:
-            application/json:
-              schema:
-                format: string
-                type: string
-          description: Returned when the resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response
-      summary: Unassign mobile application from users
-      tags:
-      - DistrConfigService
-      x-codegen-request-body-name: body
-  /api/distribution/v1/unassign-tag-from-user:
-    post:
-      operationId: DistrConfigService_UnassignTagFromUser
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/distrconfigUnassignTagFromUserRequest'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/distrconfigUnassignTagFromUserResponse'
-          description: A successful response.
-        "404":
-          content:
-            application/json:
-              schema:
-                format: string
-                type: string
-          description: Returned when the resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response
-      summary: Unassign filtering tag from user
+      summary: Create several data pools, which can be used to distribute data to
+        mobile users.
       tags:
       - DistrConfigService
       x-codegen-request-body-name: body
@@ -1920,6 +1977,72 @@ paths:
       tags:
       - DistrConfigService
       x-codegen-request-body-name: body
+  /api/distribution/v1/user/tags/assign:
+    post:
+      operationId: DistrConfigService_AssignTagToUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/distrconfigAssignTagToUserRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigAssignTagToUserResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Assign filtering tag to user
+      tags:
+      - DistrConfigService
+      x-codegen-request-body-name: body
+  /api/distribution/v1/user/tags/unassign:
+    post:
+      operationId: DistrConfigService_UnassignTagFromUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/distrconfigUnassignTagFromUserRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigUnassignTagFromUserResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Unassign filtering tag from user
+      tags:
+      - DistrConfigService
+      x-codegen-request-body-name: body
   /api/distribution/v1/user/{id}:
     delete:
       operationId: DistrConfigService_DeleteUser
@@ -1952,6 +2075,38 @@ paths:
       summary: Deletes user from distribution db
       tags:
       - DistrConfigService
+  /api/distribution/v1/user/{userID}:
+    get:
+      operationId: DistrConfigService_GetUser
+      parameters:
+      - in: path
+        name: userID
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/distrconfigGetUserResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: Fetch the user with the given ID
+      tags:
+      - DistrConfigService
   /api/distribution/v1/users:
     get:
       operationId: DistrConfigService_GetUsers
@@ -1978,39 +2133,6 @@ paths:
       summary: Fetch all users in account distribution db
       tags:
       - DistrConfigService
-  /api/distribution/v1/validate-pool-data:
-    post:
-      operationId: DistrConfigService_ValidatePoolData
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/distrconfigValidatePoolDataRequest'
-        required: true
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/distrconfigValidatePoolDataResponse'
-          description: A successful response.
-        "404":
-          content:
-            application/json:
-              schema:
-                format: string
-                type: string
-          description: Returned when the resource does not exist.
-        default:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/runtimeError'
-          description: An unexpected error response
-      summary: Validate pool data against pool specification
-      tags:
-      - DistrConfigService
-      x-codegen-request-body-name: body
   /api/data/_r/{poolId}:
     delete:
       operationId: PoolDataService_BulkDelete
@@ -3280,33 +3402,51 @@ components:
       type: object
     distrconfigActivatePoolResponse:
       type: object
-    distrconfigAssignAppPoolsRequest:
+    distrconfigAssignAppToUsersRequest:
       properties:
-        appId:
+        appID:
           type: string
-        poolIds:
+        userIDs:
           items:
             type: string
           type: array
       type: object
-    distrconfigAssignAppPoolsResponse:
-      type: object
-    distrconfigAssignAppUsersRequest:
+    distrconfigAssignAppToUsersResponse:
+      example:
+        failedUserIDs:
+        - failedUserIDs
+        - failedUserIDs
       properties:
-        appId:
-          type: string
-        userIds:
+        failedUserIDs:
           items:
             type: string
           type: array
       type: object
-    distrconfigAssignAppUsersResponse:
+    distrconfigAssignPoolsToAppRequest:
+      properties:
+        appID:
+          type: string
+        poolIDs:
+          items:
+            type: string
+          type: array
+      type: object
+    distrconfigAssignPoolsToAppResponse:
+      example:
+        failedPoolIDs:
+        - failedPoolIDs
+        - failedPoolIDs
+      properties:
+        failedPoolIDs:
+          items:
+            type: string
+          type: array
       type: object
     distrconfigAssignTagToUserRequest:
       properties:
-        poolId:
+        poolID:
           type: string
-        userId:
+        userID:
           type: string
         tagValue:
           type: string
@@ -3381,21 +3521,34 @@ components:
     distrconfigDistributionUser:
       example:
         tagAssignments:
-        - poolId: poolId
+        - poolID: poolID
           value: value
-        - poolId: poolId
+        - poolID: poolID
           value: value
         id: id
-        activeAppId: activeAppId
+        activeAppID: activeAppID
       properties:
         id:
           type: string
-        activeAppId:
+        activeAppID:
           type: string
         tagAssignments:
           items:
             $ref: '#/components/schemas/distrconfigUserTagAssignment'
           type: array
+      type: object
+    distrconfigGetAppResponse:
+      example:
+        app:
+          bundleUrl: bundleUrl
+          assignedPools:
+          - assignedPools
+          - assignedPools
+          active: true
+          id: id
+      properties:
+        app:
+          $ref: '#/components/schemas/distrconfigMobileAppWithPools'
       type: object
     distrconfigGetAppsResponse:
       example:
@@ -3450,7 +3603,7 @@ components:
         poolSizes:
           key:
             userDataSizeBytes: userDataSizeBytes
-            poolId: poolId
+            poolID: poolID
             globalDataSizeBytes: globalDataSizeBytes
         dataPool:
         - schema: schema
@@ -3477,23 +3630,37 @@ components:
           type: object
       title: Contains list of all data pool tasks
       type: object
+    distrconfigGetUserResponse:
+      example:
+        user:
+          tagAssignments:
+          - poolID: poolID
+            value: value
+          - poolID: poolID
+            value: value
+          id: id
+          activeAppID: activeAppID
+      properties:
+        user:
+          $ref: '#/components/schemas/distrconfigDistributionUser'
+      type: object
     distrconfigGetUsersResponse:
       example:
         users:
         - tagAssignments:
-          - poolId: poolId
+          - poolID: poolID
             value: value
-          - poolId: poolId
+          - poolID: poolID
             value: value
           id: id
-          activeAppId: activeAppId
+          activeAppID: activeAppID
         - tagAssignments:
-          - poolId: poolId
+          - poolID: poolID
             value: value
-          - poolId: poolId
+          - poolID: poolID
             value: value
           id: id
-          activeAppId: activeAppId
+          activeAppID: activeAppID
       properties:
         users:
           items:
@@ -3536,10 +3703,10 @@ components:
     distrconfigPoolSize:
       example:
         userDataSizeBytes: userDataSizeBytes
-        poolId: poolId
+        poolID: poolID
         globalDataSizeBytes: globalDataSizeBytes
       properties:
-        poolId:
+        poolID:
           type: string
         globalDataSizeBytes:
           format: int64
@@ -3565,33 +3732,51 @@ components:
       type: object
     distrconfigSetAppBundleResponse:
       type: object
-    distrconfigUnassignAppPoolsRequest:
+    distrconfigUnassignAppFromUsersRequest:
       properties:
-        appId:
+        appID:
           type: string
-        poolIds:
+        userIDs:
           items:
             type: string
           type: array
       type: object
-    distrconfigUnassignAppPoolsResponse:
-      type: object
-    distrconfigUnassignAppUsersRequest:
+    distrconfigUnassignAppFromUsersResponse:
+      example:
+        failedUserIDs:
+        - failedUserIDs
+        - failedUserIDs
       properties:
-        appId:
-          type: string
-        userIds:
+        failedUserIDs:
           items:
             type: string
           type: array
       type: object
-    distrconfigUnassignAppUsersResponse:
+    distrconfigUnassignPoolsFromAppRequest:
+      properties:
+        appID:
+          type: string
+        poolIDs:
+          items:
+            type: string
+          type: array
+      type: object
+    distrconfigUnassignPoolsFromAppResponse:
+      example:
+        failedPoolIDs:
+        - failedPoolIDs
+        - failedPoolIDs
+      properties:
+        failedPoolIDs:
+          items:
+            type: string
+          type: array
       type: object
     distrconfigUnassignTagFromUserRequest:
       properties:
-        poolId:
+        poolID:
           type: string
-        userId:
+        userID:
           type: string
         tagValue:
           type: string
@@ -3603,10 +3788,10 @@ components:
       type: object
     distrconfigUserTagAssignment:
       example:
-        poolId: poolId
+        poolID: poolID
         value: value
       properties:
-        poolId:
+        poolID:
           type: string
         value:
           type: string

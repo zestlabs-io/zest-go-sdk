@@ -63,29 +63,31 @@ Class | Method | HTTP request | Description
 *AuthServiceApi* | [**UpdatePolicy**](docs/AuthServiceApi.md#updatepolicy) | **Put** /api/auth/v1/policy | 
 *AuthServiceApi* | [**UpdateRole**](docs/AuthServiceApi.md#updaterole) | **Put** /api/auth/v1/role | 
 *AuthServiceApi* | [**UpdateUser**](docs/AuthServiceApi.md#updateuser) | **Put** /api/auth/v1/user/{user.userID} | 
-*DistrConfigServiceApi* | [**ActivatePool**](docs/DistrConfigServiceApi.md#activatepool) | **Post** /api/distribution/v1/activate-pool | ActivatePool data pool task
-*DistrConfigServiceApi* | [**AssignAppPools**](docs/DistrConfigServiceApi.md#assignapppools) | **Post** /api/distribution/v1/assign-app-pools | Assign data pools to mobile application
-*DistrConfigServiceApi* | [**AssignAppUsers**](docs/DistrConfigServiceApi.md#assignappusers) | **Post** /api/distribution/v1/assign-app-users | Assign mobile application to users
-*DistrConfigServiceApi* | [**AssignTagToUser**](docs/DistrConfigServiceApi.md#assigntagtouser) | **Post** /api/distribution/v1/assign-tag-to-user | Assign filtering tag to user
+*DistrConfigServiceApi* | [**ActivatePool**](docs/DistrConfigServiceApi.md#activatepool) | **Post** /api/distribution/v1/pool/activate | Activate data pool, which will enable the distribution of its data to  mobile users.
+*DistrConfigServiceApi* | [**AssignAppToUsers**](docs/DistrConfigServiceApi.md#assignapptousers) | **Post** /api/distribution/v1/app/users/assign | Assign mobile application to users
+*DistrConfigServiceApi* | [**AssignPoolsToApp**](docs/DistrConfigServiceApi.md#assignpoolstoapp) | **Post** /api/distribution/v1/app/pools/assign | Assign data pools to mobile application
+*DistrConfigServiceApi* | [**AssignTagToUser**](docs/DistrConfigServiceApi.md#assigntagtouser) | **Post** /api/distribution/v1/user/tags/assign | Assign filtering tag to user
 *DistrConfigServiceApi* | [**CreateApp**](docs/DistrConfigServiceApi.md#createapp) | **Post** /api/distribution/v1/app | Create mobile application
-*DistrConfigServiceApi* | [**CreatePool**](docs/DistrConfigServiceApi.md#createpool) | **Post** /api/distribution/v1/pool | CreatePool new data pool task
-*DistrConfigServiceApi* | [**CreatePools**](docs/DistrConfigServiceApi.md#createpools) | **Post** /api/distribution/v1/pools | CreatePool new data pool task
+*DistrConfigServiceApi* | [**CreatePool**](docs/DistrConfigServiceApi.md#createpool) | **Post** /api/distribution/v1/pool | Create a data pool that can be used to distribute data to mobile users.
+*DistrConfigServiceApi* | [**CreatePools**](docs/DistrConfigServiceApi.md#createpools) | **Post** /api/distribution/v1/pools | Create several data pools, which can be used to distribute data to mobile users.
 *DistrConfigServiceApi* | [**CreateUser**](docs/DistrConfigServiceApi.md#createuser) | **Post** /api/distribution/v1/user | Registers user in distribution database
 *DistrConfigServiceApi* | [**DeleteApp**](docs/DistrConfigServiceApi.md#deleteapp) | **Delete** /api/distribution/v1/app/{id} | Delete mobile application
-*DistrConfigServiceApi* | [**DeletePool**](docs/DistrConfigServiceApi.md#deletepool) | **Delete** /api/distribution/v1/pool/{id} | DeletePool data pool task
+*DistrConfigServiceApi* | [**DeletePool**](docs/DistrConfigServiceApi.md#deletepool) | **Delete** /api/distribution/v1/pool/{id} | Delete data pool with all its data from the system and the mobile users&#39;  devices.
 *DistrConfigServiceApi* | [**DeleteUser**](docs/DistrConfigServiceApi.md#deleteuser) | **Delete** /api/distribution/v1/user/{id} | Deletes user from distribution db
+*DistrConfigServiceApi* | [**GetApp**](docs/DistrConfigServiceApi.md#getapp) | **Get** /api/distribution/v1/app/{id} | Get a mobile application
 *DistrConfigServiceApi* | [**GetApps**](docs/DistrConfigServiceApi.md#getapps) | **Get** /api/distribution/v1/apps | Get all mobile applications
-*DistrConfigServiceApi* | [**GetPool**](docs/DistrConfigServiceApi.md#getpool) | **Get** /api/distribution/v1/pool/{id} | Get data pool task
-*DistrConfigServiceApi* | [**GetPoolDistribution**](docs/DistrConfigServiceApi.md#getpooldistribution) | **Get** /api/distribution/v1/get-pool-distribution/{id} | ActivatePool data pool task
-*DistrConfigServiceApi* | [**GetPools**](docs/DistrConfigServiceApi.md#getpools) | **Get** /api/distribution/v1/pools | Get all data pool tasks
+*DistrConfigServiceApi* | [**GetPool**](docs/DistrConfigServiceApi.md#getpool) | **Get** /api/distribution/v1/pool/{id} | Get the data pool with the given ID.
+*DistrConfigServiceApi* | [**GetPoolDistribution**](docs/DistrConfigServiceApi.md#getpooldistribution) | **Get** /api/distribution/v1/pool/distribution/{id} | Get the data distribution details for the pool.
+*DistrConfigServiceApi* | [**GetPools**](docs/DistrConfigServiceApi.md#getpools) | **Get** /api/distribution/v1/pools | Get the list of all data pool that have been created in the system.
+*DistrConfigServiceApi* | [**GetUser**](docs/DistrConfigServiceApi.md#getuser) | **Get** /api/distribution/v1/user/{userID} | Fetch the user with the given ID
 *DistrConfigServiceApi* | [**GetUsers**](docs/DistrConfigServiceApi.md#getusers) | **Get** /api/distribution/v1/users | Fetch all users in account distribution db
-*DistrConfigServiceApi* | [**SetAppBundle**](docs/DistrConfigServiceApi.md#setappbundle) | **Post** /api/distribution/v1/set-app-bundle | Set the mobile application bundle
-*DistrConfigServiceApi* | [**UnassignAppPools**](docs/DistrConfigServiceApi.md#unassignapppools) | **Post** /api/distribution/v1/unassign-app-pools | Unassign data pool from mobile application
-*DistrConfigServiceApi* | [**UnassignAppUsers**](docs/DistrConfigServiceApi.md#unassignappusers) | **Post** /api/distribution/v1/unassign-app-users | Unassign mobile application from users
-*DistrConfigServiceApi* | [**UnassignTagFromUser**](docs/DistrConfigServiceApi.md#unassigntagfromuser) | **Post** /api/distribution/v1/unassign-tag-from-user | Unassign filtering tag from user
-*DistrConfigServiceApi* | [**UpdatePool**](docs/DistrConfigServiceApi.md#updatepool) | **Put** /api/distribution/v1/pool | UpdatePool data pool task
-*DistrConfigServiceApi* | [**UpdatePool2**](docs/DistrConfigServiceApi.md#updatepool2) | **Patch** /api/distribution/v1/pool/{dataPool.id} | UpdatePool data pool task
-*DistrConfigServiceApi* | [**ValidatePoolData**](docs/DistrConfigServiceApi.md#validatepooldata) | **Post** /api/distribution/v1/validate-pool-data | Validate pool data against pool specification
+*DistrConfigServiceApi* | [**SetAppBundle**](docs/DistrConfigServiceApi.md#setappbundle) | **Post** /api/distribution/v1/app/{id}/bundle | Set the mobile application bundle
+*DistrConfigServiceApi* | [**UnassignAppFromUsers**](docs/DistrConfigServiceApi.md#unassignappfromusers) | **Post** /api/distribution/v1/app/users/unassign | Unassign mobile application from users
+*DistrConfigServiceApi* | [**UnassignPoolsFromApp**](docs/DistrConfigServiceApi.md#unassignpoolsfromapp) | **Post** /api/distribution/v1/app/pools/unassign | Unassign data pool from mobile application
+*DistrConfigServiceApi* | [**UnassignTagFromUser**](docs/DistrConfigServiceApi.md#unassigntagfromuser) | **Post** /api/distribution/v1/user/tags/unassign | Unassign filtering tag from user
+*DistrConfigServiceApi* | [**UpdatePool**](docs/DistrConfigServiceApi.md#updatepool) | **Put** /api/distribution/v1/pool | Update an already existing data pool.
+*DistrConfigServiceApi* | [**UpdatePool2**](docs/DistrConfigServiceApi.md#updatepool2) | **Patch** /api/distribution/v1/pool/{dataPool.id} | Update an already existing data pool.
+*DistrConfigServiceApi* | [**ValidatePoolData**](docs/DistrConfigServiceApi.md#validatepooldata) | **Post** /api/distribution/v1/pool/validate | Validate pool data against pool specification
 *FunctionsServiceApi* | [**CallAsyncFunction**](docs/FunctionsServiceApi.md#callasyncfunction) | **Post** /api/func/v1/post-call/{reason}/{call.id} | Post function for execution in async way
 *FunctionsServiceApi* | [**CallSyncFunction**](docs/FunctionsServiceApi.md#callsyncfunction) | **Post** /api/func/v1/call-sync/{id} | Call a function synchroniously
 *FunctionsServiceApi* | [**CallTestFunction**](docs/FunctionsServiceApi.md#calltestfunction) | **Post** /api/func/v1/call-test/{id} | Test a function call
@@ -112,25 +114,31 @@ Class | Method | HTTP request | Description
  - [DataListResponse](docs/DataListResponse.md)
  - [DataPersistResponse](docs/DataPersistResponse.md)
  - [DistrconfigActivatePoolRequest](docs/DistrconfigActivatePoolRequest.md)
- - [DistrconfigAssignAppPoolsRequest](docs/DistrconfigAssignAppPoolsRequest.md)
- - [DistrconfigAssignAppUsersRequest](docs/DistrconfigAssignAppUsersRequest.md)
+ - [DistrconfigAssignAppToUsersRequest](docs/DistrconfigAssignAppToUsersRequest.md)
+ - [DistrconfigAssignAppToUsersResponse](docs/DistrconfigAssignAppToUsersResponse.md)
+ - [DistrconfigAssignPoolsToAppRequest](docs/DistrconfigAssignPoolsToAppRequest.md)
+ - [DistrconfigAssignPoolsToAppResponse](docs/DistrconfigAssignPoolsToAppResponse.md)
  - [DistrconfigAssignTagToUserRequest](docs/DistrconfigAssignTagToUserRequest.md)
  - [DistrconfigCreatePoolsRequest](docs/DistrconfigCreatePoolsRequest.md)
  - [DistrconfigCreateUserRequest](docs/DistrconfigCreateUserRequest.md)
  - [DistrconfigDataPool](docs/DistrconfigDataPool.md)
  - [DistrconfigDistributionUser](docs/DistrconfigDistributionUser.md)
+ - [DistrconfigGetAppResponse](docs/DistrconfigGetAppResponse.md)
  - [DistrconfigGetAppsResponse](docs/DistrconfigGetAppsResponse.md)
  - [DistrconfigGetPoolDistributionResponse](docs/DistrconfigGetPoolDistributionResponse.md)
  - [DistrconfigGetPoolResponse](docs/DistrconfigGetPoolResponse.md)
  - [DistrconfigGetPoolsResponse](docs/DistrconfigGetPoolsResponse.md)
+ - [DistrconfigGetUserResponse](docs/DistrconfigGetUserResponse.md)
  - [DistrconfigGetUsersResponse](docs/DistrconfigGetUsersResponse.md)
  - [DistrconfigMobileApp](docs/DistrconfigMobileApp.md)
  - [DistrconfigMobileAppWithPools](docs/DistrconfigMobileAppWithPools.md)
  - [DistrconfigPoolSize](docs/DistrconfigPoolSize.md)
  - [DistrconfigPoolType](docs/DistrconfigPoolType.md)
  - [DistrconfigSetAppBundleRequest](docs/DistrconfigSetAppBundleRequest.md)
- - [DistrconfigUnassignAppPoolsRequest](docs/DistrconfigUnassignAppPoolsRequest.md)
- - [DistrconfigUnassignAppUsersRequest](docs/DistrconfigUnassignAppUsersRequest.md)
+ - [DistrconfigUnassignAppFromUsersRequest](docs/DistrconfigUnassignAppFromUsersRequest.md)
+ - [DistrconfigUnassignAppFromUsersResponse](docs/DistrconfigUnassignAppFromUsersResponse.md)
+ - [DistrconfigUnassignPoolsFromAppRequest](docs/DistrconfigUnassignPoolsFromAppRequest.md)
+ - [DistrconfigUnassignPoolsFromAppResponse](docs/DistrconfigUnassignPoolsFromAppResponse.md)
  - [DistrconfigUnassignTagFromUserRequest](docs/DistrconfigUnassignTagFromUserRequest.md)
  - [DistrconfigUserTagAssignment](docs/DistrconfigUserTagAssignment.md)
  - [DistrconfigValidatePoolDataRequest](docs/DistrconfigValidatePoolDataRequest.md)

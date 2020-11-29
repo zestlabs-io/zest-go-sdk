@@ -11,6 +11,6 @@
 package openapi
 // DistrconfigUserTagAssignment struct for DistrconfigUserTagAssignment
 type DistrconfigUserTagAssignment struct {
-	PoolId string `json:"poolId,omitempty"`
+	PoolID string `json:"poolID,omitempty"`
 	Value string `json:"value,omitempty"`
 }

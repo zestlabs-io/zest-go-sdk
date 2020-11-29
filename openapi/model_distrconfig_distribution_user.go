@@ -12,6 +12,6 @@ package openapi
 // DistrconfigDistributionUser struct for DistrconfigDistributionUser
 type DistrconfigDistributionUser struct {
 	Id string `json:"id,omitempty"`
-	ActiveAppId string `json:"activeAppId,omitempty"`
+	ActiveAppID string `json:"activeAppID,omitempty"`
 	TagAssignments []DistrconfigUserTagAssignment `json:"tagAssignments,omitempty"`
 }

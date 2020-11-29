@@ -9,9 +9,7 @@
  */
 
 package openapi
-// DistrconfigUnassignTagFromUserRequest struct for DistrconfigUnassignTagFromUserRequest
-type DistrconfigUnassignTagFromUserRequest struct {
-	PoolID string `json:"poolID,omitempty"`
-	UserID string `json:"userID,omitempty"`
-	TagValue string `json:"tagValue,omitempty"`
+// DistrconfigAssignPoolsToAppResponse struct for DistrconfigAssignPoolsToAppResponse
+type DistrconfigAssignPoolsToAppResponse struct {
+	FailedPoolIDs []string `json:"failedPoolIDs,omitempty"`
 }

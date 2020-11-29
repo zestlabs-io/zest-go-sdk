@@ -11,7 +11,7 @@
 package openapi
 // DistrconfigAssignTagToUserRequest struct for DistrconfigAssignTagToUserRequest
 type DistrconfigAssignTagToUserRequest struct {
-	PoolId string `json:"poolId,omitempty"`
-	UserId string `json:"userId,omitempty"`
+	PoolID string `json:"poolID,omitempty"`
+	UserID string `json:"userID,omitempty"`
 	TagValue string `json:"tagValue,omitempty"`
 }

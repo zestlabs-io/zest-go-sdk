@@ -28,7 +28,8 @@ var (
 type DistrConfigServiceApiService service
 
 /*
-ActivatePool ActivatePool data pool task
+ActivatePool Activate data pool, which will enable the distribution of its data to  mobile users.
+Errors: - 400    Returned when no valid pool ID is provided in the request, or           when the pool is already active - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body
 @return map[string]interface{}
@@ -44,7 +45,7 @@ func (a *DistrConfigServiceApiService) ActivatePool(ctx _context.Context, body D
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/api/distribution/v1/activate-pool"
+	localVarPath := a.client.cfg.BasePath + "/api/distribution/v1/pool/activate"
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -122,23 +123,23 @@ func (a *DistrConfigServiceApiService) ActivatePool(ctx _context.Context, body D
 }
 
 /*
-AssignAppPools Assign data pools to mobile application
+AssignAppToUsers Assign mobile application to users
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body
-@return map[string]interface{}
+@return DistrconfigAssignAppToUsersResponse
 */
-func (a *DistrConfigServiceApiService) AssignAppPools(ctx _context.Context, body DistrconfigAssignAppPoolsRequest) (map[string]interface{}, *_nethttp.Response, error) {
+func (a *DistrConfigServiceApiService) AssignAppToUsers(ctx _context.Context, body DistrconfigAssignAppToUsersRequest) (DistrconfigAssignAppToUsersResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  DistrconfigAssignAppToUsersResponse
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/api/distribution/v1/assign-app-pools"
+	localVarPath := a.client.cfg.BasePath + "/api/distribution/v1/app/users/assign"
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -216,23 +217,23 @@ func (a *DistrConfigServiceApiService) AssignAppPools(ctx _context.Context, body
 }
 
 /*
-AssignAppUsers Assign mobile application to users
+AssignPoolsToApp Assign data pools to mobile application
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body
-@return map[string]interface{}
+@return DistrconfigAssignPoolsToAppResponse
 */
-func (a *DistrConfigServiceApiService) AssignAppUsers(ctx _context.Context, body DistrconfigAssignAppUsersRequest) (map[string]interface{}, *_nethttp.Response, error) {
+func (a *DistrConfigServiceApiService) AssignPoolsToApp(ctx _context.Context, body DistrconfigAssignPoolsToAppRequest) (DistrconfigAssignPoolsToAppResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  DistrconfigAssignPoolsToAppResponse
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/api/distribution/v1/assign-app-users"
+	localVarPath := a.client.cfg.BasePath + "/api/distribution/v1/app/pools/assign"
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -326,7 +327,7 @@ func (a *DistrConfigServiceApiService) AssignTagToUser(ctx _context.Context, bod
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/api/distribution/v1/assign-tag-to-user"
+	localVarPath := a.client.cfg.BasePath + "/api/distribution/v1/user/tags/assign"
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -498,7 +499,8 @@ func (a *DistrConfigServiceApiService) CreateApp(ctx _context.Context, body Dist
 }
 
 /*
-CreatePool CreatePool new data pool task
+CreatePool Create a data pool that can be used to distribute data to mobile users.
+Errors: - 400    Returned when no valid pool definition is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body
 @return map[string]interface{}
@@ -592,7 +594,8 @@ func (a *DistrConfigServiceApiService) CreatePool(ctx _context.Context, body Dis
 }
 
 /*
-CreatePools CreatePool new data pool task
+CreatePools Create several data pools, which can be used to distribute data to mobile users.
+Errors: - 400    Returned when no valid pool definitions are provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body
 @return map[string]interface{}
@@ -874,7 +877,8 @@ func (a *DistrConfigServiceApiService) DeleteApp(ctx _context.Context, id string
 }
 
 /*
-DeletePool DeletePool data pool task
+DeletePool Delete data pool with all its data from the system and the mobile users'  devices.
+Errors: - 400    Returned when no valid pool ID is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id
 @return map[string]interface{}
@@ -1062,6 +1066,100 @@ func (a *DistrConfigServiceApiService) DeleteUser(ctx _context.Context, id strin
 }
 
 /*
+GetApp Get a mobile application
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param id
+@return DistrconfigGetAppResponse
+*/
+func (a *DistrConfigServiceApiService) GetApp(ctx _context.Context, id string) (DistrconfigGetAppResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  DistrconfigGetAppResponse
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/api/distribution/v1/app/{id}"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v string
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+			var v RuntimeError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+/*
 GetApps Get all mobile applications
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return DistrconfigGetAppsResponse
@@ -1153,7 +1251,8 @@ func (a *DistrConfigServiceApiService) GetApps(ctx _context.Context) (Distrconfi
 }
 
 /*
-GetPool Get data pool task
+GetPool Get the data pool with the given ID.
+Errors: - 400    Returned when no valid pool ID is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id
 @return DistrconfigGetPoolResponse
@@ -1252,7 +1351,8 @@ type GetPoolDistributionOpts struct {
 }
 
 /*
-GetPoolDistribution ActivatePool data pool task
+GetPoolDistribution Get the data distribution details for the pool.
+Errors: - 400    Returned when no valid pool ID is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param id
  * @param optional nil or *GetPoolDistributionOpts - Optional Parameters:
@@ -1270,7 +1370,7 @@ func (a *DistrConfigServiceApiService) GetPoolDistribution(ctx _context.Context,
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/api/distribution/v1/get-pool-distribution/{id}"
+	localVarPath := a.client.cfg.BasePath + "/api/distribution/v1/pool/distribution/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1351,7 +1451,8 @@ func (a *DistrConfigServiceApiService) GetPoolDistribution(ctx _context.Context,
 }
 
 /*
-GetPools Get all data pool tasks
+GetPools Get the list of all data pool that have been created in the system.
+Errors: - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
 @return DistrconfigGetPoolsResponse
 */
@@ -1367,6 +1468,100 @@ func (a *DistrConfigServiceApiService) GetPools(ctx _context.Context) (Distrconf
 
 	// create path and map variables
 	localVarPath := a.client.cfg.BasePath + "/api/distribution/v1/pools"
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	r, err := a.client.prepareRequest(ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(r)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v string
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+			var v RuntimeError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+/*
+GetUser Fetch the user with the given ID
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param userID
+@return DistrconfigGetUserResponse
+*/
+func (a *DistrConfigServiceApiService) GetUser(ctx _context.Context, userID string) (DistrconfigGetUserResponse, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  DistrconfigGetUserResponse
+	)
+
+	// create path and map variables
+	localVarPath := a.client.cfg.BasePath + "/api/distribution/v1/user/{userID}"
+	localVarPath = strings.Replace(localVarPath, "{"+"userID"+"}", _neturl.QueryEscape(parameterToString(userID, "")) , -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -1535,10 +1730,11 @@ func (a *DistrConfigServiceApiService) GetUsers(ctx _context.Context) (Distrconf
 /*
 SetAppBundle Set the mobile application bundle
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param id
  * @param body
 @return map[string]interface{}
 */
-func (a *DistrConfigServiceApiService) SetAppBundle(ctx _context.Context, body DistrconfigSetAppBundleRequest) (map[string]interface{}, *_nethttp.Response, error) {
+func (a *DistrConfigServiceApiService) SetAppBundle(ctx _context.Context, id string, body DistrconfigSetAppBundleRequest) (map[string]interface{}, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
@@ -1549,7 +1745,9 @@ func (a *DistrConfigServiceApiService) SetAppBundle(ctx _context.Context, body D
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/api/distribution/v1/set-app-bundle"
+	localVarPath := a.client.cfg.BasePath + "/api/distribution/v1/app/{id}/bundle"
+	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", _neturl.QueryEscape(parameterToString(id, "")) , -1)
+
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -1627,23 +1825,23 @@ func (a *DistrConfigServiceApiService) SetAppBundle(ctx _context.Context, body D
 }
 
 /*
-UnassignAppPools Unassign data pool from mobile application
+UnassignAppFromUsers Unassign mobile application from users
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body
-@return map[string]interface{}
+@return DistrconfigUnassignAppFromUsersResponse
 */
-func (a *DistrConfigServiceApiService) UnassignAppPools(ctx _context.Context, body DistrconfigUnassignAppPoolsRequest) (map[string]interface{}, *_nethttp.Response, error) {
+func (a *DistrConfigServiceApiService) UnassignAppFromUsers(ctx _context.Context, body DistrconfigUnassignAppFromUsersRequest) (DistrconfigUnassignAppFromUsersResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  DistrconfigUnassignAppFromUsersResponse
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/api/distribution/v1/unassign-app-pools"
+	localVarPath := a.client.cfg.BasePath + "/api/distribution/v1/app/users/unassign"
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -1721,23 +1919,23 @@ func (a *DistrConfigServiceApiService) UnassignAppPools(ctx _context.Context, bo
 }
 
 /*
-UnassignAppUsers Unassign mobile application from users
+UnassignPoolsFromApp Unassign data pool from mobile application
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body
-@return map[string]interface{}
+@return DistrconfigUnassignPoolsFromAppResponse
 */
-func (a *DistrConfigServiceApiService) UnassignAppUsers(ctx _context.Context, body DistrconfigUnassignAppUsersRequest) (map[string]interface{}, *_nethttp.Response, error) {
+func (a *DistrConfigServiceApiService) UnassignPoolsFromApp(ctx _context.Context, body DistrconfigUnassignPoolsFromAppRequest) (DistrconfigUnassignPoolsFromAppResponse, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  map[string]interface{}
+		localVarReturnValue  DistrconfigUnassignPoolsFromAppResponse
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/api/distribution/v1/unassign-app-users"
+	localVarPath := a.client.cfg.BasePath + "/api/distribution/v1/app/pools/unassign"
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -1831,7 +2029,7 @@ func (a *DistrConfigServiceApiService) UnassignTagFromUser(ctx _context.Context,
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/api/distribution/v1/unassign-tag-from-user"
+	localVarPath := a.client.cfg.BasePath + "/api/distribution/v1/user/tags/unassign"
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
@@ -1909,7 +2107,8 @@ func (a *DistrConfigServiceApiService) UnassignTagFromUser(ctx _context.Context,
 }
 
 /*
-UpdatePool UpdatePool data pool task
+UpdatePool Update an already existing data pool.
+Errors: - 400    Returned when no valid pool definition is provided in the request - 404    Returned when a pool with the given ID does not exist - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body
 @return map[string]interface{}
@@ -2003,7 +2202,8 @@ func (a *DistrConfigServiceApiService) UpdatePool(ctx _context.Context, body Dis
 }
 
 /*
-UpdatePool2 UpdatePool data pool task
+UpdatePool2 Update an already existing data pool.
+Errors: - 400    Returned when no valid pool definition is provided in the request - 404    Returned when a pool with the given ID does not exist - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param dataPoolId Primary key together with accountId - should be unique by client - used also as name of the pool
  * @param body
@@ -2101,6 +2301,7 @@ func (a *DistrConfigServiceApiService) UpdatePool2(ctx _context.Context, dataPoo
 
 /*
 ValidatePoolData Validate pool data against pool specification
+Errors: - 400    Returned when no valid pool definition is provided in the request - 403    Returned when the caller is not allowed to perform this call - 500    Returned whenever an internall error occurs
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param body
 @return DistrconfigValidatePoolDataResponse
@@ -2116,7 +2317,7 @@ func (a *DistrConfigServiceApiService) ValidatePoolData(ctx _context.Context, bo
 	)
 
 	// create path and map variables
-	localVarPath := a.client.cfg.BasePath + "/api/distribution/v1/validate-pool-data"
+	localVarPath := a.client.cfg.BasePath + "/api/distribution/v1/pool/validate"
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := _neturl.Values{}
 	localVarFormParams := _neturl.Values{}
