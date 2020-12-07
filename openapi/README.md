@@ -33,16 +33,22 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AuthServiceApi* | [**AddPoliciesToRole**](docs/AuthServiceApi.md#addpoliciestorole) | **Post** /api/auth/v1/role/policies/add | 
+*AuthServiceApi* | [**AddPoliciesToUser**](docs/AuthServiceApi.md#addpoliciestouser) | **Post** /api/auth/v1/user/policies/add | 
 *AuthServiceApi* | [**AddUsersToRole**](docs/AuthServiceApi.md#adduserstorole) | **Post** /api/auth/v1/role/users/add | 
 *AuthServiceApi* | [**CheckHMACAuth**](docs/AuthServiceApi.md#checkhmacauth) | **Post** /api/auth/v1/check-hmac | Auth API
+*AuthServiceApi* | [**CheckTokenAuth**](docs/AuthServiceApi.md#checktokenauth) | **Post** /api/auth/v1/check-token | 
 *AuthServiceApi* | [**CreateAccessKey**](docs/AuthServiceApi.md#createaccesskey) | **Post** /api/auth/v1/accesskey | User Access Keys API
+*AuthServiceApi* | [**CreateClient**](docs/AuthServiceApi.md#createclient) | **Post** /api/auth/v1/client | CreateClient will try to create a new oidc client for the account with the accountID concatenated with suffix provided in the request. If the client already exists or there are already 20 clients, an error will be returned.
 *AuthServiceApi* | [**CreatePolicy**](docs/AuthServiceApi.md#createpolicy) | **Post** /api/auth/v1/policy | 
 *AuthServiceApi* | [**CreateRole**](docs/AuthServiceApi.md#createrole) | **Post** /api/auth/v1/role | 
 *AuthServiceApi* | [**CreateUser**](docs/AuthServiceApi.md#createuser) | **Post** /api/auth/v1/user | 
 *AuthServiceApi* | [**DeleteAccessKey**](docs/AuthServiceApi.md#deleteaccesskey) | **Delete** /api/auth/v1/accesskey/{accessKeyID} | 
+*AuthServiceApi* | [**DeleteClient**](docs/AuthServiceApi.md#deleteclient) | **Delete** /api/auth/v1/client/{id} | DeleteClient will delete the client with the provided ID and return an error, if a key with this ID does not exist, or is not part of accounts clients
 *AuthServiceApi* | [**DeletePolicy**](docs/AuthServiceApi.md#deletepolicy) | **Delete** /api/auth/v1/policy/{policyID} | 
 *AuthServiceApi* | [**DeleteRole**](docs/AuthServiceApi.md#deleterole) | **Delete** /api/auth/v1/role/{roleID} | 
 *AuthServiceApi* | [**DeleteUser**](docs/AuthServiceApi.md#deleteuser) | **Delete** /api/auth/v1/user/{userID} | 
+*AuthServiceApi* | [**GetClients**](docs/AuthServiceApi.md#getclients) | **Get** /api/auth/v1/clients | GetClients loads all clients for account.
 *AuthServiceApi* | [**GetDefaultPolicies**](docs/AuthServiceApi.md#getdefaultpolicies) | **Get** /api/auth/v1/default-policies | 
 *AuthServiceApi* | [**GetOwnAccount**](docs/AuthServiceApi.md#getownaccount) | **Get** /api/auth/v1/account | 
 *AuthServiceApi* | [**GetPasswordPolicy**](docs/AuthServiceApi.md#getpasswordpolicy) | **Get** /api/auth/v1/password-policy | 
@@ -56,10 +62,13 @@ Class | Method | HTTP request | Description
 *AuthServiceApi* | [**GetUserInfo**](docs/AuthServiceApi.md#getuserinfo) | **Get** /api/auth/v1/userinfo | User API
 *AuthServiceApi* | [**GetUsers**](docs/AuthServiceApi.md#getusers) | **Get** /api/auth/v1/users | 
 *AuthServiceApi* | [**GetUsersForRole**](docs/AuthServiceApi.md#getusersforrole) | **Get** /api/auth/v1/role/users/{roleID} | 
+*AuthServiceApi* | [**RemovePoliciesFromRole**](docs/AuthServiceApi.md#removepoliciesfromrole) | **Post** /api/auth/v1/role/policies/remove | 
+*AuthServiceApi* | [**RemovePoliciesFromUser**](docs/AuthServiceApi.md#removepoliciesfromuser) | **Post** /api/auth/v1/user/policies/remove | 
 *AuthServiceApi* | [**RemoveUsersFromRole**](docs/AuthServiceApi.md#removeusersfromrole) | **Post** /api/auth/v1/role/users/remove | 
 *AuthServiceApi* | [**ResetPassword**](docs/AuthServiceApi.md#resetpassword) | **Post** /api/auth/v1/reset-password | 
 *AuthServiceApi* | [**SetPassword**](docs/AuthServiceApi.md#setpassword) | **Post** /api/auth/v1/set-password | Password API
 *AuthServiceApi* | [**UpdateAccount**](docs/AuthServiceApi.md#updateaccount) | **Put** /api/auth/v1/account/{account.accountID} | 
+*AuthServiceApi* | [**UpdateClient**](docs/AuthServiceApi.md#updateclient) | **Put** /api/auth/v1/client/{id} | UpdateClient updates the data for account client.
 *AuthServiceApi* | [**UpdatePolicy**](docs/AuthServiceApi.md#updatepolicy) | **Put** /api/auth/v1/policy | 
 *AuthServiceApi* | [**UpdateRole**](docs/AuthServiceApi.md#updaterole) | **Put** /api/auth/v1/role | 
 *AuthServiceApi* | [**UpdateUser**](docs/AuthServiceApi.md#updateuser) | **Put** /api/auth/v1/user/{user.userID} | 
@@ -159,14 +168,22 @@ Class | Method | HTTP request | Description
  - [V1AccessKey](docs/V1AccessKey.md)
  - [V1Account](docs/V1Account.md)
  - [V1Action](docs/V1Action.md)
+ - [V1AddPoliciesToRoleRequest](docs/V1AddPoliciesToRoleRequest.md)
+ - [V1AddPoliciesToRoleResponse](docs/V1AddPoliciesToRoleResponse.md)
+ - [V1AddPoliciesToUserRequest](docs/V1AddPoliciesToUserRequest.md)
+ - [V1AddPoliciesToUserResponse](docs/V1AddPoliciesToUserResponse.md)
  - [V1AddUsersToRoleRequest](docs/V1AddUsersToRoleRequest.md)
  - [V1AddUsersToRoleResponse](docs/V1AddUsersToRoleResponse.md)
  - [V1CheckHmacAuthRequest](docs/V1CheckHmacAuthRequest.md)
  - [V1CheckHmacAuthResponse](docs/V1CheckHmacAuthResponse.md)
+ - [V1CheckTokenAuthRequest](docs/V1CheckTokenAuthRequest.md)
+ - [V1CheckTokenAuthResponse](docs/V1CheckTokenAuthResponse.md)
  - [V1ContactDetails](docs/V1ContactDetails.md)
  - [V1CreateAccessKeyRequest](docs/V1CreateAccessKeyRequest.md)
  - [V1CreateAccessKeyResponse](docs/V1CreateAccessKeyResponse.md)
  - [V1CreateAccountResponse](docs/V1CreateAccountResponse.md)
+ - [V1CreateClientRequest](docs/V1CreateClientRequest.md)
+ - [V1CreateClientResponse](docs/V1CreateClientResponse.md)
  - [V1CreatePolicyRequest](docs/V1CreatePolicyRequest.md)
  - [V1CreatePolicyResponse](docs/V1CreatePolicyResponse.md)
  - [V1CreateRoleRequest](docs/V1CreateRoleRequest.md)
@@ -174,6 +191,7 @@ Class | Method | HTTP request | Description
  - [V1CreateUserRequest](docs/V1CreateUserRequest.md)
  - [V1CreateUserResponse](docs/V1CreateUserResponse.md)
  - [V1GetAccountResponse](docs/V1GetAccountResponse.md)
+ - [V1GetClientsResponse](docs/V1GetClientsResponse.md)
  - [V1GetDefaultPoliciesResponse](docs/V1GetDefaultPoliciesResponse.md)
  - [V1GetPasswordPolicyResponse](docs/V1GetPasswordPolicyResponse.md)
  - [V1GetPoliciesResponse](docs/V1GetPoliciesResponse.md)
@@ -186,21 +204,30 @@ Class | Method | HTTP request | Description
  - [V1GetUserResponse](docs/V1GetUserResponse.md)
  - [V1GetUsersForRoleResponse](docs/V1GetUsersForRoleResponse.md)
  - [V1GetUsersResponse](docs/V1GetUsersResponse.md)
+ - [V1OidcClient](docs/V1OidcClient.md)
  - [V1PasswordPolicy](docs/V1PasswordPolicy.md)
  - [V1PaymentDetails](docs/V1PaymentDetails.md)
  - [V1Permission](docs/V1Permission.md)
  - [V1Policy](docs/V1Policy.md)
+ - [V1RemovePoliciesFromRoleRequest](docs/V1RemovePoliciesFromRoleRequest.md)
+ - [V1RemovePoliciesFromRoleResponse](docs/V1RemovePoliciesFromRoleResponse.md)
+ - [V1RemovePoliciesFromUserRequest](docs/V1RemovePoliciesFromUserRequest.md)
+ - [V1RemovePoliciesFromUserResponse](docs/V1RemovePoliciesFromUserResponse.md)
  - [V1RemoveUsersFromRoleRequest](docs/V1RemoveUsersFromRoleRequest.md)
  - [V1RemoveUsersFromRoleResponse](docs/V1RemoveUsersFromRoleResponse.md)
  - [V1ResetPasswordRequest](docs/V1ResetPasswordRequest.md)
  - [V1Role](docs/V1Role.md)
+ - [V1RoleUpdate](docs/V1RoleUpdate.md)
  - [V1SetPasswordRequest](docs/V1SetPasswordRequest.md)
  - [V1UpdateAccountRequest](docs/V1UpdateAccountRequest.md)
+ - [V1UpdateClientRequest](docs/V1UpdateClientRequest.md)
+ - [V1UpdateClientResponse](docs/V1UpdateClientResponse.md)
  - [V1UpdatePolicyRequest](docs/V1UpdatePolicyRequest.md)
  - [V1UpdateRoleRequest](docs/V1UpdateRoleRequest.md)
  - [V1UpdateUserRequest](docs/V1UpdateUserRequest.md)
  - [V1User](docs/V1User.md)
  - [V1UserInfo](docs/V1UserInfo.md)
+ - [V1UserUpdate](docs/V1UserUpdate.md)
 
 
 ## Documentation For Authorization

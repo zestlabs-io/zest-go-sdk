@@ -11,5 +11,5 @@
 package openapi
 // V1UpdateUserRequest struct for V1UpdateUserRequest
 type V1UpdateUserRequest struct {
-	User V1User `json:"user,omitempty"`
+	User V1UserUpdate `json:"user,omitempty"`
 }

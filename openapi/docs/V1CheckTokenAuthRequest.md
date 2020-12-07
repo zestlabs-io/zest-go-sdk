@@ -1,10 +1,12 @@
-# V1UpdateUserRequest
+# V1CheckTokenAuthRequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**User** | [**V1UserUpdate**](v1UserUpdate.md) |  | [optional] 
+**AuthKey** | **string** |  | [optional] 
+**Signature** | **string** |  | [optional] 
+**Validity** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

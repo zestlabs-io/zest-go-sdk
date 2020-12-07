@@ -170,6 +170,252 @@ paths:
       tags:
       - AuthService
       x-codegen-request-body-name: body
+  /api/auth/v1/check-token:
+    post:
+      operationId: AuthService_CheckTokenAuth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1CheckTokenAuthRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1CheckTokenAuthResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+      x-codegen-request-body-name: body
+  /api/auth/v1/client:
+    post:
+      description: "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\
+        \t\t\t`CreateClient`\n\t\tScope:"
+      operationId: AuthService_CreateClient
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1CreateClientRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                client: The client that have been created
+              schema:
+                $ref: '#/components/schemas/v1CreateClientResponse'
+          description: A successful response.
+        "400":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Returned when no valid client ID is provided in the request,
+            or the account has already has 20 clients.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Returned when the caller is not allowed to perform this call.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        "500":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Returned whenever an internall error occurs.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: |-
+        CreateClient will try to create a new oidc client for the account with the
+        accountID concatenated with suffix provided in the request. If the client already exists
+        or there are already 20 clients, an error will be returned.
+      tags:
+      - AuthService
+      x-codegen-request-body-name: body
+  /api/auth/v1/client/{id}:
+    delete:
+      description: "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\
+        \t\t\t`DeleteClient`\n\t\tScope:\t\t\tclient ID"
+      operationId: AuthService_DeleteClient
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1DeleteClientResponse'
+          description: Returned when Client is successfuly deleted.
+        "400":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Returned when no valid client ID is provided in the request,
+            or the account has already has 20 clients.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Returned when the caller is not allowed to perform this call.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Returned when a user with the provided ID could not be found
+            within the scope of the account.
+        "500":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Returned whenever an internall error occurs.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: |-
+        DeleteClient will delete the client with the provided ID and return
+        an error, if a key with this ID does not exist, or is not part of accounts clients
+      tags:
+      - AuthService
+    put:
+      description: "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\
+        \t\t\t`UpdateClient`\n\t\tScope:\t\t\t`id`"
+      operationId: AuthService_UpdateClient
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1UpdateClientRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              example:
+                client: The client that have been updated
+              schema:
+                $ref: '#/components/schemas/v1UpdateClientResponse'
+          description: A successful response.
+        "400":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Returned when no valid client ID is provided in the request.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Returned when the caller is not allowed to perform this call.
+        "404":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Returned when a client ID could not be found within the scope
+            of the account.
+        "500":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Returned whenever an internall error occurs.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: UpdateClient updates the data for account client.
+      tags:
+      - AuthService
+      x-codegen-request-body-name: body
+  /api/auth/v1/clients:
+    get:
+      description: "Authorisation requirements:\n\t\tService:\t\t`auth`\n\t\tCall:\t\
+        \t\t\t`GetClients`\n\t\tScope:\t\t\t``"
+      operationId: AuthService_GetClients
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1GetClientsResponse'
+          description: Returned when clients are successfuly fetched.
+        "403":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Returned when the caller is not allowed to perform this call.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        "500":
+          content:
+            application/json:
+              schema:
+                type: object
+          description: Returned whenever an internall error occurs.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      summary: GetClients loads all clients for account.
+      tags:
+      - AuthService
   /api/auth/v1/default-policies:
     get:
       operationId: AuthService_GetDefaultPolicies
@@ -458,6 +704,70 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/v1UpdateRoleResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+      x-codegen-request-body-name: body
+  /api/auth/v1/role/policies/add:
+    post:
+      operationId: AuthService_AddPoliciesToRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1AddPoliciesToRoleRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1AddPoliciesToRoleResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+      x-codegen-request-body-name: body
+  /api/auth/v1/role/policies/remove:
+    post:
+      operationId: AuthService_RemovePoliciesFromRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1RemovePoliciesFromRoleRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1RemovePoliciesFromRoleResponse'
           description: A successful response.
         "404":
           content:
@@ -793,6 +1103,70 @@ paths:
           description: An unexpected error response
       tags:
       - AuthService
+  /api/auth/v1/user/policies/add:
+    post:
+      operationId: AuthService_AddPoliciesToUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1AddPoliciesToUserRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1AddPoliciesToUserResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+      x-codegen-request-body-name: body
+  /api/auth/v1/user/policies/remove:
+    post:
+      operationId: AuthService_RemovePoliciesFromUser
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1RemovePoliciesFromUserRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1RemovePoliciesFromUserResponse'
+          description: A successful response.
+        "404":
+          content:
+            application/json:
+              schema:
+                format: string
+                type: string
+          description: Returned when the resource does not exist.
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/runtimeError'
+          description: An unexpected error response
+      tags:
+      - AuthService
+      x-codegen-request-body-name: body
   /api/auth/v1/user/{user.userID}:
     put:
       operationId: AuthService_UpdateUser
@@ -2503,6 +2877,46 @@ components:
         call:
           type: string
       type: object
+    v1AddPoliciesToRoleRequest:
+      properties:
+        roleID:
+          type: string
+        policyIDs:
+          items:
+            type: string
+          type: array
+      type: object
+    v1AddPoliciesToRoleResponse:
+      example:
+        failedPolicyIDs:
+        - failedPolicyIDs
+        - failedPolicyIDs
+      properties:
+        failedPolicyIDs:
+          items:
+            type: string
+          type: array
+      type: object
+    v1AddPoliciesToUserRequest:
+      properties:
+        userID:
+          type: string
+        policyIDs:
+          items:
+            type: string
+          type: array
+      type: object
+    v1AddPoliciesToUserResponse:
+      example:
+        failedPolicyIDs:
+        - failedPolicyIDs
+        - failedPolicyIDs
+      properties:
+        failedPolicyIDs:
+          items:
+            type: string
+          type: array
+      type: object
     v1AddUsersToRoleRequest:
       properties:
         roleID:
@@ -2553,6 +2967,28 @@ components:
         error:
           type: string
       type: object
+    v1CheckTokenAuthRequest:
+      properties:
+        authKey:
+          type: string
+        signature:
+          type: string
+        validity:
+          format: int64
+          type: string
+      type: object
+    v1CheckTokenAuthResponse:
+      example:
+        error: error
+        token: token
+      properties:
+        token:
+          format: byte
+          pattern: ^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$
+          type: string
+        error:
+          type: string
+      type: object
     v1ContactDetails:
       example:
         technical: technical
@@ -2586,6 +3022,29 @@ components:
         accountID:
           format: int64
           type: string
+      type: object
+    v1CreateClientRequest:
+      properties:
+        suffix:
+          type: string
+        redirect_uri:
+          type: string
+        description:
+          type: string
+        base_color:
+          type: string
+      type: object
+    v1CreateClientResponse:
+      example:
+        client:
+          description: description
+          id: id
+          secret: secret
+          redirect_uri: redirect_uri
+          base_color: base_color
+      properties:
+        client:
+          $ref: '#/components/schemas/v1OIDCClient'
       type: object
     v1CreatePolicyRequest:
       properties:
@@ -2633,6 +3092,8 @@ components:
       type: object
     v1DeleteAccountResponse:
       type: object
+    v1DeleteClientResponse:
+      type: object
     v1DeletePolicyResponse:
       type: object
     v1DeleteRoleResponse:
@@ -2654,6 +3115,25 @@ components:
       properties:
         account:
           $ref: '#/components/schemas/v1Account'
+      type: object
+    v1GetClientsResponse:
+      example:
+        client:
+        - description: description
+          id: id
+          secret: secret
+          redirect_uri: redirect_uri
+          base_color: base_color
+        - description: description
+          id: id
+          secret: secret
+          redirect_uri: redirect_uri
+          base_color: base_color
+      properties:
+        client:
+          items:
+            $ref: '#/components/schemas/v1OIDCClient'
+          type: array
       type: object
     v1GetDefaultPoliciesResponse:
       example:
@@ -2984,6 +3464,25 @@ components:
           title: string offsetID = 4
           type: array
       type: object
+    v1OIDCClient:
+      example:
+        description: description
+        id: id
+        secret: secret
+        redirect_uri: redirect_uri
+        base_color: base_color
+      properties:
+        id:
+          type: string
+        secret:
+          type: string
+        redirect_uri:
+          type: string
+        description:
+          type: string
+        base_color:
+          type: string
+      type: object
     v1PasswordPolicy:
       example:
         useNumbers: true
@@ -3073,6 +3572,46 @@ components:
             $ref: '#/components/schemas/v1Permission'
           type: array
       type: object
+    v1RemovePoliciesFromRoleRequest:
+      properties:
+        roleID:
+          type: string
+        policyIDs:
+          items:
+            type: string
+          type: array
+      type: object
+    v1RemovePoliciesFromRoleResponse:
+      example:
+        failedPolicyIDs:
+        - failedPolicyIDs
+        - failedPolicyIDs
+      properties:
+        failedPolicyIDs:
+          items:
+            type: string
+          type: array
+      type: object
+    v1RemovePoliciesFromUserRequest:
+      properties:
+        userID:
+          type: string
+        policyIDs:
+          items:
+            type: string
+          type: array
+      type: object
+    v1RemovePoliciesFromUserResponse:
+      example:
+        failedPolicyIDs:
+        - failedPolicyIDs
+        - failedPolicyIDs
+      properties:
+        failedPolicyIDs:
+          items:
+            type: string
+          type: array
+      type: object
     v1RemoveUsersFromRoleRequest:
       properties:
         roleID:
@@ -3120,6 +3659,15 @@ components:
             type: string
           type: array
       type: object
+    v1RoleUpdate:
+      properties:
+        roleID:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+      type: object
     v1SetPasswordRequest:
       properties:
         userID:
@@ -3138,6 +3686,29 @@ components:
       type: object
     v1UpdateAccountResponse:
       type: object
+    v1UpdateClientRequest:
+      properties:
+        id:
+          type: string
+        description:
+          type: string
+        redirect_uri:
+          type: string
+        base_color:
+          type: string
+      type: object
+    v1UpdateClientResponse:
+      example:
+        client:
+          description: description
+          id: id
+          secret: secret
+          redirect_uri: redirect_uri
+          base_color: base_color
+      properties:
+        client:
+          $ref: '#/components/schemas/v1OIDCClient'
+      type: object
     v1UpdatePolicyRequest:
       properties:
         policy:
@@ -3148,14 +3719,14 @@ components:
     v1UpdateRoleRequest:
       properties:
         role:
-          $ref: '#/components/schemas/v1Role'
+          $ref: '#/components/schemas/v1RoleUpdate'
       type: object
     v1UpdateRoleResponse:
       type: object
     v1UpdateUserRequest:
       properties:
         user:
-          $ref: '#/components/schemas/v1User'
+          $ref: '#/components/schemas/v1UserUpdate'
       type: object
     v1UpdateUserResponse:
       type: object
@@ -3262,6 +3833,21 @@ components:
           items:
             $ref: '#/components/schemas/v1Policy'
           type: array
+      type: object
+    v1UserUpdate:
+      properties:
+        userID:
+          type: string
+        email:
+          type: string
+        phoneNumber:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        language:
+          type: string
       type: object
     functionsCallAsyncFunctionRequest:
       properties:

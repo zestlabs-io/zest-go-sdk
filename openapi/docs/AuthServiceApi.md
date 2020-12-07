@@ -4,16 +4,22 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**AddPoliciesToRole**](AuthServiceApi.md#AddPoliciesToRole) | **Post** /api/auth/v1/role/policies/add | 
+[**AddPoliciesToUser**](AuthServiceApi.md#AddPoliciesToUser) | **Post** /api/auth/v1/user/policies/add | 
 [**AddUsersToRole**](AuthServiceApi.md#AddUsersToRole) | **Post** /api/auth/v1/role/users/add | 
 [**CheckHMACAuth**](AuthServiceApi.md#CheckHMACAuth) | **Post** /api/auth/v1/check-hmac | Auth API
+[**CheckTokenAuth**](AuthServiceApi.md#CheckTokenAuth) | **Post** /api/auth/v1/check-token | 
 [**CreateAccessKey**](AuthServiceApi.md#CreateAccessKey) | **Post** /api/auth/v1/accesskey | User Access Keys API
+[**CreateClient**](AuthServiceApi.md#CreateClient) | **Post** /api/auth/v1/client | CreateClient will try to create a new oidc client for the account with the accountID concatenated with suffix provided in the request. If the client already exists or there are already 20 clients, an error will be returned.
 [**CreatePolicy**](AuthServiceApi.md#CreatePolicy) | **Post** /api/auth/v1/policy | 
 [**CreateRole**](AuthServiceApi.md#CreateRole) | **Post** /api/auth/v1/role | 
 [**CreateUser**](AuthServiceApi.md#CreateUser) | **Post** /api/auth/v1/user | 
 [**DeleteAccessKey**](AuthServiceApi.md#DeleteAccessKey) | **Delete** /api/auth/v1/accesskey/{accessKeyID} | 
+[**DeleteClient**](AuthServiceApi.md#DeleteClient) | **Delete** /api/auth/v1/client/{id} | DeleteClient will delete the client with the provided ID and return an error, if a key with this ID does not exist, or is not part of accounts clients
 [**DeletePolicy**](AuthServiceApi.md#DeletePolicy) | **Delete** /api/auth/v1/policy/{policyID} | 
 [**DeleteRole**](AuthServiceApi.md#DeleteRole) | **Delete** /api/auth/v1/role/{roleID} | 
 [**DeleteUser**](AuthServiceApi.md#DeleteUser) | **Delete** /api/auth/v1/user/{userID} | 
+[**GetClients**](AuthServiceApi.md#GetClients) | **Get** /api/auth/v1/clients | GetClients loads all clients for account.
 [**GetDefaultPolicies**](AuthServiceApi.md#GetDefaultPolicies) | **Get** /api/auth/v1/default-policies | 
 [**GetOwnAccount**](AuthServiceApi.md#GetOwnAccount) | **Get** /api/auth/v1/account | 
 [**GetPasswordPolicy**](AuthServiceApi.md#GetPasswordPolicy) | **Get** /api/auth/v1/password-policy | 
@@ -27,14 +33,81 @@ Method | HTTP request | Description
 [**GetUserInfo**](AuthServiceApi.md#GetUserInfo) | **Get** /api/auth/v1/userinfo | User API
 [**GetUsers**](AuthServiceApi.md#GetUsers) | **Get** /api/auth/v1/users | 
 [**GetUsersForRole**](AuthServiceApi.md#GetUsersForRole) | **Get** /api/auth/v1/role/users/{roleID} | 
+[**RemovePoliciesFromRole**](AuthServiceApi.md#RemovePoliciesFromRole) | **Post** /api/auth/v1/role/policies/remove | 
+[**RemovePoliciesFromUser**](AuthServiceApi.md#RemovePoliciesFromUser) | **Post** /api/auth/v1/user/policies/remove | 
 [**RemoveUsersFromRole**](AuthServiceApi.md#RemoveUsersFromRole) | **Post** /api/auth/v1/role/users/remove | 
 [**ResetPassword**](AuthServiceApi.md#ResetPassword) | **Post** /api/auth/v1/reset-password | 
 [**SetPassword**](AuthServiceApi.md#SetPassword) | **Post** /api/auth/v1/set-password | Password API
 [**UpdateAccount**](AuthServiceApi.md#UpdateAccount) | **Put** /api/auth/v1/account/{account.accountID} | 
+[**UpdateClient**](AuthServiceApi.md#UpdateClient) | **Put** /api/auth/v1/client/{id} | UpdateClient updates the data for account client.
 [**UpdatePolicy**](AuthServiceApi.md#UpdatePolicy) | **Put** /api/auth/v1/policy | 
 [**UpdateRole**](AuthServiceApi.md#UpdateRole) | **Put** /api/auth/v1/role | 
 [**UpdateUser**](AuthServiceApi.md#UpdateUser) | **Put** /api/auth/v1/user/{user.userID} | 
 
+
+
+## AddPoliciesToRole
+
+> V1AddPoliciesToRoleResponse AddPoliciesToRole(ctx, body)
+
+
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**body** | [**V1AddPoliciesToRoleRequest**](V1AddPoliciesToRoleRequest.md)|  | 
+
+### Return type
+
+[**V1AddPoliciesToRoleResponse**](v1AddPoliciesToRoleResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## AddPoliciesToUser
+
+> V1AddPoliciesToUserResponse AddPoliciesToUser(ctx, body)
+
+
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**body** | [**V1AddPoliciesToUserRequest**](V1AddPoliciesToUserRequest.md)|  | 
+
+### Return type
+
+[**V1AddPoliciesToUserResponse**](v1AddPoliciesToUserResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## AddUsersToRole
@@ -101,6 +174,38 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## CheckTokenAuth
+
+> V1CheckTokenAuthResponse CheckTokenAuth(ctx, body)
+
+
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**body** | [**V1CheckTokenAuthRequest**](V1CheckTokenAuthRequest.md)|  | 
+
+### Return type
+
+[**V1CheckTokenAuthResponse**](v1CheckTokenAuthResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## CreateAccessKey
 
 > V1CreateAccessKeyResponse CreateAccessKey(ctx, body)
@@ -118,6 +223,40 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1CreateAccessKeyResponse**](v1CreateAccessKeyResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## CreateClient
+
+> V1CreateClientResponse CreateClient(ctx, body)
+
+CreateClient will try to create a new oidc client for the account with the accountID concatenated with suffix provided in the request. If the client already exists or there are already 20 clients, an error will be returned.
+
+Authorisation requirements:   Service:  `auth`   Call:    `CreateClient`   Scope:
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**body** | [**V1CreateClientRequest**](V1CreateClientRequest.md)|  | 
+
+### Return type
+
+[**V1CreateClientResponse**](v1CreateClientResponse.md)
 
 ### Authorization
 
@@ -261,6 +400,40 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## DeleteClient
+
+> map[string]interface{} DeleteClient(ctx, id)
+
+DeleteClient will delete the client with the provided ID and return an error, if a key with this ID does not exist, or is not part of accounts clients
+
+Authorisation requirements:   Service:  `auth`   Call:    `DeleteClient`   Scope:   client ID
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string**|  | 
+
+### Return type
+
+**map[string]interface{}**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## DeletePolicy
 
 > map[string]interface{} DeletePolicy(ctx, policyID)
@@ -342,6 +515,36 @@ Name | Type | Description  | Notes
 ### Return type
 
 **map[string]interface{}**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetClients
+
+> V1GetClientsResponse GetClients(ctx, )
+
+GetClients loads all clients for account.
+
+Authorisation requirements:   Service:  `auth`   Call:    `GetClients`   Scope:   ``
+
+### Required Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**V1GetClientsResponse**](v1GetClientsResponse.md)
 
 ### Authorization
 
@@ -785,6 +988,70 @@ No authorization required
 [[Back to README]](../README.md)
 
 
+## RemovePoliciesFromRole
+
+> V1RemovePoliciesFromRoleResponse RemovePoliciesFromRole(ctx, body)
+
+
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**body** | [**V1RemovePoliciesFromRoleRequest**](V1RemovePoliciesFromRoleRequest.md)|  | 
+
+### Return type
+
+[**V1RemovePoliciesFromRoleResponse**](v1RemovePoliciesFromRoleResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## RemovePoliciesFromUser
+
+> V1RemovePoliciesFromUserResponse RemovePoliciesFromUser(ctx, body)
+
+
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**body** | [**V1RemovePoliciesFromUserRequest**](V1RemovePoliciesFromUserRequest.md)|  | 
+
+### Return type
+
+[**V1RemovePoliciesFromUserResponse**](v1RemovePoliciesFromUserResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## RemoveUsersFromRole
 
 > V1RemoveUsersFromRoleResponse RemoveUsersFromRole(ctx, body)
@@ -899,6 +1166,41 @@ Name | Type | Description  | Notes
 ### Return type
 
 **map[string]interface{}**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateClient
+
+> V1UpdateClientResponse UpdateClient(ctx, id, body)
+
+UpdateClient updates the data for account client.
+
+Authorisation requirements:   Service:  `auth`   Call:    `UpdateClient`   Scope:   `id`
+
+### Required Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**id** | **string**|  | 
+**body** | [**V1UpdateClientRequest**](V1UpdateClientRequest.md)|  | 
+
+### Return type
+
+[**V1UpdateClientResponse**](v1UpdateClientResponse.md)
 
 ### Authorization
 

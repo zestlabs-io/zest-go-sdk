@@ -9,7 +9,8 @@
  */
 
 package openapi
-// V1UpdateRoleRequest struct for V1UpdateRoleRequest
-type V1UpdateRoleRequest struct {
-	Role V1RoleUpdate `json:"role,omitempty"`
+// V1AddPoliciesToUserRequest struct for V1AddPoliciesToUserRequest
+type V1AddPoliciesToUserRequest struct {
+	UserID string `json:"userID,omitempty"`
+	PolicyIDs []string `json:"policyIDs,omitempty"`
 }

@@ -1,10 +1,11 @@
-# V1UpdateUserRequest
+# V1AddPoliciesToRoleRequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**User** | [**V1UserUpdate**](v1UserUpdate.md) |  | [optional] 
+**RoleID** | **string** |  | [optional] 
+**PolicyIDs** | **[]string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
