@@ -12,22 +12,23 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/zestlabs-io/zest-go-sdk/openapi"
+	"github.com/go-openapi/strfmt"
+	"github.com/zestlabs-io/zest-go-sdk/api/client"
+
+	httptransport "github.com/go-openapi/runtime/client"
 )
 
-func NewHMACAPIClient(cfg *openapi.Configuration, cloudKey, cloudSecret string) *openapi.APIClient {
+func NewHMACAPIClient(formats strfmt.Registry, cfg *client.TransportConfig, cloudKey, cloudSecret string) *client.ZestAPI {
 	rt := SigningRoundTripper{
 		Proxied:     http.DefaultTransport,
 		cloudKey:    cloudKey,
 		cloudSecret: cloudSecret,
 	}
-	if cfg.HTTPClient == nil {
-		cfg.HTTPClient = &http.Client{Transport: rt}
-	} else {
-		cfg.HTTPClient.Transport = rt
-	}
+	httpClient := &http.Client{Transport: rt}
+	transport := httptransport.NewWithClient(cfg.Host, cfg.BasePath, cfg.Schemes, httpClient)
+	cl := client.New(transport, formats)
 
-	return openapi.NewAPIClient(cfg)
+	return cl
 }
 
 // This type implements the http.RoundTripper interface
@@ -51,7 +52,7 @@ func (lrt SigningRoundTripper) RoundTrip(r *http.Request) (res *http.Response, e
 		r.Body.Close()
 
 	}
-	fmt.Printf("Sending request to %v\n", r.URL)
+	// fmt.Printf("Signing request to %v\n", r.URL)
 
 	body := ioutil.NopCloser(bytes.NewReader(b))
 

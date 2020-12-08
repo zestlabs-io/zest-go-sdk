@@ -14,18 +14,29 @@ go get github.com/zestlabs-io/zest-go-sdk
 
 ```go
 import (
-  "github.com/zestlabs-io/zest-go-sdk/openapi"
+  sdk "github.com/zestlabs-io/zest-go-sdk"
+  "github.com/go-openapi/strfmt"
+	"github.com/zestlabs-io/zest-go-sdk/api/client"
+	"github.com/zestlabs-io/zest-go-sdk/api/client/auth_service"
   "context"
   "fmt"
 )
 
 func main() {
   ctx := context.TODO()
-  client := NewHMACAPIClient(&openapi.Configuration{
-    BasePath: "https://dev.zestlabs.cloud"},
-    os.Getenv("ZEST_KEY"),
-    os.Getenv("ZEST_SECRET"))
-  _, _, _ = client.AuthServiceApi.GetOwnAccount(ctx)
+  cl := NewHMACAPIClient(strfmt.Default, 
+      &client.TransportConfig{
+        Host: "dev.zestlabs.cloud", 
+        Schemes: []string{"https"}}, 
+      os.Getenv("ZEST_KEY"), os.Getenv("ZEST_SECRET"))
+  // Call Auth service to fetch the Current account    
+  res, err := cl.AuthService.AuthServiceGetOwnAccount(&auth_service.AuthServiceGetOwnAccountParams{Context: ctx})
+  
+  if err != nil {
+		panic(fmt.Errorf("Error getting account : %v", err))
+  }
+  
+  fmt.Printf("Fetched my current account: %s", res.Payload.Account.AccountID)
 }
 ```
 

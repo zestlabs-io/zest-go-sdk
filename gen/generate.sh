@@ -21,6 +21,12 @@ npm install swagger-merger -g
 swagger-merger -i ${DIR}/fullRef.json -o ${DIR}/fullSchema.json
 
 
+# docker pull quay.io/goswagger/swagger
+# docker run --rm -it -e GOPATH=$HOME/go:/go -v $HOME:$HOME -w $(pwd) quay.io/goswagger/swagger generate client -f ./gen/fullSchema.json -t api
+
+brew tap go-swagger/go-swagger
+brew install go-swagger
+swagger generate client -f ./gen/fullSchema.json -t api
 # Generate
-openapi-generator generate --remove-operation-id-prefix -i ${DIR}/fullSchema.json -g go -o ${PDIR}/openapi
-rm -rf ${PDIR}/openapi/go.mod ${PDIR}/openapi/go.sum
+# openapi-generator generate --remove-operation-id-prefix -i ${DIR}/fullSchema.json -g go -o ${PDIR}/openapi
+# rm -rf ${PDIR}/openapi/go.mod ${PDIR}/openapi/go.sum
