@@ -241,6 +241,9 @@
         "consumes": [
           "*/*"
         ],
+        "produces": [
+          "*/*"
+        ],
         "responses": {
           "200": {
             "description": "A successful response.",

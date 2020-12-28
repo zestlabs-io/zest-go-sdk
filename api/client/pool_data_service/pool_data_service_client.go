@@ -230,7 +230,7 @@ func (a *Client) PoolDataServiceGetAttachment(params *PoolDataServiceGetAttachme
 		ID:                 "PoolDataService_GetAttachment",
 		Method:             "GET",
 		PathPattern:        "/api/data/_r/{poolId}/{id}/{attname}",
-		ProducesMediaTypes: []string{"application/json"},
+		ProducesMediaTypes: []string{"*/*"},
 		ConsumesMediaTypes: []string{"*/*"},
 		Schemes:            []string{"https"},
 		Params:             params,
