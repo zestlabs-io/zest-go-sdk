@@ -3119,6 +3119,9 @@
       "get": {
         "summary": "Get attachment",
         "operationId": "PoolDataService_GetAttachment",
+        "consumes": [
+          "*/*"
+        ],
         "responses": {
           "200": {
             "description": "A successful response.",
