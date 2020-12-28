@@ -12,6 +12,7 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 	"github.com/zestlabs-io/zest-go-sdk/api/client"
 
@@ -26,6 +27,7 @@ func NewHMACAPIClient(formats strfmt.Registry, cfg *client.TransportConfig, clou
 	}
 	httpClient := &http.Client{Transport: rt}
 	transport := httptransport.NewWithClient(cfg.Host, cfg.BasePath, cfg.Schemes, httpClient)
+	transport.Producers["*/*"] = runtime.ByteStreamProducer()
 	cl := client.New(transport, formats)
 
 	return cl
