@@ -20,7 +20,7 @@ import (
 type DistrconfigGetPoolsResponse struct {
 
 	// List of all data pool tasks
-	DataPool []*DistrconfigDataPool `json:"dataPool"`
+	DataPool []*DistrconfigDataPoolShort `json:"dataPool"`
 
 	// pool sizes
 	PoolSizes map[string]DistrconfigPoolSize `json:"poolSizes,omitempty"`
