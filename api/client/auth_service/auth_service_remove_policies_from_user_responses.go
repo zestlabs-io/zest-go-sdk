@@ -52,7 +52,7 @@ func NewAuthServiceRemovePoliciesFromUserOK() *AuthServiceRemovePoliciesFromUser
 	return &AuthServiceRemovePoliciesFromUserOK{}
 }
 
-/*AuthServiceRemovePoliciesFromUserOK handles this case with default header values.
+/* AuthServiceRemovePoliciesFromUserOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type AuthServiceRemovePoliciesFromUserOK struct {
 func (o *AuthServiceRemovePoliciesFromUserOK) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/user/policies/remove][%d] authServiceRemovePoliciesFromUserOK  %+v", 200, o.Payload)
 }
-
 func (o *AuthServiceRemovePoliciesFromUserOK) GetPayload() *models.V1RemovePoliciesFromUserResponse {
 	return o.Payload
 }
@@ -85,7 +84,7 @@ func NewAuthServiceRemovePoliciesFromUserNotFound() *AuthServiceRemovePoliciesFr
 	return &AuthServiceRemovePoliciesFromUserNotFound{}
 }
 
-/*AuthServiceRemovePoliciesFromUserNotFound handles this case with default header values.
+/* AuthServiceRemovePoliciesFromUserNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -96,7 +95,6 @@ type AuthServiceRemovePoliciesFromUserNotFound struct {
 func (o *AuthServiceRemovePoliciesFromUserNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/user/policies/remove][%d] authServiceRemovePoliciesFromUserNotFound  %+v", 404, o.Payload)
 }
-
 func (o *AuthServiceRemovePoliciesFromUserNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -118,7 +116,7 @@ func NewAuthServiceRemovePoliciesFromUserDefault(code int) *AuthServiceRemovePol
 	}
 }
 
-/*AuthServiceRemovePoliciesFromUserDefault handles this case with default header values.
+/* AuthServiceRemovePoliciesFromUserDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -136,7 +134,6 @@ func (o *AuthServiceRemovePoliciesFromUserDefault) Code() int {
 func (o *AuthServiceRemovePoliciesFromUserDefault) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/user/policies/remove][%d] AuthService_RemovePoliciesFromUser default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *AuthServiceRemovePoliciesFromUserDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

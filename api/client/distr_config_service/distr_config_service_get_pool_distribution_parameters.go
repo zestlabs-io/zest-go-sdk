@@ -16,58 +16,73 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDistrConfigServiceGetPoolDistributionParams creates a new DistrConfigServiceGetPoolDistributionParams object
-// with the default values initialized.
+// NewDistrConfigServiceGetPoolDistributionParams creates a new DistrConfigServiceGetPoolDistributionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDistrConfigServiceGetPoolDistributionParams() *DistrConfigServiceGetPoolDistributionParams {
-	var ()
 	return &DistrConfigServiceGetPoolDistributionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDistrConfigServiceGetPoolDistributionParamsWithTimeout creates a new DistrConfigServiceGetPoolDistributionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDistrConfigServiceGetPoolDistributionParamsWithTimeout(timeout time.Duration) *DistrConfigServiceGetPoolDistributionParams {
-	var ()
 	return &DistrConfigServiceGetPoolDistributionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDistrConfigServiceGetPoolDistributionParamsWithContext creates a new DistrConfigServiceGetPoolDistributionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDistrConfigServiceGetPoolDistributionParamsWithContext(ctx context.Context) *DistrConfigServiceGetPoolDistributionParams {
-	var ()
 	return &DistrConfigServiceGetPoolDistributionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDistrConfigServiceGetPoolDistributionParamsWithHTTPClient creates a new DistrConfigServiceGetPoolDistributionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDistrConfigServiceGetPoolDistributionParamsWithHTTPClient(client *http.Client) *DistrConfigServiceGetPoolDistributionParams {
-	var ()
 	return &DistrConfigServiceGetPoolDistributionParams{
 		HTTPClient: client,
 	}
 }
 
-/*DistrConfigServiceGetPoolDistributionParams contains all the parameters to send to the API endpoint
-for the distr config service get pool distribution operation typically these are written to a http.Request
+/* DistrConfigServiceGetPoolDistributionParams contains all the parameters to send to the API endpoint
+   for the distr config service get pool distribution operation.
+
+   Typically these are written to a http.Request.
 */
 type DistrConfigServiceGetPoolDistributionParams struct {
 
-	/*ID*/
+	// ID.
 	ID string
-	/*UserID*/
+
+	// UserID.
 	UserID *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the distr config service get pool distribution params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DistrConfigServiceGetPoolDistributionParams) WithDefaults() *DistrConfigServiceGetPoolDistributionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the distr config service get pool distribution params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DistrConfigServiceGetPoolDistributionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the distr config service get pool distribution params
@@ -142,16 +157,17 @@ func (o *DistrConfigServiceGetPoolDistributionParams) WriteToRequest(r runtime.C
 
 		// query param userId
 		var qrUserID string
+
 		if o.UserID != nil {
 			qrUserID = *o.UserID
 		}
 		qUserID := qrUserID
 		if qUserID != "" {
+
 			if err := r.SetQueryParam("userId", qUserID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

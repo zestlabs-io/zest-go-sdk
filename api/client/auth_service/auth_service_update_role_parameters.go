@@ -18,56 +18,70 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewAuthServiceUpdateRoleParams creates a new AuthServiceUpdateRoleParams object
-// with the default values initialized.
+// NewAuthServiceUpdateRoleParams creates a new AuthServiceUpdateRoleParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewAuthServiceUpdateRoleParams() *AuthServiceUpdateRoleParams {
-	var ()
 	return &AuthServiceUpdateRoleParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAuthServiceUpdateRoleParamsWithTimeout creates a new AuthServiceUpdateRoleParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewAuthServiceUpdateRoleParamsWithTimeout(timeout time.Duration) *AuthServiceUpdateRoleParams {
-	var ()
 	return &AuthServiceUpdateRoleParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewAuthServiceUpdateRoleParamsWithContext creates a new AuthServiceUpdateRoleParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewAuthServiceUpdateRoleParamsWithContext(ctx context.Context) *AuthServiceUpdateRoleParams {
-	var ()
 	return &AuthServiceUpdateRoleParams{
-
 		Context: ctx,
 	}
 }
 
 // NewAuthServiceUpdateRoleParamsWithHTTPClient creates a new AuthServiceUpdateRoleParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewAuthServiceUpdateRoleParamsWithHTTPClient(client *http.Client) *AuthServiceUpdateRoleParams {
-	var ()
 	return &AuthServiceUpdateRoleParams{
 		HTTPClient: client,
 	}
 }
 
-/*AuthServiceUpdateRoleParams contains all the parameters to send to the API endpoint
-for the auth service update role operation typically these are written to a http.Request
+/* AuthServiceUpdateRoleParams contains all the parameters to send to the API endpoint
+   for the auth service update role operation.
+
+   Typically these are written to a http.Request.
 */
 type AuthServiceUpdateRoleParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.V1UpdateRoleRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the auth service update role params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceUpdateRoleParams) WithDefaults() *AuthServiceUpdateRoleParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the auth service update role params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceUpdateRoleParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the auth service update role params
@@ -121,7 +135,6 @@ func (o *AuthServiceUpdateRoleParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

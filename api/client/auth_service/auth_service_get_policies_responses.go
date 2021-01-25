@@ -52,7 +52,7 @@ func NewAuthServiceGetPoliciesOK() *AuthServiceGetPoliciesOK {
 	return &AuthServiceGetPoliciesOK{}
 }
 
-/*AuthServiceGetPoliciesOK handles this case with default header values.
+/* AuthServiceGetPoliciesOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type AuthServiceGetPoliciesOK struct {
 func (o *AuthServiceGetPoliciesOK) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/policies][%d] authServiceGetPoliciesOK  %+v", 200, o.Payload)
 }
-
 func (o *AuthServiceGetPoliciesOK) GetPayload() *models.V1GetPoliciesResponse {
 	return o.Payload
 }
@@ -85,7 +84,7 @@ func NewAuthServiceGetPoliciesNotFound() *AuthServiceGetPoliciesNotFound {
 	return &AuthServiceGetPoliciesNotFound{}
 }
 
-/*AuthServiceGetPoliciesNotFound handles this case with default header values.
+/* AuthServiceGetPoliciesNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -96,7 +95,6 @@ type AuthServiceGetPoliciesNotFound struct {
 func (o *AuthServiceGetPoliciesNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/policies][%d] authServiceGetPoliciesNotFound  %+v", 404, o.Payload)
 }
-
 func (o *AuthServiceGetPoliciesNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -118,7 +116,7 @@ func NewAuthServiceGetPoliciesDefault(code int) *AuthServiceGetPoliciesDefault {
 	}
 }
 
-/*AuthServiceGetPoliciesDefault handles this case with default header values.
+/* AuthServiceGetPoliciesDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -136,7 +134,6 @@ func (o *AuthServiceGetPoliciesDefault) Code() int {
 func (o *AuthServiceGetPoliciesDefault) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/policies][%d] AuthService_GetPolicies default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *AuthServiceGetPoliciesDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

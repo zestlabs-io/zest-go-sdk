@@ -16,56 +16,70 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewFunctionsServiceGetFunctionParams creates a new FunctionsServiceGetFunctionParams object
-// with the default values initialized.
+// NewFunctionsServiceGetFunctionParams creates a new FunctionsServiceGetFunctionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewFunctionsServiceGetFunctionParams() *FunctionsServiceGetFunctionParams {
-	var ()
 	return &FunctionsServiceGetFunctionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewFunctionsServiceGetFunctionParamsWithTimeout creates a new FunctionsServiceGetFunctionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewFunctionsServiceGetFunctionParamsWithTimeout(timeout time.Duration) *FunctionsServiceGetFunctionParams {
-	var ()
 	return &FunctionsServiceGetFunctionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewFunctionsServiceGetFunctionParamsWithContext creates a new FunctionsServiceGetFunctionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewFunctionsServiceGetFunctionParamsWithContext(ctx context.Context) *FunctionsServiceGetFunctionParams {
-	var ()
 	return &FunctionsServiceGetFunctionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewFunctionsServiceGetFunctionParamsWithHTTPClient creates a new FunctionsServiceGetFunctionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewFunctionsServiceGetFunctionParamsWithHTTPClient(client *http.Client) *FunctionsServiceGetFunctionParams {
-	var ()
 	return &FunctionsServiceGetFunctionParams{
 		HTTPClient: client,
 	}
 }
 
-/*FunctionsServiceGetFunctionParams contains all the parameters to send to the API endpoint
-for the functions service get function operation typically these are written to a http.Request
+/* FunctionsServiceGetFunctionParams contains all the parameters to send to the API endpoint
+   for the functions service get function operation.
+
+   Typically these are written to a http.Request.
 */
 type FunctionsServiceGetFunctionParams struct {
 
-	/*ID*/
+	// ID.
 	ID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the functions service get function params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *FunctionsServiceGetFunctionParams) WithDefaults() *FunctionsServiceGetFunctionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the functions service get function params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *FunctionsServiceGetFunctionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the functions service get function params

@@ -52,7 +52,7 @@ func NewDistrConfigServiceUnassignAppFromUsersOK() *DistrConfigServiceUnassignAp
 	return &DistrConfigServiceUnassignAppFromUsersOK{}
 }
 
-/*DistrConfigServiceUnassignAppFromUsersOK handles this case with default header values.
+/* DistrConfigServiceUnassignAppFromUsersOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type DistrConfigServiceUnassignAppFromUsersOK struct {
 func (o *DistrConfigServiceUnassignAppFromUsersOK) Error() string {
 	return fmt.Sprintf("[POST /api/distribution/v1/app/users/unassign][%d] distrConfigServiceUnassignAppFromUsersOK  %+v", 200, o.Payload)
 }
-
 func (o *DistrConfigServiceUnassignAppFromUsersOK) GetPayload() *models.DistrconfigUnassignAppFromUsersResponse {
 	return o.Payload
 }
@@ -85,7 +84,7 @@ func NewDistrConfigServiceUnassignAppFromUsersNotFound() *DistrConfigServiceUnas
 	return &DistrConfigServiceUnassignAppFromUsersNotFound{}
 }
 
-/*DistrConfigServiceUnassignAppFromUsersNotFound handles this case with default header values.
+/* DistrConfigServiceUnassignAppFromUsersNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -96,7 +95,6 @@ type DistrConfigServiceUnassignAppFromUsersNotFound struct {
 func (o *DistrConfigServiceUnassignAppFromUsersNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/distribution/v1/app/users/unassign][%d] distrConfigServiceUnassignAppFromUsersNotFound  %+v", 404, o.Payload)
 }
-
 func (o *DistrConfigServiceUnassignAppFromUsersNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -118,7 +116,7 @@ func NewDistrConfigServiceUnassignAppFromUsersDefault(code int) *DistrConfigServ
 	}
 }
 
-/*DistrConfigServiceUnassignAppFromUsersDefault handles this case with default header values.
+/* DistrConfigServiceUnassignAppFromUsersDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -136,7 +134,6 @@ func (o *DistrConfigServiceUnassignAppFromUsersDefault) Code() int {
 func (o *DistrConfigServiceUnassignAppFromUsersDefault) Error() string {
 	return fmt.Sprintf("[POST /api/distribution/v1/app/users/unassign][%d] DistrConfigService_UnassignAppFromUsers default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *DistrConfigServiceUnassignAppFromUsersDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

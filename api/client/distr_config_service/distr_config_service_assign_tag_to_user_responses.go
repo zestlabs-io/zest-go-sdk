@@ -52,7 +52,7 @@ func NewDistrConfigServiceAssignTagToUserOK() *DistrConfigServiceAssignTagToUser
 	return &DistrConfigServiceAssignTagToUserOK{}
 }
 
-/*DistrConfigServiceAssignTagToUserOK handles this case with default header values.
+/* DistrConfigServiceAssignTagToUserOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type DistrConfigServiceAssignTagToUserOK struct {
 func (o *DistrConfigServiceAssignTagToUserOK) Error() string {
 	return fmt.Sprintf("[POST /api/distribution/v1/user/tags/assign][%d] distrConfigServiceAssignTagToUserOK  %+v", 200, o.Payload)
 }
-
 func (o *DistrConfigServiceAssignTagToUserOK) GetPayload() models.DistrconfigAssignTagToUserResponse {
 	return o.Payload
 }
@@ -83,7 +82,7 @@ func NewDistrConfigServiceAssignTagToUserNotFound() *DistrConfigServiceAssignTag
 	return &DistrConfigServiceAssignTagToUserNotFound{}
 }
 
-/*DistrConfigServiceAssignTagToUserNotFound handles this case with default header values.
+/* DistrConfigServiceAssignTagToUserNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -94,7 +93,6 @@ type DistrConfigServiceAssignTagToUserNotFound struct {
 func (o *DistrConfigServiceAssignTagToUserNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/distribution/v1/user/tags/assign][%d] distrConfigServiceAssignTagToUserNotFound  %+v", 404, o.Payload)
 }
-
 func (o *DistrConfigServiceAssignTagToUserNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -116,7 +114,7 @@ func NewDistrConfigServiceAssignTagToUserDefault(code int) *DistrConfigServiceAs
 	}
 }
 
-/*DistrConfigServiceAssignTagToUserDefault handles this case with default header values.
+/* DistrConfigServiceAssignTagToUserDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -134,7 +132,6 @@ func (o *DistrConfigServiceAssignTagToUserDefault) Code() int {
 func (o *DistrConfigServiceAssignTagToUserDefault) Error() string {
 	return fmt.Sprintf("[POST /api/distribution/v1/user/tags/assign][%d] DistrConfigService_AssignTagToUser default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *DistrConfigServiceAssignTagToUserDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

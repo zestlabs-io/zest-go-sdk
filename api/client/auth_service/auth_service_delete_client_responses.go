@@ -70,7 +70,7 @@ func NewAuthServiceDeleteClientOK() *AuthServiceDeleteClientOK {
 	return &AuthServiceDeleteClientOK{}
 }
 
-/*AuthServiceDeleteClientOK handles this case with default header values.
+/* AuthServiceDeleteClientOK describes a response with status code 200, with default header values.
 
 Returned when Client is successfuly deleted.
 */
@@ -81,7 +81,6 @@ type AuthServiceDeleteClientOK struct {
 func (o *AuthServiceDeleteClientOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/auth/v1/client/{id}][%d] authServiceDeleteClientOK  %+v", 200, o.Payload)
 }
-
 func (o *AuthServiceDeleteClientOK) GetPayload() models.V1DeleteClientResponse {
 	return o.Payload
 }
@@ -101,7 +100,7 @@ func NewAuthServiceDeleteClientBadRequest() *AuthServiceDeleteClientBadRequest {
 	return &AuthServiceDeleteClientBadRequest{}
 }
 
-/*AuthServiceDeleteClientBadRequest handles this case with default header values.
+/* AuthServiceDeleteClientBadRequest describes a response with status code 400, with default header values.
 
 Returned when no valid client ID is provided in the request, or the account has already has 20 clients.
 */
@@ -112,7 +111,6 @@ type AuthServiceDeleteClientBadRequest struct {
 func (o *AuthServiceDeleteClientBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /api/auth/v1/client/{id}][%d] authServiceDeleteClientBadRequest  %+v", 400, o.Payload)
 }
-
 func (o *AuthServiceDeleteClientBadRequest) GetPayload() interface{} {
 	return o.Payload
 }
@@ -132,7 +130,7 @@ func NewAuthServiceDeleteClientForbidden() *AuthServiceDeleteClientForbidden {
 	return &AuthServiceDeleteClientForbidden{}
 }
 
-/*AuthServiceDeleteClientForbidden handles this case with default header values.
+/* AuthServiceDeleteClientForbidden describes a response with status code 403, with default header values.
 
 Returned when the caller is not allowed to perform this call.
 */
@@ -143,7 +141,6 @@ type AuthServiceDeleteClientForbidden struct {
 func (o *AuthServiceDeleteClientForbidden) Error() string {
 	return fmt.Sprintf("[DELETE /api/auth/v1/client/{id}][%d] authServiceDeleteClientForbidden  %+v", 403, o.Payload)
 }
-
 func (o *AuthServiceDeleteClientForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -163,7 +160,7 @@ func NewAuthServiceDeleteClientNotFound() *AuthServiceDeleteClientNotFound {
 	return &AuthServiceDeleteClientNotFound{}
 }
 
-/*AuthServiceDeleteClientNotFound handles this case with default header values.
+/* AuthServiceDeleteClientNotFound describes a response with status code 404, with default header values.
 
 Returned when a user with the provided ID could not be found within the scope of the account.
 */
@@ -174,7 +171,6 @@ type AuthServiceDeleteClientNotFound struct {
 func (o *AuthServiceDeleteClientNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/auth/v1/client/{id}][%d] authServiceDeleteClientNotFound  %+v", 404, o.Payload)
 }
-
 func (o *AuthServiceDeleteClientNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -194,7 +190,7 @@ func NewAuthServiceDeleteClientInternalServerError() *AuthServiceDeleteClientInt
 	return &AuthServiceDeleteClientInternalServerError{}
 }
 
-/*AuthServiceDeleteClientInternalServerError handles this case with default header values.
+/* AuthServiceDeleteClientInternalServerError describes a response with status code 500, with default header values.
 
 Returned whenever an internall error occurs.
 */
@@ -205,7 +201,6 @@ type AuthServiceDeleteClientInternalServerError struct {
 func (o *AuthServiceDeleteClientInternalServerError) Error() string {
 	return fmt.Sprintf("[DELETE /api/auth/v1/client/{id}][%d] authServiceDeleteClientInternalServerError  %+v", 500, o.Payload)
 }
-
 func (o *AuthServiceDeleteClientInternalServerError) GetPayload() interface{} {
 	return o.Payload
 }
@@ -227,7 +222,7 @@ func NewAuthServiceDeleteClientDefault(code int) *AuthServiceDeleteClientDefault
 	}
 }
 
-/*AuthServiceDeleteClientDefault handles this case with default header values.
+/* AuthServiceDeleteClientDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -245,7 +240,6 @@ func (o *AuthServiceDeleteClientDefault) Code() int {
 func (o *AuthServiceDeleteClientDefault) Error() string {
 	return fmt.Sprintf("[DELETE /api/auth/v1/client/{id}][%d] AuthService_DeleteClient default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *AuthServiceDeleteClientDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

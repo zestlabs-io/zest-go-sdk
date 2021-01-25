@@ -52,7 +52,7 @@ func NewDistrConfigServiceGetAppOK() *DistrConfigServiceGetAppOK {
 	return &DistrConfigServiceGetAppOK{}
 }
 
-/*DistrConfigServiceGetAppOK handles this case with default header values.
+/* DistrConfigServiceGetAppOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type DistrConfigServiceGetAppOK struct {
 func (o *DistrConfigServiceGetAppOK) Error() string {
 	return fmt.Sprintf("[GET /api/distribution/v1/app/{id}][%d] distrConfigServiceGetAppOK  %+v", 200, o.Payload)
 }
-
 func (o *DistrConfigServiceGetAppOK) GetPayload() *models.DistrconfigGetAppResponse {
 	return o.Payload
 }
@@ -85,7 +84,7 @@ func NewDistrConfigServiceGetAppNotFound() *DistrConfigServiceGetAppNotFound {
 	return &DistrConfigServiceGetAppNotFound{}
 }
 
-/*DistrConfigServiceGetAppNotFound handles this case with default header values.
+/* DistrConfigServiceGetAppNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -96,7 +95,6 @@ type DistrConfigServiceGetAppNotFound struct {
 func (o *DistrConfigServiceGetAppNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/distribution/v1/app/{id}][%d] distrConfigServiceGetAppNotFound  %+v", 404, o.Payload)
 }
-
 func (o *DistrConfigServiceGetAppNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -118,7 +116,7 @@ func NewDistrConfigServiceGetAppDefault(code int) *DistrConfigServiceGetAppDefau
 	}
 }
 
-/*DistrConfigServiceGetAppDefault handles this case with default header values.
+/* DistrConfigServiceGetAppDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -136,7 +134,6 @@ func (o *DistrConfigServiceGetAppDefault) Code() int {
 func (o *DistrConfigServiceGetAppDefault) Error() string {
 	return fmt.Sprintf("[GET /api/distribution/v1/app/{id}][%d] DistrConfigService_GetApp default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *DistrConfigServiceGetAppDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

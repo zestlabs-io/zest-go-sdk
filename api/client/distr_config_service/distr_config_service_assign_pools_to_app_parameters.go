@@ -18,56 +18,70 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewDistrConfigServiceAssignPoolsToAppParams creates a new DistrConfigServiceAssignPoolsToAppParams object
-// with the default values initialized.
+// NewDistrConfigServiceAssignPoolsToAppParams creates a new DistrConfigServiceAssignPoolsToAppParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDistrConfigServiceAssignPoolsToAppParams() *DistrConfigServiceAssignPoolsToAppParams {
-	var ()
 	return &DistrConfigServiceAssignPoolsToAppParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDistrConfigServiceAssignPoolsToAppParamsWithTimeout creates a new DistrConfigServiceAssignPoolsToAppParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDistrConfigServiceAssignPoolsToAppParamsWithTimeout(timeout time.Duration) *DistrConfigServiceAssignPoolsToAppParams {
-	var ()
 	return &DistrConfigServiceAssignPoolsToAppParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDistrConfigServiceAssignPoolsToAppParamsWithContext creates a new DistrConfigServiceAssignPoolsToAppParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDistrConfigServiceAssignPoolsToAppParamsWithContext(ctx context.Context) *DistrConfigServiceAssignPoolsToAppParams {
-	var ()
 	return &DistrConfigServiceAssignPoolsToAppParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDistrConfigServiceAssignPoolsToAppParamsWithHTTPClient creates a new DistrConfigServiceAssignPoolsToAppParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDistrConfigServiceAssignPoolsToAppParamsWithHTTPClient(client *http.Client) *DistrConfigServiceAssignPoolsToAppParams {
-	var ()
 	return &DistrConfigServiceAssignPoolsToAppParams{
 		HTTPClient: client,
 	}
 }
 
-/*DistrConfigServiceAssignPoolsToAppParams contains all the parameters to send to the API endpoint
-for the distr config service assign pools to app operation typically these are written to a http.Request
+/* DistrConfigServiceAssignPoolsToAppParams contains all the parameters to send to the API endpoint
+   for the distr config service assign pools to app operation.
+
+   Typically these are written to a http.Request.
 */
 type DistrConfigServiceAssignPoolsToAppParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.DistrconfigAssignPoolsToAppRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the distr config service assign pools to app params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DistrConfigServiceAssignPoolsToAppParams) WithDefaults() *DistrConfigServiceAssignPoolsToAppParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the distr config service assign pools to app params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DistrConfigServiceAssignPoolsToAppParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the distr config service assign pools to app params
@@ -121,7 +135,6 @@ func (o *DistrConfigServiceAssignPoolsToAppParams) WriteToRequest(r runtime.Clie
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

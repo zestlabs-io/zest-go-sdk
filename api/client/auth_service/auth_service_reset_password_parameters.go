@@ -18,56 +18,70 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewAuthServiceResetPasswordParams creates a new AuthServiceResetPasswordParams object
-// with the default values initialized.
+// NewAuthServiceResetPasswordParams creates a new AuthServiceResetPasswordParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewAuthServiceResetPasswordParams() *AuthServiceResetPasswordParams {
-	var ()
 	return &AuthServiceResetPasswordParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAuthServiceResetPasswordParamsWithTimeout creates a new AuthServiceResetPasswordParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewAuthServiceResetPasswordParamsWithTimeout(timeout time.Duration) *AuthServiceResetPasswordParams {
-	var ()
 	return &AuthServiceResetPasswordParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewAuthServiceResetPasswordParamsWithContext creates a new AuthServiceResetPasswordParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewAuthServiceResetPasswordParamsWithContext(ctx context.Context) *AuthServiceResetPasswordParams {
-	var ()
 	return &AuthServiceResetPasswordParams{
-
 		Context: ctx,
 	}
 }
 
 // NewAuthServiceResetPasswordParamsWithHTTPClient creates a new AuthServiceResetPasswordParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewAuthServiceResetPasswordParamsWithHTTPClient(client *http.Client) *AuthServiceResetPasswordParams {
-	var ()
 	return &AuthServiceResetPasswordParams{
 		HTTPClient: client,
 	}
 }
 
-/*AuthServiceResetPasswordParams contains all the parameters to send to the API endpoint
-for the auth service reset password operation typically these are written to a http.Request
+/* AuthServiceResetPasswordParams contains all the parameters to send to the API endpoint
+   for the auth service reset password operation.
+
+   Typically these are written to a http.Request.
 */
 type AuthServiceResetPasswordParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.V1ResetPasswordRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the auth service reset password params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceResetPasswordParams) WithDefaults() *AuthServiceResetPasswordParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the auth service reset password params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceResetPasswordParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the auth service reset password params
@@ -121,7 +135,6 @@ func (o *AuthServiceResetPasswordParams) WriteToRequest(r runtime.ClientRequest,
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

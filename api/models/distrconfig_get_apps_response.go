@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -37,7 +38,6 @@ func (m *DistrconfigGetAppsResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DistrconfigGetAppsResponse) validateApps(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Apps) { // not required
 		return nil
 	}
@@ -49,6 +49,38 @@ func (m *DistrconfigGetAppsResponse) validateApps(formats strfmt.Registry) error
 
 		if m.Apps[i] != nil {
 			if err := m.Apps[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("apps" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this distrconfig get apps response based on the context it is used
+func (m *DistrconfigGetAppsResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateApps(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DistrconfigGetAppsResponse) contextValidateApps(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Apps); i++ {
+
+		if m.Apps[i] != nil {
+			if err := m.Apps[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("apps" + "." + strconv.Itoa(i))
 				}

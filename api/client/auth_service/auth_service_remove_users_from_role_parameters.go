@@ -18,56 +18,70 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewAuthServiceRemoveUsersFromRoleParams creates a new AuthServiceRemoveUsersFromRoleParams object
-// with the default values initialized.
+// NewAuthServiceRemoveUsersFromRoleParams creates a new AuthServiceRemoveUsersFromRoleParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewAuthServiceRemoveUsersFromRoleParams() *AuthServiceRemoveUsersFromRoleParams {
-	var ()
 	return &AuthServiceRemoveUsersFromRoleParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAuthServiceRemoveUsersFromRoleParamsWithTimeout creates a new AuthServiceRemoveUsersFromRoleParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewAuthServiceRemoveUsersFromRoleParamsWithTimeout(timeout time.Duration) *AuthServiceRemoveUsersFromRoleParams {
-	var ()
 	return &AuthServiceRemoveUsersFromRoleParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewAuthServiceRemoveUsersFromRoleParamsWithContext creates a new AuthServiceRemoveUsersFromRoleParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewAuthServiceRemoveUsersFromRoleParamsWithContext(ctx context.Context) *AuthServiceRemoveUsersFromRoleParams {
-	var ()
 	return &AuthServiceRemoveUsersFromRoleParams{
-
 		Context: ctx,
 	}
 }
 
 // NewAuthServiceRemoveUsersFromRoleParamsWithHTTPClient creates a new AuthServiceRemoveUsersFromRoleParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewAuthServiceRemoveUsersFromRoleParamsWithHTTPClient(client *http.Client) *AuthServiceRemoveUsersFromRoleParams {
-	var ()
 	return &AuthServiceRemoveUsersFromRoleParams{
 		HTTPClient: client,
 	}
 }
 
-/*AuthServiceRemoveUsersFromRoleParams contains all the parameters to send to the API endpoint
-for the auth service remove users from role operation typically these are written to a http.Request
+/* AuthServiceRemoveUsersFromRoleParams contains all the parameters to send to the API endpoint
+   for the auth service remove users from role operation.
+
+   Typically these are written to a http.Request.
 */
 type AuthServiceRemoveUsersFromRoleParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.V1RemoveUsersFromRoleRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the auth service remove users from role params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceRemoveUsersFromRoleParams) WithDefaults() *AuthServiceRemoveUsersFromRoleParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the auth service remove users from role params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceRemoveUsersFromRoleParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the auth service remove users from role params
@@ -121,7 +135,6 @@ func (o *AuthServiceRemoveUsersFromRoleParams) WriteToRequest(r runtime.ClientRe
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

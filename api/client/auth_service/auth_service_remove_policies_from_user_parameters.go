@@ -18,56 +18,70 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewAuthServiceRemovePoliciesFromUserParams creates a new AuthServiceRemovePoliciesFromUserParams object
-// with the default values initialized.
+// NewAuthServiceRemovePoliciesFromUserParams creates a new AuthServiceRemovePoliciesFromUserParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewAuthServiceRemovePoliciesFromUserParams() *AuthServiceRemovePoliciesFromUserParams {
-	var ()
 	return &AuthServiceRemovePoliciesFromUserParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAuthServiceRemovePoliciesFromUserParamsWithTimeout creates a new AuthServiceRemovePoliciesFromUserParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewAuthServiceRemovePoliciesFromUserParamsWithTimeout(timeout time.Duration) *AuthServiceRemovePoliciesFromUserParams {
-	var ()
 	return &AuthServiceRemovePoliciesFromUserParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewAuthServiceRemovePoliciesFromUserParamsWithContext creates a new AuthServiceRemovePoliciesFromUserParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewAuthServiceRemovePoliciesFromUserParamsWithContext(ctx context.Context) *AuthServiceRemovePoliciesFromUserParams {
-	var ()
 	return &AuthServiceRemovePoliciesFromUserParams{
-
 		Context: ctx,
 	}
 }
 
 // NewAuthServiceRemovePoliciesFromUserParamsWithHTTPClient creates a new AuthServiceRemovePoliciesFromUserParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewAuthServiceRemovePoliciesFromUserParamsWithHTTPClient(client *http.Client) *AuthServiceRemovePoliciesFromUserParams {
-	var ()
 	return &AuthServiceRemovePoliciesFromUserParams{
 		HTTPClient: client,
 	}
 }
 
-/*AuthServiceRemovePoliciesFromUserParams contains all the parameters to send to the API endpoint
-for the auth service remove policies from user operation typically these are written to a http.Request
+/* AuthServiceRemovePoliciesFromUserParams contains all the parameters to send to the API endpoint
+   for the auth service remove policies from user operation.
+
+   Typically these are written to a http.Request.
 */
 type AuthServiceRemovePoliciesFromUserParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.V1RemovePoliciesFromUserRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the auth service remove policies from user params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceRemovePoliciesFromUserParams) WithDefaults() *AuthServiceRemovePoliciesFromUserParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the auth service remove policies from user params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceRemovePoliciesFromUserParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the auth service remove policies from user params
@@ -121,7 +135,6 @@ func (o *AuthServiceRemovePoliciesFromUserParams) WriteToRequest(r runtime.Clien
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

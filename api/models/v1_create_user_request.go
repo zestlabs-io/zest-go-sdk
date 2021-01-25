@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -23,10 +25,18 @@ type V1CreateUserRequest struct {
 
 	// last name
 	LastName string `json:"lastName,omitempty"`
+
+	// username
+	Username string `json:"username,omitempty"`
 }
 
 // Validate validates this v1 create user request
 func (m *V1CreateUserRequest) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this v1 create user request based on context it is used
+func (m *V1CreateUserRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

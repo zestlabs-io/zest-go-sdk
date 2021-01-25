@@ -52,7 +52,7 @@ func NewAuthServiceCheckTokenAuthOK() *AuthServiceCheckTokenAuthOK {
 	return &AuthServiceCheckTokenAuthOK{}
 }
 
-/*AuthServiceCheckTokenAuthOK handles this case with default header values.
+/* AuthServiceCheckTokenAuthOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type AuthServiceCheckTokenAuthOK struct {
 func (o *AuthServiceCheckTokenAuthOK) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/check-token][%d] authServiceCheckTokenAuthOK  %+v", 200, o.Payload)
 }
-
 func (o *AuthServiceCheckTokenAuthOK) GetPayload() *models.V1CheckTokenAuthResponse {
 	return o.Payload
 }
@@ -85,7 +84,7 @@ func NewAuthServiceCheckTokenAuthNotFound() *AuthServiceCheckTokenAuthNotFound {
 	return &AuthServiceCheckTokenAuthNotFound{}
 }
 
-/*AuthServiceCheckTokenAuthNotFound handles this case with default header values.
+/* AuthServiceCheckTokenAuthNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -96,7 +95,6 @@ type AuthServiceCheckTokenAuthNotFound struct {
 func (o *AuthServiceCheckTokenAuthNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/check-token][%d] authServiceCheckTokenAuthNotFound  %+v", 404, o.Payload)
 }
-
 func (o *AuthServiceCheckTokenAuthNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -118,7 +116,7 @@ func NewAuthServiceCheckTokenAuthDefault(code int) *AuthServiceCheckTokenAuthDef
 	}
 }
 
-/*AuthServiceCheckTokenAuthDefault handles this case with default header values.
+/* AuthServiceCheckTokenAuthDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -136,7 +134,6 @@ func (o *AuthServiceCheckTokenAuthDefault) Code() int {
 func (o *AuthServiceCheckTokenAuthDefault) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/check-token][%d] AuthService_CheckTokenAuth default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *AuthServiceCheckTokenAuthDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

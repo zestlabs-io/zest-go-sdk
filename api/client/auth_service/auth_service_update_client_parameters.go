@@ -18,58 +18,73 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewAuthServiceUpdateClientParams creates a new AuthServiceUpdateClientParams object
-// with the default values initialized.
+// NewAuthServiceUpdateClientParams creates a new AuthServiceUpdateClientParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewAuthServiceUpdateClientParams() *AuthServiceUpdateClientParams {
-	var ()
 	return &AuthServiceUpdateClientParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAuthServiceUpdateClientParamsWithTimeout creates a new AuthServiceUpdateClientParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewAuthServiceUpdateClientParamsWithTimeout(timeout time.Duration) *AuthServiceUpdateClientParams {
-	var ()
 	return &AuthServiceUpdateClientParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewAuthServiceUpdateClientParamsWithContext creates a new AuthServiceUpdateClientParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewAuthServiceUpdateClientParamsWithContext(ctx context.Context) *AuthServiceUpdateClientParams {
-	var ()
 	return &AuthServiceUpdateClientParams{
-
 		Context: ctx,
 	}
 }
 
 // NewAuthServiceUpdateClientParamsWithHTTPClient creates a new AuthServiceUpdateClientParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewAuthServiceUpdateClientParamsWithHTTPClient(client *http.Client) *AuthServiceUpdateClientParams {
-	var ()
 	return &AuthServiceUpdateClientParams{
 		HTTPClient: client,
 	}
 }
 
-/*AuthServiceUpdateClientParams contains all the parameters to send to the API endpoint
-for the auth service update client operation typically these are written to a http.Request
+/* AuthServiceUpdateClientParams contains all the parameters to send to the API endpoint
+   for the auth service update client operation.
+
+   Typically these are written to a http.Request.
 */
 type AuthServiceUpdateClientParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.V1UpdateClientRequest
-	/*ID*/
+
+	// ID.
 	ID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the auth service update client params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceUpdateClientParams) WithDefaults() *AuthServiceUpdateClientParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the auth service update client params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceUpdateClientParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the auth service update client params
@@ -134,7 +149,6 @@ func (o *AuthServiceUpdateClientParams) WriteToRequest(r runtime.ClientRequest, 
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -18,61 +18,76 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewPoolDataServiceBulkUpdateParams creates a new PoolDataServiceBulkUpdateParams object
-// with the default values initialized.
+// NewPoolDataServiceBulkUpdateParams creates a new PoolDataServiceBulkUpdateParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPoolDataServiceBulkUpdateParams() *PoolDataServiceBulkUpdateParams {
-	var ()
 	return &PoolDataServiceBulkUpdateParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPoolDataServiceBulkUpdateParamsWithTimeout creates a new PoolDataServiceBulkUpdateParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPoolDataServiceBulkUpdateParamsWithTimeout(timeout time.Duration) *PoolDataServiceBulkUpdateParams {
-	var ()
 	return &PoolDataServiceBulkUpdateParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPoolDataServiceBulkUpdateParamsWithContext creates a new PoolDataServiceBulkUpdateParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPoolDataServiceBulkUpdateParamsWithContext(ctx context.Context) *PoolDataServiceBulkUpdateParams {
-	var ()
 	return &PoolDataServiceBulkUpdateParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPoolDataServiceBulkUpdateParamsWithHTTPClient creates a new PoolDataServiceBulkUpdateParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPoolDataServiceBulkUpdateParamsWithHTTPClient(client *http.Client) *PoolDataServiceBulkUpdateParams {
-	var ()
 	return &PoolDataServiceBulkUpdateParams{
 		HTTPClient: client,
 	}
 }
 
-/*PoolDataServiceBulkUpdateParams contains all the parameters to send to the API endpoint
-for the pool data service bulk update operation typically these are written to a http.Request
+/* PoolDataServiceBulkUpdateParams contains all the parameters to send to the API endpoint
+   for the pool data service bulk update operation.
+
+   Typically these are written to a http.Request.
 */
 type PoolDataServiceBulkUpdateParams struct {
 
-	/*Body*/
+	// Body.
 	Body models.DataBulkUpdateRequest
-	/*PoolID
-	  Pool ID (e.g. orders)
 
+	/* PoolID.
+
+	   Pool ID (e.g. orders)
 	*/
 	PoolID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the pool data service bulk update params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PoolDataServiceBulkUpdateParams) WithDefaults() *PoolDataServiceBulkUpdateParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the pool data service bulk update params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PoolDataServiceBulkUpdateParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the pool data service bulk update params
@@ -137,7 +152,6 @@ func (o *PoolDataServiceBulkUpdateParams) WriteToRequest(r runtime.ClientRequest
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

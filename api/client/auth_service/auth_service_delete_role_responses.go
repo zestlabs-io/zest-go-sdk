@@ -52,7 +52,7 @@ func NewAuthServiceDeleteRoleOK() *AuthServiceDeleteRoleOK {
 	return &AuthServiceDeleteRoleOK{}
 }
 
-/*AuthServiceDeleteRoleOK handles this case with default header values.
+/* AuthServiceDeleteRoleOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type AuthServiceDeleteRoleOK struct {
 func (o *AuthServiceDeleteRoleOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/auth/v1/role/{roleID}][%d] authServiceDeleteRoleOK  %+v", 200, o.Payload)
 }
-
 func (o *AuthServiceDeleteRoleOK) GetPayload() models.V1DeleteRoleResponse {
 	return o.Payload
 }
@@ -83,7 +82,7 @@ func NewAuthServiceDeleteRoleNotFound() *AuthServiceDeleteRoleNotFound {
 	return &AuthServiceDeleteRoleNotFound{}
 }
 
-/*AuthServiceDeleteRoleNotFound handles this case with default header values.
+/* AuthServiceDeleteRoleNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -94,7 +93,6 @@ type AuthServiceDeleteRoleNotFound struct {
 func (o *AuthServiceDeleteRoleNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/auth/v1/role/{roleID}][%d] authServiceDeleteRoleNotFound  %+v", 404, o.Payload)
 }
-
 func (o *AuthServiceDeleteRoleNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -116,7 +114,7 @@ func NewAuthServiceDeleteRoleDefault(code int) *AuthServiceDeleteRoleDefault {
 	}
 }
 
-/*AuthServiceDeleteRoleDefault handles this case with default header values.
+/* AuthServiceDeleteRoleDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -134,7 +132,6 @@ func (o *AuthServiceDeleteRoleDefault) Code() int {
 func (o *AuthServiceDeleteRoleDefault) Error() string {
 	return fmt.Sprintf("[DELETE /api/auth/v1/role/{roleID}][%d] AuthService_DeleteRole default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *AuthServiceDeleteRoleDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

@@ -16,52 +16,66 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDistrConfigServiceGetPoolsParams creates a new DistrConfigServiceGetPoolsParams object
-// with the default values initialized.
+// NewDistrConfigServiceGetPoolsParams creates a new DistrConfigServiceGetPoolsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDistrConfigServiceGetPoolsParams() *DistrConfigServiceGetPoolsParams {
-
 	return &DistrConfigServiceGetPoolsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDistrConfigServiceGetPoolsParamsWithTimeout creates a new DistrConfigServiceGetPoolsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDistrConfigServiceGetPoolsParamsWithTimeout(timeout time.Duration) *DistrConfigServiceGetPoolsParams {
-
 	return &DistrConfigServiceGetPoolsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDistrConfigServiceGetPoolsParamsWithContext creates a new DistrConfigServiceGetPoolsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDistrConfigServiceGetPoolsParamsWithContext(ctx context.Context) *DistrConfigServiceGetPoolsParams {
-
 	return &DistrConfigServiceGetPoolsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDistrConfigServiceGetPoolsParamsWithHTTPClient creates a new DistrConfigServiceGetPoolsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDistrConfigServiceGetPoolsParamsWithHTTPClient(client *http.Client) *DistrConfigServiceGetPoolsParams {
-
 	return &DistrConfigServiceGetPoolsParams{
 		HTTPClient: client,
 	}
 }
 
-/*DistrConfigServiceGetPoolsParams contains all the parameters to send to the API endpoint
-for the distr config service get pools operation typically these are written to a http.Request
+/* DistrConfigServiceGetPoolsParams contains all the parameters to send to the API endpoint
+   for the distr config service get pools operation.
+
+   Typically these are written to a http.Request.
 */
 type DistrConfigServiceGetPoolsParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the distr config service get pools params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DistrConfigServiceGetPoolsParams) WithDefaults() *DistrConfigServiceGetPoolsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the distr config service get pools params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DistrConfigServiceGetPoolsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the distr config service get pools params

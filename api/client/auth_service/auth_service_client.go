@@ -35,6 +35,8 @@ type ClientService interface {
 
 	AuthServiceCheckTokenAuth(params *AuthServiceCheckTokenAuthParams) (*AuthServiceCheckTokenAuthOK, error)
 
+	AuthServiceCheckUsernameExists(params *AuthServiceCheckUsernameExistsParams) (*AuthServiceCheckUsernameExistsOK, error)
+
 	AuthServiceCreateAccessKey(params *AuthServiceCreateAccessKeyParams) (*AuthServiceCreateAccessKeyOK, error)
 
 	AuthServiceCreateClient(params *AuthServiceCreateClientParams) (*AuthServiceCreateClientOK, error)
@@ -268,6 +270,39 @@ func (a *Client) AuthServiceCheckTokenAuth(params *AuthServiceCheckTokenAuthPara
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*AuthServiceCheckTokenAuthDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  AuthServiceCheckUsernameExists auth service check username exists API
+*/
+func (a *Client) AuthServiceCheckUsernameExists(params *AuthServiceCheckUsernameExistsParams) (*AuthServiceCheckUsernameExistsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAuthServiceCheckUsernameExistsParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "AuthService_CheckUsernameExists",
+		Method:             "POST",
+		PathPattern:        "/api/auth/v1/check-username-exists",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AuthServiceCheckUsernameExistsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*AuthServiceCheckUsernameExistsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*AuthServiceCheckUsernameExistsDefault)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 

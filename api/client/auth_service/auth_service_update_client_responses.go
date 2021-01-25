@@ -70,7 +70,7 @@ func NewAuthServiceUpdateClientOK() *AuthServiceUpdateClientOK {
 	return &AuthServiceUpdateClientOK{}
 }
 
-/*AuthServiceUpdateClientOK handles this case with default header values.
+/* AuthServiceUpdateClientOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -81,7 +81,6 @@ type AuthServiceUpdateClientOK struct {
 func (o *AuthServiceUpdateClientOK) Error() string {
 	return fmt.Sprintf("[PUT /api/auth/v1/client/{id}][%d] authServiceUpdateClientOK  %+v", 200, o.Payload)
 }
-
 func (o *AuthServiceUpdateClientOK) GetPayload() *models.V1UpdateClientResponse {
 	return o.Payload
 }
@@ -103,7 +102,7 @@ func NewAuthServiceUpdateClientBadRequest() *AuthServiceUpdateClientBadRequest {
 	return &AuthServiceUpdateClientBadRequest{}
 }
 
-/*AuthServiceUpdateClientBadRequest handles this case with default header values.
+/* AuthServiceUpdateClientBadRequest describes a response with status code 400, with default header values.
 
 Returned when no valid client ID is provided in the request.
 */
@@ -114,7 +113,6 @@ type AuthServiceUpdateClientBadRequest struct {
 func (o *AuthServiceUpdateClientBadRequest) Error() string {
 	return fmt.Sprintf("[PUT /api/auth/v1/client/{id}][%d] authServiceUpdateClientBadRequest  %+v", 400, o.Payload)
 }
-
 func (o *AuthServiceUpdateClientBadRequest) GetPayload() interface{} {
 	return o.Payload
 }
@@ -134,7 +132,7 @@ func NewAuthServiceUpdateClientForbidden() *AuthServiceUpdateClientForbidden {
 	return &AuthServiceUpdateClientForbidden{}
 }
 
-/*AuthServiceUpdateClientForbidden handles this case with default header values.
+/* AuthServiceUpdateClientForbidden describes a response with status code 403, with default header values.
 
 Returned when the caller is not allowed to perform this call.
 */
@@ -145,7 +143,6 @@ type AuthServiceUpdateClientForbidden struct {
 func (o *AuthServiceUpdateClientForbidden) Error() string {
 	return fmt.Sprintf("[PUT /api/auth/v1/client/{id}][%d] authServiceUpdateClientForbidden  %+v", 403, o.Payload)
 }
-
 func (o *AuthServiceUpdateClientForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -165,7 +162,7 @@ func NewAuthServiceUpdateClientNotFound() *AuthServiceUpdateClientNotFound {
 	return &AuthServiceUpdateClientNotFound{}
 }
 
-/*AuthServiceUpdateClientNotFound handles this case with default header values.
+/* AuthServiceUpdateClientNotFound describes a response with status code 404, with default header values.
 
 Returned when a client ID could not be found within the scope of the account.
 */
@@ -176,7 +173,6 @@ type AuthServiceUpdateClientNotFound struct {
 func (o *AuthServiceUpdateClientNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/auth/v1/client/{id}][%d] authServiceUpdateClientNotFound  %+v", 404, o.Payload)
 }
-
 func (o *AuthServiceUpdateClientNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -196,7 +192,7 @@ func NewAuthServiceUpdateClientInternalServerError() *AuthServiceUpdateClientInt
 	return &AuthServiceUpdateClientInternalServerError{}
 }
 
-/*AuthServiceUpdateClientInternalServerError handles this case with default header values.
+/* AuthServiceUpdateClientInternalServerError describes a response with status code 500, with default header values.
 
 Returned whenever an internall error occurs.
 */
@@ -207,7 +203,6 @@ type AuthServiceUpdateClientInternalServerError struct {
 func (o *AuthServiceUpdateClientInternalServerError) Error() string {
 	return fmt.Sprintf("[PUT /api/auth/v1/client/{id}][%d] authServiceUpdateClientInternalServerError  %+v", 500, o.Payload)
 }
-
 func (o *AuthServiceUpdateClientInternalServerError) GetPayload() interface{} {
 	return o.Payload
 }
@@ -229,7 +224,7 @@ func NewAuthServiceUpdateClientDefault(code int) *AuthServiceUpdateClientDefault
 	}
 }
 
-/*AuthServiceUpdateClientDefault handles this case with default header values.
+/* AuthServiceUpdateClientDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -247,7 +242,6 @@ func (o *AuthServiceUpdateClientDefault) Code() int {
 func (o *AuthServiceUpdateClientDefault) Error() string {
 	return fmt.Sprintf("[PUT /api/auth/v1/client/{id}][%d] AuthService_UpdateClient default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *AuthServiceUpdateClientDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

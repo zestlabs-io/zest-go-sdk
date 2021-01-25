@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -21,6 +23,11 @@ type DistrconfigAssignAppToUsersResponse struct {
 
 // Validate validates this distrconfig assign app to users response
 func (m *DistrconfigAssignAppToUsersResponse) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this distrconfig assign app to users response based on context it is used
+func (m *DistrconfigAssignAppToUsersResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

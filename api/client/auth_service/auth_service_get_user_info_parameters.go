@@ -16,52 +16,66 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewAuthServiceGetUserInfoParams creates a new AuthServiceGetUserInfoParams object
-// with the default values initialized.
+// NewAuthServiceGetUserInfoParams creates a new AuthServiceGetUserInfoParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewAuthServiceGetUserInfoParams() *AuthServiceGetUserInfoParams {
-
 	return &AuthServiceGetUserInfoParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAuthServiceGetUserInfoParamsWithTimeout creates a new AuthServiceGetUserInfoParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewAuthServiceGetUserInfoParamsWithTimeout(timeout time.Duration) *AuthServiceGetUserInfoParams {
-
 	return &AuthServiceGetUserInfoParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewAuthServiceGetUserInfoParamsWithContext creates a new AuthServiceGetUserInfoParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewAuthServiceGetUserInfoParamsWithContext(ctx context.Context) *AuthServiceGetUserInfoParams {
-
 	return &AuthServiceGetUserInfoParams{
-
 		Context: ctx,
 	}
 }
 
 // NewAuthServiceGetUserInfoParamsWithHTTPClient creates a new AuthServiceGetUserInfoParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewAuthServiceGetUserInfoParamsWithHTTPClient(client *http.Client) *AuthServiceGetUserInfoParams {
-
 	return &AuthServiceGetUserInfoParams{
 		HTTPClient: client,
 	}
 }
 
-/*AuthServiceGetUserInfoParams contains all the parameters to send to the API endpoint
-for the auth service get user info operation typically these are written to a http.Request
+/* AuthServiceGetUserInfoParams contains all the parameters to send to the API endpoint
+   for the auth service get user info operation.
+
+   Typically these are written to a http.Request.
 */
 type AuthServiceGetUserInfoParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the auth service get user info params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceGetUserInfoParams) WithDefaults() *AuthServiceGetUserInfoParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the auth service get user info params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceGetUserInfoParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the auth service get user info params

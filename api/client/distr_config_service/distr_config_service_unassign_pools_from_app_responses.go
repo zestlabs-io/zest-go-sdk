@@ -52,7 +52,7 @@ func NewDistrConfigServiceUnassignPoolsFromAppOK() *DistrConfigServiceUnassignPo
 	return &DistrConfigServiceUnassignPoolsFromAppOK{}
 }
 
-/*DistrConfigServiceUnassignPoolsFromAppOK handles this case with default header values.
+/* DistrConfigServiceUnassignPoolsFromAppOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type DistrConfigServiceUnassignPoolsFromAppOK struct {
 func (o *DistrConfigServiceUnassignPoolsFromAppOK) Error() string {
 	return fmt.Sprintf("[POST /api/distribution/v1/app/pools/unassign][%d] distrConfigServiceUnassignPoolsFromAppOK  %+v", 200, o.Payload)
 }
-
 func (o *DistrConfigServiceUnassignPoolsFromAppOK) GetPayload() *models.DistrconfigUnassignPoolsFromAppResponse {
 	return o.Payload
 }
@@ -85,7 +84,7 @@ func NewDistrConfigServiceUnassignPoolsFromAppNotFound() *DistrConfigServiceUnas
 	return &DistrConfigServiceUnassignPoolsFromAppNotFound{}
 }
 
-/*DistrConfigServiceUnassignPoolsFromAppNotFound handles this case with default header values.
+/* DistrConfigServiceUnassignPoolsFromAppNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -96,7 +95,6 @@ type DistrConfigServiceUnassignPoolsFromAppNotFound struct {
 func (o *DistrConfigServiceUnassignPoolsFromAppNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/distribution/v1/app/pools/unassign][%d] distrConfigServiceUnassignPoolsFromAppNotFound  %+v", 404, o.Payload)
 }
-
 func (o *DistrConfigServiceUnassignPoolsFromAppNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -118,7 +116,7 @@ func NewDistrConfigServiceUnassignPoolsFromAppDefault(code int) *DistrConfigServ
 	}
 }
 
-/*DistrConfigServiceUnassignPoolsFromAppDefault handles this case with default header values.
+/* DistrConfigServiceUnassignPoolsFromAppDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -136,7 +134,6 @@ func (o *DistrConfigServiceUnassignPoolsFromAppDefault) Code() int {
 func (o *DistrConfigServiceUnassignPoolsFromAppDefault) Error() string {
 	return fmt.Sprintf("[POST /api/distribution/v1/app/pools/unassign][%d] DistrConfigService_UnassignPoolsFromApp default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *DistrConfigServiceUnassignPoolsFromAppDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

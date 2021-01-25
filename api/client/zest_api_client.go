@@ -10,6 +10,7 @@ import (
 	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 
+	"github.com/zestlabs-io/zest-go-sdk/api/client/appscape_service"
 	"github.com/zestlabs-io/zest-go-sdk/api/client/auth_service"
 	"github.com/zestlabs-io/zest-go-sdk/api/client/distr_config_service"
 	"github.com/zestlabs-io/zest-go-sdk/api/client/functions_service"
@@ -58,6 +59,7 @@ func New(transport runtime.ClientTransport, formats strfmt.Registry) *ZestAPI {
 
 	cli := new(ZestAPI)
 	cli.Transport = transport
+	cli.AppscapeService = appscape_service.New(transport, formats)
 	cli.AuthService = auth_service.New(transport, formats)
 	cli.DistrConfigService = distr_config_service.New(transport, formats)
 	cli.FunctionsService = functions_service.New(transport, formats)
@@ -106,6 +108,8 @@ func (cfg *TransportConfig) WithSchemes(schemes []string) *TransportConfig {
 
 // ZestAPI is a client for zest API
 type ZestAPI struct {
+	AppscapeService appscape_service.ClientService
+
 	AuthService auth_service.ClientService
 
 	DistrConfigService distr_config_service.ClientService
@@ -120,6 +124,7 @@ type ZestAPI struct {
 // SetTransport changes the transport on the client and all its subresources
 func (c *ZestAPI) SetTransport(transport runtime.ClientTransport) {
 	c.Transport = transport
+	c.AppscapeService.SetTransport(transport)
 	c.AuthService.SetTransport(transport)
 	c.DistrConfigService.SetTransport(transport)
 	c.FunctionsService.SetTransport(transport)

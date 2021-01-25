@@ -52,7 +52,7 @@ func NewDistrConfigServiceGetPoolsOK() *DistrConfigServiceGetPoolsOK {
 	return &DistrConfigServiceGetPoolsOK{}
 }
 
-/*DistrConfigServiceGetPoolsOK handles this case with default header values.
+/* DistrConfigServiceGetPoolsOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type DistrConfigServiceGetPoolsOK struct {
 func (o *DistrConfigServiceGetPoolsOK) Error() string {
 	return fmt.Sprintf("[GET /api/distribution/v1/pools][%d] distrConfigServiceGetPoolsOK  %+v", 200, o.Payload)
 }
-
 func (o *DistrConfigServiceGetPoolsOK) GetPayload() *models.DistrconfigGetPoolsResponse {
 	return o.Payload
 }
@@ -85,7 +84,7 @@ func NewDistrConfigServiceGetPoolsNotFound() *DistrConfigServiceGetPoolsNotFound
 	return &DistrConfigServiceGetPoolsNotFound{}
 }
 
-/*DistrConfigServiceGetPoolsNotFound handles this case with default header values.
+/* DistrConfigServiceGetPoolsNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -96,7 +95,6 @@ type DistrConfigServiceGetPoolsNotFound struct {
 func (o *DistrConfigServiceGetPoolsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/distribution/v1/pools][%d] distrConfigServiceGetPoolsNotFound  %+v", 404, o.Payload)
 }
-
 func (o *DistrConfigServiceGetPoolsNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -118,7 +116,7 @@ func NewDistrConfigServiceGetPoolsDefault(code int) *DistrConfigServiceGetPoolsD
 	}
 }
 
-/*DistrConfigServiceGetPoolsDefault handles this case with default header values.
+/* DistrConfigServiceGetPoolsDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -136,7 +134,6 @@ func (o *DistrConfigServiceGetPoolsDefault) Code() int {
 func (o *DistrConfigServiceGetPoolsDefault) Error() string {
 	return fmt.Sprintf("[GET /api/distribution/v1/pools][%d] DistrConfigService_GetPools default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *DistrConfigServiceGetPoolsDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

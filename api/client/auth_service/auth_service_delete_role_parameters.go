@@ -16,56 +16,70 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewAuthServiceDeleteRoleParams creates a new AuthServiceDeleteRoleParams object
-// with the default values initialized.
+// NewAuthServiceDeleteRoleParams creates a new AuthServiceDeleteRoleParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewAuthServiceDeleteRoleParams() *AuthServiceDeleteRoleParams {
-	var ()
 	return &AuthServiceDeleteRoleParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAuthServiceDeleteRoleParamsWithTimeout creates a new AuthServiceDeleteRoleParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewAuthServiceDeleteRoleParamsWithTimeout(timeout time.Duration) *AuthServiceDeleteRoleParams {
-	var ()
 	return &AuthServiceDeleteRoleParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewAuthServiceDeleteRoleParamsWithContext creates a new AuthServiceDeleteRoleParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewAuthServiceDeleteRoleParamsWithContext(ctx context.Context) *AuthServiceDeleteRoleParams {
-	var ()
 	return &AuthServiceDeleteRoleParams{
-
 		Context: ctx,
 	}
 }
 
 // NewAuthServiceDeleteRoleParamsWithHTTPClient creates a new AuthServiceDeleteRoleParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewAuthServiceDeleteRoleParamsWithHTTPClient(client *http.Client) *AuthServiceDeleteRoleParams {
-	var ()
 	return &AuthServiceDeleteRoleParams{
 		HTTPClient: client,
 	}
 }
 
-/*AuthServiceDeleteRoleParams contains all the parameters to send to the API endpoint
-for the auth service delete role operation typically these are written to a http.Request
+/* AuthServiceDeleteRoleParams contains all the parameters to send to the API endpoint
+   for the auth service delete role operation.
+
+   Typically these are written to a http.Request.
 */
 type AuthServiceDeleteRoleParams struct {
 
-	/*RoleID*/
+	// RoleID.
 	RoleID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the auth service delete role params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceDeleteRoleParams) WithDefaults() *AuthServiceDeleteRoleParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the auth service delete role params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceDeleteRoleParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the auth service delete role params

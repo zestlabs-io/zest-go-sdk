@@ -6,6 +6,12 @@
   },
   "apis": [
     {
+      "url": "appscape.swagger.json"
+    },
+    {
+      "url": "auth.swagger.json"
+    },
+    {
       "url": "data.swagger.json"
     },
     {

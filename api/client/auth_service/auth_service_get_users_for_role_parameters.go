@@ -16,60 +16,80 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewAuthServiceGetUsersForRoleParams creates a new AuthServiceGetUsersForRoleParams object
-// with the default values initialized.
+// NewAuthServiceGetUsersForRoleParams creates a new AuthServiceGetUsersForRoleParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewAuthServiceGetUsersForRoleParams() *AuthServiceGetUsersForRoleParams {
-	var ()
 	return &AuthServiceGetUsersForRoleParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAuthServiceGetUsersForRoleParamsWithTimeout creates a new AuthServiceGetUsersForRoleParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewAuthServiceGetUsersForRoleParamsWithTimeout(timeout time.Duration) *AuthServiceGetUsersForRoleParams {
-	var ()
 	return &AuthServiceGetUsersForRoleParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewAuthServiceGetUsersForRoleParamsWithContext creates a new AuthServiceGetUsersForRoleParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewAuthServiceGetUsersForRoleParamsWithContext(ctx context.Context) *AuthServiceGetUsersForRoleParams {
-	var ()
 	return &AuthServiceGetUsersForRoleParams{
-
 		Context: ctx,
 	}
 }
 
 // NewAuthServiceGetUsersForRoleParamsWithHTTPClient creates a new AuthServiceGetUsersForRoleParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewAuthServiceGetUsersForRoleParamsWithHTTPClient(client *http.Client) *AuthServiceGetUsersForRoleParams {
-	var ()
 	return &AuthServiceGetUsersForRoleParams{
 		HTTPClient: client,
 	}
 }
 
-/*AuthServiceGetUsersForRoleParams contains all the parameters to send to the API endpoint
-for the auth service get users for role operation typically these are written to a http.Request
+/* AuthServiceGetUsersForRoleParams contains all the parameters to send to the API endpoint
+   for the auth service get users for role operation.
+
+   Typically these are written to a http.Request.
 */
 type AuthServiceGetUsersForRoleParams struct {
 
-	/*Limit*/
+	// Limit.
+	//
+	// Format: int64
 	Limit *string
-	/*Offset*/
+
+	// Offset.
+	//
+	// Format: int64
 	Offset *string
-	/*RoleID*/
+
+	// RoleID.
 	RoleID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the auth service get users for role params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceGetUsersForRoleParams) WithDefaults() *AuthServiceGetUsersForRoleParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the auth service get users for role params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceGetUsersForRoleParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the auth service get users for role params
@@ -150,32 +170,34 @@ func (o *AuthServiceGetUsersForRoleParams) WriteToRequest(r runtime.ClientReques
 
 		// query param limit
 		var qrLimit string
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := qrLimit
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Offset != nil {
 
 		// query param offset
 		var qrOffset string
+
 		if o.Offset != nil {
 			qrOffset = *o.Offset
 		}
 		qOffset := qrOffset
 		if qOffset != "" {
+
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param roleID

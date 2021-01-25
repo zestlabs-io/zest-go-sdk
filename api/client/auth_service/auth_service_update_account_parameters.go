@@ -18,58 +18,75 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewAuthServiceUpdateAccountParams creates a new AuthServiceUpdateAccountParams object
-// with the default values initialized.
+// NewAuthServiceUpdateAccountParams creates a new AuthServiceUpdateAccountParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewAuthServiceUpdateAccountParams() *AuthServiceUpdateAccountParams {
-	var ()
 	return &AuthServiceUpdateAccountParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAuthServiceUpdateAccountParamsWithTimeout creates a new AuthServiceUpdateAccountParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewAuthServiceUpdateAccountParamsWithTimeout(timeout time.Duration) *AuthServiceUpdateAccountParams {
-	var ()
 	return &AuthServiceUpdateAccountParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewAuthServiceUpdateAccountParamsWithContext creates a new AuthServiceUpdateAccountParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewAuthServiceUpdateAccountParamsWithContext(ctx context.Context) *AuthServiceUpdateAccountParams {
-	var ()
 	return &AuthServiceUpdateAccountParams{
-
 		Context: ctx,
 	}
 }
 
 // NewAuthServiceUpdateAccountParamsWithHTTPClient creates a new AuthServiceUpdateAccountParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewAuthServiceUpdateAccountParamsWithHTTPClient(client *http.Client) *AuthServiceUpdateAccountParams {
-	var ()
 	return &AuthServiceUpdateAccountParams{
 		HTTPClient: client,
 	}
 }
 
-/*AuthServiceUpdateAccountParams contains all the parameters to send to the API endpoint
-for the auth service update account operation typically these are written to a http.Request
+/* AuthServiceUpdateAccountParams contains all the parameters to send to the API endpoint
+   for the auth service update account operation.
+
+   Typically these are written to a http.Request.
 */
 type AuthServiceUpdateAccountParams struct {
 
-	/*AccountAccountID*/
+	// AccountAccountID.
+	//
+	// Format: int64
 	AccountAccountID string
-	/*Body*/
+
+	// Body.
 	Body *models.V1UpdateAccountRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the auth service update account params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceUpdateAccountParams) WithDefaults() *AuthServiceUpdateAccountParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the auth service update account params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceUpdateAccountParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the auth service update account params
@@ -139,7 +156,6 @@ func (o *AuthServiceUpdateAccountParams) WriteToRequest(r runtime.ClientRequest,
 	if err := r.SetPathParam("account.accountID", o.AccountAccountID); err != nil {
 		return err
 	}
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
