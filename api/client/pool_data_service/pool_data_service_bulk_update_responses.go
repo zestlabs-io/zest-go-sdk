@@ -35,6 +35,7 @@ func (o *PoolDataServiceBulkUpdateReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
+
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -45,7 +46,7 @@ func NewPoolDataServiceBulkUpdateOK() *PoolDataServiceBulkUpdateOK {
 	return &PoolDataServiceBulkUpdateOK{}
 }
 
-/* PoolDataServiceBulkUpdateOK describes a response with status code 200, with default header values.
+/*PoolDataServiceBulkUpdateOK handles this case with default header values.
 
 A successful response.
 */
@@ -56,6 +57,7 @@ type PoolDataServiceBulkUpdateOK struct {
 func (o *PoolDataServiceBulkUpdateOK) Error() string {
 	return fmt.Sprintf("[PUT /api/data/_r/{poolId}][%d] poolDataServiceBulkUpdateOK  %+v", 200, o.Payload)
 }
+
 func (o *PoolDataServiceBulkUpdateOK) GetPayload() *models.DataBulkUpdateResponse {
 	return o.Payload
 }
@@ -77,7 +79,7 @@ func NewPoolDataServiceBulkUpdateBadRequest() *PoolDataServiceBulkUpdateBadReque
 	return &PoolDataServiceBulkUpdateBadRequest{}
 }
 
-/* PoolDataServiceBulkUpdateBadRequest describes a response with status code 400, with default header values.
+/*PoolDataServiceBulkUpdateBadRequest handles this case with default header values.
 
 Returned when input parameters are not provided
 */
@@ -88,6 +90,7 @@ type PoolDataServiceBulkUpdateBadRequest struct {
 func (o *PoolDataServiceBulkUpdateBadRequest) Error() string {
 	return fmt.Sprintf("[PUT /api/data/_r/{poolId}][%d] poolDataServiceBulkUpdateBadRequest  %+v", 400, o.Payload)
 }
+
 func (o *PoolDataServiceBulkUpdateBadRequest) GetPayload() string {
 	return o.Payload
 }

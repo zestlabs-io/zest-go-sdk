@@ -8,6 +8,7 @@ require (
 	github.com/go-openapi/strfmt v0.20.0
 	github.com/go-openapi/swag v0.19.13
 	github.com/go-openapi/validate v0.20.1
+	github.com/golangci/golangci-lint v1.26.0 // indirect
 	github.com/google/go-cmp v0.5.4 // indirect
 	golang.org/x/net v0.0.0-20210119194325-5f4716e94777 // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect

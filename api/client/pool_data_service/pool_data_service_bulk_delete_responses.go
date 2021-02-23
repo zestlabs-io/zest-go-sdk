@@ -35,6 +35,7 @@ func (o *PoolDataServiceBulkDeleteReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
+
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -45,7 +46,7 @@ func NewPoolDataServiceBulkDeleteOK() *PoolDataServiceBulkDeleteOK {
 	return &PoolDataServiceBulkDeleteOK{}
 }
 
-/* PoolDataServiceBulkDeleteOK describes a response with status code 200, with default header values.
+/*PoolDataServiceBulkDeleteOK handles this case with default header values.
 
 A successful response.
 */
@@ -56,6 +57,7 @@ type PoolDataServiceBulkDeleteOK struct {
 func (o *PoolDataServiceBulkDeleteOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/data/_r/{poolId}][%d] poolDataServiceBulkDeleteOK  %+v", 200, o.Payload)
 }
+
 func (o *PoolDataServiceBulkDeleteOK) GetPayload() *models.DataBulkDeleteResponse {
 	return o.Payload
 }
@@ -77,7 +79,7 @@ func NewPoolDataServiceBulkDeleteBadRequest() *PoolDataServiceBulkDeleteBadReque
 	return &PoolDataServiceBulkDeleteBadRequest{}
 }
 
-/* PoolDataServiceBulkDeleteBadRequest describes a response with status code 400, with default header values.
+/*PoolDataServiceBulkDeleteBadRequest handles this case with default header values.
 
 Returned when input parameters are not provided
 */
@@ -88,6 +90,7 @@ type PoolDataServiceBulkDeleteBadRequest struct {
 func (o *PoolDataServiceBulkDeleteBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /api/data/_r/{poolId}][%d] poolDataServiceBulkDeleteBadRequest  %+v", 400, o.Payload)
 }
+
 func (o *PoolDataServiceBulkDeleteBadRequest) GetPayload() string {
 	return o.Payload
 }

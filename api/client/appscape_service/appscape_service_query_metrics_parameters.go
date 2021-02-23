@@ -18,70 +18,56 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewAppscapeServiceQueryMetricsParams creates a new AppscapeServiceQueryMetricsParams object,
-// with the default timeout for this client.
-//
-// Default values are not hydrated, since defaults are normally applied by the API server side.
-//
-// To enforce default values in parameter, use SetDefaults or WithDefaults.
+// NewAppscapeServiceQueryMetricsParams creates a new AppscapeServiceQueryMetricsParams object
+// with the default values initialized.
 func NewAppscapeServiceQueryMetricsParams() *AppscapeServiceQueryMetricsParams {
+	var ()
 	return &AppscapeServiceQueryMetricsParams{
+
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAppscapeServiceQueryMetricsParamsWithTimeout creates a new AppscapeServiceQueryMetricsParams object
-// with the ability to set a timeout on a request.
+// with the default values initialized, and the ability to set a timeout on a request
 func NewAppscapeServiceQueryMetricsParamsWithTimeout(timeout time.Duration) *AppscapeServiceQueryMetricsParams {
+	var ()
 	return &AppscapeServiceQueryMetricsParams{
+
 		timeout: timeout,
 	}
 }
 
 // NewAppscapeServiceQueryMetricsParamsWithContext creates a new AppscapeServiceQueryMetricsParams object
-// with the ability to set a context for a request.
+// with the default values initialized, and the ability to set a context for a request
 func NewAppscapeServiceQueryMetricsParamsWithContext(ctx context.Context) *AppscapeServiceQueryMetricsParams {
+	var ()
 	return &AppscapeServiceQueryMetricsParams{
+
 		Context: ctx,
 	}
 }
 
 // NewAppscapeServiceQueryMetricsParamsWithHTTPClient creates a new AppscapeServiceQueryMetricsParams object
-// with the ability to set a custom HTTPClient for a request.
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewAppscapeServiceQueryMetricsParamsWithHTTPClient(client *http.Client) *AppscapeServiceQueryMetricsParams {
+	var ()
 	return &AppscapeServiceQueryMetricsParams{
 		HTTPClient: client,
 	}
 }
 
-/* AppscapeServiceQueryMetricsParams contains all the parameters to send to the API endpoint
-   for the appscape service query metrics operation.
-
-   Typically these are written to a http.Request.
+/*AppscapeServiceQueryMetricsParams contains all the parameters to send to the API endpoint
+for the appscape service query metrics operation typically these are written to a http.Request
 */
 type AppscapeServiceQueryMetricsParams struct {
 
-	// Body.
+	/*Body*/
 	Body *models.V1QueryMetricsRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
-}
-
-// WithDefaults hydrates default values in the appscape service query metrics params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *AppscapeServiceQueryMetricsParams) WithDefaults() *AppscapeServiceQueryMetricsParams {
-	o.SetDefaults()
-	return o
-}
-
-// SetDefaults hydrates default values in the appscape service query metrics params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *AppscapeServiceQueryMetricsParams) SetDefaults() {
-	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the appscape service query metrics params
@@ -135,6 +121,7 @@ func (o *AppscapeServiceQueryMetricsParams) WriteToRequest(r runtime.ClientReque
 		return err
 	}
 	var res []error
+
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

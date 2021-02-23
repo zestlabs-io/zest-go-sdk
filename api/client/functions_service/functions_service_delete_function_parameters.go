@@ -16,70 +16,56 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewFunctionsServiceDeleteFunctionParams creates a new FunctionsServiceDeleteFunctionParams object,
-// with the default timeout for this client.
-//
-// Default values are not hydrated, since defaults are normally applied by the API server side.
-//
-// To enforce default values in parameter, use SetDefaults or WithDefaults.
+// NewFunctionsServiceDeleteFunctionParams creates a new FunctionsServiceDeleteFunctionParams object
+// with the default values initialized.
 func NewFunctionsServiceDeleteFunctionParams() *FunctionsServiceDeleteFunctionParams {
+	var ()
 	return &FunctionsServiceDeleteFunctionParams{
+
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewFunctionsServiceDeleteFunctionParamsWithTimeout creates a new FunctionsServiceDeleteFunctionParams object
-// with the ability to set a timeout on a request.
+// with the default values initialized, and the ability to set a timeout on a request
 func NewFunctionsServiceDeleteFunctionParamsWithTimeout(timeout time.Duration) *FunctionsServiceDeleteFunctionParams {
+	var ()
 	return &FunctionsServiceDeleteFunctionParams{
+
 		timeout: timeout,
 	}
 }
 
 // NewFunctionsServiceDeleteFunctionParamsWithContext creates a new FunctionsServiceDeleteFunctionParams object
-// with the ability to set a context for a request.
+// with the default values initialized, and the ability to set a context for a request
 func NewFunctionsServiceDeleteFunctionParamsWithContext(ctx context.Context) *FunctionsServiceDeleteFunctionParams {
+	var ()
 	return &FunctionsServiceDeleteFunctionParams{
+
 		Context: ctx,
 	}
 }
 
 // NewFunctionsServiceDeleteFunctionParamsWithHTTPClient creates a new FunctionsServiceDeleteFunctionParams object
-// with the ability to set a custom HTTPClient for a request.
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewFunctionsServiceDeleteFunctionParamsWithHTTPClient(client *http.Client) *FunctionsServiceDeleteFunctionParams {
+	var ()
 	return &FunctionsServiceDeleteFunctionParams{
 		HTTPClient: client,
 	}
 }
 
-/* FunctionsServiceDeleteFunctionParams contains all the parameters to send to the API endpoint
-   for the functions service delete function operation.
-
-   Typically these are written to a http.Request.
+/*FunctionsServiceDeleteFunctionParams contains all the parameters to send to the API endpoint
+for the functions service delete function operation typically these are written to a http.Request
 */
 type FunctionsServiceDeleteFunctionParams struct {
 
-	// ID.
+	/*ID*/
 	ID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
-}
-
-// WithDefaults hydrates default values in the functions service delete function params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *FunctionsServiceDeleteFunctionParams) WithDefaults() *FunctionsServiceDeleteFunctionParams {
-	o.SetDefaults()
-	return o
-}
-
-// SetDefaults hydrates default values in the functions service delete function params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *FunctionsServiceDeleteFunctionParams) SetDefaults() {
-	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the functions service delete function params

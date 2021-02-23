@@ -52,7 +52,7 @@ func NewAuthServiceRemoveUsersFromRoleOK() *AuthServiceRemoveUsersFromRoleOK {
 	return &AuthServiceRemoveUsersFromRoleOK{}
 }
 
-/* AuthServiceRemoveUsersFromRoleOK describes a response with status code 200, with default header values.
+/*AuthServiceRemoveUsersFromRoleOK handles this case with default header values.
 
 A successful response.
 */
@@ -63,6 +63,7 @@ type AuthServiceRemoveUsersFromRoleOK struct {
 func (o *AuthServiceRemoveUsersFromRoleOK) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/role/users/remove][%d] authServiceRemoveUsersFromRoleOK  %+v", 200, o.Payload)
 }
+
 func (o *AuthServiceRemoveUsersFromRoleOK) GetPayload() *models.V1RemoveUsersFromRoleResponse {
 	return o.Payload
 }
@@ -84,7 +85,7 @@ func NewAuthServiceRemoveUsersFromRoleNotFound() *AuthServiceRemoveUsersFromRole
 	return &AuthServiceRemoveUsersFromRoleNotFound{}
 }
 
-/* AuthServiceRemoveUsersFromRoleNotFound describes a response with status code 404, with default header values.
+/*AuthServiceRemoveUsersFromRoleNotFound handles this case with default header values.
 
 Returned when the resource does not exist.
 */
@@ -95,6 +96,7 @@ type AuthServiceRemoveUsersFromRoleNotFound struct {
 func (o *AuthServiceRemoveUsersFromRoleNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/role/users/remove][%d] authServiceRemoveUsersFromRoleNotFound  %+v", 404, o.Payload)
 }
+
 func (o *AuthServiceRemoveUsersFromRoleNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -116,7 +118,7 @@ func NewAuthServiceRemoveUsersFromRoleDefault(code int) *AuthServiceRemoveUsersF
 	}
 }
 
-/* AuthServiceRemoveUsersFromRoleDefault describes a response with status code -1, with default header values.
+/*AuthServiceRemoveUsersFromRoleDefault handles this case with default header values.
 
 An unexpected error response
 */
@@ -134,6 +136,7 @@ func (o *AuthServiceRemoveUsersFromRoleDefault) Code() int {
 func (o *AuthServiceRemoveUsersFromRoleDefault) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/role/users/remove][%d] AuthService_RemoveUsersFromRole default  %+v", o._statusCode, o.Payload)
 }
+
 func (o *AuthServiceRemoveUsersFromRoleDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

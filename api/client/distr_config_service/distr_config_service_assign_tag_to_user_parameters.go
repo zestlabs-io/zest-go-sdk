@@ -18,70 +18,56 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewDistrConfigServiceAssignTagToUserParams creates a new DistrConfigServiceAssignTagToUserParams object,
-// with the default timeout for this client.
-//
-// Default values are not hydrated, since defaults are normally applied by the API server side.
-//
-// To enforce default values in parameter, use SetDefaults or WithDefaults.
+// NewDistrConfigServiceAssignTagToUserParams creates a new DistrConfigServiceAssignTagToUserParams object
+// with the default values initialized.
 func NewDistrConfigServiceAssignTagToUserParams() *DistrConfigServiceAssignTagToUserParams {
+	var ()
 	return &DistrConfigServiceAssignTagToUserParams{
+
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDistrConfigServiceAssignTagToUserParamsWithTimeout creates a new DistrConfigServiceAssignTagToUserParams object
-// with the ability to set a timeout on a request.
+// with the default values initialized, and the ability to set a timeout on a request
 func NewDistrConfigServiceAssignTagToUserParamsWithTimeout(timeout time.Duration) *DistrConfigServiceAssignTagToUserParams {
+	var ()
 	return &DistrConfigServiceAssignTagToUserParams{
+
 		timeout: timeout,
 	}
 }
 
 // NewDistrConfigServiceAssignTagToUserParamsWithContext creates a new DistrConfigServiceAssignTagToUserParams object
-// with the ability to set a context for a request.
+// with the default values initialized, and the ability to set a context for a request
 func NewDistrConfigServiceAssignTagToUserParamsWithContext(ctx context.Context) *DistrConfigServiceAssignTagToUserParams {
+	var ()
 	return &DistrConfigServiceAssignTagToUserParams{
+
 		Context: ctx,
 	}
 }
 
 // NewDistrConfigServiceAssignTagToUserParamsWithHTTPClient creates a new DistrConfigServiceAssignTagToUserParams object
-// with the ability to set a custom HTTPClient for a request.
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewDistrConfigServiceAssignTagToUserParamsWithHTTPClient(client *http.Client) *DistrConfigServiceAssignTagToUserParams {
+	var ()
 	return &DistrConfigServiceAssignTagToUserParams{
 		HTTPClient: client,
 	}
 }
 
-/* DistrConfigServiceAssignTagToUserParams contains all the parameters to send to the API endpoint
-   for the distr config service assign tag to user operation.
-
-   Typically these are written to a http.Request.
+/*DistrConfigServiceAssignTagToUserParams contains all the parameters to send to the API endpoint
+for the distr config service assign tag to user operation typically these are written to a http.Request
 */
 type DistrConfigServiceAssignTagToUserParams struct {
 
-	// Body.
+	/*Body*/
 	Body *models.DistrconfigAssignTagToUserRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
-}
-
-// WithDefaults hydrates default values in the distr config service assign tag to user params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *DistrConfigServiceAssignTagToUserParams) WithDefaults() *DistrConfigServiceAssignTagToUserParams {
-	o.SetDefaults()
-	return o
-}
-
-// SetDefaults hydrates default values in the distr config service assign tag to user params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *DistrConfigServiceAssignTagToUserParams) SetDefaults() {
-	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the distr config service assign tag to user params
@@ -135,6 +121,7 @@ func (o *DistrConfigServiceAssignTagToUserParams) WriteToRequest(r runtime.Clien
 		return err
 	}
 	var res []error
+
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

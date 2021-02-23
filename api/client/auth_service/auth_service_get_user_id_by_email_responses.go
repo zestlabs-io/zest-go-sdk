@@ -52,7 +52,7 @@ func NewAuthServiceGetUserIDByEmailOK() *AuthServiceGetUserIDByEmailOK {
 	return &AuthServiceGetUserIDByEmailOK{}
 }
 
-/* AuthServiceGetUserIDByEmailOK describes a response with status code 200, with default header values.
+/*AuthServiceGetUserIDByEmailOK handles this case with default header values.
 
 A successful response.
 */
@@ -63,6 +63,7 @@ type AuthServiceGetUserIDByEmailOK struct {
 func (o *AuthServiceGetUserIDByEmailOK) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/user-id-by-email/{email}][%d] authServiceGetUserIdByEmailOK  %+v", 200, o.Payload)
 }
+
 func (o *AuthServiceGetUserIDByEmailOK) GetPayload() *models.V1GetUserIDByEmailResponse {
 	return o.Payload
 }
@@ -84,7 +85,7 @@ func NewAuthServiceGetUserIDByEmailNotFound() *AuthServiceGetUserIDByEmailNotFou
 	return &AuthServiceGetUserIDByEmailNotFound{}
 }
 
-/* AuthServiceGetUserIDByEmailNotFound describes a response with status code 404, with default header values.
+/*AuthServiceGetUserIDByEmailNotFound handles this case with default header values.
 
 Returned when the resource does not exist.
 */
@@ -95,6 +96,7 @@ type AuthServiceGetUserIDByEmailNotFound struct {
 func (o *AuthServiceGetUserIDByEmailNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/user-id-by-email/{email}][%d] authServiceGetUserIdByEmailNotFound  %+v", 404, o.Payload)
 }
+
 func (o *AuthServiceGetUserIDByEmailNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -116,7 +118,7 @@ func NewAuthServiceGetUserIDByEmailDefault(code int) *AuthServiceGetUserIDByEmai
 	}
 }
 
-/* AuthServiceGetUserIDByEmailDefault describes a response with status code -1, with default header values.
+/*AuthServiceGetUserIDByEmailDefault handles this case with default header values.
 
 An unexpected error response
 */
@@ -134,6 +136,7 @@ func (o *AuthServiceGetUserIDByEmailDefault) Code() int {
 func (o *AuthServiceGetUserIDByEmailDefault) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/user-id-by-email/{email}][%d] AuthService_GetUserIDByEmail default  %+v", o._statusCode, o.Payload)
 }
+
 func (o *AuthServiceGetUserIDByEmailDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

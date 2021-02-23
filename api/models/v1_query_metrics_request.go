@@ -6,7 +6,6 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -57,6 +56,7 @@ func (m *V1QueryMetricsRequest) Validate(formats strfmt.Registry) error {
 }
 
 func (m *V1QueryMetricsRequest) validateAggregations(formats strfmt.Registry) error {
+
 	if swag.IsZero(m.Aggregations) { // not required
 		return nil
 	}
@@ -81,6 +81,7 @@ func (m *V1QueryMetricsRequest) validateAggregations(formats strfmt.Registry) er
 }
 
 func (m *V1QueryMetricsRequest) validateFilters(formats strfmt.Registry) error {
+
 	if swag.IsZero(m.Filters) { // not required
 		return nil
 	}
@@ -92,60 +93,6 @@ func (m *V1QueryMetricsRequest) validateFilters(formats strfmt.Registry) error {
 
 		if m.Filters[i] != nil {
 			if err := m.Filters[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("filters" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
-
-// ContextValidate validate this v1 query metrics request based on the context it is used
-func (m *V1QueryMetricsRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.contextValidateAggregations(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateFilters(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
-
-func (m *V1QueryMetricsRequest) contextValidateAggregations(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.Aggregations); i++ {
-
-		if m.Aggregations[i] != nil {
-			if err := m.Aggregations[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("aggregations" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
-
-func (m *V1QueryMetricsRequest) contextValidateFilters(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.Filters); i++ {
-
-		if m.Filters[i] != nil {
-			if err := m.Filters[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("filters" + "." + strconv.Itoa(i))
 				}

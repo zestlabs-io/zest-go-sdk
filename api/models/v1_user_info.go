@@ -6,7 +6,6 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -24,6 +23,9 @@ type V1UserInfo struct {
 
 	// email
 	Email string `json:"email,omitempty"`
+
+	// logout Url
+	LogoutURL string `json:"logoutUrl,omitempty"`
 
 	// name
 	Name string `json:"name,omitempty"`
@@ -50,6 +52,7 @@ func (m *V1UserInfo) Validate(formats strfmt.Registry) error {
 }
 
 func (m *V1UserInfo) validatePolicies(formats strfmt.Registry) error {
+
 	if swag.IsZero(m.Policies) { // not required
 		return nil
 	}
@@ -61,38 +64,6 @@ func (m *V1UserInfo) validatePolicies(formats strfmt.Registry) error {
 
 		if m.Policies[i] != nil {
 			if err := m.Policies[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("policies" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
-
-// ContextValidate validate this v1 user info based on the context it is used
-func (m *V1UserInfo) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.contextValidatePolicies(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
-
-func (m *V1UserInfo) contextValidatePolicies(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.Policies); i++ {
-
-		if m.Policies[i] != nil {
-			if err := m.Policies[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("policies" + "." + strconv.Itoa(i))
 				}

@@ -52,7 +52,7 @@ func NewDistrConfigServiceGetUserOK() *DistrConfigServiceGetUserOK {
 	return &DistrConfigServiceGetUserOK{}
 }
 
-/* DistrConfigServiceGetUserOK describes a response with status code 200, with default header values.
+/*DistrConfigServiceGetUserOK handles this case with default header values.
 
 A successful response.
 */
@@ -63,6 +63,7 @@ type DistrConfigServiceGetUserOK struct {
 func (o *DistrConfigServiceGetUserOK) Error() string {
 	return fmt.Sprintf("[GET /api/distribution/v1/user/{userID}][%d] distrConfigServiceGetUserOK  %+v", 200, o.Payload)
 }
+
 func (o *DistrConfigServiceGetUserOK) GetPayload() *models.DistrconfigGetUserResponse {
 	return o.Payload
 }
@@ -84,7 +85,7 @@ func NewDistrConfigServiceGetUserNotFound() *DistrConfigServiceGetUserNotFound {
 	return &DistrConfigServiceGetUserNotFound{}
 }
 
-/* DistrConfigServiceGetUserNotFound describes a response with status code 404, with default header values.
+/*DistrConfigServiceGetUserNotFound handles this case with default header values.
 
 Returned when the resource does not exist.
 */
@@ -95,6 +96,7 @@ type DistrConfigServiceGetUserNotFound struct {
 func (o *DistrConfigServiceGetUserNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/distribution/v1/user/{userID}][%d] distrConfigServiceGetUserNotFound  %+v", 404, o.Payload)
 }
+
 func (o *DistrConfigServiceGetUserNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -116,7 +118,7 @@ func NewDistrConfigServiceGetUserDefault(code int) *DistrConfigServiceGetUserDef
 	}
 }
 
-/* DistrConfigServiceGetUserDefault describes a response with status code -1, with default header values.
+/*DistrConfigServiceGetUserDefault handles this case with default header values.
 
 An unexpected error response
 */
@@ -134,6 +136,7 @@ func (o *DistrConfigServiceGetUserDefault) Code() int {
 func (o *DistrConfigServiceGetUserDefault) Error() string {
 	return fmt.Sprintf("[GET /api/distribution/v1/user/{userID}][%d] DistrConfigService_GetUser default  %+v", o._statusCode, o.Payload)
 }
+
 func (o *DistrConfigServiceGetUserDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

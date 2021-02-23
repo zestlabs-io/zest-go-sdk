@@ -52,7 +52,7 @@ func NewDistrConfigServiceCreateUserOK() *DistrConfigServiceCreateUserOK {
 	return &DistrConfigServiceCreateUserOK{}
 }
 
-/* DistrConfigServiceCreateUserOK describes a response with status code 200, with default header values.
+/*DistrConfigServiceCreateUserOK handles this case with default header values.
 
 A successful response.
 */
@@ -63,6 +63,7 @@ type DistrConfigServiceCreateUserOK struct {
 func (o *DistrConfigServiceCreateUserOK) Error() string {
 	return fmt.Sprintf("[POST /api/distribution/v1/user][%d] distrConfigServiceCreateUserOK  %+v", 200, o.Payload)
 }
+
 func (o *DistrConfigServiceCreateUserOK) GetPayload() models.DistrconfigCreateUserResponse {
 	return o.Payload
 }
@@ -82,7 +83,7 @@ func NewDistrConfigServiceCreateUserNotFound() *DistrConfigServiceCreateUserNotF
 	return &DistrConfigServiceCreateUserNotFound{}
 }
 
-/* DistrConfigServiceCreateUserNotFound describes a response with status code 404, with default header values.
+/*DistrConfigServiceCreateUserNotFound handles this case with default header values.
 
 Returned when the resource does not exist.
 */
@@ -93,6 +94,7 @@ type DistrConfigServiceCreateUserNotFound struct {
 func (o *DistrConfigServiceCreateUserNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/distribution/v1/user][%d] distrConfigServiceCreateUserNotFound  %+v", 404, o.Payload)
 }
+
 func (o *DistrConfigServiceCreateUserNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -114,7 +116,7 @@ func NewDistrConfigServiceCreateUserDefault(code int) *DistrConfigServiceCreateU
 	}
 }
 
-/* DistrConfigServiceCreateUserDefault describes a response with status code -1, with default header values.
+/*DistrConfigServiceCreateUserDefault handles this case with default header values.
 
 An unexpected error response
 */
@@ -132,6 +134,7 @@ func (o *DistrConfigServiceCreateUserDefault) Code() int {
 func (o *DistrConfigServiceCreateUserDefault) Error() string {
 	return fmt.Sprintf("[POST /api/distribution/v1/user][%d] DistrConfigService_CreateUser default  %+v", o._statusCode, o.Payload)
 }
+
 func (o *DistrConfigServiceCreateUserDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

@@ -16,85 +16,69 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPoolDataServiceGetAttachmentParams creates a new PoolDataServiceGetAttachmentParams object,
-// with the default timeout for this client.
-//
-// Default values are not hydrated, since defaults are normally applied by the API server side.
-//
-// To enforce default values in parameter, use SetDefaults or WithDefaults.
+// NewPoolDataServiceGetAttachmentParams creates a new PoolDataServiceGetAttachmentParams object
+// with the default values initialized.
 func NewPoolDataServiceGetAttachmentParams() *PoolDataServiceGetAttachmentParams {
+	var ()
 	return &PoolDataServiceGetAttachmentParams{
+
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPoolDataServiceGetAttachmentParamsWithTimeout creates a new PoolDataServiceGetAttachmentParams object
-// with the ability to set a timeout on a request.
+// with the default values initialized, and the ability to set a timeout on a request
 func NewPoolDataServiceGetAttachmentParamsWithTimeout(timeout time.Duration) *PoolDataServiceGetAttachmentParams {
+	var ()
 	return &PoolDataServiceGetAttachmentParams{
+
 		timeout: timeout,
 	}
 }
 
 // NewPoolDataServiceGetAttachmentParamsWithContext creates a new PoolDataServiceGetAttachmentParams object
-// with the ability to set a context for a request.
+// with the default values initialized, and the ability to set a context for a request
 func NewPoolDataServiceGetAttachmentParamsWithContext(ctx context.Context) *PoolDataServiceGetAttachmentParams {
+	var ()
 	return &PoolDataServiceGetAttachmentParams{
+
 		Context: ctx,
 	}
 }
 
 // NewPoolDataServiceGetAttachmentParamsWithHTTPClient creates a new PoolDataServiceGetAttachmentParams object
-// with the ability to set a custom HTTPClient for a request.
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewPoolDataServiceGetAttachmentParamsWithHTTPClient(client *http.Client) *PoolDataServiceGetAttachmentParams {
+	var ()
 	return &PoolDataServiceGetAttachmentParams{
 		HTTPClient: client,
 	}
 }
 
-/* PoolDataServiceGetAttachmentParams contains all the parameters to send to the API endpoint
-   for the pool data service get attachment operation.
-
-   Typically these are written to a http.Request.
+/*PoolDataServiceGetAttachmentParams contains all the parameters to send to the API endpoint
+for the pool data service get attachment operation typically these are written to a http.Request
 */
 type PoolDataServiceGetAttachmentParams struct {
 
-	/* Attname.
+	/*Attname
+	  Attachment name
 
-	   Attachment name
 	*/
 	Attname string
+	/*ID
+	  The ID (Primary Key) of the record
 
-	/* ID.
-
-	   The ID (Primary Key) of the record
 	*/
 	ID string
+	/*PoolID
+	  Pool ID (e.g. orders)
 
-	/* PoolID.
-
-	   Pool ID (e.g. orders)
 	*/
 	PoolID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
-}
-
-// WithDefaults hydrates default values in the pool data service get attachment params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *PoolDataServiceGetAttachmentParams) WithDefaults() *PoolDataServiceGetAttachmentParams {
-	o.SetDefaults()
-	return o
-}
-
-// SetDefaults hydrates default values in the pool data service get attachment params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *PoolDataServiceGetAttachmentParams) SetDefaults() {
-	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the pool data service get attachment params

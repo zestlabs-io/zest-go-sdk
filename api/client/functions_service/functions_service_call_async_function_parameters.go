@@ -16,76 +16,60 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewFunctionsServiceCallAsyncFunctionParams creates a new FunctionsServiceCallAsyncFunctionParams object,
-// with the default timeout for this client.
-//
-// Default values are not hydrated, since defaults are normally applied by the API server side.
-//
-// To enforce default values in parameter, use SetDefaults or WithDefaults.
+// NewFunctionsServiceCallAsyncFunctionParams creates a new FunctionsServiceCallAsyncFunctionParams object
+// with the default values initialized.
 func NewFunctionsServiceCallAsyncFunctionParams() *FunctionsServiceCallAsyncFunctionParams {
+	var ()
 	return &FunctionsServiceCallAsyncFunctionParams{
+
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewFunctionsServiceCallAsyncFunctionParamsWithTimeout creates a new FunctionsServiceCallAsyncFunctionParams object
-// with the ability to set a timeout on a request.
+// with the default values initialized, and the ability to set a timeout on a request
 func NewFunctionsServiceCallAsyncFunctionParamsWithTimeout(timeout time.Duration) *FunctionsServiceCallAsyncFunctionParams {
+	var ()
 	return &FunctionsServiceCallAsyncFunctionParams{
+
 		timeout: timeout,
 	}
 }
 
 // NewFunctionsServiceCallAsyncFunctionParamsWithContext creates a new FunctionsServiceCallAsyncFunctionParams object
-// with the ability to set a context for a request.
+// with the default values initialized, and the ability to set a context for a request
 func NewFunctionsServiceCallAsyncFunctionParamsWithContext(ctx context.Context) *FunctionsServiceCallAsyncFunctionParams {
+	var ()
 	return &FunctionsServiceCallAsyncFunctionParams{
+
 		Context: ctx,
 	}
 }
 
 // NewFunctionsServiceCallAsyncFunctionParamsWithHTTPClient creates a new FunctionsServiceCallAsyncFunctionParams object
-// with the ability to set a custom HTTPClient for a request.
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewFunctionsServiceCallAsyncFunctionParamsWithHTTPClient(client *http.Client) *FunctionsServiceCallAsyncFunctionParams {
+	var ()
 	return &FunctionsServiceCallAsyncFunctionParams{
 		HTTPClient: client,
 	}
 }
 
-/* FunctionsServiceCallAsyncFunctionParams contains all the parameters to send to the API endpoint
-   for the functions service call async function operation.
-
-   Typically these are written to a http.Request.
+/*FunctionsServiceCallAsyncFunctionParams contains all the parameters to send to the API endpoint
+for the functions service call async function operation typically these are written to a http.Request
 */
 type FunctionsServiceCallAsyncFunctionParams struct {
 
-	// Body.
+	/*Body*/
 	Body interface{}
-
-	// CallID.
+	/*CallID*/
 	CallID string
-
-	// Reason.
+	/*Reason*/
 	Reason string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
-}
-
-// WithDefaults hydrates default values in the functions service call async function params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *FunctionsServiceCallAsyncFunctionParams) WithDefaults() *FunctionsServiceCallAsyncFunctionParams {
-	o.SetDefaults()
-	return o
-}
-
-// SetDefaults hydrates default values in the functions service call async function params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *FunctionsServiceCallAsyncFunctionParams) SetDefaults() {
-	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the functions service call async function params
@@ -161,6 +145,7 @@ func (o *FunctionsServiceCallAsyncFunctionParams) WriteToRequest(r runtime.Clien
 		return err
 	}
 	var res []error
+
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

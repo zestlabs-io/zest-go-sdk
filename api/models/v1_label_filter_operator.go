@@ -6,7 +6,6 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -66,10 +65,5 @@ func (m V1LabelFilterOperator) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-// ContextValidate validates this v1 label filter operator based on context it is used
-func (m V1LabelFilterOperator) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }

@@ -52,7 +52,7 @@ func NewDistrConfigServiceGetAppsOK() *DistrConfigServiceGetAppsOK {
 	return &DistrConfigServiceGetAppsOK{}
 }
 
-/* DistrConfigServiceGetAppsOK describes a response with status code 200, with default header values.
+/*DistrConfigServiceGetAppsOK handles this case with default header values.
 
 A successful response.
 */
@@ -63,6 +63,7 @@ type DistrConfigServiceGetAppsOK struct {
 func (o *DistrConfigServiceGetAppsOK) Error() string {
 	return fmt.Sprintf("[GET /api/distribution/v1/apps][%d] distrConfigServiceGetAppsOK  %+v", 200, o.Payload)
 }
+
 func (o *DistrConfigServiceGetAppsOK) GetPayload() *models.DistrconfigGetAppsResponse {
 	return o.Payload
 }
@@ -84,7 +85,7 @@ func NewDistrConfigServiceGetAppsNotFound() *DistrConfigServiceGetAppsNotFound {
 	return &DistrConfigServiceGetAppsNotFound{}
 }
 
-/* DistrConfigServiceGetAppsNotFound describes a response with status code 404, with default header values.
+/*DistrConfigServiceGetAppsNotFound handles this case with default header values.
 
 Returned when the resource does not exist.
 */
@@ -95,6 +96,7 @@ type DistrConfigServiceGetAppsNotFound struct {
 func (o *DistrConfigServiceGetAppsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/distribution/v1/apps][%d] distrConfigServiceGetAppsNotFound  %+v", 404, o.Payload)
 }
+
 func (o *DistrConfigServiceGetAppsNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -116,7 +118,7 @@ func NewDistrConfigServiceGetAppsDefault(code int) *DistrConfigServiceGetAppsDef
 	}
 }
 
-/* DistrConfigServiceGetAppsDefault describes a response with status code -1, with default header values.
+/*DistrConfigServiceGetAppsDefault handles this case with default header values.
 
 An unexpected error response
 */
@@ -134,6 +136,7 @@ func (o *DistrConfigServiceGetAppsDefault) Code() int {
 func (o *DistrConfigServiceGetAppsDefault) Error() string {
 	return fmt.Sprintf("[GET /api/distribution/v1/apps][%d] DistrConfigService_GetApps default  %+v", o._statusCode, o.Payload)
 }
+
 func (o *DistrConfigServiceGetAppsDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

@@ -18,70 +18,56 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewDistrConfigServiceActivatePoolParams creates a new DistrConfigServiceActivatePoolParams object,
-// with the default timeout for this client.
-//
-// Default values are not hydrated, since defaults are normally applied by the API server side.
-//
-// To enforce default values in parameter, use SetDefaults or WithDefaults.
+// NewDistrConfigServiceActivatePoolParams creates a new DistrConfigServiceActivatePoolParams object
+// with the default values initialized.
 func NewDistrConfigServiceActivatePoolParams() *DistrConfigServiceActivatePoolParams {
+	var ()
 	return &DistrConfigServiceActivatePoolParams{
+
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDistrConfigServiceActivatePoolParamsWithTimeout creates a new DistrConfigServiceActivatePoolParams object
-// with the ability to set a timeout on a request.
+// with the default values initialized, and the ability to set a timeout on a request
 func NewDistrConfigServiceActivatePoolParamsWithTimeout(timeout time.Duration) *DistrConfigServiceActivatePoolParams {
+	var ()
 	return &DistrConfigServiceActivatePoolParams{
+
 		timeout: timeout,
 	}
 }
 
 // NewDistrConfigServiceActivatePoolParamsWithContext creates a new DistrConfigServiceActivatePoolParams object
-// with the ability to set a context for a request.
+// with the default values initialized, and the ability to set a context for a request
 func NewDistrConfigServiceActivatePoolParamsWithContext(ctx context.Context) *DistrConfigServiceActivatePoolParams {
+	var ()
 	return &DistrConfigServiceActivatePoolParams{
+
 		Context: ctx,
 	}
 }
 
 // NewDistrConfigServiceActivatePoolParamsWithHTTPClient creates a new DistrConfigServiceActivatePoolParams object
-// with the ability to set a custom HTTPClient for a request.
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewDistrConfigServiceActivatePoolParamsWithHTTPClient(client *http.Client) *DistrConfigServiceActivatePoolParams {
+	var ()
 	return &DistrConfigServiceActivatePoolParams{
 		HTTPClient: client,
 	}
 }
 
-/* DistrConfigServiceActivatePoolParams contains all the parameters to send to the API endpoint
-   for the distr config service activate pool operation.
-
-   Typically these are written to a http.Request.
+/*DistrConfigServiceActivatePoolParams contains all the parameters to send to the API endpoint
+for the distr config service activate pool operation typically these are written to a http.Request
 */
 type DistrConfigServiceActivatePoolParams struct {
 
-	// Body.
+	/*Body*/
 	Body *models.DistrconfigActivatePoolRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
-}
-
-// WithDefaults hydrates default values in the distr config service activate pool params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *DistrConfigServiceActivatePoolParams) WithDefaults() *DistrConfigServiceActivatePoolParams {
-	o.SetDefaults()
-	return o
-}
-
-// SetDefaults hydrates default values in the distr config service activate pool params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *DistrConfigServiceActivatePoolParams) SetDefaults() {
-	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the distr config service activate pool params
@@ -135,6 +121,7 @@ func (o *DistrConfigServiceActivatePoolParams) WriteToRequest(r runtime.ClientRe
 		return err
 	}
 	var res []error
+
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -52,7 +52,7 @@ func NewAuthServiceGetUsersOK() *AuthServiceGetUsersOK {
 	return &AuthServiceGetUsersOK{}
 }
 
-/* AuthServiceGetUsersOK describes a response with status code 200, with default header values.
+/*AuthServiceGetUsersOK handles this case with default header values.
 
 A successful response.
 */
@@ -63,6 +63,7 @@ type AuthServiceGetUsersOK struct {
 func (o *AuthServiceGetUsersOK) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/users][%d] authServiceGetUsersOK  %+v", 200, o.Payload)
 }
+
 func (o *AuthServiceGetUsersOK) GetPayload() *models.V1GetUsersResponse {
 	return o.Payload
 }
@@ -84,7 +85,7 @@ func NewAuthServiceGetUsersNotFound() *AuthServiceGetUsersNotFound {
 	return &AuthServiceGetUsersNotFound{}
 }
 
-/* AuthServiceGetUsersNotFound describes a response with status code 404, with default header values.
+/*AuthServiceGetUsersNotFound handles this case with default header values.
 
 Returned when the resource does not exist.
 */
@@ -95,6 +96,7 @@ type AuthServiceGetUsersNotFound struct {
 func (o *AuthServiceGetUsersNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/users][%d] authServiceGetUsersNotFound  %+v", 404, o.Payload)
 }
+
 func (o *AuthServiceGetUsersNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -116,7 +118,7 @@ func NewAuthServiceGetUsersDefault(code int) *AuthServiceGetUsersDefault {
 	}
 }
 
-/* AuthServiceGetUsersDefault describes a response with status code -1, with default header values.
+/*AuthServiceGetUsersDefault handles this case with default header values.
 
 An unexpected error response
 */
@@ -134,6 +136,7 @@ func (o *AuthServiceGetUsersDefault) Code() int {
 func (o *AuthServiceGetUsersDefault) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/users][%d] AuthService_GetUsers default  %+v", o._statusCode, o.Payload)
 }
+
 func (o *AuthServiceGetUsersDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

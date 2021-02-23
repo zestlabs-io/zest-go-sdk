@@ -6,8 +6,6 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"context"
-
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -34,7 +32,7 @@ type V1Account struct {
 	PaymentDetails *V1PaymentDetails `json:"paymentDetails,omitempty"`
 
 	// status
-	Status *AccountAccountStatus `json:"status,omitempty"`
+	Status AccountAccountStatus `json:"status,omitempty"`
 }
 
 // Validate validates this v1 account
@@ -60,6 +58,7 @@ func (m *V1Account) Validate(formats strfmt.Registry) error {
 }
 
 func (m *V1Account) validateContactDetails(formats strfmt.Registry) error {
+
 	if swag.IsZero(m.ContactDetails) { // not required
 		return nil
 	}
@@ -77,6 +76,7 @@ func (m *V1Account) validateContactDetails(formats strfmt.Registry) error {
 }
 
 func (m *V1Account) validatePaymentDetails(formats strfmt.Registry) error {
+
 	if swag.IsZero(m.PaymentDetails) { // not required
 		return nil
 	}
@@ -94,81 +94,16 @@ func (m *V1Account) validatePaymentDetails(formats strfmt.Registry) error {
 }
 
 func (m *V1Account) validateStatus(formats strfmt.Registry) error {
+
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
 
-	if m.Status != nil {
-		if err := m.Status.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("status")
-			}
-			return err
+	if err := m.Status.Validate(formats); err != nil {
+		if ve, ok := err.(*errors.Validation); ok {
+			return ve.ValidateName("status")
 		}
-	}
-
-	return nil
-}
-
-// ContextValidate validate this v1 account based on the context it is used
-func (m *V1Account) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.contextValidateContactDetails(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidatePaymentDetails(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateStatus(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
-
-func (m *V1Account) contextValidateContactDetails(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.ContactDetails != nil {
-		if err := m.ContactDetails.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("contactDetails")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *V1Account) contextValidatePaymentDetails(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.PaymentDetails != nil {
-		if err := m.PaymentDetails.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("paymentDetails")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *V1Account) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Status != nil {
-		if err := m.Status.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("status")
-			}
-			return err
-		}
+		return err
 	}
 
 	return nil

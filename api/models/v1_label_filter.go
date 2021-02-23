@@ -6,8 +6,6 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"context"
-
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -24,7 +22,7 @@ type V1LabelFilter struct {
 	Name string `json:"name,omitempty"`
 
 	// op
-	Op *V1LabelFilterOperator `json:"op,omitempty"`
+	Op V1LabelFilterOperator `json:"op,omitempty"`
 
 	// value
 	Value string `json:"value,omitempty"`
@@ -45,45 +43,16 @@ func (m *V1LabelFilter) Validate(formats strfmt.Registry) error {
 }
 
 func (m *V1LabelFilter) validateOp(formats strfmt.Registry) error {
+
 	if swag.IsZero(m.Op) { // not required
 		return nil
 	}
 
-	if m.Op != nil {
-		if err := m.Op.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("op")
-			}
-			return err
+	if err := m.Op.Validate(formats); err != nil {
+		if ve, ok := err.(*errors.Validation); ok {
+			return ve.ValidateName("op")
 		}
-	}
-
-	return nil
-}
-
-// ContextValidate validate this v1 label filter based on the context it is used
-func (m *V1LabelFilter) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.contextValidateOp(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
-
-func (m *V1LabelFilter) contextValidateOp(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Op != nil {
-		if err := m.Op.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("op")
-			}
-			return err
-		}
+		return err
 	}
 
 	return nil

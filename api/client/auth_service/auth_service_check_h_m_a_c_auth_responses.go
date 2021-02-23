@@ -52,7 +52,7 @@ func NewAuthServiceCheckHMACAuthOK() *AuthServiceCheckHMACAuthOK {
 	return &AuthServiceCheckHMACAuthOK{}
 }
 
-/* AuthServiceCheckHMACAuthOK describes a response with status code 200, with default header values.
+/*AuthServiceCheckHMACAuthOK handles this case with default header values.
 
 A successful response.
 */
@@ -63,6 +63,7 @@ type AuthServiceCheckHMACAuthOK struct {
 func (o *AuthServiceCheckHMACAuthOK) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/check-hmac][%d] authServiceCheckHMACAuthOK  %+v", 200, o.Payload)
 }
+
 func (o *AuthServiceCheckHMACAuthOK) GetPayload() *models.V1CheckHMACAuthResponse {
 	return o.Payload
 }
@@ -84,7 +85,7 @@ func NewAuthServiceCheckHMACAuthNotFound() *AuthServiceCheckHMACAuthNotFound {
 	return &AuthServiceCheckHMACAuthNotFound{}
 }
 
-/* AuthServiceCheckHMACAuthNotFound describes a response with status code 404, with default header values.
+/*AuthServiceCheckHMACAuthNotFound handles this case with default header values.
 
 Returned when the resource does not exist.
 */
@@ -95,6 +96,7 @@ type AuthServiceCheckHMACAuthNotFound struct {
 func (o *AuthServiceCheckHMACAuthNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/check-hmac][%d] authServiceCheckHMACAuthNotFound  %+v", 404, o.Payload)
 }
+
 func (o *AuthServiceCheckHMACAuthNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -116,7 +118,7 @@ func NewAuthServiceCheckHMACAuthDefault(code int) *AuthServiceCheckHMACAuthDefau
 	}
 }
 
-/* AuthServiceCheckHMACAuthDefault describes a response with status code -1, with default header values.
+/*AuthServiceCheckHMACAuthDefault handles this case with default header values.
 
 An unexpected error response
 */
@@ -134,6 +136,7 @@ func (o *AuthServiceCheckHMACAuthDefault) Code() int {
 func (o *AuthServiceCheckHMACAuthDefault) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/check-hmac][%d] AuthService_CheckHMACAuth default  %+v", o._statusCode, o.Payload)
 }
+
 func (o *AuthServiceCheckHMACAuthDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

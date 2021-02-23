@@ -52,7 +52,7 @@ func NewFunctionsServiceDeleteFunctionOK() *FunctionsServiceDeleteFunctionOK {
 	return &FunctionsServiceDeleteFunctionOK{}
 }
 
-/* FunctionsServiceDeleteFunctionOK describes a response with status code 200, with default header values.
+/*FunctionsServiceDeleteFunctionOK handles this case with default header values.
 
 A successful response.
 */
@@ -63,6 +63,7 @@ type FunctionsServiceDeleteFunctionOK struct {
 func (o *FunctionsServiceDeleteFunctionOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/func/v1/function/{id}][%d] functionsServiceDeleteFunctionOK  %+v", 200, o.Payload)
 }
+
 func (o *FunctionsServiceDeleteFunctionOK) GetPayload() models.FunctionsDeleteFunctionResponse {
 	return o.Payload
 }
@@ -82,7 +83,7 @@ func NewFunctionsServiceDeleteFunctionNotFound() *FunctionsServiceDeleteFunction
 	return &FunctionsServiceDeleteFunctionNotFound{}
 }
 
-/* FunctionsServiceDeleteFunctionNotFound describes a response with status code 404, with default header values.
+/*FunctionsServiceDeleteFunctionNotFound handles this case with default header values.
 
 Returned when the resource does not exist.
 */
@@ -93,6 +94,7 @@ type FunctionsServiceDeleteFunctionNotFound struct {
 func (o *FunctionsServiceDeleteFunctionNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/func/v1/function/{id}][%d] functionsServiceDeleteFunctionNotFound  %+v", 404, o.Payload)
 }
+
 func (o *FunctionsServiceDeleteFunctionNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -114,7 +116,7 @@ func NewFunctionsServiceDeleteFunctionDefault(code int) *FunctionsServiceDeleteF
 	}
 }
 
-/* FunctionsServiceDeleteFunctionDefault describes a response with status code -1, with default header values.
+/*FunctionsServiceDeleteFunctionDefault handles this case with default header values.
 
 An unexpected error response
 */
@@ -132,6 +134,7 @@ func (o *FunctionsServiceDeleteFunctionDefault) Code() int {
 func (o *FunctionsServiceDeleteFunctionDefault) Error() string {
 	return fmt.Sprintf("[DELETE /api/func/v1/function/{id}][%d] FunctionsService_DeleteFunction default  %+v", o._statusCode, o.Payload)
 }
+
 func (o *FunctionsServiceDeleteFunctionDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

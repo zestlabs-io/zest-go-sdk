@@ -52,7 +52,7 @@ func NewAuthServiceGetDefaultPoliciesOK() *AuthServiceGetDefaultPoliciesOK {
 	return &AuthServiceGetDefaultPoliciesOK{}
 }
 
-/* AuthServiceGetDefaultPoliciesOK describes a response with status code 200, with default header values.
+/*AuthServiceGetDefaultPoliciesOK handles this case with default header values.
 
 A successful response.
 */
@@ -63,6 +63,7 @@ type AuthServiceGetDefaultPoliciesOK struct {
 func (o *AuthServiceGetDefaultPoliciesOK) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/default-policies][%d] authServiceGetDefaultPoliciesOK  %+v", 200, o.Payload)
 }
+
 func (o *AuthServiceGetDefaultPoliciesOK) GetPayload() *models.V1GetDefaultPoliciesResponse {
 	return o.Payload
 }
@@ -84,7 +85,7 @@ func NewAuthServiceGetDefaultPoliciesNotFound() *AuthServiceGetDefaultPoliciesNo
 	return &AuthServiceGetDefaultPoliciesNotFound{}
 }
 
-/* AuthServiceGetDefaultPoliciesNotFound describes a response with status code 404, with default header values.
+/*AuthServiceGetDefaultPoliciesNotFound handles this case with default header values.
 
 Returned when the resource does not exist.
 */
@@ -95,6 +96,7 @@ type AuthServiceGetDefaultPoliciesNotFound struct {
 func (o *AuthServiceGetDefaultPoliciesNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/default-policies][%d] authServiceGetDefaultPoliciesNotFound  %+v", 404, o.Payload)
 }
+
 func (o *AuthServiceGetDefaultPoliciesNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -116,7 +118,7 @@ func NewAuthServiceGetDefaultPoliciesDefault(code int) *AuthServiceGetDefaultPol
 	}
 }
 
-/* AuthServiceGetDefaultPoliciesDefault describes a response with status code -1, with default header values.
+/*AuthServiceGetDefaultPoliciesDefault handles this case with default header values.
 
 An unexpected error response
 */
@@ -134,6 +136,7 @@ func (o *AuthServiceGetDefaultPoliciesDefault) Code() int {
 func (o *AuthServiceGetDefaultPoliciesDefault) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/default-policies][%d] AuthService_GetDefaultPolicies default  %+v", o._statusCode, o.Payload)
 }
+
 func (o *AuthServiceGetDefaultPoliciesDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

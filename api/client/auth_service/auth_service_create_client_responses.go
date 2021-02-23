@@ -70,7 +70,7 @@ func NewAuthServiceCreateClientOK() *AuthServiceCreateClientOK {
 	return &AuthServiceCreateClientOK{}
 }
 
-/* AuthServiceCreateClientOK describes a response with status code 200, with default header values.
+/*AuthServiceCreateClientOK handles this case with default header values.
 
 A successful response.
 */
@@ -81,6 +81,7 @@ type AuthServiceCreateClientOK struct {
 func (o *AuthServiceCreateClientOK) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/client][%d] authServiceCreateClientOK  %+v", 200, o.Payload)
 }
+
 func (o *AuthServiceCreateClientOK) GetPayload() *models.V1CreateClientResponse {
 	return o.Payload
 }
@@ -102,7 +103,7 @@ func NewAuthServiceCreateClientBadRequest() *AuthServiceCreateClientBadRequest {
 	return &AuthServiceCreateClientBadRequest{}
 }
 
-/* AuthServiceCreateClientBadRequest describes a response with status code 400, with default header values.
+/*AuthServiceCreateClientBadRequest handles this case with default header values.
 
 Returned when no valid client ID is provided in the request, or the account has already has 20 clients.
 */
@@ -113,6 +114,7 @@ type AuthServiceCreateClientBadRequest struct {
 func (o *AuthServiceCreateClientBadRequest) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/client][%d] authServiceCreateClientBadRequest  %+v", 400, o.Payload)
 }
+
 func (o *AuthServiceCreateClientBadRequest) GetPayload() interface{} {
 	return o.Payload
 }
@@ -132,7 +134,7 @@ func NewAuthServiceCreateClientForbidden() *AuthServiceCreateClientForbidden {
 	return &AuthServiceCreateClientForbidden{}
 }
 
-/* AuthServiceCreateClientForbidden describes a response with status code 403, with default header values.
+/*AuthServiceCreateClientForbidden handles this case with default header values.
 
 Returned when the caller is not allowed to perform this call.
 */
@@ -143,6 +145,7 @@ type AuthServiceCreateClientForbidden struct {
 func (o *AuthServiceCreateClientForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/client][%d] authServiceCreateClientForbidden  %+v", 403, o.Payload)
 }
+
 func (o *AuthServiceCreateClientForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -162,7 +165,7 @@ func NewAuthServiceCreateClientNotFound() *AuthServiceCreateClientNotFound {
 	return &AuthServiceCreateClientNotFound{}
 }
 
-/* AuthServiceCreateClientNotFound describes a response with status code 404, with default header values.
+/*AuthServiceCreateClientNotFound handles this case with default header values.
 
 Returned when the resource does not exist.
 */
@@ -173,6 +176,7 @@ type AuthServiceCreateClientNotFound struct {
 func (o *AuthServiceCreateClientNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/client][%d] authServiceCreateClientNotFound  %+v", 404, o.Payload)
 }
+
 func (o *AuthServiceCreateClientNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -192,7 +196,7 @@ func NewAuthServiceCreateClientInternalServerError() *AuthServiceCreateClientInt
 	return &AuthServiceCreateClientInternalServerError{}
 }
 
-/* AuthServiceCreateClientInternalServerError describes a response with status code 500, with default header values.
+/*AuthServiceCreateClientInternalServerError handles this case with default header values.
 
 Returned whenever an internall error occurs.
 */
@@ -203,6 +207,7 @@ type AuthServiceCreateClientInternalServerError struct {
 func (o *AuthServiceCreateClientInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/client][%d] authServiceCreateClientInternalServerError  %+v", 500, o.Payload)
 }
+
 func (o *AuthServiceCreateClientInternalServerError) GetPayload() interface{} {
 	return o.Payload
 }
@@ -224,7 +229,7 @@ func NewAuthServiceCreateClientDefault(code int) *AuthServiceCreateClientDefault
 	}
 }
 
-/* AuthServiceCreateClientDefault describes a response with status code -1, with default header values.
+/*AuthServiceCreateClientDefault handles this case with default header values.
 
 An unexpected error response
 */
@@ -242,6 +247,7 @@ func (o *AuthServiceCreateClientDefault) Code() int {
 func (o *AuthServiceCreateClientDefault) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/client][%d] AuthService_CreateClient default  %+v", o._statusCode, o.Payload)
 }
+
 func (o *AuthServiceCreateClientDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

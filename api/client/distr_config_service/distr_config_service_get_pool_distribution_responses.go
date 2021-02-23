@@ -52,7 +52,7 @@ func NewDistrConfigServiceGetPoolDistributionOK() *DistrConfigServiceGetPoolDist
 	return &DistrConfigServiceGetPoolDistributionOK{}
 }
 
-/* DistrConfigServiceGetPoolDistributionOK describes a response with status code 200, with default header values.
+/*DistrConfigServiceGetPoolDistributionOK handles this case with default header values.
 
 A successful response.
 */
@@ -63,6 +63,7 @@ type DistrConfigServiceGetPoolDistributionOK struct {
 func (o *DistrConfigServiceGetPoolDistributionOK) Error() string {
 	return fmt.Sprintf("[GET /api/distribution/v1/pool/distribution/{id}][%d] distrConfigServiceGetPoolDistributionOK  %+v", 200, o.Payload)
 }
+
 func (o *DistrConfigServiceGetPoolDistributionOK) GetPayload() *models.DistrconfigGetPoolDistributionResponse {
 	return o.Payload
 }
@@ -84,7 +85,7 @@ func NewDistrConfigServiceGetPoolDistributionNotFound() *DistrConfigServiceGetPo
 	return &DistrConfigServiceGetPoolDistributionNotFound{}
 }
 
-/* DistrConfigServiceGetPoolDistributionNotFound describes a response with status code 404, with default header values.
+/*DistrConfigServiceGetPoolDistributionNotFound handles this case with default header values.
 
 Returned when the resource does not exist.
 */
@@ -95,6 +96,7 @@ type DistrConfigServiceGetPoolDistributionNotFound struct {
 func (o *DistrConfigServiceGetPoolDistributionNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/distribution/v1/pool/distribution/{id}][%d] distrConfigServiceGetPoolDistributionNotFound  %+v", 404, o.Payload)
 }
+
 func (o *DistrConfigServiceGetPoolDistributionNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -116,7 +118,7 @@ func NewDistrConfigServiceGetPoolDistributionDefault(code int) *DistrConfigServi
 	}
 }
 
-/* DistrConfigServiceGetPoolDistributionDefault describes a response with status code -1, with default header values.
+/*DistrConfigServiceGetPoolDistributionDefault handles this case with default header values.
 
 An unexpected error response
 */
@@ -134,6 +136,7 @@ func (o *DistrConfigServiceGetPoolDistributionDefault) Code() int {
 func (o *DistrConfigServiceGetPoolDistributionDefault) Error() string {
 	return fmt.Sprintf("[GET /api/distribution/v1/pool/distribution/{id}][%d] DistrConfigService_GetPoolDistribution default  %+v", o._statusCode, o.Payload)
 }
+
 func (o *DistrConfigServiceGetPoolDistributionDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

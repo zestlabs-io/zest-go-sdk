@@ -16,73 +16,58 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewFunctionsServiceCallSyncFunctionParams creates a new FunctionsServiceCallSyncFunctionParams object,
-// with the default timeout for this client.
-//
-// Default values are not hydrated, since defaults are normally applied by the API server side.
-//
-// To enforce default values in parameter, use SetDefaults or WithDefaults.
+// NewFunctionsServiceCallSyncFunctionParams creates a new FunctionsServiceCallSyncFunctionParams object
+// with the default values initialized.
 func NewFunctionsServiceCallSyncFunctionParams() *FunctionsServiceCallSyncFunctionParams {
+	var ()
 	return &FunctionsServiceCallSyncFunctionParams{
+
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewFunctionsServiceCallSyncFunctionParamsWithTimeout creates a new FunctionsServiceCallSyncFunctionParams object
-// with the ability to set a timeout on a request.
+// with the default values initialized, and the ability to set a timeout on a request
 func NewFunctionsServiceCallSyncFunctionParamsWithTimeout(timeout time.Duration) *FunctionsServiceCallSyncFunctionParams {
+	var ()
 	return &FunctionsServiceCallSyncFunctionParams{
+
 		timeout: timeout,
 	}
 }
 
 // NewFunctionsServiceCallSyncFunctionParamsWithContext creates a new FunctionsServiceCallSyncFunctionParams object
-// with the ability to set a context for a request.
+// with the default values initialized, and the ability to set a context for a request
 func NewFunctionsServiceCallSyncFunctionParamsWithContext(ctx context.Context) *FunctionsServiceCallSyncFunctionParams {
+	var ()
 	return &FunctionsServiceCallSyncFunctionParams{
+
 		Context: ctx,
 	}
 }
 
 // NewFunctionsServiceCallSyncFunctionParamsWithHTTPClient creates a new FunctionsServiceCallSyncFunctionParams object
-// with the ability to set a custom HTTPClient for a request.
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewFunctionsServiceCallSyncFunctionParamsWithHTTPClient(client *http.Client) *FunctionsServiceCallSyncFunctionParams {
+	var ()
 	return &FunctionsServiceCallSyncFunctionParams{
 		HTTPClient: client,
 	}
 }
 
-/* FunctionsServiceCallSyncFunctionParams contains all the parameters to send to the API endpoint
-   for the functions service call sync function operation.
-
-   Typically these are written to a http.Request.
+/*FunctionsServiceCallSyncFunctionParams contains all the parameters to send to the API endpoint
+for the functions service call sync function operation typically these are written to a http.Request
 */
 type FunctionsServiceCallSyncFunctionParams struct {
 
-	// Body.
+	/*Body*/
 	Body interface{}
-
-	// ID.
+	/*ID*/
 	ID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
-}
-
-// WithDefaults hydrates default values in the functions service call sync function params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *FunctionsServiceCallSyncFunctionParams) WithDefaults() *FunctionsServiceCallSyncFunctionParams {
-	o.SetDefaults()
-	return o
-}
-
-// SetDefaults hydrates default values in the functions service call sync function params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *FunctionsServiceCallSyncFunctionParams) SetDefaults() {
-	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the functions service call sync function params
@@ -147,6 +132,7 @@ func (o *FunctionsServiceCallSyncFunctionParams) WriteToRequest(r runtime.Client
 		return err
 	}
 	var res []error
+
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

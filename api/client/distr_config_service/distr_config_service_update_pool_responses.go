@@ -52,7 +52,7 @@ func NewDistrConfigServiceUpdatePoolOK() *DistrConfigServiceUpdatePoolOK {
 	return &DistrConfigServiceUpdatePoolOK{}
 }
 
-/* DistrConfigServiceUpdatePoolOK describes a response with status code 200, with default header values.
+/*DistrConfigServiceUpdatePoolOK handles this case with default header values.
 
 A successful response.
 */
@@ -63,6 +63,7 @@ type DistrConfigServiceUpdatePoolOK struct {
 func (o *DistrConfigServiceUpdatePoolOK) Error() string {
 	return fmt.Sprintf("[PUT /api/distribution/v1/pool][%d] distrConfigServiceUpdatePoolOK  %+v", 200, o.Payload)
 }
+
 func (o *DistrConfigServiceUpdatePoolOK) GetPayload() models.DistrconfigUpdatePoolResponse {
 	return o.Payload
 }
@@ -82,7 +83,7 @@ func NewDistrConfigServiceUpdatePoolNotFound() *DistrConfigServiceUpdatePoolNotF
 	return &DistrConfigServiceUpdatePoolNotFound{}
 }
 
-/* DistrConfigServiceUpdatePoolNotFound describes a response with status code 404, with default header values.
+/*DistrConfigServiceUpdatePoolNotFound handles this case with default header values.
 
 Returned when the resource does not exist.
 */
@@ -93,6 +94,7 @@ type DistrConfigServiceUpdatePoolNotFound struct {
 func (o *DistrConfigServiceUpdatePoolNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/distribution/v1/pool][%d] distrConfigServiceUpdatePoolNotFound  %+v", 404, o.Payload)
 }
+
 func (o *DistrConfigServiceUpdatePoolNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -114,7 +116,7 @@ func NewDistrConfigServiceUpdatePoolDefault(code int) *DistrConfigServiceUpdateP
 	}
 }
 
-/* DistrConfigServiceUpdatePoolDefault describes a response with status code -1, with default header values.
+/*DistrConfigServiceUpdatePoolDefault handles this case with default header values.
 
 An unexpected error response
 */
@@ -132,6 +134,7 @@ func (o *DistrConfigServiceUpdatePoolDefault) Code() int {
 func (o *DistrConfigServiceUpdatePoolDefault) Error() string {
 	return fmt.Sprintf("[PUT /api/distribution/v1/pool][%d] DistrConfigService_UpdatePool default  %+v", o._statusCode, o.Payload)
 }
+
 func (o *DistrConfigServiceUpdatePoolDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

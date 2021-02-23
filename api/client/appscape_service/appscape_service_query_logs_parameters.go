@@ -18,70 +18,56 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewAppscapeServiceQueryLogsParams creates a new AppscapeServiceQueryLogsParams object,
-// with the default timeout for this client.
-//
-// Default values are not hydrated, since defaults are normally applied by the API server side.
-//
-// To enforce default values in parameter, use SetDefaults or WithDefaults.
+// NewAppscapeServiceQueryLogsParams creates a new AppscapeServiceQueryLogsParams object
+// with the default values initialized.
 func NewAppscapeServiceQueryLogsParams() *AppscapeServiceQueryLogsParams {
+	var ()
 	return &AppscapeServiceQueryLogsParams{
+
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAppscapeServiceQueryLogsParamsWithTimeout creates a new AppscapeServiceQueryLogsParams object
-// with the ability to set a timeout on a request.
+// with the default values initialized, and the ability to set a timeout on a request
 func NewAppscapeServiceQueryLogsParamsWithTimeout(timeout time.Duration) *AppscapeServiceQueryLogsParams {
+	var ()
 	return &AppscapeServiceQueryLogsParams{
+
 		timeout: timeout,
 	}
 }
 
 // NewAppscapeServiceQueryLogsParamsWithContext creates a new AppscapeServiceQueryLogsParams object
-// with the ability to set a context for a request.
+// with the default values initialized, and the ability to set a context for a request
 func NewAppscapeServiceQueryLogsParamsWithContext(ctx context.Context) *AppscapeServiceQueryLogsParams {
+	var ()
 	return &AppscapeServiceQueryLogsParams{
+
 		Context: ctx,
 	}
 }
 
 // NewAppscapeServiceQueryLogsParamsWithHTTPClient creates a new AppscapeServiceQueryLogsParams object
-// with the ability to set a custom HTTPClient for a request.
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewAppscapeServiceQueryLogsParamsWithHTTPClient(client *http.Client) *AppscapeServiceQueryLogsParams {
+	var ()
 	return &AppscapeServiceQueryLogsParams{
 		HTTPClient: client,
 	}
 }
 
-/* AppscapeServiceQueryLogsParams contains all the parameters to send to the API endpoint
-   for the appscape service query logs operation.
-
-   Typically these are written to a http.Request.
+/*AppscapeServiceQueryLogsParams contains all the parameters to send to the API endpoint
+for the appscape service query logs operation typically these are written to a http.Request
 */
 type AppscapeServiceQueryLogsParams struct {
 
-	// Body.
+	/*Body*/
 	Body *models.V1QueryLogsRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
-}
-
-// WithDefaults hydrates default values in the appscape service query logs params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *AppscapeServiceQueryLogsParams) WithDefaults() *AppscapeServiceQueryLogsParams {
-	o.SetDefaults()
-	return o
-}
-
-// SetDefaults hydrates default values in the appscape service query logs params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *AppscapeServiceQueryLogsParams) SetDefaults() {
-	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the appscape service query logs params
@@ -135,6 +121,7 @@ func (o *AppscapeServiceQueryLogsParams) WriteToRequest(r runtime.ClientRequest,
 		return err
 	}
 	var res []error
+
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

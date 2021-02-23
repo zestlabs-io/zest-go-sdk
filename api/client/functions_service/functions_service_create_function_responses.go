@@ -52,7 +52,7 @@ func NewFunctionsServiceCreateFunctionOK() *FunctionsServiceCreateFunctionOK {
 	return &FunctionsServiceCreateFunctionOK{}
 }
 
-/* FunctionsServiceCreateFunctionOK describes a response with status code 200, with default header values.
+/*FunctionsServiceCreateFunctionOK handles this case with default header values.
 
 A successful response.
 */
@@ -63,6 +63,7 @@ type FunctionsServiceCreateFunctionOK struct {
 func (o *FunctionsServiceCreateFunctionOK) Error() string {
 	return fmt.Sprintf("[POST /api/func/v1/function][%d] functionsServiceCreateFunctionOK  %+v", 200, o.Payload)
 }
+
 func (o *FunctionsServiceCreateFunctionOK) GetPayload() *models.FunctionsCreateFunctionResponse {
 	return o.Payload
 }
@@ -84,7 +85,7 @@ func NewFunctionsServiceCreateFunctionNotFound() *FunctionsServiceCreateFunction
 	return &FunctionsServiceCreateFunctionNotFound{}
 }
 
-/* FunctionsServiceCreateFunctionNotFound describes a response with status code 404, with default header values.
+/*FunctionsServiceCreateFunctionNotFound handles this case with default header values.
 
 Returned when the resource does not exist.
 */
@@ -95,6 +96,7 @@ type FunctionsServiceCreateFunctionNotFound struct {
 func (o *FunctionsServiceCreateFunctionNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/func/v1/function][%d] functionsServiceCreateFunctionNotFound  %+v", 404, o.Payload)
 }
+
 func (o *FunctionsServiceCreateFunctionNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -116,7 +118,7 @@ func NewFunctionsServiceCreateFunctionDefault(code int) *FunctionsServiceCreateF
 	}
 }
 
-/* FunctionsServiceCreateFunctionDefault describes a response with status code -1, with default header values.
+/*FunctionsServiceCreateFunctionDefault handles this case with default header values.
 
 An unexpected error response
 */
@@ -134,6 +136,7 @@ func (o *FunctionsServiceCreateFunctionDefault) Code() int {
 func (o *FunctionsServiceCreateFunctionDefault) Error() string {
 	return fmt.Sprintf("[POST /api/func/v1/function][%d] FunctionsService_CreateFunction default  %+v", o._statusCode, o.Payload)
 }
+
 func (o *FunctionsServiceCreateFunctionDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

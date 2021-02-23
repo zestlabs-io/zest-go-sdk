@@ -18,70 +18,56 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewDistrConfigServiceCreateUserParams creates a new DistrConfigServiceCreateUserParams object,
-// with the default timeout for this client.
-//
-// Default values are not hydrated, since defaults are normally applied by the API server side.
-//
-// To enforce default values in parameter, use SetDefaults or WithDefaults.
+// NewDistrConfigServiceCreateUserParams creates a new DistrConfigServiceCreateUserParams object
+// with the default values initialized.
 func NewDistrConfigServiceCreateUserParams() *DistrConfigServiceCreateUserParams {
+	var ()
 	return &DistrConfigServiceCreateUserParams{
+
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDistrConfigServiceCreateUserParamsWithTimeout creates a new DistrConfigServiceCreateUserParams object
-// with the ability to set a timeout on a request.
+// with the default values initialized, and the ability to set a timeout on a request
 func NewDistrConfigServiceCreateUserParamsWithTimeout(timeout time.Duration) *DistrConfigServiceCreateUserParams {
+	var ()
 	return &DistrConfigServiceCreateUserParams{
+
 		timeout: timeout,
 	}
 }
 
 // NewDistrConfigServiceCreateUserParamsWithContext creates a new DistrConfigServiceCreateUserParams object
-// with the ability to set a context for a request.
+// with the default values initialized, and the ability to set a context for a request
 func NewDistrConfigServiceCreateUserParamsWithContext(ctx context.Context) *DistrConfigServiceCreateUserParams {
+	var ()
 	return &DistrConfigServiceCreateUserParams{
+
 		Context: ctx,
 	}
 }
 
 // NewDistrConfigServiceCreateUserParamsWithHTTPClient creates a new DistrConfigServiceCreateUserParams object
-// with the ability to set a custom HTTPClient for a request.
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewDistrConfigServiceCreateUserParamsWithHTTPClient(client *http.Client) *DistrConfigServiceCreateUserParams {
+	var ()
 	return &DistrConfigServiceCreateUserParams{
 		HTTPClient: client,
 	}
 }
 
-/* DistrConfigServiceCreateUserParams contains all the parameters to send to the API endpoint
-   for the distr config service create user operation.
-
-   Typically these are written to a http.Request.
+/*DistrConfigServiceCreateUserParams contains all the parameters to send to the API endpoint
+for the distr config service create user operation typically these are written to a http.Request
 */
 type DistrConfigServiceCreateUserParams struct {
 
-	// Body.
+	/*Body*/
 	Body *models.DistrconfigCreateUserRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
-}
-
-// WithDefaults hydrates default values in the distr config service create user params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *DistrConfigServiceCreateUserParams) WithDefaults() *DistrConfigServiceCreateUserParams {
-	o.SetDefaults()
-	return o
-}
-
-// SetDefaults hydrates default values in the distr config service create user params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *DistrConfigServiceCreateUserParams) SetDefaults() {
-	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the distr config service create user params
@@ -135,6 +121,7 @@ func (o *DistrConfigServiceCreateUserParams) WriteToRequest(r runtime.ClientRequ
 		return err
 	}
 	var res []error
+
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

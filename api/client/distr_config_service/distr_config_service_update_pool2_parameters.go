@@ -18,76 +18,61 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewDistrConfigServiceUpdatePool2Params creates a new DistrConfigServiceUpdatePool2Params object,
-// with the default timeout for this client.
-//
-// Default values are not hydrated, since defaults are normally applied by the API server side.
-//
-// To enforce default values in parameter, use SetDefaults or WithDefaults.
+// NewDistrConfigServiceUpdatePool2Params creates a new DistrConfigServiceUpdatePool2Params object
+// with the default values initialized.
 func NewDistrConfigServiceUpdatePool2Params() *DistrConfigServiceUpdatePool2Params {
+	var ()
 	return &DistrConfigServiceUpdatePool2Params{
+
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDistrConfigServiceUpdatePool2ParamsWithTimeout creates a new DistrConfigServiceUpdatePool2Params object
-// with the ability to set a timeout on a request.
+// with the default values initialized, and the ability to set a timeout on a request
 func NewDistrConfigServiceUpdatePool2ParamsWithTimeout(timeout time.Duration) *DistrConfigServiceUpdatePool2Params {
+	var ()
 	return &DistrConfigServiceUpdatePool2Params{
+
 		timeout: timeout,
 	}
 }
 
 // NewDistrConfigServiceUpdatePool2ParamsWithContext creates a new DistrConfigServiceUpdatePool2Params object
-// with the ability to set a context for a request.
+// with the default values initialized, and the ability to set a context for a request
 func NewDistrConfigServiceUpdatePool2ParamsWithContext(ctx context.Context) *DistrConfigServiceUpdatePool2Params {
+	var ()
 	return &DistrConfigServiceUpdatePool2Params{
+
 		Context: ctx,
 	}
 }
 
 // NewDistrConfigServiceUpdatePool2ParamsWithHTTPClient creates a new DistrConfigServiceUpdatePool2Params object
-// with the ability to set a custom HTTPClient for a request.
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewDistrConfigServiceUpdatePool2ParamsWithHTTPClient(client *http.Client) *DistrConfigServiceUpdatePool2Params {
+	var ()
 	return &DistrConfigServiceUpdatePool2Params{
 		HTTPClient: client,
 	}
 }
 
-/* DistrConfigServiceUpdatePool2Params contains all the parameters to send to the API endpoint
-   for the distr config service update pool2 operation.
-
-   Typically these are written to a http.Request.
+/*DistrConfigServiceUpdatePool2Params contains all the parameters to send to the API endpoint
+for the distr config service update pool2 operation typically these are written to a http.Request
 */
 type DistrConfigServiceUpdatePool2Params struct {
 
-	// Body.
+	/*Body*/
 	Body *models.DistrconfigDataPool
+	/*DataPoolID
+	  Primary key together with accountId - should be unique by client - used also as name of the pool
 
-	/* DataPoolID.
-
-	   Primary key together with accountId - should be unique by client - used also as name of the pool
 	*/
 	DataPoolID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
-}
-
-// WithDefaults hydrates default values in the distr config service update pool2 params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *DistrConfigServiceUpdatePool2Params) WithDefaults() *DistrConfigServiceUpdatePool2Params {
-	o.SetDefaults()
-	return o
-}
-
-// SetDefaults hydrates default values in the distr config service update pool2 params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *DistrConfigServiceUpdatePool2Params) SetDefaults() {
-	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the distr config service update pool2 params
@@ -152,6 +137,7 @@ func (o *DistrConfigServiceUpdatePool2Params) WriteToRequest(r runtime.ClientReq
 		return err
 	}
 	var res []error
+
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -52,7 +52,7 @@ func NewFunctionsServiceUpdateFunctionOK() *FunctionsServiceUpdateFunctionOK {
 	return &FunctionsServiceUpdateFunctionOK{}
 }
 
-/* FunctionsServiceUpdateFunctionOK describes a response with status code 200, with default header values.
+/*FunctionsServiceUpdateFunctionOK handles this case with default header values.
 
 A successful response.
 */
@@ -63,6 +63,7 @@ type FunctionsServiceUpdateFunctionOK struct {
 func (o *FunctionsServiceUpdateFunctionOK) Error() string {
 	return fmt.Sprintf("[PUT /api/func/v1/function][%d] functionsServiceUpdateFunctionOK  %+v", 200, o.Payload)
 }
+
 func (o *FunctionsServiceUpdateFunctionOK) GetPayload() models.FunctionsUpdateFunctionResponse {
 	return o.Payload
 }
@@ -82,7 +83,7 @@ func NewFunctionsServiceUpdateFunctionNotFound() *FunctionsServiceUpdateFunction
 	return &FunctionsServiceUpdateFunctionNotFound{}
 }
 
-/* FunctionsServiceUpdateFunctionNotFound describes a response with status code 404, with default header values.
+/*FunctionsServiceUpdateFunctionNotFound handles this case with default header values.
 
 Returned when the resource does not exist.
 */
@@ -93,6 +94,7 @@ type FunctionsServiceUpdateFunctionNotFound struct {
 func (o *FunctionsServiceUpdateFunctionNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/func/v1/function][%d] functionsServiceUpdateFunctionNotFound  %+v", 404, o.Payload)
 }
+
 func (o *FunctionsServiceUpdateFunctionNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -114,7 +116,7 @@ func NewFunctionsServiceUpdateFunctionDefault(code int) *FunctionsServiceUpdateF
 	}
 }
 
-/* FunctionsServiceUpdateFunctionDefault describes a response with status code -1, with default header values.
+/*FunctionsServiceUpdateFunctionDefault handles this case with default header values.
 
 An unexpected error response
 */
@@ -132,6 +134,7 @@ func (o *FunctionsServiceUpdateFunctionDefault) Code() int {
 func (o *FunctionsServiceUpdateFunctionDefault) Error() string {
 	return fmt.Sprintf("[PUT /api/func/v1/function][%d] FunctionsService_UpdateFunction default  %+v", o._statusCode, o.Payload)
 }
+
 func (o *FunctionsServiceUpdateFunctionDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

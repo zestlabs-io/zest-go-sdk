@@ -52,7 +52,7 @@ func NewFunctionsServiceCallSyncFunctionOK() *FunctionsServiceCallSyncFunctionOK
 	return &FunctionsServiceCallSyncFunctionOK{}
 }
 
-/* FunctionsServiceCallSyncFunctionOK describes a response with status code 200, with default header values.
+/*FunctionsServiceCallSyncFunctionOK handles this case with default header values.
 
 A successful response.
 */
@@ -63,6 +63,7 @@ type FunctionsServiceCallSyncFunctionOK struct {
 func (o *FunctionsServiceCallSyncFunctionOK) Error() string {
 	return fmt.Sprintf("[POST /api/func/v1/call-sync/{id}][%d] functionsServiceCallSyncFunctionOK  %+v", 200, o.Payload)
 }
+
 func (o *FunctionsServiceCallSyncFunctionOK) GetPayload() *models.FunctionsCallFunctionResponse {
 	return o.Payload
 }
@@ -84,7 +85,7 @@ func NewFunctionsServiceCallSyncFunctionNotFound() *FunctionsServiceCallSyncFunc
 	return &FunctionsServiceCallSyncFunctionNotFound{}
 }
 
-/* FunctionsServiceCallSyncFunctionNotFound describes a response with status code 404, with default header values.
+/*FunctionsServiceCallSyncFunctionNotFound handles this case with default header values.
 
 Returned when the resource does not exist.
 */
@@ -95,6 +96,7 @@ type FunctionsServiceCallSyncFunctionNotFound struct {
 func (o *FunctionsServiceCallSyncFunctionNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/func/v1/call-sync/{id}][%d] functionsServiceCallSyncFunctionNotFound  %+v", 404, o.Payload)
 }
+
 func (o *FunctionsServiceCallSyncFunctionNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -116,7 +118,7 @@ func NewFunctionsServiceCallSyncFunctionDefault(code int) *FunctionsServiceCallS
 	}
 }
 
-/* FunctionsServiceCallSyncFunctionDefault describes a response with status code -1, with default header values.
+/*FunctionsServiceCallSyncFunctionDefault handles this case with default header values.
 
 An unexpected error response
 */
@@ -134,6 +136,7 @@ func (o *FunctionsServiceCallSyncFunctionDefault) Code() int {
 func (o *FunctionsServiceCallSyncFunctionDefault) Error() string {
 	return fmt.Sprintf("[POST /api/func/v1/call-sync/{id}][%d] FunctionsService_CallSyncFunction default  %+v", o._statusCode, o.Payload)
 }
+
 func (o *FunctionsServiceCallSyncFunctionDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

@@ -52,7 +52,7 @@ func NewDistrConfigServiceDeleteUserOK() *DistrConfigServiceDeleteUserOK {
 	return &DistrConfigServiceDeleteUserOK{}
 }
 
-/* DistrConfigServiceDeleteUserOK describes a response with status code 200, with default header values.
+/*DistrConfigServiceDeleteUserOK handles this case with default header values.
 
 A successful response.
 */
@@ -63,6 +63,7 @@ type DistrConfigServiceDeleteUserOK struct {
 func (o *DistrConfigServiceDeleteUserOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/distribution/v1/user/{id}][%d] distrConfigServiceDeleteUserOK  %+v", 200, o.Payload)
 }
+
 func (o *DistrConfigServiceDeleteUserOK) GetPayload() models.DistrconfigDeleteUserResponse {
 	return o.Payload
 }
@@ -82,7 +83,7 @@ func NewDistrConfigServiceDeleteUserNotFound() *DistrConfigServiceDeleteUserNotF
 	return &DistrConfigServiceDeleteUserNotFound{}
 }
 
-/* DistrConfigServiceDeleteUserNotFound describes a response with status code 404, with default header values.
+/*DistrConfigServiceDeleteUserNotFound handles this case with default header values.
 
 Returned when the resource does not exist.
 */
@@ -93,6 +94,7 @@ type DistrConfigServiceDeleteUserNotFound struct {
 func (o *DistrConfigServiceDeleteUserNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/distribution/v1/user/{id}][%d] distrConfigServiceDeleteUserNotFound  %+v", 404, o.Payload)
 }
+
 func (o *DistrConfigServiceDeleteUserNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -114,7 +116,7 @@ func NewDistrConfigServiceDeleteUserDefault(code int) *DistrConfigServiceDeleteU
 	}
 }
 
-/* DistrConfigServiceDeleteUserDefault describes a response with status code -1, with default header values.
+/*DistrConfigServiceDeleteUserDefault handles this case with default header values.
 
 An unexpected error response
 */
@@ -132,6 +134,7 @@ func (o *DistrConfigServiceDeleteUserDefault) Code() int {
 func (o *DistrConfigServiceDeleteUserDefault) Error() string {
 	return fmt.Sprintf("[DELETE /api/distribution/v1/user/{id}][%d] DistrConfigService_DeleteUser default  %+v", o._statusCode, o.Payload)
 }
+
 func (o *DistrConfigServiceDeleteUserDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

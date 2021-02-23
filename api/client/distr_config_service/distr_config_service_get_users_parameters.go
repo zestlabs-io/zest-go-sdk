@@ -16,66 +16,52 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDistrConfigServiceGetUsersParams creates a new DistrConfigServiceGetUsersParams object,
-// with the default timeout for this client.
-//
-// Default values are not hydrated, since defaults are normally applied by the API server side.
-//
-// To enforce default values in parameter, use SetDefaults or WithDefaults.
+// NewDistrConfigServiceGetUsersParams creates a new DistrConfigServiceGetUsersParams object
+// with the default values initialized.
 func NewDistrConfigServiceGetUsersParams() *DistrConfigServiceGetUsersParams {
+
 	return &DistrConfigServiceGetUsersParams{
+
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDistrConfigServiceGetUsersParamsWithTimeout creates a new DistrConfigServiceGetUsersParams object
-// with the ability to set a timeout on a request.
+// with the default values initialized, and the ability to set a timeout on a request
 func NewDistrConfigServiceGetUsersParamsWithTimeout(timeout time.Duration) *DistrConfigServiceGetUsersParams {
+
 	return &DistrConfigServiceGetUsersParams{
+
 		timeout: timeout,
 	}
 }
 
 // NewDistrConfigServiceGetUsersParamsWithContext creates a new DistrConfigServiceGetUsersParams object
-// with the ability to set a context for a request.
+// with the default values initialized, and the ability to set a context for a request
 func NewDistrConfigServiceGetUsersParamsWithContext(ctx context.Context) *DistrConfigServiceGetUsersParams {
+
 	return &DistrConfigServiceGetUsersParams{
+
 		Context: ctx,
 	}
 }
 
 // NewDistrConfigServiceGetUsersParamsWithHTTPClient creates a new DistrConfigServiceGetUsersParams object
-// with the ability to set a custom HTTPClient for a request.
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewDistrConfigServiceGetUsersParamsWithHTTPClient(client *http.Client) *DistrConfigServiceGetUsersParams {
+
 	return &DistrConfigServiceGetUsersParams{
 		HTTPClient: client,
 	}
 }
 
-/* DistrConfigServiceGetUsersParams contains all the parameters to send to the API endpoint
-   for the distr config service get users operation.
-
-   Typically these are written to a http.Request.
+/*DistrConfigServiceGetUsersParams contains all the parameters to send to the API endpoint
+for the distr config service get users operation typically these are written to a http.Request
 */
 type DistrConfigServiceGetUsersParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
-}
-
-// WithDefaults hydrates default values in the distr config service get users params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *DistrConfigServiceGetUsersParams) WithDefaults() *DistrConfigServiceGetUsersParams {
-	o.SetDefaults()
-	return o
-}
-
-// SetDefaults hydrates default values in the distr config service get users params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *DistrConfigServiceGetUsersParams) SetDefaults() {
-	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the distr config service get users params

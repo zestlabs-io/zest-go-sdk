@@ -16,91 +16,74 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPoolDataServiceStoreAttachmentParams creates a new PoolDataServiceStoreAttachmentParams object,
-// with the default timeout for this client.
-//
-// Default values are not hydrated, since defaults are normally applied by the API server side.
-//
-// To enforce default values in parameter, use SetDefaults or WithDefaults.
+// NewPoolDataServiceStoreAttachmentParams creates a new PoolDataServiceStoreAttachmentParams object
+// with the default values initialized.
 func NewPoolDataServiceStoreAttachmentParams() *PoolDataServiceStoreAttachmentParams {
+	var ()
 	return &PoolDataServiceStoreAttachmentParams{
+
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPoolDataServiceStoreAttachmentParamsWithTimeout creates a new PoolDataServiceStoreAttachmentParams object
-// with the ability to set a timeout on a request.
+// with the default values initialized, and the ability to set a timeout on a request
 func NewPoolDataServiceStoreAttachmentParamsWithTimeout(timeout time.Duration) *PoolDataServiceStoreAttachmentParams {
+	var ()
 	return &PoolDataServiceStoreAttachmentParams{
+
 		timeout: timeout,
 	}
 }
 
 // NewPoolDataServiceStoreAttachmentParamsWithContext creates a new PoolDataServiceStoreAttachmentParams object
-// with the ability to set a context for a request.
+// with the default values initialized, and the ability to set a context for a request
 func NewPoolDataServiceStoreAttachmentParamsWithContext(ctx context.Context) *PoolDataServiceStoreAttachmentParams {
+	var ()
 	return &PoolDataServiceStoreAttachmentParams{
+
 		Context: ctx,
 	}
 }
 
 // NewPoolDataServiceStoreAttachmentParamsWithHTTPClient creates a new PoolDataServiceStoreAttachmentParams object
-// with the ability to set a custom HTTPClient for a request.
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewPoolDataServiceStoreAttachmentParamsWithHTTPClient(client *http.Client) *PoolDataServiceStoreAttachmentParams {
+	var ()
 	return &PoolDataServiceStoreAttachmentParams{
 		HTTPClient: client,
 	}
 }
 
-/* PoolDataServiceStoreAttachmentParams contains all the parameters to send to the API endpoint
-   for the pool data service store attachment operation.
-
-   Typically these are written to a http.Request.
+/*PoolDataServiceStoreAttachmentParams contains all the parameters to send to the API endpoint
+for the pool data service store attachment operation typically these are written to a http.Request
 */
 type PoolDataServiceStoreAttachmentParams struct {
 
-	/* Attname.
+	/*Attname
+	  Attachment name
 
-	   Attachment name
 	*/
 	Attname string
+	/*ID
+	  The ID (Primary Key) of the record
 
-	/* ID.
-
-	   The ID (Primary Key) of the record
 	*/
 	ID string
+	/*PoolID
+	  Pool ID (e.g. orders)
 
-	/* PoolID.
-
-	   Pool ID (e.g. orders)
 	*/
 	PoolID string
+	/*Upfile
+	  The attachment content file
 
-	/* Upfile.
-
-	   The attachment content file
 	*/
 	Upfile runtime.NamedReadCloser
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
-}
-
-// WithDefaults hydrates default values in the pool data service store attachment params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *PoolDataServiceStoreAttachmentParams) WithDefaults() *PoolDataServiceStoreAttachmentParams {
-	o.SetDefaults()
-	return o
-}
-
-// SetDefaults hydrates default values in the pool data service store attachment params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *PoolDataServiceStoreAttachmentParams) SetDefaults() {
-	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the pool data service store attachment params
@@ -202,6 +185,7 @@ func (o *PoolDataServiceStoreAttachmentParams) WriteToRequest(r runtime.ClientRe
 	if err := r.SetPathParam("poolId", o.PoolID); err != nil {
 		return err
 	}
+
 	// form file param upfile
 	if err := r.SetFileParam("upfile", o.Upfile); err != nil {
 		return err

@@ -18,76 +18,61 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewPoolDataServiceBulkDeleteParams creates a new PoolDataServiceBulkDeleteParams object,
-// with the default timeout for this client.
-//
-// Default values are not hydrated, since defaults are normally applied by the API server side.
-//
-// To enforce default values in parameter, use SetDefaults or WithDefaults.
+// NewPoolDataServiceBulkDeleteParams creates a new PoolDataServiceBulkDeleteParams object
+// with the default values initialized.
 func NewPoolDataServiceBulkDeleteParams() *PoolDataServiceBulkDeleteParams {
+	var ()
 	return &PoolDataServiceBulkDeleteParams{
+
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPoolDataServiceBulkDeleteParamsWithTimeout creates a new PoolDataServiceBulkDeleteParams object
-// with the ability to set a timeout on a request.
+// with the default values initialized, and the ability to set a timeout on a request
 func NewPoolDataServiceBulkDeleteParamsWithTimeout(timeout time.Duration) *PoolDataServiceBulkDeleteParams {
+	var ()
 	return &PoolDataServiceBulkDeleteParams{
+
 		timeout: timeout,
 	}
 }
 
 // NewPoolDataServiceBulkDeleteParamsWithContext creates a new PoolDataServiceBulkDeleteParams object
-// with the ability to set a context for a request.
+// with the default values initialized, and the ability to set a context for a request
 func NewPoolDataServiceBulkDeleteParamsWithContext(ctx context.Context) *PoolDataServiceBulkDeleteParams {
+	var ()
 	return &PoolDataServiceBulkDeleteParams{
+
 		Context: ctx,
 	}
 }
 
 // NewPoolDataServiceBulkDeleteParamsWithHTTPClient creates a new PoolDataServiceBulkDeleteParams object
-// with the ability to set a custom HTTPClient for a request.
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewPoolDataServiceBulkDeleteParamsWithHTTPClient(client *http.Client) *PoolDataServiceBulkDeleteParams {
+	var ()
 	return &PoolDataServiceBulkDeleteParams{
 		HTTPClient: client,
 	}
 }
 
-/* PoolDataServiceBulkDeleteParams contains all the parameters to send to the API endpoint
-   for the pool data service bulk delete operation.
-
-   Typically these are written to a http.Request.
+/*PoolDataServiceBulkDeleteParams contains all the parameters to send to the API endpoint
+for the pool data service bulk delete operation typically these are written to a http.Request
 */
 type PoolDataServiceBulkDeleteParams struct {
 
-	// Body.
+	/*Body*/
 	Body models.DataBulkDeleteRequest
+	/*PoolID
+	  Pool ID (e.g. orders)
 
-	/* PoolID.
-
-	   Pool ID (e.g. orders)
 	*/
 	PoolID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
-}
-
-// WithDefaults hydrates default values in the pool data service bulk delete params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *PoolDataServiceBulkDeleteParams) WithDefaults() *PoolDataServiceBulkDeleteParams {
-	o.SetDefaults()
-	return o
-}
-
-// SetDefaults hydrates default values in the pool data service bulk delete params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *PoolDataServiceBulkDeleteParams) SetDefaults() {
-	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the pool data service bulk delete params
@@ -152,6 +137,7 @@ func (o *PoolDataServiceBulkDeleteParams) WriteToRequest(r runtime.ClientRequest
 		return err
 	}
 	var res []error
+
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

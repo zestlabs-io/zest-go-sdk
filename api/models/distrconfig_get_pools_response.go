@@ -6,7 +6,6 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -46,6 +45,7 @@ func (m *DistrconfigGetPoolsResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DistrconfigGetPoolsResponse) validateDataPool(formats strfmt.Registry) error {
+
 	if swag.IsZero(m.DataPool) { // not required
 		return nil
 	}
@@ -70,6 +70,7 @@ func (m *DistrconfigGetPoolsResponse) validateDataPool(formats strfmt.Registry) 
 }
 
 func (m *DistrconfigGetPoolsResponse) validatePoolSizes(formats strfmt.Registry) error {
+
 	if swag.IsZero(m.PoolSizes) { // not required
 		return nil
 	}
@@ -81,57 +82,6 @@ func (m *DistrconfigGetPoolsResponse) validatePoolSizes(formats strfmt.Registry)
 		}
 		if val, ok := m.PoolSizes[k]; ok {
 			if err := val.Validate(formats); err != nil {
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
-
-// ContextValidate validate this distrconfig get pools response based on the context it is used
-func (m *DistrconfigGetPoolsResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.contextValidateDataPool(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidatePoolSizes(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
-
-func (m *DistrconfigGetPoolsResponse) contextValidateDataPool(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.DataPool); i++ {
-
-		if m.DataPool[i] != nil {
-			if err := m.DataPool[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("dataPool" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
-
-func (m *DistrconfigGetPoolsResponse) contextValidatePoolSizes(ctx context.Context, formats strfmt.Registry) error {
-
-	for k := range m.PoolSizes {
-
-		if val, ok := m.PoolSizes[k]; ok {
-			if err := val.ContextValidate(ctx, formats); err != nil {
 				return err
 			}
 		}

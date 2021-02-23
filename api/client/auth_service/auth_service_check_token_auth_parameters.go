@@ -18,70 +18,56 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewAuthServiceCheckTokenAuthParams creates a new AuthServiceCheckTokenAuthParams object,
-// with the default timeout for this client.
-//
-// Default values are not hydrated, since defaults are normally applied by the API server side.
-//
-// To enforce default values in parameter, use SetDefaults or WithDefaults.
+// NewAuthServiceCheckTokenAuthParams creates a new AuthServiceCheckTokenAuthParams object
+// with the default values initialized.
 func NewAuthServiceCheckTokenAuthParams() *AuthServiceCheckTokenAuthParams {
+	var ()
 	return &AuthServiceCheckTokenAuthParams{
+
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAuthServiceCheckTokenAuthParamsWithTimeout creates a new AuthServiceCheckTokenAuthParams object
-// with the ability to set a timeout on a request.
+// with the default values initialized, and the ability to set a timeout on a request
 func NewAuthServiceCheckTokenAuthParamsWithTimeout(timeout time.Duration) *AuthServiceCheckTokenAuthParams {
+	var ()
 	return &AuthServiceCheckTokenAuthParams{
+
 		timeout: timeout,
 	}
 }
 
 // NewAuthServiceCheckTokenAuthParamsWithContext creates a new AuthServiceCheckTokenAuthParams object
-// with the ability to set a context for a request.
+// with the default values initialized, and the ability to set a context for a request
 func NewAuthServiceCheckTokenAuthParamsWithContext(ctx context.Context) *AuthServiceCheckTokenAuthParams {
+	var ()
 	return &AuthServiceCheckTokenAuthParams{
+
 		Context: ctx,
 	}
 }
 
 // NewAuthServiceCheckTokenAuthParamsWithHTTPClient creates a new AuthServiceCheckTokenAuthParams object
-// with the ability to set a custom HTTPClient for a request.
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewAuthServiceCheckTokenAuthParamsWithHTTPClient(client *http.Client) *AuthServiceCheckTokenAuthParams {
+	var ()
 	return &AuthServiceCheckTokenAuthParams{
 		HTTPClient: client,
 	}
 }
 
-/* AuthServiceCheckTokenAuthParams contains all the parameters to send to the API endpoint
-   for the auth service check token auth operation.
-
-   Typically these are written to a http.Request.
+/*AuthServiceCheckTokenAuthParams contains all the parameters to send to the API endpoint
+for the auth service check token auth operation typically these are written to a http.Request
 */
 type AuthServiceCheckTokenAuthParams struct {
 
-	// Body.
+	/*Body*/
 	Body *models.V1CheckTokenAuthRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
-}
-
-// WithDefaults hydrates default values in the auth service check token auth params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *AuthServiceCheckTokenAuthParams) WithDefaults() *AuthServiceCheckTokenAuthParams {
-	o.SetDefaults()
-	return o
-}
-
-// SetDefaults hydrates default values in the auth service check token auth params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *AuthServiceCheckTokenAuthParams) SetDefaults() {
-	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the auth service check token auth params
@@ -135,6 +121,7 @@ func (o *AuthServiceCheckTokenAuthParams) WriteToRequest(r runtime.ClientRequest
 		return err
 	}
 	var res []error
+
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -52,7 +52,7 @@ func NewAuthServiceDeleteUserOK() *AuthServiceDeleteUserOK {
 	return &AuthServiceDeleteUserOK{}
 }
 
-/* AuthServiceDeleteUserOK describes a response with status code 200, with default header values.
+/*AuthServiceDeleteUserOK handles this case with default header values.
 
 A successful response.
 */
@@ -63,6 +63,7 @@ type AuthServiceDeleteUserOK struct {
 func (o *AuthServiceDeleteUserOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/auth/v1/user/{userID}][%d] authServiceDeleteUserOK  %+v", 200, o.Payload)
 }
+
 func (o *AuthServiceDeleteUserOK) GetPayload() models.V1DeleteUserResponse {
 	return o.Payload
 }
@@ -82,7 +83,7 @@ func NewAuthServiceDeleteUserNotFound() *AuthServiceDeleteUserNotFound {
 	return &AuthServiceDeleteUserNotFound{}
 }
 
-/* AuthServiceDeleteUserNotFound describes a response with status code 404, with default header values.
+/*AuthServiceDeleteUserNotFound handles this case with default header values.
 
 Returned when the resource does not exist.
 */
@@ -93,6 +94,7 @@ type AuthServiceDeleteUserNotFound struct {
 func (o *AuthServiceDeleteUserNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/auth/v1/user/{userID}][%d] authServiceDeleteUserNotFound  %+v", 404, o.Payload)
 }
+
 func (o *AuthServiceDeleteUserNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -114,7 +116,7 @@ func NewAuthServiceDeleteUserDefault(code int) *AuthServiceDeleteUserDefault {
 	}
 }
 
-/* AuthServiceDeleteUserDefault describes a response with status code -1, with default header values.
+/*AuthServiceDeleteUserDefault handles this case with default header values.
 
 An unexpected error response
 */
@@ -132,6 +134,7 @@ func (o *AuthServiceDeleteUserDefault) Code() int {
 func (o *AuthServiceDeleteUserDefault) Error() string {
 	return fmt.Sprintf("[DELETE /api/auth/v1/user/{userID}][%d] AuthService_DeleteUser default  %+v", o._statusCode, o.Payload)
 }
+
 func (o *AuthServiceDeleteUserDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

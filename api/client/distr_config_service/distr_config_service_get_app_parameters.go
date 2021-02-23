@@ -16,70 +16,56 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDistrConfigServiceGetAppParams creates a new DistrConfigServiceGetAppParams object,
-// with the default timeout for this client.
-//
-// Default values are not hydrated, since defaults are normally applied by the API server side.
-//
-// To enforce default values in parameter, use SetDefaults or WithDefaults.
+// NewDistrConfigServiceGetAppParams creates a new DistrConfigServiceGetAppParams object
+// with the default values initialized.
 func NewDistrConfigServiceGetAppParams() *DistrConfigServiceGetAppParams {
+	var ()
 	return &DistrConfigServiceGetAppParams{
+
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDistrConfigServiceGetAppParamsWithTimeout creates a new DistrConfigServiceGetAppParams object
-// with the ability to set a timeout on a request.
+// with the default values initialized, and the ability to set a timeout on a request
 func NewDistrConfigServiceGetAppParamsWithTimeout(timeout time.Duration) *DistrConfigServiceGetAppParams {
+	var ()
 	return &DistrConfigServiceGetAppParams{
+
 		timeout: timeout,
 	}
 }
 
 // NewDistrConfigServiceGetAppParamsWithContext creates a new DistrConfigServiceGetAppParams object
-// with the ability to set a context for a request.
+// with the default values initialized, and the ability to set a context for a request
 func NewDistrConfigServiceGetAppParamsWithContext(ctx context.Context) *DistrConfigServiceGetAppParams {
+	var ()
 	return &DistrConfigServiceGetAppParams{
+
 		Context: ctx,
 	}
 }
 
 // NewDistrConfigServiceGetAppParamsWithHTTPClient creates a new DistrConfigServiceGetAppParams object
-// with the ability to set a custom HTTPClient for a request.
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewDistrConfigServiceGetAppParamsWithHTTPClient(client *http.Client) *DistrConfigServiceGetAppParams {
+	var ()
 	return &DistrConfigServiceGetAppParams{
 		HTTPClient: client,
 	}
 }
 
-/* DistrConfigServiceGetAppParams contains all the parameters to send to the API endpoint
-   for the distr config service get app operation.
-
-   Typically these are written to a http.Request.
+/*DistrConfigServiceGetAppParams contains all the parameters to send to the API endpoint
+for the distr config service get app operation typically these are written to a http.Request
 */
 type DistrConfigServiceGetAppParams struct {
 
-	// ID.
+	/*ID*/
 	ID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
-}
-
-// WithDefaults hydrates default values in the distr config service get app params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *DistrConfigServiceGetAppParams) WithDefaults() *DistrConfigServiceGetAppParams {
-	o.SetDefaults()
-	return o
-}
-
-// SetDefaults hydrates default values in the distr config service get app params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *DistrConfigServiceGetAppParams) SetDefaults() {
-	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the distr config service get app params

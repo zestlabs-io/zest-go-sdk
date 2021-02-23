@@ -18,70 +18,56 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewAuthServiceCreateAccessKeyParams creates a new AuthServiceCreateAccessKeyParams object,
-// with the default timeout for this client.
-//
-// Default values are not hydrated, since defaults are normally applied by the API server side.
-//
-// To enforce default values in parameter, use SetDefaults or WithDefaults.
+// NewAuthServiceCreateAccessKeyParams creates a new AuthServiceCreateAccessKeyParams object
+// with the default values initialized.
 func NewAuthServiceCreateAccessKeyParams() *AuthServiceCreateAccessKeyParams {
+	var ()
 	return &AuthServiceCreateAccessKeyParams{
+
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAuthServiceCreateAccessKeyParamsWithTimeout creates a new AuthServiceCreateAccessKeyParams object
-// with the ability to set a timeout on a request.
+// with the default values initialized, and the ability to set a timeout on a request
 func NewAuthServiceCreateAccessKeyParamsWithTimeout(timeout time.Duration) *AuthServiceCreateAccessKeyParams {
+	var ()
 	return &AuthServiceCreateAccessKeyParams{
+
 		timeout: timeout,
 	}
 }
 
 // NewAuthServiceCreateAccessKeyParamsWithContext creates a new AuthServiceCreateAccessKeyParams object
-// with the ability to set a context for a request.
+// with the default values initialized, and the ability to set a context for a request
 func NewAuthServiceCreateAccessKeyParamsWithContext(ctx context.Context) *AuthServiceCreateAccessKeyParams {
+	var ()
 	return &AuthServiceCreateAccessKeyParams{
+
 		Context: ctx,
 	}
 }
 
 // NewAuthServiceCreateAccessKeyParamsWithHTTPClient creates a new AuthServiceCreateAccessKeyParams object
-// with the ability to set a custom HTTPClient for a request.
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewAuthServiceCreateAccessKeyParamsWithHTTPClient(client *http.Client) *AuthServiceCreateAccessKeyParams {
+	var ()
 	return &AuthServiceCreateAccessKeyParams{
 		HTTPClient: client,
 	}
 }
 
-/* AuthServiceCreateAccessKeyParams contains all the parameters to send to the API endpoint
-   for the auth service create access key operation.
-
-   Typically these are written to a http.Request.
+/*AuthServiceCreateAccessKeyParams contains all the parameters to send to the API endpoint
+for the auth service create access key operation typically these are written to a http.Request
 */
 type AuthServiceCreateAccessKeyParams struct {
 
-	// Body.
+	/*Body*/
 	Body *models.V1CreateAccessKeyRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
-}
-
-// WithDefaults hydrates default values in the auth service create access key params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *AuthServiceCreateAccessKeyParams) WithDefaults() *AuthServiceCreateAccessKeyParams {
-	o.SetDefaults()
-	return o
-}
-
-// SetDefaults hydrates default values in the auth service create access key params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *AuthServiceCreateAccessKeyParams) SetDefaults() {
-	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the auth service create access key params
@@ -135,6 +121,7 @@ func (o *AuthServiceCreateAccessKeyParams) WriteToRequest(r runtime.ClientReques
 		return err
 	}
 	var res []error
+
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

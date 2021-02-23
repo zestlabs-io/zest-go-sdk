@@ -41,6 +41,8 @@ type ClientService interface {
 
 	AuthServiceCreateClient(params *AuthServiceCreateClientParams) (*AuthServiceCreateClientOK, error)
 
+	AuthServiceCreateFederationConfig(params *AuthServiceCreateFederationConfigParams) (*AuthServiceCreateFederationConfigOK, error)
+
 	AuthServiceCreatePolicy(params *AuthServiceCreatePolicyParams) (*AuthServiceCreatePolicyOK, error)
 
 	AuthServiceCreateRole(params *AuthServiceCreateRoleParams) (*AuthServiceCreateRoleOK, error)
@@ -56,6 +58,8 @@ type ClientService interface {
 	AuthServiceDeleteRole(params *AuthServiceDeleteRoleParams) (*AuthServiceDeleteRoleOK, error)
 
 	AuthServiceDeleteUser(params *AuthServiceDeleteUserParams) (*AuthServiceDeleteUserOK, error)
+
+	AuthServiceGetClient(params *AuthServiceGetClientParams) (*AuthServiceGetClientOK, error)
 
 	AuthServiceGetClients(params *AuthServiceGetClientsParams) (*AuthServiceGetClientsOK, error)
 
@@ -274,7 +278,12 @@ func (a *Client) AuthServiceCheckTokenAuth(params *AuthServiceCheckTokenAuthPara
 }
 
 /*
-  AuthServiceCheckUsernameExists auth service check username exists API
+  AuthServiceCheckUsernameExists checks username exists checks in the database if there is already user with the same username if user ID is provided and there is already defined username for this user ID the method wi return false so that the username can be used for this user
+
+  Authorisation requirements:
+		Service:		`auth`
+		Call:				`CheckUsernameExists`
+		Scope:			`*`
 */
 func (a *Client) AuthServiceCheckUsernameExists(params *AuthServiceCheckUsernameExistsParams) (*AuthServiceCheckUsernameExistsOK, error) {
 	// TODO: Validate the params before sending
@@ -307,7 +316,12 @@ func (a *Client) AuthServiceCheckUsernameExists(params *AuthServiceCheckUsername
 }
 
 /*
-  AuthServiceCreateAccessKey users access keys API
+  AuthServiceCreateAccessKey creates access key creates a new access key for user
+
+  Authorisation requirements:
+		Service:		`auth`
+		Call:				`CreateAccessKey`
+		Scope:			user ID
 */
 func (a *Client) AuthServiceCreateAccessKey(params *AuthServiceCreateAccessKeyParams) (*AuthServiceCreateAccessKeyOK, error) {
 	// TODO: Validate the params before sending
@@ -374,6 +388,44 @@ func (a *Client) AuthServiceCreateClient(params *AuthServiceCreateClientParams) 
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*AuthServiceCreateClientDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  AuthServiceCreateFederationConfig creates federation config will try to create a new oidc federation configuration that can be attached to users the maximum registered federated configurations per account are 3
+
+  Authorisation requirements:
+		Service:		`auth`
+		Call:				`CreateFederationConfig`
+		Scope:
+*/
+func (a *Client) AuthServiceCreateFederationConfig(params *AuthServiceCreateFederationConfigParams) (*AuthServiceCreateFederationConfigOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAuthServiceCreateFederationConfigParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "AuthService_CreateFederationConfig",
+		Method:             "POST",
+		PathPattern:        "/api/auth/v1/federation",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AuthServiceCreateFederationConfigReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*AuthServiceCreateFederationConfigOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*AuthServiceCreateFederationConfigDefault)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
@@ -477,7 +529,12 @@ func (a *Client) AuthServiceCreateUser(params *AuthServiceCreateUserParams) (*Au
 }
 
 /*
-  AuthServiceDeleteAccessKey auth service delete access key API
+  AuthServiceDeleteAccessKey deletes access key deletes access key for user
+
+  Authorisation requirements:
+		Service:		`auth`
+		Call:				`DeleteAccessKey`
+		Scope:			user ID
 */
 func (a *Client) AuthServiceDeleteAccessKey(params *AuthServiceDeleteAccessKeyParams) (*AuthServiceDeleteAccessKeyOK, error) {
 	// TODO: Validate the params before sending
@@ -643,6 +700,44 @@ func (a *Client) AuthServiceDeleteUser(params *AuthServiceDeleteUserParams) (*Au
 	}
 	// unexpected success response
 	unexpectedSuccess := result.(*AuthServiceDeleteUserDefault)
+	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
+}
+
+/*
+  AuthServiceGetClient gets client loads a specific client
+
+  Authorisation requirements:
+		Service:		`auth`
+		Call:				`GetClient`
+		Scope:			`clientID`
+*/
+func (a *Client) AuthServiceGetClient(params *AuthServiceGetClientParams) (*AuthServiceGetClientOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAuthServiceGetClientParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "AuthService_GetClient",
+		Method:             "GET",
+		PathPattern:        "/api/auth/v1/client/{clientID}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AuthServiceGetClientReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*AuthServiceGetClientOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	unexpectedSuccess := result.(*AuthServiceGetClientDefault)
 	return nil, runtime.NewAPIError("unexpected success response: content available as default response in error", unexpectedSuccess, unexpectedSuccess.Code())
 }
 
@@ -949,7 +1044,12 @@ func (a *Client) AuthServiceGetUser(params *AuthServiceGetUserParams) (*AuthServ
 }
 
 /*
-  AuthServiceGetUserAccessKeys auth service get user access keys API
+  AuthServiceGetUserAccessKeys gets user access keys returns all access keys by user
+
+  Authorisation requirements:
+		Service:		`auth`
+		Call:				`GetUserAccessKeys`
+		Scope:			`*`
 */
 func (a *Client) AuthServiceGetUserAccessKeys(params *AuthServiceGetUserAccessKeysParams) (*AuthServiceGetUserAccessKeysOK, error) {
 	// TODO: Validate the params before sending

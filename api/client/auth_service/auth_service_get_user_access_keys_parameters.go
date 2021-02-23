@@ -16,70 +16,56 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewAuthServiceGetUserAccessKeysParams creates a new AuthServiceGetUserAccessKeysParams object,
-// with the default timeout for this client.
-//
-// Default values are not hydrated, since defaults are normally applied by the API server side.
-//
-// To enforce default values in parameter, use SetDefaults or WithDefaults.
+// NewAuthServiceGetUserAccessKeysParams creates a new AuthServiceGetUserAccessKeysParams object
+// with the default values initialized.
 func NewAuthServiceGetUserAccessKeysParams() *AuthServiceGetUserAccessKeysParams {
+	var ()
 	return &AuthServiceGetUserAccessKeysParams{
+
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAuthServiceGetUserAccessKeysParamsWithTimeout creates a new AuthServiceGetUserAccessKeysParams object
-// with the ability to set a timeout on a request.
+// with the default values initialized, and the ability to set a timeout on a request
 func NewAuthServiceGetUserAccessKeysParamsWithTimeout(timeout time.Duration) *AuthServiceGetUserAccessKeysParams {
+	var ()
 	return &AuthServiceGetUserAccessKeysParams{
+
 		timeout: timeout,
 	}
 }
 
 // NewAuthServiceGetUserAccessKeysParamsWithContext creates a new AuthServiceGetUserAccessKeysParams object
-// with the ability to set a context for a request.
+// with the default values initialized, and the ability to set a context for a request
 func NewAuthServiceGetUserAccessKeysParamsWithContext(ctx context.Context) *AuthServiceGetUserAccessKeysParams {
+	var ()
 	return &AuthServiceGetUserAccessKeysParams{
+
 		Context: ctx,
 	}
 }
 
 // NewAuthServiceGetUserAccessKeysParamsWithHTTPClient creates a new AuthServiceGetUserAccessKeysParams object
-// with the ability to set a custom HTTPClient for a request.
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewAuthServiceGetUserAccessKeysParamsWithHTTPClient(client *http.Client) *AuthServiceGetUserAccessKeysParams {
+	var ()
 	return &AuthServiceGetUserAccessKeysParams{
 		HTTPClient: client,
 	}
 }
 
-/* AuthServiceGetUserAccessKeysParams contains all the parameters to send to the API endpoint
-   for the auth service get user access keys operation.
-
-   Typically these are written to a http.Request.
+/*AuthServiceGetUserAccessKeysParams contains all the parameters to send to the API endpoint
+for the auth service get user access keys operation typically these are written to a http.Request
 */
 type AuthServiceGetUserAccessKeysParams struct {
 
-	// UserID.
+	/*UserID*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
-}
-
-// WithDefaults hydrates default values in the auth service get user access keys params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *AuthServiceGetUserAccessKeysParams) WithDefaults() *AuthServiceGetUserAccessKeysParams {
-	o.SetDefaults()
-	return o
-}
-
-// SetDefaults hydrates default values in the auth service get user access keys params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *AuthServiceGetUserAccessKeysParams) SetDefaults() {
-	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the auth service get user access keys params

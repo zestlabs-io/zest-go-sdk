@@ -16,75 +16,58 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewAuthServiceGetDefaultPoliciesParams creates a new AuthServiceGetDefaultPoliciesParams object,
-// with the default timeout for this client.
-//
-// Default values are not hydrated, since defaults are normally applied by the API server side.
-//
-// To enforce default values in parameter, use SetDefaults or WithDefaults.
+// NewAuthServiceGetDefaultPoliciesParams creates a new AuthServiceGetDefaultPoliciesParams object
+// with the default values initialized.
 func NewAuthServiceGetDefaultPoliciesParams() *AuthServiceGetDefaultPoliciesParams {
+	var ()
 	return &AuthServiceGetDefaultPoliciesParams{
+
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAuthServiceGetDefaultPoliciesParamsWithTimeout creates a new AuthServiceGetDefaultPoliciesParams object
-// with the ability to set a timeout on a request.
+// with the default values initialized, and the ability to set a timeout on a request
 func NewAuthServiceGetDefaultPoliciesParamsWithTimeout(timeout time.Duration) *AuthServiceGetDefaultPoliciesParams {
+	var ()
 	return &AuthServiceGetDefaultPoliciesParams{
+
 		timeout: timeout,
 	}
 }
 
 // NewAuthServiceGetDefaultPoliciesParamsWithContext creates a new AuthServiceGetDefaultPoliciesParams object
-// with the ability to set a context for a request.
+// with the default values initialized, and the ability to set a context for a request
 func NewAuthServiceGetDefaultPoliciesParamsWithContext(ctx context.Context) *AuthServiceGetDefaultPoliciesParams {
+	var ()
 	return &AuthServiceGetDefaultPoliciesParams{
+
 		Context: ctx,
 	}
 }
 
 // NewAuthServiceGetDefaultPoliciesParamsWithHTTPClient creates a new AuthServiceGetDefaultPoliciesParams object
-// with the ability to set a custom HTTPClient for a request.
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewAuthServiceGetDefaultPoliciesParamsWithHTTPClient(client *http.Client) *AuthServiceGetDefaultPoliciesParams {
+	var ()
 	return &AuthServiceGetDefaultPoliciesParams{
 		HTTPClient: client,
 	}
 }
 
-/* AuthServiceGetDefaultPoliciesParams contains all the parameters to send to the API endpoint
-   for the auth service get default policies operation.
-
-   Typically these are written to a http.Request.
+/*AuthServiceGetDefaultPoliciesParams contains all the parameters to send to the API endpoint
+for the auth service get default policies operation typically these are written to a http.Request
 */
 type AuthServiceGetDefaultPoliciesParams struct {
 
-	// Limit.
-	//
-	// Format: int64
+	/*Limit*/
 	Limit *string
-
-	// Offset.
+	/*Offset*/
 	Offset *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
-}
-
-// WithDefaults hydrates default values in the auth service get default policies params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *AuthServiceGetDefaultPoliciesParams) WithDefaults() *AuthServiceGetDefaultPoliciesParams {
-	o.SetDefaults()
-	return o
-}
-
-// SetDefaults hydrates default values in the auth service get default policies params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *AuthServiceGetDefaultPoliciesParams) SetDefaults() {
-	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the auth service get default policies params
@@ -154,34 +137,32 @@ func (o *AuthServiceGetDefaultPoliciesParams) WriteToRequest(r runtime.ClientReq
 
 		// query param limit
 		var qrLimit string
-
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := qrLimit
 		if qLimit != "" {
-
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
+
 	}
 
 	if o.Offset != nil {
 
 		// query param offset
 		var qrOffset string
-
 		if o.Offset != nil {
 			qrOffset = *o.Offset
 		}
 		qOffset := qrOffset
 		if qOffset != "" {
-
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
 				return err
 			}
 		}
+
 	}
 
 	if len(res) > 0 {

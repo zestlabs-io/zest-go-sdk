@@ -18,70 +18,56 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewAuthServiceCreateRoleParams creates a new AuthServiceCreateRoleParams object,
-// with the default timeout for this client.
-//
-// Default values are not hydrated, since defaults are normally applied by the API server side.
-//
-// To enforce default values in parameter, use SetDefaults or WithDefaults.
+// NewAuthServiceCreateRoleParams creates a new AuthServiceCreateRoleParams object
+// with the default values initialized.
 func NewAuthServiceCreateRoleParams() *AuthServiceCreateRoleParams {
+	var ()
 	return &AuthServiceCreateRoleParams{
+
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAuthServiceCreateRoleParamsWithTimeout creates a new AuthServiceCreateRoleParams object
-// with the ability to set a timeout on a request.
+// with the default values initialized, and the ability to set a timeout on a request
 func NewAuthServiceCreateRoleParamsWithTimeout(timeout time.Duration) *AuthServiceCreateRoleParams {
+	var ()
 	return &AuthServiceCreateRoleParams{
+
 		timeout: timeout,
 	}
 }
 
 // NewAuthServiceCreateRoleParamsWithContext creates a new AuthServiceCreateRoleParams object
-// with the ability to set a context for a request.
+// with the default values initialized, and the ability to set a context for a request
 func NewAuthServiceCreateRoleParamsWithContext(ctx context.Context) *AuthServiceCreateRoleParams {
+	var ()
 	return &AuthServiceCreateRoleParams{
+
 		Context: ctx,
 	}
 }
 
 // NewAuthServiceCreateRoleParamsWithHTTPClient creates a new AuthServiceCreateRoleParams object
-// with the ability to set a custom HTTPClient for a request.
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewAuthServiceCreateRoleParamsWithHTTPClient(client *http.Client) *AuthServiceCreateRoleParams {
+	var ()
 	return &AuthServiceCreateRoleParams{
 		HTTPClient: client,
 	}
 }
 
-/* AuthServiceCreateRoleParams contains all the parameters to send to the API endpoint
-   for the auth service create role operation.
-
-   Typically these are written to a http.Request.
+/*AuthServiceCreateRoleParams contains all the parameters to send to the API endpoint
+for the auth service create role operation typically these are written to a http.Request
 */
 type AuthServiceCreateRoleParams struct {
 
-	// Body.
+	/*Body*/
 	Body *models.V1CreateRoleRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
-}
-
-// WithDefaults hydrates default values in the auth service create role params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *AuthServiceCreateRoleParams) WithDefaults() *AuthServiceCreateRoleParams {
-	o.SetDefaults()
-	return o
-}
-
-// SetDefaults hydrates default values in the auth service create role params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *AuthServiceCreateRoleParams) SetDefaults() {
-	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the auth service create role params
@@ -135,6 +121,7 @@ func (o *AuthServiceCreateRoleParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
+
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -52,7 +52,7 @@ func NewAuthServiceGetOwnAccountOK() *AuthServiceGetOwnAccountOK {
 	return &AuthServiceGetOwnAccountOK{}
 }
 
-/* AuthServiceGetOwnAccountOK describes a response with status code 200, with default header values.
+/*AuthServiceGetOwnAccountOK handles this case with default header values.
 
 A successful response.
 */
@@ -63,6 +63,7 @@ type AuthServiceGetOwnAccountOK struct {
 func (o *AuthServiceGetOwnAccountOK) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/account][%d] authServiceGetOwnAccountOK  %+v", 200, o.Payload)
 }
+
 func (o *AuthServiceGetOwnAccountOK) GetPayload() *models.V1GetAccountResponse {
 	return o.Payload
 }
@@ -84,7 +85,7 @@ func NewAuthServiceGetOwnAccountNotFound() *AuthServiceGetOwnAccountNotFound {
 	return &AuthServiceGetOwnAccountNotFound{}
 }
 
-/* AuthServiceGetOwnAccountNotFound describes a response with status code 404, with default header values.
+/*AuthServiceGetOwnAccountNotFound handles this case with default header values.
 
 Returned when the resource does not exist.
 */
@@ -95,6 +96,7 @@ type AuthServiceGetOwnAccountNotFound struct {
 func (o *AuthServiceGetOwnAccountNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/account][%d] authServiceGetOwnAccountNotFound  %+v", 404, o.Payload)
 }
+
 func (o *AuthServiceGetOwnAccountNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -116,7 +118,7 @@ func NewAuthServiceGetOwnAccountDefault(code int) *AuthServiceGetOwnAccountDefau
 	}
 }
 
-/* AuthServiceGetOwnAccountDefault describes a response with status code -1, with default header values.
+/*AuthServiceGetOwnAccountDefault handles this case with default header values.
 
 An unexpected error response
 */
@@ -134,6 +136,7 @@ func (o *AuthServiceGetOwnAccountDefault) Code() int {
 func (o *AuthServiceGetOwnAccountDefault) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/account][%d] AuthService_GetOwnAccount default  %+v", o._statusCode, o.Payload)
 }
+
 func (o *AuthServiceGetOwnAccountDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

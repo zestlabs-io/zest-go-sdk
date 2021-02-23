@@ -52,7 +52,7 @@ func NewAuthServiceGetUserAccessKeysOK() *AuthServiceGetUserAccessKeysOK {
 	return &AuthServiceGetUserAccessKeysOK{}
 }
 
-/* AuthServiceGetUserAccessKeysOK describes a response with status code 200, with default header values.
+/*AuthServiceGetUserAccessKeysOK handles this case with default header values.
 
 A successful response.
 */
@@ -63,6 +63,7 @@ type AuthServiceGetUserAccessKeysOK struct {
 func (o *AuthServiceGetUserAccessKeysOK) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/user/accesskeys/{userID}][%d] authServiceGetUserAccessKeysOK  %+v", 200, o.Payload)
 }
+
 func (o *AuthServiceGetUserAccessKeysOK) GetPayload() *models.V1GetUserAccessKeysResponse {
 	return o.Payload
 }
@@ -84,7 +85,7 @@ func NewAuthServiceGetUserAccessKeysNotFound() *AuthServiceGetUserAccessKeysNotF
 	return &AuthServiceGetUserAccessKeysNotFound{}
 }
 
-/* AuthServiceGetUserAccessKeysNotFound describes a response with status code 404, with default header values.
+/*AuthServiceGetUserAccessKeysNotFound handles this case with default header values.
 
 Returned when the resource does not exist.
 */
@@ -95,6 +96,7 @@ type AuthServiceGetUserAccessKeysNotFound struct {
 func (o *AuthServiceGetUserAccessKeysNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/user/accesskeys/{userID}][%d] authServiceGetUserAccessKeysNotFound  %+v", 404, o.Payload)
 }
+
 func (o *AuthServiceGetUserAccessKeysNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -116,7 +118,7 @@ func NewAuthServiceGetUserAccessKeysDefault(code int) *AuthServiceGetUserAccessK
 	}
 }
 
-/* AuthServiceGetUserAccessKeysDefault describes a response with status code -1, with default header values.
+/*AuthServiceGetUserAccessKeysDefault handles this case with default header values.
 
 An unexpected error response
 */
@@ -134,6 +136,7 @@ func (o *AuthServiceGetUserAccessKeysDefault) Code() int {
 func (o *AuthServiceGetUserAccessKeysDefault) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/user/accesskeys/{userID}][%d] AuthService_GetUserAccessKeys default  %+v", o._statusCode, o.Payload)
 }
+
 func (o *AuthServiceGetUserAccessKeysDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

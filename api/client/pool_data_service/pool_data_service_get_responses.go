@@ -41,6 +41,7 @@ func (o *PoolDataServiceGetReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return nil, result
+
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -51,7 +52,7 @@ func NewPoolDataServiceGetOK() *PoolDataServiceGetOK {
 	return &PoolDataServiceGetOK{}
 }
 
-/* PoolDataServiceGetOK describes a response with status code 200, with default header values.
+/*PoolDataServiceGetOK handles this case with default header values.
 
 A successful response.
 */
@@ -62,6 +63,7 @@ type PoolDataServiceGetOK struct {
 func (o *PoolDataServiceGetOK) Error() string {
 	return fmt.Sprintf("[GET /api/data/_r/{poolId}/{id}][%d] poolDataServiceGetOK  %+v", 200, o.Payload)
 }
+
 func (o *PoolDataServiceGetOK) GetPayload() *models.DataGetResponse {
 	return o.Payload
 }
@@ -83,7 +85,7 @@ func NewPoolDataServiceGetBadRequest() *PoolDataServiceGetBadRequest {
 	return &PoolDataServiceGetBadRequest{}
 }
 
-/* PoolDataServiceGetBadRequest describes a response with status code 400, with default header values.
+/*PoolDataServiceGetBadRequest handles this case with default header values.
 
 Returned when input parameters are not provided
 */
@@ -94,6 +96,7 @@ type PoolDataServiceGetBadRequest struct {
 func (o *PoolDataServiceGetBadRequest) Error() string {
 	return fmt.Sprintf("[GET /api/data/_r/{poolId}/{id}][%d] poolDataServiceGetBadRequest  %+v", 400, o.Payload)
 }
+
 func (o *PoolDataServiceGetBadRequest) GetPayload() string {
 	return o.Payload
 }
@@ -113,7 +116,7 @@ func NewPoolDataServiceGetNotFound() *PoolDataServiceGetNotFound {
 	return &PoolDataServiceGetNotFound{}
 }
 
-/* PoolDataServiceGetNotFound describes a response with status code 404, with default header values.
+/*PoolDataServiceGetNotFound handles this case with default header values.
 
 Returned when the document does not exist.
 */
@@ -124,6 +127,7 @@ type PoolDataServiceGetNotFound struct {
 func (o *PoolDataServiceGetNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/data/_r/{poolId}/{id}][%d] poolDataServiceGetNotFound  %+v", 404, o.Payload)
 }
+
 func (o *PoolDataServiceGetNotFound) GetPayload() string {
 	return o.Payload
 }

@@ -39,6 +39,7 @@ func (o *PoolDataServiceDeleteAttachmentReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
+
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -49,7 +50,7 @@ func NewPoolDataServiceDeleteAttachmentOK() *PoolDataServiceDeleteAttachmentOK {
 	return &PoolDataServiceDeleteAttachmentOK{}
 }
 
-/* PoolDataServiceDeleteAttachmentOK describes a response with status code 200, with default header values.
+/*PoolDataServiceDeleteAttachmentOK handles this case with default header values.
 
 A successful response.
 */
@@ -60,6 +61,7 @@ type PoolDataServiceDeleteAttachmentOK struct {
 func (o *PoolDataServiceDeleteAttachmentOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/data/_r/{poolId}/{id}/{attname}][%d] poolDataServiceDeleteAttachmentOK  %+v", 200, o.Payload)
 }
+
 func (o *PoolDataServiceDeleteAttachmentOK) GetPayload() string {
 	return o.Payload
 }
@@ -79,7 +81,7 @@ func NewPoolDataServiceDeleteAttachmentBadRequest() *PoolDataServiceDeleteAttach
 	return &PoolDataServiceDeleteAttachmentBadRequest{}
 }
 
-/* PoolDataServiceDeleteAttachmentBadRequest describes a response with status code 400, with default header values.
+/*PoolDataServiceDeleteAttachmentBadRequest handles this case with default header values.
 
 Returned when input parameters are not provided
 */
@@ -90,6 +92,7 @@ type PoolDataServiceDeleteAttachmentBadRequest struct {
 func (o *PoolDataServiceDeleteAttachmentBadRequest) Error() string {
 	return fmt.Sprintf("[DELETE /api/data/_r/{poolId}/{id}/{attname}][%d] poolDataServiceDeleteAttachmentBadRequest  %+v", 400, o.Payload)
 }
+
 func (o *PoolDataServiceDeleteAttachmentBadRequest) GetPayload() string {
 	return o.Payload
 }
@@ -109,7 +112,7 @@ func NewPoolDataServiceDeleteAttachmentNotFound() *PoolDataServiceDeleteAttachme
 	return &PoolDataServiceDeleteAttachmentNotFound{}
 }
 
-/* PoolDataServiceDeleteAttachmentNotFound describes a response with status code 404, with default header values.
+/*PoolDataServiceDeleteAttachmentNotFound handles this case with default header values.
 
 Returned when the document does not exist.
 */
@@ -120,6 +123,7 @@ type PoolDataServiceDeleteAttachmentNotFound struct {
 func (o *PoolDataServiceDeleteAttachmentNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/data/_r/{poolId}/{id}/{attname}][%d] poolDataServiceDeleteAttachmentNotFound  %+v", 404, o.Payload)
 }
+
 func (o *PoolDataServiceDeleteAttachmentNotFound) GetPayload() string {
 	return o.Payload
 }

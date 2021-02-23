@@ -18,76 +18,61 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewPoolDataServiceBulkCreateParams creates a new PoolDataServiceBulkCreateParams object,
-// with the default timeout for this client.
-//
-// Default values are not hydrated, since defaults are normally applied by the API server side.
-//
-// To enforce default values in parameter, use SetDefaults or WithDefaults.
+// NewPoolDataServiceBulkCreateParams creates a new PoolDataServiceBulkCreateParams object
+// with the default values initialized.
 func NewPoolDataServiceBulkCreateParams() *PoolDataServiceBulkCreateParams {
+	var ()
 	return &PoolDataServiceBulkCreateParams{
+
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPoolDataServiceBulkCreateParamsWithTimeout creates a new PoolDataServiceBulkCreateParams object
-// with the ability to set a timeout on a request.
+// with the default values initialized, and the ability to set a timeout on a request
 func NewPoolDataServiceBulkCreateParamsWithTimeout(timeout time.Duration) *PoolDataServiceBulkCreateParams {
+	var ()
 	return &PoolDataServiceBulkCreateParams{
+
 		timeout: timeout,
 	}
 }
 
 // NewPoolDataServiceBulkCreateParamsWithContext creates a new PoolDataServiceBulkCreateParams object
-// with the ability to set a context for a request.
+// with the default values initialized, and the ability to set a context for a request
 func NewPoolDataServiceBulkCreateParamsWithContext(ctx context.Context) *PoolDataServiceBulkCreateParams {
+	var ()
 	return &PoolDataServiceBulkCreateParams{
+
 		Context: ctx,
 	}
 }
 
 // NewPoolDataServiceBulkCreateParamsWithHTTPClient creates a new PoolDataServiceBulkCreateParams object
-// with the ability to set a custom HTTPClient for a request.
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewPoolDataServiceBulkCreateParamsWithHTTPClient(client *http.Client) *PoolDataServiceBulkCreateParams {
+	var ()
 	return &PoolDataServiceBulkCreateParams{
 		HTTPClient: client,
 	}
 }
 
-/* PoolDataServiceBulkCreateParams contains all the parameters to send to the API endpoint
-   for the pool data service bulk create operation.
-
-   Typically these are written to a http.Request.
+/*PoolDataServiceBulkCreateParams contains all the parameters to send to the API endpoint
+for the pool data service bulk create operation typically these are written to a http.Request
 */
 type PoolDataServiceBulkCreateParams struct {
 
-	// Body.
+	/*Body*/
 	Body models.DataBulkCreateRequest
+	/*PoolID
+	  Pool ID (e.g. orders)
 
-	/* PoolID.
-
-	   Pool ID (e.g. orders)
 	*/
 	PoolID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
-}
-
-// WithDefaults hydrates default values in the pool data service bulk create params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *PoolDataServiceBulkCreateParams) WithDefaults() *PoolDataServiceBulkCreateParams {
-	o.SetDefaults()
-	return o
-}
-
-// SetDefaults hydrates default values in the pool data service bulk create params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *PoolDataServiceBulkCreateParams) SetDefaults() {
-	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the pool data service bulk create params
@@ -152,6 +137,7 @@ func (o *PoolDataServiceBulkCreateParams) WriteToRequest(r runtime.ClientRequest
 		return err
 	}
 	var res []error
+
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

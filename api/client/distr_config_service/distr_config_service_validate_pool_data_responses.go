@@ -52,7 +52,7 @@ func NewDistrConfigServiceValidatePoolDataOK() *DistrConfigServiceValidatePoolDa
 	return &DistrConfigServiceValidatePoolDataOK{}
 }
 
-/* DistrConfigServiceValidatePoolDataOK describes a response with status code 200, with default header values.
+/*DistrConfigServiceValidatePoolDataOK handles this case with default header values.
 
 A successful response.
 */
@@ -63,6 +63,7 @@ type DistrConfigServiceValidatePoolDataOK struct {
 func (o *DistrConfigServiceValidatePoolDataOK) Error() string {
 	return fmt.Sprintf("[POST /api/distribution/v1/pool/validate][%d] distrConfigServiceValidatePoolDataOK  %+v", 200, o.Payload)
 }
+
 func (o *DistrConfigServiceValidatePoolDataOK) GetPayload() *models.DistrconfigValidatePoolDataResponse {
 	return o.Payload
 }
@@ -84,7 +85,7 @@ func NewDistrConfigServiceValidatePoolDataNotFound() *DistrConfigServiceValidate
 	return &DistrConfigServiceValidatePoolDataNotFound{}
 }
 
-/* DistrConfigServiceValidatePoolDataNotFound describes a response with status code 404, with default header values.
+/*DistrConfigServiceValidatePoolDataNotFound handles this case with default header values.
 
 Returned when the resource does not exist.
 */
@@ -95,6 +96,7 @@ type DistrConfigServiceValidatePoolDataNotFound struct {
 func (o *DistrConfigServiceValidatePoolDataNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/distribution/v1/pool/validate][%d] distrConfigServiceValidatePoolDataNotFound  %+v", 404, o.Payload)
 }
+
 func (o *DistrConfigServiceValidatePoolDataNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -116,7 +118,7 @@ func NewDistrConfigServiceValidatePoolDataDefault(code int) *DistrConfigServiceV
 	}
 }
 
-/* DistrConfigServiceValidatePoolDataDefault describes a response with status code -1, with default header values.
+/*DistrConfigServiceValidatePoolDataDefault handles this case with default header values.
 
 An unexpected error response
 */
@@ -134,6 +136,7 @@ func (o *DistrConfigServiceValidatePoolDataDefault) Code() int {
 func (o *DistrConfigServiceValidatePoolDataDefault) Error() string {
 	return fmt.Sprintf("[POST /api/distribution/v1/pool/validate][%d] DistrConfigService_ValidatePoolData default  %+v", o._statusCode, o.Payload)
 }
+
 func (o *DistrConfigServiceValidatePoolDataDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

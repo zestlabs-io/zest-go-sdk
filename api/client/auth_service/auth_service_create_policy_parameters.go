@@ -18,70 +18,56 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewAuthServiceCreatePolicyParams creates a new AuthServiceCreatePolicyParams object,
-// with the default timeout for this client.
-//
-// Default values are not hydrated, since defaults are normally applied by the API server side.
-//
-// To enforce default values in parameter, use SetDefaults or WithDefaults.
+// NewAuthServiceCreatePolicyParams creates a new AuthServiceCreatePolicyParams object
+// with the default values initialized.
 func NewAuthServiceCreatePolicyParams() *AuthServiceCreatePolicyParams {
+	var ()
 	return &AuthServiceCreatePolicyParams{
+
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAuthServiceCreatePolicyParamsWithTimeout creates a new AuthServiceCreatePolicyParams object
-// with the ability to set a timeout on a request.
+// with the default values initialized, and the ability to set a timeout on a request
 func NewAuthServiceCreatePolicyParamsWithTimeout(timeout time.Duration) *AuthServiceCreatePolicyParams {
+	var ()
 	return &AuthServiceCreatePolicyParams{
+
 		timeout: timeout,
 	}
 }
 
 // NewAuthServiceCreatePolicyParamsWithContext creates a new AuthServiceCreatePolicyParams object
-// with the ability to set a context for a request.
+// with the default values initialized, and the ability to set a context for a request
 func NewAuthServiceCreatePolicyParamsWithContext(ctx context.Context) *AuthServiceCreatePolicyParams {
+	var ()
 	return &AuthServiceCreatePolicyParams{
+
 		Context: ctx,
 	}
 }
 
 // NewAuthServiceCreatePolicyParamsWithHTTPClient creates a new AuthServiceCreatePolicyParams object
-// with the ability to set a custom HTTPClient for a request.
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewAuthServiceCreatePolicyParamsWithHTTPClient(client *http.Client) *AuthServiceCreatePolicyParams {
+	var ()
 	return &AuthServiceCreatePolicyParams{
 		HTTPClient: client,
 	}
 }
 
-/* AuthServiceCreatePolicyParams contains all the parameters to send to the API endpoint
-   for the auth service create policy operation.
-
-   Typically these are written to a http.Request.
+/*AuthServiceCreatePolicyParams contains all the parameters to send to the API endpoint
+for the auth service create policy operation typically these are written to a http.Request
 */
 type AuthServiceCreatePolicyParams struct {
 
-	// Body.
+	/*Body*/
 	Body *models.V1CreatePolicyRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
-}
-
-// WithDefaults hydrates default values in the auth service create policy params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *AuthServiceCreatePolicyParams) WithDefaults() *AuthServiceCreatePolicyParams {
-	o.SetDefaults()
-	return o
-}
-
-// SetDefaults hydrates default values in the auth service create policy params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *AuthServiceCreatePolicyParams) SetDefaults() {
-	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the auth service create policy params
@@ -135,6 +121,7 @@ func (o *AuthServiceCreatePolicyParams) WriteToRequest(r runtime.ClientRequest, 
 		return err
 	}
 	var res []error
+
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

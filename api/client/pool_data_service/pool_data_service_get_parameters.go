@@ -16,79 +16,64 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPoolDataServiceGetParams creates a new PoolDataServiceGetParams object,
-// with the default timeout for this client.
-//
-// Default values are not hydrated, since defaults are normally applied by the API server side.
-//
-// To enforce default values in parameter, use SetDefaults or WithDefaults.
+// NewPoolDataServiceGetParams creates a new PoolDataServiceGetParams object
+// with the default values initialized.
 func NewPoolDataServiceGetParams() *PoolDataServiceGetParams {
+	var ()
 	return &PoolDataServiceGetParams{
+
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPoolDataServiceGetParamsWithTimeout creates a new PoolDataServiceGetParams object
-// with the ability to set a timeout on a request.
+// with the default values initialized, and the ability to set a timeout on a request
 func NewPoolDataServiceGetParamsWithTimeout(timeout time.Duration) *PoolDataServiceGetParams {
+	var ()
 	return &PoolDataServiceGetParams{
+
 		timeout: timeout,
 	}
 }
 
 // NewPoolDataServiceGetParamsWithContext creates a new PoolDataServiceGetParams object
-// with the ability to set a context for a request.
+// with the default values initialized, and the ability to set a context for a request
 func NewPoolDataServiceGetParamsWithContext(ctx context.Context) *PoolDataServiceGetParams {
+	var ()
 	return &PoolDataServiceGetParams{
+
 		Context: ctx,
 	}
 }
 
 // NewPoolDataServiceGetParamsWithHTTPClient creates a new PoolDataServiceGetParams object
-// with the ability to set a custom HTTPClient for a request.
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewPoolDataServiceGetParamsWithHTTPClient(client *http.Client) *PoolDataServiceGetParams {
+	var ()
 	return &PoolDataServiceGetParams{
 		HTTPClient: client,
 	}
 }
 
-/* PoolDataServiceGetParams contains all the parameters to send to the API endpoint
-   for the pool data service get operation.
-
-   Typically these are written to a http.Request.
+/*PoolDataServiceGetParams contains all the parameters to send to the API endpoint
+for the pool data service get operation typically these are written to a http.Request
 */
 type PoolDataServiceGetParams struct {
 
-	/* ID.
+	/*ID
+	  The ID (Primary Key) of the record
 
-	   The ID (Primary Key) of the record
 	*/
 	ID string
+	/*PoolID
+	  Pool ID (e.g. orders)
 
-	/* PoolID.
-
-	   Pool ID (e.g. orders)
 	*/
 	PoolID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
-}
-
-// WithDefaults hydrates default values in the pool data service get params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *PoolDataServiceGetParams) WithDefaults() *PoolDataServiceGetParams {
-	o.SetDefaults()
-	return o
-}
-
-// SetDefaults hydrates default values in the pool data service get params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *PoolDataServiceGetParams) SetDefaults() {
-	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the pool data service get params

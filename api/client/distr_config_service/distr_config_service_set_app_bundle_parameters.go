@@ -18,73 +18,58 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewDistrConfigServiceSetAppBundleParams creates a new DistrConfigServiceSetAppBundleParams object,
-// with the default timeout for this client.
-//
-// Default values are not hydrated, since defaults are normally applied by the API server side.
-//
-// To enforce default values in parameter, use SetDefaults or WithDefaults.
+// NewDistrConfigServiceSetAppBundleParams creates a new DistrConfigServiceSetAppBundleParams object
+// with the default values initialized.
 func NewDistrConfigServiceSetAppBundleParams() *DistrConfigServiceSetAppBundleParams {
+	var ()
 	return &DistrConfigServiceSetAppBundleParams{
+
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDistrConfigServiceSetAppBundleParamsWithTimeout creates a new DistrConfigServiceSetAppBundleParams object
-// with the ability to set a timeout on a request.
+// with the default values initialized, and the ability to set a timeout on a request
 func NewDistrConfigServiceSetAppBundleParamsWithTimeout(timeout time.Duration) *DistrConfigServiceSetAppBundleParams {
+	var ()
 	return &DistrConfigServiceSetAppBundleParams{
+
 		timeout: timeout,
 	}
 }
 
 // NewDistrConfigServiceSetAppBundleParamsWithContext creates a new DistrConfigServiceSetAppBundleParams object
-// with the ability to set a context for a request.
+// with the default values initialized, and the ability to set a context for a request
 func NewDistrConfigServiceSetAppBundleParamsWithContext(ctx context.Context) *DistrConfigServiceSetAppBundleParams {
+	var ()
 	return &DistrConfigServiceSetAppBundleParams{
+
 		Context: ctx,
 	}
 }
 
 // NewDistrConfigServiceSetAppBundleParamsWithHTTPClient creates a new DistrConfigServiceSetAppBundleParams object
-// with the ability to set a custom HTTPClient for a request.
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewDistrConfigServiceSetAppBundleParamsWithHTTPClient(client *http.Client) *DistrConfigServiceSetAppBundleParams {
+	var ()
 	return &DistrConfigServiceSetAppBundleParams{
 		HTTPClient: client,
 	}
 }
 
-/* DistrConfigServiceSetAppBundleParams contains all the parameters to send to the API endpoint
-   for the distr config service set app bundle operation.
-
-   Typically these are written to a http.Request.
+/*DistrConfigServiceSetAppBundleParams contains all the parameters to send to the API endpoint
+for the distr config service set app bundle operation typically these are written to a http.Request
 */
 type DistrConfigServiceSetAppBundleParams struct {
 
-	// Body.
+	/*Body*/
 	Body *models.DistrconfigSetAppBundleRequest
-
-	// ID.
+	/*ID*/
 	ID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
-}
-
-// WithDefaults hydrates default values in the distr config service set app bundle params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *DistrConfigServiceSetAppBundleParams) WithDefaults() *DistrConfigServiceSetAppBundleParams {
-	o.SetDefaults()
-	return o
-}
-
-// SetDefaults hydrates default values in the distr config service set app bundle params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *DistrConfigServiceSetAppBundleParams) SetDefaults() {
-	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the distr config service set app bundle params
@@ -149,6 +134,7 @@ func (o *DistrConfigServiceSetAppBundleParams) WriteToRequest(r runtime.ClientRe
 		return err
 	}
 	var res []error
+
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

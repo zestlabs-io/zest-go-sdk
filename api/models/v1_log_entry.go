@@ -6,7 +6,6 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -34,7 +33,7 @@ type V1LogEntry struct {
 	Message string `json:"message,omitempty"`
 
 	// severity
-	Severity *LogEntrySeverity `json:"severity,omitempty"`
+	Severity LogEntrySeverity `json:"severity,omitempty"`
 
 	// source
 	Source string `json:"source,omitempty"`
@@ -62,6 +61,7 @@ func (m *V1LogEntry) Validate(formats strfmt.Registry) error {
 }
 
 func (m *V1LogEntry) validateFields(formats strfmt.Registry) error {
+
 	if swag.IsZero(m.Fields) { // not required
 		return nil
 	}
@@ -86,67 +86,16 @@ func (m *V1LogEntry) validateFields(formats strfmt.Registry) error {
 }
 
 func (m *V1LogEntry) validateSeverity(formats strfmt.Registry) error {
+
 	if swag.IsZero(m.Severity) { // not required
 		return nil
 	}
 
-	if m.Severity != nil {
-		if err := m.Severity.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("severity")
-			}
-			return err
+	if err := m.Severity.Validate(formats); err != nil {
+		if ve, ok := err.(*errors.Validation); ok {
+			return ve.ValidateName("severity")
 		}
-	}
-
-	return nil
-}
-
-// ContextValidate validate this v1 log entry based on the context it is used
-func (m *V1LogEntry) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.contextValidateFields(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateSeverity(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
-
-func (m *V1LogEntry) contextValidateFields(ctx context.Context, formats strfmt.Registry) error {
-
-	for i := 0; i < len(m.Fields); i++ {
-
-		if m.Fields[i] != nil {
-			if err := m.Fields[i].ContextValidate(ctx, formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("fields" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
-
-func (m *V1LogEntry) contextValidateSeverity(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Severity != nil {
-		if err := m.Severity.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("severity")
-			}
-			return err
-		}
+		return err
 	}
 
 	return nil

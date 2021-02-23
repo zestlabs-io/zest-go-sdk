@@ -52,7 +52,7 @@ func NewAuthServiceUpdateUserOK() *AuthServiceUpdateUserOK {
 	return &AuthServiceUpdateUserOK{}
 }
 
-/* AuthServiceUpdateUserOK describes a response with status code 200, with default header values.
+/*AuthServiceUpdateUserOK handles this case with default header values.
 
 A successful response.
 */
@@ -63,6 +63,7 @@ type AuthServiceUpdateUserOK struct {
 func (o *AuthServiceUpdateUserOK) Error() string {
 	return fmt.Sprintf("[PUT /api/auth/v1/user/{user.userID}][%d] authServiceUpdateUserOK  %+v", 200, o.Payload)
 }
+
 func (o *AuthServiceUpdateUserOK) GetPayload() models.V1UpdateUserResponse {
 	return o.Payload
 }
@@ -82,7 +83,7 @@ func NewAuthServiceUpdateUserNotFound() *AuthServiceUpdateUserNotFound {
 	return &AuthServiceUpdateUserNotFound{}
 }
 
-/* AuthServiceUpdateUserNotFound describes a response with status code 404, with default header values.
+/*AuthServiceUpdateUserNotFound handles this case with default header values.
 
 Returned when the resource does not exist.
 */
@@ -93,6 +94,7 @@ type AuthServiceUpdateUserNotFound struct {
 func (o *AuthServiceUpdateUserNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/auth/v1/user/{user.userID}][%d] authServiceUpdateUserNotFound  %+v", 404, o.Payload)
 }
+
 func (o *AuthServiceUpdateUserNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -114,7 +116,7 @@ func NewAuthServiceUpdateUserDefault(code int) *AuthServiceUpdateUserDefault {
 	}
 }
 
-/* AuthServiceUpdateUserDefault describes a response with status code -1, with default header values.
+/*AuthServiceUpdateUserDefault handles this case with default header values.
 
 An unexpected error response
 */
@@ -132,6 +134,7 @@ func (o *AuthServiceUpdateUserDefault) Code() int {
 func (o *AuthServiceUpdateUserDefault) Error() string {
 	return fmt.Sprintf("[PUT /api/auth/v1/user/{user.userID}][%d] AuthService_UpdateUser default  %+v", o._statusCode, o.Payload)
 }
+
 func (o *AuthServiceUpdateUserDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

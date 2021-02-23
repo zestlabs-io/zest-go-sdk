@@ -18,70 +18,56 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewFunctionsServiceCreateFunctionParams creates a new FunctionsServiceCreateFunctionParams object,
-// with the default timeout for this client.
-//
-// Default values are not hydrated, since defaults are normally applied by the API server side.
-//
-// To enforce default values in parameter, use SetDefaults or WithDefaults.
+// NewFunctionsServiceCreateFunctionParams creates a new FunctionsServiceCreateFunctionParams object
+// with the default values initialized.
 func NewFunctionsServiceCreateFunctionParams() *FunctionsServiceCreateFunctionParams {
+	var ()
 	return &FunctionsServiceCreateFunctionParams{
+
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewFunctionsServiceCreateFunctionParamsWithTimeout creates a new FunctionsServiceCreateFunctionParams object
-// with the ability to set a timeout on a request.
+// with the default values initialized, and the ability to set a timeout on a request
 func NewFunctionsServiceCreateFunctionParamsWithTimeout(timeout time.Duration) *FunctionsServiceCreateFunctionParams {
+	var ()
 	return &FunctionsServiceCreateFunctionParams{
+
 		timeout: timeout,
 	}
 }
 
 // NewFunctionsServiceCreateFunctionParamsWithContext creates a new FunctionsServiceCreateFunctionParams object
-// with the ability to set a context for a request.
+// with the default values initialized, and the ability to set a context for a request
 func NewFunctionsServiceCreateFunctionParamsWithContext(ctx context.Context) *FunctionsServiceCreateFunctionParams {
+	var ()
 	return &FunctionsServiceCreateFunctionParams{
+
 		Context: ctx,
 	}
 }
 
 // NewFunctionsServiceCreateFunctionParamsWithHTTPClient creates a new FunctionsServiceCreateFunctionParams object
-// with the ability to set a custom HTTPClient for a request.
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewFunctionsServiceCreateFunctionParamsWithHTTPClient(client *http.Client) *FunctionsServiceCreateFunctionParams {
+	var ()
 	return &FunctionsServiceCreateFunctionParams{
 		HTTPClient: client,
 	}
 }
 
-/* FunctionsServiceCreateFunctionParams contains all the parameters to send to the API endpoint
-   for the functions service create function operation.
-
-   Typically these are written to a http.Request.
+/*FunctionsServiceCreateFunctionParams contains all the parameters to send to the API endpoint
+for the functions service create function operation typically these are written to a http.Request
 */
 type FunctionsServiceCreateFunctionParams struct {
 
-	// Body.
+	/*Body*/
 	Body *models.FunctionsCreateFunctionRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
-}
-
-// WithDefaults hydrates default values in the functions service create function params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *FunctionsServiceCreateFunctionParams) WithDefaults() *FunctionsServiceCreateFunctionParams {
-	o.SetDefaults()
-	return o
-}
-
-// SetDefaults hydrates default values in the functions service create function params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *FunctionsServiceCreateFunctionParams) SetDefaults() {
-	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the functions service create function params
@@ -135,6 +121,7 @@ func (o *FunctionsServiceCreateFunctionParams) WriteToRequest(r runtime.ClientRe
 		return err
 	}
 	var res []error
+
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

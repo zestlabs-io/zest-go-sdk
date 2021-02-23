@@ -17,85 +17,69 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewPoolDataServiceListParams creates a new PoolDataServiceListParams object,
-// with the default timeout for this client.
-//
-// Default values are not hydrated, since defaults are normally applied by the API server side.
-//
-// To enforce default values in parameter, use SetDefaults or WithDefaults.
+// NewPoolDataServiceListParams creates a new PoolDataServiceListParams object
+// with the default values initialized.
 func NewPoolDataServiceListParams() *PoolDataServiceListParams {
+	var ()
 	return &PoolDataServiceListParams{
+
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPoolDataServiceListParamsWithTimeout creates a new PoolDataServiceListParams object
-// with the ability to set a timeout on a request.
+// with the default values initialized, and the ability to set a timeout on a request
 func NewPoolDataServiceListParamsWithTimeout(timeout time.Duration) *PoolDataServiceListParams {
+	var ()
 	return &PoolDataServiceListParams{
+
 		timeout: timeout,
 	}
 }
 
 // NewPoolDataServiceListParamsWithContext creates a new PoolDataServiceListParams object
-// with the ability to set a context for a request.
+// with the default values initialized, and the ability to set a context for a request
 func NewPoolDataServiceListParamsWithContext(ctx context.Context) *PoolDataServiceListParams {
+	var ()
 	return &PoolDataServiceListParams{
+
 		Context: ctx,
 	}
 }
 
 // NewPoolDataServiceListParamsWithHTTPClient creates a new PoolDataServiceListParams object
-// with the ability to set a custom HTTPClient for a request.
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewPoolDataServiceListParamsWithHTTPClient(client *http.Client) *PoolDataServiceListParams {
+	var ()
 	return &PoolDataServiceListParams{
 		HTTPClient: client,
 	}
 }
 
-/* PoolDataServiceListParams contains all the parameters to send to the API endpoint
-   for the pool data service list operation.
-
-   Typically these are written to a http.Request.
+/*PoolDataServiceListParams contains all the parameters to send to the API endpoint
+for the pool data service list operation typically these are written to a http.Request
 */
 type PoolDataServiceListParams struct {
 
-	/* Limit.
+	/*Limit
+	  The max number of records to fetch.
 
-	   The max number of records to fetch.
 	*/
 	Limit float64
+	/*PoolID
+	  Pool ID (e.g. orders)
 
-	/* PoolID.
-
-	   Pool ID (e.g. orders)
 	*/
 	PoolID string
+	/*Skip
+	  The records to skip from the beggining
 
-	/* Skip.
-
-	   The records to skip from the beggining
 	*/
 	Skip float64
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
-}
-
-// WithDefaults hydrates default values in the pool data service list params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *PoolDataServiceListParams) WithDefaults() *PoolDataServiceListParams {
-	o.SetDefaults()
-	return o
-}
-
-// SetDefaults hydrates default values in the pool data service list params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *PoolDataServiceListParams) SetDefaults() {
-	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the pool data service list params
@@ -176,7 +160,6 @@ func (o *PoolDataServiceListParams) WriteToRequest(r runtime.ClientRequest, reg 
 	qrLimit := o.Limit
 	qLimit := swag.FormatFloat64(qrLimit)
 	if qLimit != "" {
-
 		if err := r.SetQueryParam("limit", qLimit); err != nil {
 			return err
 		}
@@ -191,7 +174,6 @@ func (o *PoolDataServiceListParams) WriteToRequest(r runtime.ClientRequest, reg 
 	qrSkip := o.Skip
 	qSkip := swag.FormatFloat64(qrSkip)
 	if qSkip != "" {
-
 		if err := r.SetQueryParam("skip", qSkip); err != nil {
 			return err
 		}

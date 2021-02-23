@@ -18,70 +18,56 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewAuthServiceAddPoliciesToUserParams creates a new AuthServiceAddPoliciesToUserParams object,
-// with the default timeout for this client.
-//
-// Default values are not hydrated, since defaults are normally applied by the API server side.
-//
-// To enforce default values in parameter, use SetDefaults or WithDefaults.
+// NewAuthServiceAddPoliciesToUserParams creates a new AuthServiceAddPoliciesToUserParams object
+// with the default values initialized.
 func NewAuthServiceAddPoliciesToUserParams() *AuthServiceAddPoliciesToUserParams {
+	var ()
 	return &AuthServiceAddPoliciesToUserParams{
+
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAuthServiceAddPoliciesToUserParamsWithTimeout creates a new AuthServiceAddPoliciesToUserParams object
-// with the ability to set a timeout on a request.
+// with the default values initialized, and the ability to set a timeout on a request
 func NewAuthServiceAddPoliciesToUserParamsWithTimeout(timeout time.Duration) *AuthServiceAddPoliciesToUserParams {
+	var ()
 	return &AuthServiceAddPoliciesToUserParams{
+
 		timeout: timeout,
 	}
 }
 
 // NewAuthServiceAddPoliciesToUserParamsWithContext creates a new AuthServiceAddPoliciesToUserParams object
-// with the ability to set a context for a request.
+// with the default values initialized, and the ability to set a context for a request
 func NewAuthServiceAddPoliciesToUserParamsWithContext(ctx context.Context) *AuthServiceAddPoliciesToUserParams {
+	var ()
 	return &AuthServiceAddPoliciesToUserParams{
+
 		Context: ctx,
 	}
 }
 
 // NewAuthServiceAddPoliciesToUserParamsWithHTTPClient creates a new AuthServiceAddPoliciesToUserParams object
-// with the ability to set a custom HTTPClient for a request.
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewAuthServiceAddPoliciesToUserParamsWithHTTPClient(client *http.Client) *AuthServiceAddPoliciesToUserParams {
+	var ()
 	return &AuthServiceAddPoliciesToUserParams{
 		HTTPClient: client,
 	}
 }
 
-/* AuthServiceAddPoliciesToUserParams contains all the parameters to send to the API endpoint
-   for the auth service add policies to user operation.
-
-   Typically these are written to a http.Request.
+/*AuthServiceAddPoliciesToUserParams contains all the parameters to send to the API endpoint
+for the auth service add policies to user operation typically these are written to a http.Request
 */
 type AuthServiceAddPoliciesToUserParams struct {
 
-	// Body.
+	/*Body*/
 	Body *models.V1AddPoliciesToUserRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
-}
-
-// WithDefaults hydrates default values in the auth service add policies to user params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *AuthServiceAddPoliciesToUserParams) WithDefaults() *AuthServiceAddPoliciesToUserParams {
-	o.SetDefaults()
-	return o
-}
-
-// SetDefaults hydrates default values in the auth service add policies to user params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *AuthServiceAddPoliciesToUserParams) SetDefaults() {
-	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the auth service add policies to user params
@@ -135,6 +121,7 @@ func (o *AuthServiceAddPoliciesToUserParams) WriteToRequest(r runtime.ClientRequ
 		return err
 	}
 	var res []error
+
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

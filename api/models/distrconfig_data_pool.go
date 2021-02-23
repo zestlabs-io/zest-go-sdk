@@ -6,8 +6,6 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"context"
-
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -31,7 +29,7 @@ type DistrconfigDataPool struct {
 	PkExtractExpression string `json:"pkExtractExpression,omitempty"`
 
 	// The type of the pool - User, Filtered(with tags), Global (for the app)
-	PoolType *DistrconfigPoolType `json:"poolType,omitempty"`
+	PoolType DistrconfigPoolType `json:"poolType,omitempty"`
 
 	// If set - should contain http://json-schema.org/ schema, that will validate every document
 	// Format: byte
@@ -56,45 +54,16 @@ func (m *DistrconfigDataPool) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DistrconfigDataPool) validatePoolType(formats strfmt.Registry) error {
+
 	if swag.IsZero(m.PoolType) { // not required
 		return nil
 	}
 
-	if m.PoolType != nil {
-		if err := m.PoolType.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("poolType")
-			}
-			return err
+	if err := m.PoolType.Validate(formats); err != nil {
+		if ve, ok := err.(*errors.Validation); ok {
+			return ve.ValidateName("poolType")
 		}
-	}
-
-	return nil
-}
-
-// ContextValidate validate this distrconfig data pool based on the context it is used
-func (m *DistrconfigDataPool) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
-	var res []error
-
-	if err := m.contextValidatePoolType(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if len(res) > 0 {
-		return errors.CompositeValidationError(res...)
-	}
-	return nil
-}
-
-func (m *DistrconfigDataPool) contextValidatePoolType(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.PoolType != nil {
-		if err := m.PoolType.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("poolType")
-			}
-			return err
-		}
+		return err
 	}
 
 	return nil

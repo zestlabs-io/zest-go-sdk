@@ -52,7 +52,7 @@ func NewFunctionsServiceCallAsyncFunctionOK() *FunctionsServiceCallAsyncFunction
 	return &FunctionsServiceCallAsyncFunctionOK{}
 }
 
-/* FunctionsServiceCallAsyncFunctionOK describes a response with status code 200, with default header values.
+/*FunctionsServiceCallAsyncFunctionOK handles this case with default header values.
 
 A successful response.
 */
@@ -63,6 +63,7 @@ type FunctionsServiceCallAsyncFunctionOK struct {
 func (o *FunctionsServiceCallAsyncFunctionOK) Error() string {
 	return fmt.Sprintf("[POST /api/func/v1/post-call/{reason}/{call.id}][%d] functionsServiceCallAsyncFunctionOK  %+v", 200, o.Payload)
 }
+
 func (o *FunctionsServiceCallAsyncFunctionOK) GetPayload() models.FunctionsCallAsyncFunctionResponse {
 	return o.Payload
 }
@@ -82,7 +83,7 @@ func NewFunctionsServiceCallAsyncFunctionNotFound() *FunctionsServiceCallAsyncFu
 	return &FunctionsServiceCallAsyncFunctionNotFound{}
 }
 
-/* FunctionsServiceCallAsyncFunctionNotFound describes a response with status code 404, with default header values.
+/*FunctionsServiceCallAsyncFunctionNotFound handles this case with default header values.
 
 Returned when the resource does not exist.
 */
@@ -93,6 +94,7 @@ type FunctionsServiceCallAsyncFunctionNotFound struct {
 func (o *FunctionsServiceCallAsyncFunctionNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/func/v1/post-call/{reason}/{call.id}][%d] functionsServiceCallAsyncFunctionNotFound  %+v", 404, o.Payload)
 }
+
 func (o *FunctionsServiceCallAsyncFunctionNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -114,7 +116,7 @@ func NewFunctionsServiceCallAsyncFunctionDefault(code int) *FunctionsServiceCall
 	}
 }
 
-/* FunctionsServiceCallAsyncFunctionDefault describes a response with status code -1, with default header values.
+/*FunctionsServiceCallAsyncFunctionDefault handles this case with default header values.
 
 An unexpected error response
 */
@@ -132,6 +134,7 @@ func (o *FunctionsServiceCallAsyncFunctionDefault) Code() int {
 func (o *FunctionsServiceCallAsyncFunctionDefault) Error() string {
 	return fmt.Sprintf("[POST /api/func/v1/post-call/{reason}/{call.id}][%d] FunctionsService_CallAsyncFunction default  %+v", o._statusCode, o.Payload)
 }
+
 func (o *FunctionsServiceCallAsyncFunctionDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

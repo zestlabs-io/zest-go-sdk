@@ -70,7 +70,7 @@ func NewAppscapeServiceGetMetricsMetaOK() *AppscapeServiceGetMetricsMetaOK {
 	return &AppscapeServiceGetMetricsMetaOK{}
 }
 
-/* AppscapeServiceGetMetricsMetaOK describes a response with status code 200, with default header values.
+/*AppscapeServiceGetMetricsMetaOK handles this case with default header values.
 
 A successful response.
 */
@@ -81,6 +81,7 @@ type AppscapeServiceGetMetricsMetaOK struct {
 func (o *AppscapeServiceGetMetricsMetaOK) Error() string {
 	return fmt.Sprintf("[GET /api/appscape/v1/metrics/meta][%d] appscapeServiceGetMetricsMetaOK  %+v", 200, o.Payload)
 }
+
 func (o *AppscapeServiceGetMetricsMetaOK) GetPayload() *models.V1GetMetricsMetaResponse {
 	return o.Payload
 }
@@ -102,7 +103,7 @@ func NewAppscapeServiceGetMetricsMetaBadRequest() *AppscapeServiceGetMetricsMeta
 	return &AppscapeServiceGetMetricsMetaBadRequest{}
 }
 
-/* AppscapeServiceGetMetricsMetaBadRequest describes a response with status code 400, with default header values.
+/*AppscapeServiceGetMetricsMetaBadRequest handles this case with default header values.
 
 Returned when the caller provided incorrect request parameters.
 */
@@ -113,6 +114,7 @@ type AppscapeServiceGetMetricsMetaBadRequest struct {
 func (o *AppscapeServiceGetMetricsMetaBadRequest) Error() string {
 	return fmt.Sprintf("[GET /api/appscape/v1/metrics/meta][%d] appscapeServiceGetMetricsMetaBadRequest  %+v", 400, o.Payload)
 }
+
 func (o *AppscapeServiceGetMetricsMetaBadRequest) GetPayload() string {
 	return o.Payload
 }
@@ -132,7 +134,7 @@ func NewAppscapeServiceGetMetricsMetaForbidden() *AppscapeServiceGetMetricsMetaF
 	return &AppscapeServiceGetMetricsMetaForbidden{}
 }
 
-/* AppscapeServiceGetMetricsMetaForbidden describes a response with status code 403, with default header values.
+/*AppscapeServiceGetMetricsMetaForbidden handles this case with default header values.
 
 Returned when the caller is not authorised to perform this call.
 */
@@ -143,6 +145,7 @@ type AppscapeServiceGetMetricsMetaForbidden struct {
 func (o *AppscapeServiceGetMetricsMetaForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/appscape/v1/metrics/meta][%d] appscapeServiceGetMetricsMetaForbidden  %+v", 403, o.Payload)
 }
+
 func (o *AppscapeServiceGetMetricsMetaForbidden) GetPayload() string {
 	return o.Payload
 }
@@ -162,7 +165,7 @@ func NewAppscapeServiceGetMetricsMetaNotFound() *AppscapeServiceGetMetricsMetaNo
 	return &AppscapeServiceGetMetricsMetaNotFound{}
 }
 
-/* AppscapeServiceGetMetricsMetaNotFound describes a response with status code 404, with default header values.
+/*AppscapeServiceGetMetricsMetaNotFound handles this case with default header values.
 
 Returned when the resource does not exist.
 */
@@ -173,6 +176,7 @@ type AppscapeServiceGetMetricsMetaNotFound struct {
 func (o *AppscapeServiceGetMetricsMetaNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/appscape/v1/metrics/meta][%d] appscapeServiceGetMetricsMetaNotFound  %+v", 404, o.Payload)
 }
+
 func (o *AppscapeServiceGetMetricsMetaNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -192,7 +196,7 @@ func NewAppscapeServiceGetMetricsMetaInternalServerError() *AppscapeServiceGetMe
 	return &AppscapeServiceGetMetricsMetaInternalServerError{}
 }
 
-/* AppscapeServiceGetMetricsMetaInternalServerError describes a response with status code 500, with default header values.
+/*AppscapeServiceGetMetricsMetaInternalServerError handles this case with default header values.
 
 Returned when an error occurred while processing the process.
 */
@@ -203,6 +207,7 @@ type AppscapeServiceGetMetricsMetaInternalServerError struct {
 func (o *AppscapeServiceGetMetricsMetaInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /api/appscape/v1/metrics/meta][%d] appscapeServiceGetMetricsMetaInternalServerError  %+v", 500, o.Payload)
 }
+
 func (o *AppscapeServiceGetMetricsMetaInternalServerError) GetPayload() string {
 	return o.Payload
 }
@@ -224,7 +229,7 @@ func NewAppscapeServiceGetMetricsMetaDefault(code int) *AppscapeServiceGetMetric
 	}
 }
 
-/* AppscapeServiceGetMetricsMetaDefault describes a response with status code -1, with default header values.
+/*AppscapeServiceGetMetricsMetaDefault handles this case with default header values.
 
 An unexpected error response
 */
@@ -242,6 +247,7 @@ func (o *AppscapeServiceGetMetricsMetaDefault) Code() int {
 func (o *AppscapeServiceGetMetricsMetaDefault) Error() string {
 	return fmt.Sprintf("[GET /api/appscape/v1/metrics/meta][%d] AppscapeService_GetMetricsMeta default  %+v", o._statusCode, o.Payload)
 }
+
 func (o *AppscapeServiceGetMetricsMetaDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

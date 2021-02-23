@@ -6,8 +6,6 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"context"
-
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -32,11 +30,6 @@ type FunctionsCaller struct {
 
 // Validate validates this functions caller
 func (m *FunctionsCaller) Validate(formats strfmt.Registry) error {
-	return nil
-}
-
-// ContextValidate validates this functions caller based on context it is used
-func (m *FunctionsCaller) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

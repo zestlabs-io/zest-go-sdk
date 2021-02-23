@@ -16,70 +16,56 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewAuthServiceDeleteUserParams creates a new AuthServiceDeleteUserParams object,
-// with the default timeout for this client.
-//
-// Default values are not hydrated, since defaults are normally applied by the API server side.
-//
-// To enforce default values in parameter, use SetDefaults or WithDefaults.
+// NewAuthServiceDeleteUserParams creates a new AuthServiceDeleteUserParams object
+// with the default values initialized.
 func NewAuthServiceDeleteUserParams() *AuthServiceDeleteUserParams {
+	var ()
 	return &AuthServiceDeleteUserParams{
+
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAuthServiceDeleteUserParamsWithTimeout creates a new AuthServiceDeleteUserParams object
-// with the ability to set a timeout on a request.
+// with the default values initialized, and the ability to set a timeout on a request
 func NewAuthServiceDeleteUserParamsWithTimeout(timeout time.Duration) *AuthServiceDeleteUserParams {
+	var ()
 	return &AuthServiceDeleteUserParams{
+
 		timeout: timeout,
 	}
 }
 
 // NewAuthServiceDeleteUserParamsWithContext creates a new AuthServiceDeleteUserParams object
-// with the ability to set a context for a request.
+// with the default values initialized, and the ability to set a context for a request
 func NewAuthServiceDeleteUserParamsWithContext(ctx context.Context) *AuthServiceDeleteUserParams {
+	var ()
 	return &AuthServiceDeleteUserParams{
+
 		Context: ctx,
 	}
 }
 
 // NewAuthServiceDeleteUserParamsWithHTTPClient creates a new AuthServiceDeleteUserParams object
-// with the ability to set a custom HTTPClient for a request.
+// with the default values initialized, and the ability to set a custom HTTPClient for a request
 func NewAuthServiceDeleteUserParamsWithHTTPClient(client *http.Client) *AuthServiceDeleteUserParams {
+	var ()
 	return &AuthServiceDeleteUserParams{
 		HTTPClient: client,
 	}
 }
 
-/* AuthServiceDeleteUserParams contains all the parameters to send to the API endpoint
-   for the auth service delete user operation.
-
-   Typically these are written to a http.Request.
+/*AuthServiceDeleteUserParams contains all the parameters to send to the API endpoint
+for the auth service delete user operation typically these are written to a http.Request
 */
 type AuthServiceDeleteUserParams struct {
 
-	// UserID.
+	/*UserID*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
-}
-
-// WithDefaults hydrates default values in the auth service delete user params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *AuthServiceDeleteUserParams) WithDefaults() *AuthServiceDeleteUserParams {
-	o.SetDefaults()
-	return o
-}
-
-// SetDefaults hydrates default values in the auth service delete user params (not the query body).
-//
-// All values with no default are reset to their zero value.
-func (o *AuthServiceDeleteUserParams) SetDefaults() {
-	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the auth service delete user params

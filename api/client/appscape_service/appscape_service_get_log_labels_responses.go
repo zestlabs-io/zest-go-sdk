@@ -70,7 +70,7 @@ func NewAppscapeServiceGetLogLabelsOK() *AppscapeServiceGetLogLabelsOK {
 	return &AppscapeServiceGetLogLabelsOK{}
 }
 
-/* AppscapeServiceGetLogLabelsOK describes a response with status code 200, with default header values.
+/*AppscapeServiceGetLogLabelsOK handles this case with default header values.
 
 A successful response.
 */
@@ -81,6 +81,7 @@ type AppscapeServiceGetLogLabelsOK struct {
 func (o *AppscapeServiceGetLogLabelsOK) Error() string {
 	return fmt.Sprintf("[GET /api/appscape/v1/logs/labels][%d] appscapeServiceGetLogLabelsOK  %+v", 200, o.Payload)
 }
+
 func (o *AppscapeServiceGetLogLabelsOK) GetPayload() *models.V1GetLogLabelsResponse {
 	return o.Payload
 }
@@ -102,7 +103,7 @@ func NewAppscapeServiceGetLogLabelsBadRequest() *AppscapeServiceGetLogLabelsBadR
 	return &AppscapeServiceGetLogLabelsBadRequest{}
 }
 
-/* AppscapeServiceGetLogLabelsBadRequest describes a response with status code 400, with default header values.
+/*AppscapeServiceGetLogLabelsBadRequest handles this case with default header values.
 
 Returned when the caller provided incorrect request parameters.
 */
@@ -113,6 +114,7 @@ type AppscapeServiceGetLogLabelsBadRequest struct {
 func (o *AppscapeServiceGetLogLabelsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /api/appscape/v1/logs/labels][%d] appscapeServiceGetLogLabelsBadRequest  %+v", 400, o.Payload)
 }
+
 func (o *AppscapeServiceGetLogLabelsBadRequest) GetPayload() string {
 	return o.Payload
 }
@@ -132,7 +134,7 @@ func NewAppscapeServiceGetLogLabelsForbidden() *AppscapeServiceGetLogLabelsForbi
 	return &AppscapeServiceGetLogLabelsForbidden{}
 }
 
-/* AppscapeServiceGetLogLabelsForbidden describes a response with status code 403, with default header values.
+/*AppscapeServiceGetLogLabelsForbidden handles this case with default header values.
 
 Returned when the caller is not authorised to perform this call.
 */
@@ -143,6 +145,7 @@ type AppscapeServiceGetLogLabelsForbidden struct {
 func (o *AppscapeServiceGetLogLabelsForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/appscape/v1/logs/labels][%d] appscapeServiceGetLogLabelsForbidden  %+v", 403, o.Payload)
 }
+
 func (o *AppscapeServiceGetLogLabelsForbidden) GetPayload() string {
 	return o.Payload
 }
@@ -162,7 +165,7 @@ func NewAppscapeServiceGetLogLabelsNotFound() *AppscapeServiceGetLogLabelsNotFou
 	return &AppscapeServiceGetLogLabelsNotFound{}
 }
 
-/* AppscapeServiceGetLogLabelsNotFound describes a response with status code 404, with default header values.
+/*AppscapeServiceGetLogLabelsNotFound handles this case with default header values.
 
 Returned when the resource does not exist.
 */
@@ -173,6 +176,7 @@ type AppscapeServiceGetLogLabelsNotFound struct {
 func (o *AppscapeServiceGetLogLabelsNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/appscape/v1/logs/labels][%d] appscapeServiceGetLogLabelsNotFound  %+v", 404, o.Payload)
 }
+
 func (o *AppscapeServiceGetLogLabelsNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -192,7 +196,7 @@ func NewAppscapeServiceGetLogLabelsInternalServerError() *AppscapeServiceGetLogL
 	return &AppscapeServiceGetLogLabelsInternalServerError{}
 }
 
-/* AppscapeServiceGetLogLabelsInternalServerError describes a response with status code 500, with default header values.
+/*AppscapeServiceGetLogLabelsInternalServerError handles this case with default header values.
 
 Returned when an error occurred while processing the process.
 */
@@ -203,6 +207,7 @@ type AppscapeServiceGetLogLabelsInternalServerError struct {
 func (o *AppscapeServiceGetLogLabelsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /api/appscape/v1/logs/labels][%d] appscapeServiceGetLogLabelsInternalServerError  %+v", 500, o.Payload)
 }
+
 func (o *AppscapeServiceGetLogLabelsInternalServerError) GetPayload() string {
 	return o.Payload
 }
@@ -224,7 +229,7 @@ func NewAppscapeServiceGetLogLabelsDefault(code int) *AppscapeServiceGetLogLabel
 	}
 }
 
-/* AppscapeServiceGetLogLabelsDefault describes a response with status code -1, with default header values.
+/*AppscapeServiceGetLogLabelsDefault handles this case with default header values.
 
 An unexpected error response
 */
@@ -242,6 +247,7 @@ func (o *AppscapeServiceGetLogLabelsDefault) Code() int {
 func (o *AppscapeServiceGetLogLabelsDefault) Error() string {
 	return fmt.Sprintf("[GET /api/appscape/v1/logs/labels][%d] AppscapeService_GetLogLabels default  %+v", o._statusCode, o.Payload)
 }
+
 func (o *AppscapeServiceGetLogLabelsDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }
