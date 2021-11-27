@@ -16,52 +16,66 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewAppscapeServiceGetMetricsMetaParams creates a new AppscapeServiceGetMetricsMetaParams object
-// with the default values initialized.
+// NewAppscapeServiceGetMetricsMetaParams creates a new AppscapeServiceGetMetricsMetaParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewAppscapeServiceGetMetricsMetaParams() *AppscapeServiceGetMetricsMetaParams {
-
 	return &AppscapeServiceGetMetricsMetaParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAppscapeServiceGetMetricsMetaParamsWithTimeout creates a new AppscapeServiceGetMetricsMetaParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewAppscapeServiceGetMetricsMetaParamsWithTimeout(timeout time.Duration) *AppscapeServiceGetMetricsMetaParams {
-
 	return &AppscapeServiceGetMetricsMetaParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewAppscapeServiceGetMetricsMetaParamsWithContext creates a new AppscapeServiceGetMetricsMetaParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewAppscapeServiceGetMetricsMetaParamsWithContext(ctx context.Context) *AppscapeServiceGetMetricsMetaParams {
-
 	return &AppscapeServiceGetMetricsMetaParams{
-
 		Context: ctx,
 	}
 }
 
 // NewAppscapeServiceGetMetricsMetaParamsWithHTTPClient creates a new AppscapeServiceGetMetricsMetaParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewAppscapeServiceGetMetricsMetaParamsWithHTTPClient(client *http.Client) *AppscapeServiceGetMetricsMetaParams {
-
 	return &AppscapeServiceGetMetricsMetaParams{
 		HTTPClient: client,
 	}
 }
 
-/*AppscapeServiceGetMetricsMetaParams contains all the parameters to send to the API endpoint
-for the appscape service get metrics meta operation typically these are written to a http.Request
+/* AppscapeServiceGetMetricsMetaParams contains all the parameters to send to the API endpoint
+   for the appscape service get metrics meta operation.
+
+   Typically these are written to a http.Request.
 */
 type AppscapeServiceGetMetricsMetaParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the appscape service get metrics meta params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AppscapeServiceGetMetricsMetaParams) WithDefaults() *AppscapeServiceGetMetricsMetaParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the appscape service get metrics meta params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AppscapeServiceGetMetricsMetaParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the appscape service get metrics meta params

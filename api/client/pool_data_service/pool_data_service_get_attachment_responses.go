@@ -40,7 +40,6 @@ func (o *PoolDataServiceGetAttachmentReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -49,11 +48,12 @@ func (o *PoolDataServiceGetAttachmentReader) ReadResponse(response runtime.Clien
 // NewPoolDataServiceGetAttachmentOK creates a PoolDataServiceGetAttachmentOK with default headers values
 func NewPoolDataServiceGetAttachmentOK(writer io.Writer) *PoolDataServiceGetAttachmentOK {
 	return &PoolDataServiceGetAttachmentOK{
+
 		Payload: writer,
 	}
 }
 
-/*PoolDataServiceGetAttachmentOK handles this case with default header values.
+/* PoolDataServiceGetAttachmentOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -64,7 +64,6 @@ type PoolDataServiceGetAttachmentOK struct {
 func (o *PoolDataServiceGetAttachmentOK) Error() string {
 	return fmt.Sprintf("[GET /api/data/_r/{poolId}/{id}/{attname}][%d] poolDataServiceGetAttachmentOK  %+v", 200, o.Payload)
 }
-
 func (o *PoolDataServiceGetAttachmentOK) GetPayload() io.Writer {
 	return o.Payload
 }
@@ -84,7 +83,7 @@ func NewPoolDataServiceGetAttachmentBadRequest() *PoolDataServiceGetAttachmentBa
 	return &PoolDataServiceGetAttachmentBadRequest{}
 }
 
-/*PoolDataServiceGetAttachmentBadRequest handles this case with default header values.
+/* PoolDataServiceGetAttachmentBadRequest describes a response with status code 400, with default header values.
 
 Returned when input parameters are not provided
 */
@@ -95,7 +94,6 @@ type PoolDataServiceGetAttachmentBadRequest struct {
 func (o *PoolDataServiceGetAttachmentBadRequest) Error() string {
 	return fmt.Sprintf("[GET /api/data/_r/{poolId}/{id}/{attname}][%d] poolDataServiceGetAttachmentBadRequest  %+v", 400, o.Payload)
 }
-
 func (o *PoolDataServiceGetAttachmentBadRequest) GetPayload() string {
 	return o.Payload
 }
@@ -115,7 +113,7 @@ func NewPoolDataServiceGetAttachmentNotFound() *PoolDataServiceGetAttachmentNotF
 	return &PoolDataServiceGetAttachmentNotFound{}
 }
 
-/*PoolDataServiceGetAttachmentNotFound handles this case with default header values.
+/* PoolDataServiceGetAttachmentNotFound describes a response with status code 404, with default header values.
 
 Returned when the document does not exist.
 */
@@ -126,7 +124,6 @@ type PoolDataServiceGetAttachmentNotFound struct {
 func (o *PoolDataServiceGetAttachmentNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/data/_r/{poolId}/{id}/{attname}][%d] poolDataServiceGetAttachmentNotFound  %+v", 404, o.Payload)
 }
-
 func (o *PoolDataServiceGetAttachmentNotFound) GetPayload() string {
 	return o.Payload
 }

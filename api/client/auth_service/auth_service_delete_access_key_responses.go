@@ -52,7 +52,7 @@ func NewAuthServiceDeleteAccessKeyOK() *AuthServiceDeleteAccessKeyOK {
 	return &AuthServiceDeleteAccessKeyOK{}
 }
 
-/*AuthServiceDeleteAccessKeyOK handles this case with default header values.
+/* AuthServiceDeleteAccessKeyOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type AuthServiceDeleteAccessKeyOK struct {
 func (o *AuthServiceDeleteAccessKeyOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/auth/v1/accesskey/{accessKeyID}][%d] authServiceDeleteAccessKeyOK  %+v", 200, o.Payload)
 }
-
 func (o *AuthServiceDeleteAccessKeyOK) GetPayload() models.V1DeleteAccessKeyResponse {
 	return o.Payload
 }
@@ -83,7 +82,7 @@ func NewAuthServiceDeleteAccessKeyNotFound() *AuthServiceDeleteAccessKeyNotFound
 	return &AuthServiceDeleteAccessKeyNotFound{}
 }
 
-/*AuthServiceDeleteAccessKeyNotFound handles this case with default header values.
+/* AuthServiceDeleteAccessKeyNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -94,7 +93,6 @@ type AuthServiceDeleteAccessKeyNotFound struct {
 func (o *AuthServiceDeleteAccessKeyNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/auth/v1/accesskey/{accessKeyID}][%d] authServiceDeleteAccessKeyNotFound  %+v", 404, o.Payload)
 }
-
 func (o *AuthServiceDeleteAccessKeyNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -116,7 +114,7 @@ func NewAuthServiceDeleteAccessKeyDefault(code int) *AuthServiceDeleteAccessKeyD
 	}
 }
 
-/*AuthServiceDeleteAccessKeyDefault handles this case with default header values.
+/* AuthServiceDeleteAccessKeyDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -134,7 +132,6 @@ func (o *AuthServiceDeleteAccessKeyDefault) Code() int {
 func (o *AuthServiceDeleteAccessKeyDefault) Error() string {
 	return fmt.Sprintf("[DELETE /api/auth/v1/accesskey/{accessKeyID}][%d] AuthService_DeleteAccessKey default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *AuthServiceDeleteAccessKeyDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

@@ -52,7 +52,7 @@ func NewDistrConfigServiceAssignPoolsToAppOK() *DistrConfigServiceAssignPoolsToA
 	return &DistrConfigServiceAssignPoolsToAppOK{}
 }
 
-/*DistrConfigServiceAssignPoolsToAppOK handles this case with default header values.
+/* DistrConfigServiceAssignPoolsToAppOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type DistrConfigServiceAssignPoolsToAppOK struct {
 func (o *DistrConfigServiceAssignPoolsToAppOK) Error() string {
 	return fmt.Sprintf("[POST /api/distribution/v1/app/pools/assign][%d] distrConfigServiceAssignPoolsToAppOK  %+v", 200, o.Payload)
 }
-
 func (o *DistrConfigServiceAssignPoolsToAppOK) GetPayload() *models.DistrconfigAssignPoolsToAppResponse {
 	return o.Payload
 }
@@ -85,7 +84,7 @@ func NewDistrConfigServiceAssignPoolsToAppNotFound() *DistrConfigServiceAssignPo
 	return &DistrConfigServiceAssignPoolsToAppNotFound{}
 }
 
-/*DistrConfigServiceAssignPoolsToAppNotFound handles this case with default header values.
+/* DistrConfigServiceAssignPoolsToAppNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -96,7 +95,6 @@ type DistrConfigServiceAssignPoolsToAppNotFound struct {
 func (o *DistrConfigServiceAssignPoolsToAppNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/distribution/v1/app/pools/assign][%d] distrConfigServiceAssignPoolsToAppNotFound  %+v", 404, o.Payload)
 }
-
 func (o *DistrConfigServiceAssignPoolsToAppNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -118,7 +116,7 @@ func NewDistrConfigServiceAssignPoolsToAppDefault(code int) *DistrConfigServiceA
 	}
 }
 
-/*DistrConfigServiceAssignPoolsToAppDefault handles this case with default header values.
+/* DistrConfigServiceAssignPoolsToAppDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -136,7 +134,6 @@ func (o *DistrConfigServiceAssignPoolsToAppDefault) Code() int {
 func (o *DistrConfigServiceAssignPoolsToAppDefault) Error() string {
 	return fmt.Sprintf("[POST /api/distribution/v1/app/pools/assign][%d] DistrConfigService_AssignPoolsToApp default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *DistrConfigServiceAssignPoolsToAppDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

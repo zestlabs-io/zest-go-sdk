@@ -18,56 +18,70 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewAuthServiceCheckHMACAuthParams creates a new AuthServiceCheckHMACAuthParams object
-// with the default values initialized.
+// NewAuthServiceCheckHMACAuthParams creates a new AuthServiceCheckHMACAuthParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewAuthServiceCheckHMACAuthParams() *AuthServiceCheckHMACAuthParams {
-	var ()
 	return &AuthServiceCheckHMACAuthParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAuthServiceCheckHMACAuthParamsWithTimeout creates a new AuthServiceCheckHMACAuthParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewAuthServiceCheckHMACAuthParamsWithTimeout(timeout time.Duration) *AuthServiceCheckHMACAuthParams {
-	var ()
 	return &AuthServiceCheckHMACAuthParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewAuthServiceCheckHMACAuthParamsWithContext creates a new AuthServiceCheckHMACAuthParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewAuthServiceCheckHMACAuthParamsWithContext(ctx context.Context) *AuthServiceCheckHMACAuthParams {
-	var ()
 	return &AuthServiceCheckHMACAuthParams{
-
 		Context: ctx,
 	}
 }
 
 // NewAuthServiceCheckHMACAuthParamsWithHTTPClient creates a new AuthServiceCheckHMACAuthParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewAuthServiceCheckHMACAuthParamsWithHTTPClient(client *http.Client) *AuthServiceCheckHMACAuthParams {
-	var ()
 	return &AuthServiceCheckHMACAuthParams{
 		HTTPClient: client,
 	}
 }
 
-/*AuthServiceCheckHMACAuthParams contains all the parameters to send to the API endpoint
-for the auth service check h m a c auth operation typically these are written to a http.Request
+/* AuthServiceCheckHMACAuthParams contains all the parameters to send to the API endpoint
+   for the auth service check h m a c auth operation.
+
+   Typically these are written to a http.Request.
 */
 type AuthServiceCheckHMACAuthParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.V1CheckHMACAuthRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the auth service check h m a c auth params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceCheckHMACAuthParams) WithDefaults() *AuthServiceCheckHMACAuthParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the auth service check h m a c auth params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceCheckHMACAuthParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the auth service check h m a c auth params
@@ -121,7 +135,6 @@ func (o *AuthServiceCheckHMACAuthParams) WriteToRequest(r runtime.ClientRequest,
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

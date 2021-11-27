@@ -16,56 +16,70 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewAuthServiceGetUserParams creates a new AuthServiceGetUserParams object
-// with the default values initialized.
+// NewAuthServiceGetUserParams creates a new AuthServiceGetUserParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewAuthServiceGetUserParams() *AuthServiceGetUserParams {
-	var ()
 	return &AuthServiceGetUserParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAuthServiceGetUserParamsWithTimeout creates a new AuthServiceGetUserParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewAuthServiceGetUserParamsWithTimeout(timeout time.Duration) *AuthServiceGetUserParams {
-	var ()
 	return &AuthServiceGetUserParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewAuthServiceGetUserParamsWithContext creates a new AuthServiceGetUserParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewAuthServiceGetUserParamsWithContext(ctx context.Context) *AuthServiceGetUserParams {
-	var ()
 	return &AuthServiceGetUserParams{
-
 		Context: ctx,
 	}
 }
 
 // NewAuthServiceGetUserParamsWithHTTPClient creates a new AuthServiceGetUserParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewAuthServiceGetUserParamsWithHTTPClient(client *http.Client) *AuthServiceGetUserParams {
-	var ()
 	return &AuthServiceGetUserParams{
 		HTTPClient: client,
 	}
 }
 
-/*AuthServiceGetUserParams contains all the parameters to send to the API endpoint
-for the auth service get user operation typically these are written to a http.Request
+/* AuthServiceGetUserParams contains all the parameters to send to the API endpoint
+   for the auth service get user operation.
+
+   Typically these are written to a http.Request.
 */
 type AuthServiceGetUserParams struct {
 
-	/*UserID*/
+	// UserID.
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the auth service get user params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceGetUserParams) WithDefaults() *AuthServiceGetUserParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the auth service get user params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceGetUserParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the auth service get user params

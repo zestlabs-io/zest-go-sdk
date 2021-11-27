@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -24,6 +26,11 @@ type V1AddPoliciesToRoleRequest struct {
 
 // Validate validates this v1 add policies to role request
 func (m *V1AddPoliciesToRoleRequest) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this v1 add policies to role request based on context it is used
+func (m *V1AddPoliciesToRoleRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

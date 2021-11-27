@@ -26,23 +26,26 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	PoolDataServiceBulkCreate(params *PoolDataServiceBulkCreateParams) (*PoolDataServiceBulkCreateOK, error)
+	PoolDataServiceBulkCreate(params *PoolDataServiceBulkCreateParams, opts ...ClientOption) (*PoolDataServiceBulkCreateOK, error)
 
-	PoolDataServiceBulkDelete(params *PoolDataServiceBulkDeleteParams) (*PoolDataServiceBulkDeleteOK, error)
+	PoolDataServiceBulkDelete(params *PoolDataServiceBulkDeleteParams, opts ...ClientOption) (*PoolDataServiceBulkDeleteOK, error)
 
-	PoolDataServiceBulkUpdate(params *PoolDataServiceBulkUpdateParams) (*PoolDataServiceBulkUpdateOK, error)
+	PoolDataServiceBulkUpdate(params *PoolDataServiceBulkUpdateParams, opts ...ClientOption) (*PoolDataServiceBulkUpdateOK, error)
 
-	PoolDataServiceDeleteAttachment(params *PoolDataServiceDeleteAttachmentParams) (*PoolDataServiceDeleteAttachmentOK, error)
+	PoolDataServiceDeleteAttachment(params *PoolDataServiceDeleteAttachmentParams, opts ...ClientOption) (*PoolDataServiceDeleteAttachmentOK, error)
 
-	PoolDataServiceGet(params *PoolDataServiceGetParams) (*PoolDataServiceGetOK, error)
+	PoolDataServiceGet(params *PoolDataServiceGetParams, opts ...ClientOption) (*PoolDataServiceGetOK, error)
 
-	PoolDataServiceGetAttachment(params *PoolDataServiceGetAttachmentParams, writer io.Writer) (*PoolDataServiceGetAttachmentOK, error)
+	PoolDataServiceGetAttachment(params *PoolDataServiceGetAttachmentParams, writer io.Writer, opts ...ClientOption) (*PoolDataServiceGetAttachmentOK, error)
 
-	PoolDataServiceList(params *PoolDataServiceListParams) (*PoolDataServiceListOK, error)
+	PoolDataServiceList(params *PoolDataServiceListParams, opts ...ClientOption) (*PoolDataServiceListOK, error)
 
-	PoolDataServiceStoreAttachment(params *PoolDataServiceStoreAttachmentParams) (*PoolDataServiceStoreAttachmentOK, error)
+	PoolDataServiceStoreAttachment(params *PoolDataServiceStoreAttachmentParams, opts ...ClientOption) (*PoolDataServiceStoreAttachmentOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -50,13 +53,12 @@ type ClientService interface {
 /*
   PoolDataServiceBulkCreate bulks create mobile data records in a pool
 */
-func (a *Client) PoolDataServiceBulkCreate(params *PoolDataServiceBulkCreateParams) (*PoolDataServiceBulkCreateOK, error) {
+func (a *Client) PoolDataServiceBulkCreate(params *PoolDataServiceBulkCreateParams, opts ...ClientOption) (*PoolDataServiceBulkCreateOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPoolDataServiceBulkCreateParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "PoolDataService_BulkCreate",
 		Method:             "POST",
 		PathPattern:        "/api/data/_r/{poolId}",
@@ -67,7 +69,12 @@ func (a *Client) PoolDataServiceBulkCreate(params *PoolDataServiceBulkCreatePara
 		Reader:             &PoolDataServiceBulkCreateReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -84,13 +91,12 @@ func (a *Client) PoolDataServiceBulkCreate(params *PoolDataServiceBulkCreatePara
 /*
   PoolDataServiceBulkDelete bulks delete records from mobile data pool
 */
-func (a *Client) PoolDataServiceBulkDelete(params *PoolDataServiceBulkDeleteParams) (*PoolDataServiceBulkDeleteOK, error) {
+func (a *Client) PoolDataServiceBulkDelete(params *PoolDataServiceBulkDeleteParams, opts ...ClientOption) (*PoolDataServiceBulkDeleteOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPoolDataServiceBulkDeleteParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "PoolDataService_BulkDelete",
 		Method:             "DELETE",
 		PathPattern:        "/api/data/_r/{poolId}",
@@ -101,7 +107,12 @@ func (a *Client) PoolDataServiceBulkDelete(params *PoolDataServiceBulkDeletePara
 		Reader:             &PoolDataServiceBulkDeleteReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -118,13 +129,12 @@ func (a *Client) PoolDataServiceBulkDelete(params *PoolDataServiceBulkDeletePara
 /*
   PoolDataServiceBulkUpdate bulks update records in mobile data pool
 */
-func (a *Client) PoolDataServiceBulkUpdate(params *PoolDataServiceBulkUpdateParams) (*PoolDataServiceBulkUpdateOK, error) {
+func (a *Client) PoolDataServiceBulkUpdate(params *PoolDataServiceBulkUpdateParams, opts ...ClientOption) (*PoolDataServiceBulkUpdateOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPoolDataServiceBulkUpdateParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "PoolDataService_BulkUpdate",
 		Method:             "PUT",
 		PathPattern:        "/api/data/_r/{poolId}",
@@ -135,7 +145,12 @@ func (a *Client) PoolDataServiceBulkUpdate(params *PoolDataServiceBulkUpdatePara
 		Reader:             &PoolDataServiceBulkUpdateReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -152,13 +167,12 @@ func (a *Client) PoolDataServiceBulkUpdate(params *PoolDataServiceBulkUpdatePara
 /*
   PoolDataServiceDeleteAttachment deletes attachment
 */
-func (a *Client) PoolDataServiceDeleteAttachment(params *PoolDataServiceDeleteAttachmentParams) (*PoolDataServiceDeleteAttachmentOK, error) {
+func (a *Client) PoolDataServiceDeleteAttachment(params *PoolDataServiceDeleteAttachmentParams, opts ...ClientOption) (*PoolDataServiceDeleteAttachmentOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPoolDataServiceDeleteAttachmentParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "PoolDataService_DeleteAttachment",
 		Method:             "DELETE",
 		PathPattern:        "/api/data/_r/{poolId}/{id}/{attname}",
@@ -169,7 +183,12 @@ func (a *Client) PoolDataServiceDeleteAttachment(params *PoolDataServiceDeleteAt
 		Reader:             &PoolDataServiceDeleteAttachmentReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -186,13 +205,12 @@ func (a *Client) PoolDataServiceDeleteAttachment(params *PoolDataServiceDeleteAt
 /*
   PoolDataServiceGet gets single mobile data record
 */
-func (a *Client) PoolDataServiceGet(params *PoolDataServiceGetParams) (*PoolDataServiceGetOK, error) {
+func (a *Client) PoolDataServiceGet(params *PoolDataServiceGetParams, opts ...ClientOption) (*PoolDataServiceGetOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPoolDataServiceGetParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "PoolDataService_Get",
 		Method:             "GET",
 		PathPattern:        "/api/data/_r/{poolId}/{id}",
@@ -203,7 +221,12 @@ func (a *Client) PoolDataServiceGet(params *PoolDataServiceGetParams) (*PoolData
 		Reader:             &PoolDataServiceGetReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -220,13 +243,12 @@ func (a *Client) PoolDataServiceGet(params *PoolDataServiceGetParams) (*PoolData
 /*
   PoolDataServiceGetAttachment gets attachment
 */
-func (a *Client) PoolDataServiceGetAttachment(params *PoolDataServiceGetAttachmentParams, writer io.Writer) (*PoolDataServiceGetAttachmentOK, error) {
+func (a *Client) PoolDataServiceGetAttachment(params *PoolDataServiceGetAttachmentParams, writer io.Writer, opts ...ClientOption) (*PoolDataServiceGetAttachmentOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPoolDataServiceGetAttachmentParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "PoolDataService_GetAttachment",
 		Method:             "GET",
 		PathPattern:        "/api/data/_r/{poolId}/{id}/{attname}",
@@ -237,7 +259,12 @@ func (a *Client) PoolDataServiceGetAttachment(params *PoolDataServiceGetAttachme
 		Reader:             &PoolDataServiceGetAttachmentReader{formats: a.formats, writer: writer},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -254,13 +281,12 @@ func (a *Client) PoolDataServiceGetAttachment(params *PoolDataServiceGetAttachme
 /*
   PoolDataServiceList lists mobile data records
 */
-func (a *Client) PoolDataServiceList(params *PoolDataServiceListParams) (*PoolDataServiceListOK, error) {
+func (a *Client) PoolDataServiceList(params *PoolDataServiceListParams, opts ...ClientOption) (*PoolDataServiceListOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPoolDataServiceListParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "PoolDataService_List",
 		Method:             "GET",
 		PathPattern:        "/api/data/_r/{poolId}",
@@ -271,7 +297,12 @@ func (a *Client) PoolDataServiceList(params *PoolDataServiceListParams) (*PoolDa
 		Reader:             &PoolDataServiceListReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -288,13 +319,12 @@ func (a *Client) PoolDataServiceList(params *PoolDataServiceListParams) (*PoolDa
 /*
   PoolDataServiceStoreAttachment stores attachment
 */
-func (a *Client) PoolDataServiceStoreAttachment(params *PoolDataServiceStoreAttachmentParams) (*PoolDataServiceStoreAttachmentOK, error) {
+func (a *Client) PoolDataServiceStoreAttachment(params *PoolDataServiceStoreAttachmentParams, opts ...ClientOption) (*PoolDataServiceStoreAttachmentOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPoolDataServiceStoreAttachmentParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "PoolDataService_StoreAttachment",
 		Method:             "PUT",
 		PathPattern:        "/api/data/_r/{poolId}/{id}/{attname}",
@@ -305,7 +335,12 @@ func (a *Client) PoolDataServiceStoreAttachment(params *PoolDataServiceStoreAtta
 		Reader:             &PoolDataServiceStoreAttachmentReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

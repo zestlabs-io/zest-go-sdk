@@ -70,7 +70,7 @@ func NewAppscapeServiceQueryLogsOK() *AppscapeServiceQueryLogsOK {
 	return &AppscapeServiceQueryLogsOK{}
 }
 
-/*AppscapeServiceQueryLogsOK handles this case with default header values.
+/* AppscapeServiceQueryLogsOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -81,7 +81,6 @@ type AppscapeServiceQueryLogsOK struct {
 func (o *AppscapeServiceQueryLogsOK) Error() string {
 	return fmt.Sprintf("[POST /api/appscape/v1/logs/query][%d] appscapeServiceQueryLogsOK  %+v", 200, o.Payload)
 }
-
 func (o *AppscapeServiceQueryLogsOK) GetPayload() *models.V1QueryLogsResponse {
 	return o.Payload
 }
@@ -103,7 +102,7 @@ func NewAppscapeServiceQueryLogsBadRequest() *AppscapeServiceQueryLogsBadRequest
 	return &AppscapeServiceQueryLogsBadRequest{}
 }
 
-/*AppscapeServiceQueryLogsBadRequest handles this case with default header values.
+/* AppscapeServiceQueryLogsBadRequest describes a response with status code 400, with default header values.
 
 Returned when the caller provided incorrect request parameters.
 */
@@ -114,7 +113,6 @@ type AppscapeServiceQueryLogsBadRequest struct {
 func (o *AppscapeServiceQueryLogsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /api/appscape/v1/logs/query][%d] appscapeServiceQueryLogsBadRequest  %+v", 400, o.Payload)
 }
-
 func (o *AppscapeServiceQueryLogsBadRequest) GetPayload() string {
 	return o.Payload
 }
@@ -134,7 +132,7 @@ func NewAppscapeServiceQueryLogsForbidden() *AppscapeServiceQueryLogsForbidden {
 	return &AppscapeServiceQueryLogsForbidden{}
 }
 
-/*AppscapeServiceQueryLogsForbidden handles this case with default header values.
+/* AppscapeServiceQueryLogsForbidden describes a response with status code 403, with default header values.
 
 Returned when the caller is not authorised to perform this call.
 */
@@ -145,7 +143,6 @@ type AppscapeServiceQueryLogsForbidden struct {
 func (o *AppscapeServiceQueryLogsForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/appscape/v1/logs/query][%d] appscapeServiceQueryLogsForbidden  %+v", 403, o.Payload)
 }
-
 func (o *AppscapeServiceQueryLogsForbidden) GetPayload() string {
 	return o.Payload
 }
@@ -165,7 +162,7 @@ func NewAppscapeServiceQueryLogsNotFound() *AppscapeServiceQueryLogsNotFound {
 	return &AppscapeServiceQueryLogsNotFound{}
 }
 
-/*AppscapeServiceQueryLogsNotFound handles this case with default header values.
+/* AppscapeServiceQueryLogsNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -176,7 +173,6 @@ type AppscapeServiceQueryLogsNotFound struct {
 func (o *AppscapeServiceQueryLogsNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/appscape/v1/logs/query][%d] appscapeServiceQueryLogsNotFound  %+v", 404, o.Payload)
 }
-
 func (o *AppscapeServiceQueryLogsNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -196,7 +192,7 @@ func NewAppscapeServiceQueryLogsInternalServerError() *AppscapeServiceQueryLogsI
 	return &AppscapeServiceQueryLogsInternalServerError{}
 }
 
-/*AppscapeServiceQueryLogsInternalServerError handles this case with default header values.
+/* AppscapeServiceQueryLogsInternalServerError describes a response with status code 500, with default header values.
 
 Returned when an error occurred while processing the process.
 */
@@ -207,7 +203,6 @@ type AppscapeServiceQueryLogsInternalServerError struct {
 func (o *AppscapeServiceQueryLogsInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /api/appscape/v1/logs/query][%d] appscapeServiceQueryLogsInternalServerError  %+v", 500, o.Payload)
 }
-
 func (o *AppscapeServiceQueryLogsInternalServerError) GetPayload() string {
 	return o.Payload
 }
@@ -229,7 +224,7 @@ func NewAppscapeServiceQueryLogsDefault(code int) *AppscapeServiceQueryLogsDefau
 	}
 }
 
-/*AppscapeServiceQueryLogsDefault handles this case with default header values.
+/* AppscapeServiceQueryLogsDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -247,7 +242,6 @@ func (o *AppscapeServiceQueryLogsDefault) Code() int {
 func (o *AppscapeServiceQueryLogsDefault) Error() string {
 	return fmt.Sprintf("[POST /api/appscape/v1/logs/query][%d] AppscapeService_QueryLogs default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *AppscapeServiceQueryLogsDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

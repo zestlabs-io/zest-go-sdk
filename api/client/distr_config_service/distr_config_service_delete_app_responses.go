@@ -52,7 +52,7 @@ func NewDistrConfigServiceDeleteAppOK() *DistrConfigServiceDeleteAppOK {
 	return &DistrConfigServiceDeleteAppOK{}
 }
 
-/*DistrConfigServiceDeleteAppOK handles this case with default header values.
+/* DistrConfigServiceDeleteAppOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type DistrConfigServiceDeleteAppOK struct {
 func (o *DistrConfigServiceDeleteAppOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/distribution/v1/app/{id}][%d] distrConfigServiceDeleteAppOK  %+v", 200, o.Payload)
 }
-
 func (o *DistrConfigServiceDeleteAppOK) GetPayload() models.DistrconfigDeleteAppResponse {
 	return o.Payload
 }
@@ -83,7 +82,7 @@ func NewDistrConfigServiceDeleteAppNotFound() *DistrConfigServiceDeleteAppNotFou
 	return &DistrConfigServiceDeleteAppNotFound{}
 }
 
-/*DistrConfigServiceDeleteAppNotFound handles this case with default header values.
+/* DistrConfigServiceDeleteAppNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -94,7 +93,6 @@ type DistrConfigServiceDeleteAppNotFound struct {
 func (o *DistrConfigServiceDeleteAppNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/distribution/v1/app/{id}][%d] distrConfigServiceDeleteAppNotFound  %+v", 404, o.Payload)
 }
-
 func (o *DistrConfigServiceDeleteAppNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -116,7 +114,7 @@ func NewDistrConfigServiceDeleteAppDefault(code int) *DistrConfigServiceDeleteAp
 	}
 }
 
-/*DistrConfigServiceDeleteAppDefault handles this case with default header values.
+/* DistrConfigServiceDeleteAppDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -134,7 +132,6 @@ func (o *DistrConfigServiceDeleteAppDefault) Code() int {
 func (o *DistrConfigServiceDeleteAppDefault) Error() string {
 	return fmt.Sprintf("[DELETE /api/distribution/v1/app/{id}][%d] DistrConfigService_DeleteApp default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *DistrConfigServiceDeleteAppDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

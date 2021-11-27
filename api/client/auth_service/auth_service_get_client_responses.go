@@ -64,7 +64,7 @@ func NewAuthServiceGetClientOK() *AuthServiceGetClientOK {
 	return &AuthServiceGetClientOK{}
 }
 
-/*AuthServiceGetClientOK handles this case with default header values.
+/* AuthServiceGetClientOK describes a response with status code 200, with default header values.
 
 Returned when client is successfuly fetched.
 */
@@ -75,7 +75,6 @@ type AuthServiceGetClientOK struct {
 func (o *AuthServiceGetClientOK) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/client/{clientID}][%d] authServiceGetClientOK  %+v", 200, o.Payload)
 }
-
 func (o *AuthServiceGetClientOK) GetPayload() *models.V1GetClientResponse {
 	return o.Payload
 }
@@ -97,7 +96,7 @@ func NewAuthServiceGetClientForbidden() *AuthServiceGetClientForbidden {
 	return &AuthServiceGetClientForbidden{}
 }
 
-/*AuthServiceGetClientForbidden handles this case with default header values.
+/* AuthServiceGetClientForbidden describes a response with status code 403, with default header values.
 
 Returned when the caller is not allowed to perform this call.
 */
@@ -108,7 +107,6 @@ type AuthServiceGetClientForbidden struct {
 func (o *AuthServiceGetClientForbidden) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/client/{clientID}][%d] authServiceGetClientForbidden  %+v", 403, o.Payload)
 }
-
 func (o *AuthServiceGetClientForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -128,7 +126,7 @@ func NewAuthServiceGetClientNotFound() *AuthServiceGetClientNotFound {
 	return &AuthServiceGetClientNotFound{}
 }
 
-/*AuthServiceGetClientNotFound handles this case with default header values.
+/* AuthServiceGetClientNotFound describes a response with status code 404, with default header values.
 
 Returned when a client with the given ID is not found.
 */
@@ -139,7 +137,6 @@ type AuthServiceGetClientNotFound struct {
 func (o *AuthServiceGetClientNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/client/{clientID}][%d] authServiceGetClientNotFound  %+v", 404, o.Payload)
 }
-
 func (o *AuthServiceGetClientNotFound) GetPayload() interface{} {
 	return o.Payload
 }
@@ -159,7 +156,7 @@ func NewAuthServiceGetClientInternalServerError() *AuthServiceGetClientInternalS
 	return &AuthServiceGetClientInternalServerError{}
 }
 
-/*AuthServiceGetClientInternalServerError handles this case with default header values.
+/* AuthServiceGetClientInternalServerError describes a response with status code 500, with default header values.
 
 Returned whenever an internall error occurs.
 */
@@ -170,7 +167,6 @@ type AuthServiceGetClientInternalServerError struct {
 func (o *AuthServiceGetClientInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/client/{clientID}][%d] authServiceGetClientInternalServerError  %+v", 500, o.Payload)
 }
-
 func (o *AuthServiceGetClientInternalServerError) GetPayload() interface{} {
 	return o.Payload
 }
@@ -192,7 +188,7 @@ func NewAuthServiceGetClientDefault(code int) *AuthServiceGetClientDefault {
 	}
 }
 
-/*AuthServiceGetClientDefault handles this case with default header values.
+/* AuthServiceGetClientDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -210,7 +206,6 @@ func (o *AuthServiceGetClientDefault) Code() int {
 func (o *AuthServiceGetClientDefault) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/client/{clientID}][%d] AuthService_GetClient default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *AuthServiceGetClientDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

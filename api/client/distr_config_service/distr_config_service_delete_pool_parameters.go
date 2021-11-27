@@ -16,56 +16,70 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDistrConfigServiceDeletePoolParams creates a new DistrConfigServiceDeletePoolParams object
-// with the default values initialized.
+// NewDistrConfigServiceDeletePoolParams creates a new DistrConfigServiceDeletePoolParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDistrConfigServiceDeletePoolParams() *DistrConfigServiceDeletePoolParams {
-	var ()
 	return &DistrConfigServiceDeletePoolParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDistrConfigServiceDeletePoolParamsWithTimeout creates a new DistrConfigServiceDeletePoolParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDistrConfigServiceDeletePoolParamsWithTimeout(timeout time.Duration) *DistrConfigServiceDeletePoolParams {
-	var ()
 	return &DistrConfigServiceDeletePoolParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDistrConfigServiceDeletePoolParamsWithContext creates a new DistrConfigServiceDeletePoolParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDistrConfigServiceDeletePoolParamsWithContext(ctx context.Context) *DistrConfigServiceDeletePoolParams {
-	var ()
 	return &DistrConfigServiceDeletePoolParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDistrConfigServiceDeletePoolParamsWithHTTPClient creates a new DistrConfigServiceDeletePoolParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDistrConfigServiceDeletePoolParamsWithHTTPClient(client *http.Client) *DistrConfigServiceDeletePoolParams {
-	var ()
 	return &DistrConfigServiceDeletePoolParams{
 		HTTPClient: client,
 	}
 }
 
-/*DistrConfigServiceDeletePoolParams contains all the parameters to send to the API endpoint
-for the distr config service delete pool operation typically these are written to a http.Request
+/* DistrConfigServiceDeletePoolParams contains all the parameters to send to the API endpoint
+   for the distr config service delete pool operation.
+
+   Typically these are written to a http.Request.
 */
 type DistrConfigServiceDeletePoolParams struct {
 
-	/*ID*/
+	// ID.
 	ID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the distr config service delete pool params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DistrConfigServiceDeletePoolParams) WithDefaults() *DistrConfigServiceDeletePoolParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the distr config service delete pool params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DistrConfigServiceDeletePoolParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the distr config service delete pool params

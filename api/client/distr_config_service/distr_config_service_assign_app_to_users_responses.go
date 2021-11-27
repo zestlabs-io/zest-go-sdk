@@ -52,7 +52,7 @@ func NewDistrConfigServiceAssignAppToUsersOK() *DistrConfigServiceAssignAppToUse
 	return &DistrConfigServiceAssignAppToUsersOK{}
 }
 
-/*DistrConfigServiceAssignAppToUsersOK handles this case with default header values.
+/* DistrConfigServiceAssignAppToUsersOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type DistrConfigServiceAssignAppToUsersOK struct {
 func (o *DistrConfigServiceAssignAppToUsersOK) Error() string {
 	return fmt.Sprintf("[POST /api/distribution/v1/app/users/assign][%d] distrConfigServiceAssignAppToUsersOK  %+v", 200, o.Payload)
 }
-
 func (o *DistrConfigServiceAssignAppToUsersOK) GetPayload() *models.DistrconfigAssignAppToUsersResponse {
 	return o.Payload
 }
@@ -85,7 +84,7 @@ func NewDistrConfigServiceAssignAppToUsersNotFound() *DistrConfigServiceAssignAp
 	return &DistrConfigServiceAssignAppToUsersNotFound{}
 }
 
-/*DistrConfigServiceAssignAppToUsersNotFound handles this case with default header values.
+/* DistrConfigServiceAssignAppToUsersNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -96,7 +95,6 @@ type DistrConfigServiceAssignAppToUsersNotFound struct {
 func (o *DistrConfigServiceAssignAppToUsersNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/distribution/v1/app/users/assign][%d] distrConfigServiceAssignAppToUsersNotFound  %+v", 404, o.Payload)
 }
-
 func (o *DistrConfigServiceAssignAppToUsersNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -118,7 +116,7 @@ func NewDistrConfigServiceAssignAppToUsersDefault(code int) *DistrConfigServiceA
 	}
 }
 
-/*DistrConfigServiceAssignAppToUsersDefault handles this case with default header values.
+/* DistrConfigServiceAssignAppToUsersDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -136,7 +134,6 @@ func (o *DistrConfigServiceAssignAppToUsersDefault) Code() int {
 func (o *DistrConfigServiceAssignAppToUsersDefault) Error() string {
 	return fmt.Sprintf("[POST /api/distribution/v1/app/users/assign][%d] DistrConfigService_AssignAppToUsers default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *DistrConfigServiceAssignAppToUsersDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

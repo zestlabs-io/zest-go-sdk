@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -38,7 +40,6 @@ func (m *FunctionsCallAsyncFunctionRequest) Validate(formats strfmt.Registry) er
 }
 
 func (m *FunctionsCallAsyncFunctionRequest) validateCall(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Call) { // not required
 		return nil
 	}
@@ -47,6 +48,38 @@ func (m *FunctionsCallAsyncFunctionRequest) validateCall(formats strfmt.Registry
 		if err := m.Call.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("call")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("call")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this functions call async function request based on the context it is used
+func (m *FunctionsCallAsyncFunctionRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCall(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *FunctionsCallAsyncFunctionRequest) contextValidateCall(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Call != nil {
+		if err := m.Call.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("call")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("call")
 			}
 			return err
 		}

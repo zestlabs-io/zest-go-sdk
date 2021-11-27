@@ -18,56 +18,70 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewDistrConfigServiceAssignAppToUsersParams creates a new DistrConfigServiceAssignAppToUsersParams object
-// with the default values initialized.
+// NewDistrConfigServiceAssignAppToUsersParams creates a new DistrConfigServiceAssignAppToUsersParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDistrConfigServiceAssignAppToUsersParams() *DistrConfigServiceAssignAppToUsersParams {
-	var ()
 	return &DistrConfigServiceAssignAppToUsersParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDistrConfigServiceAssignAppToUsersParamsWithTimeout creates a new DistrConfigServiceAssignAppToUsersParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDistrConfigServiceAssignAppToUsersParamsWithTimeout(timeout time.Duration) *DistrConfigServiceAssignAppToUsersParams {
-	var ()
 	return &DistrConfigServiceAssignAppToUsersParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDistrConfigServiceAssignAppToUsersParamsWithContext creates a new DistrConfigServiceAssignAppToUsersParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDistrConfigServiceAssignAppToUsersParamsWithContext(ctx context.Context) *DistrConfigServiceAssignAppToUsersParams {
-	var ()
 	return &DistrConfigServiceAssignAppToUsersParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDistrConfigServiceAssignAppToUsersParamsWithHTTPClient creates a new DistrConfigServiceAssignAppToUsersParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDistrConfigServiceAssignAppToUsersParamsWithHTTPClient(client *http.Client) *DistrConfigServiceAssignAppToUsersParams {
-	var ()
 	return &DistrConfigServiceAssignAppToUsersParams{
 		HTTPClient: client,
 	}
 }
 
-/*DistrConfigServiceAssignAppToUsersParams contains all the parameters to send to the API endpoint
-for the distr config service assign app to users operation typically these are written to a http.Request
+/* DistrConfigServiceAssignAppToUsersParams contains all the parameters to send to the API endpoint
+   for the distr config service assign app to users operation.
+
+   Typically these are written to a http.Request.
 */
 type DistrConfigServiceAssignAppToUsersParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.DistrconfigAssignAppToUsersRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the distr config service assign app to users params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DistrConfigServiceAssignAppToUsersParams) WithDefaults() *DistrConfigServiceAssignAppToUsersParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the distr config service assign app to users params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DistrConfigServiceAssignAppToUsersParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the distr config service assign app to users params
@@ -121,7 +135,6 @@ func (o *DistrConfigServiceAssignAppToUsersParams) WriteToRequest(r runtime.Clie
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -52,7 +52,7 @@ func NewAuthServiceCreatePolicyOK() *AuthServiceCreatePolicyOK {
 	return &AuthServiceCreatePolicyOK{}
 }
 
-/*AuthServiceCreatePolicyOK handles this case with default header values.
+/* AuthServiceCreatePolicyOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type AuthServiceCreatePolicyOK struct {
 func (o *AuthServiceCreatePolicyOK) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/policy][%d] authServiceCreatePolicyOK  %+v", 200, o.Payload)
 }
-
 func (o *AuthServiceCreatePolicyOK) GetPayload() *models.V1CreatePolicyResponse {
 	return o.Payload
 }
@@ -85,7 +84,7 @@ func NewAuthServiceCreatePolicyNotFound() *AuthServiceCreatePolicyNotFound {
 	return &AuthServiceCreatePolicyNotFound{}
 }
 
-/*AuthServiceCreatePolicyNotFound handles this case with default header values.
+/* AuthServiceCreatePolicyNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -96,7 +95,6 @@ type AuthServiceCreatePolicyNotFound struct {
 func (o *AuthServiceCreatePolicyNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/policy][%d] authServiceCreatePolicyNotFound  %+v", 404, o.Payload)
 }
-
 func (o *AuthServiceCreatePolicyNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -118,7 +116,7 @@ func NewAuthServiceCreatePolicyDefault(code int) *AuthServiceCreatePolicyDefault
 	}
 }
 
-/*AuthServiceCreatePolicyDefault handles this case with default header values.
+/* AuthServiceCreatePolicyDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -136,7 +134,6 @@ func (o *AuthServiceCreatePolicyDefault) Code() int {
 func (o *AuthServiceCreatePolicyDefault) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/policy][%d] AuthService_CreatePolicy default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *AuthServiceCreatePolicyDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

@@ -17,58 +17,77 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewAuthServiceGetUsersParams creates a new AuthServiceGetUsersParams object
-// with the default values initialized.
+// NewAuthServiceGetUsersParams creates a new AuthServiceGetUsersParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewAuthServiceGetUsersParams() *AuthServiceGetUsersParams {
-	var ()
 	return &AuthServiceGetUsersParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAuthServiceGetUsersParamsWithTimeout creates a new AuthServiceGetUsersParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewAuthServiceGetUsersParamsWithTimeout(timeout time.Duration) *AuthServiceGetUsersParams {
-	var ()
 	return &AuthServiceGetUsersParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewAuthServiceGetUsersParamsWithContext creates a new AuthServiceGetUsersParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewAuthServiceGetUsersParamsWithContext(ctx context.Context) *AuthServiceGetUsersParams {
-	var ()
 	return &AuthServiceGetUsersParams{
-
 		Context: ctx,
 	}
 }
 
 // NewAuthServiceGetUsersParamsWithHTTPClient creates a new AuthServiceGetUsersParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewAuthServiceGetUsersParamsWithHTTPClient(client *http.Client) *AuthServiceGetUsersParams {
-	var ()
 	return &AuthServiceGetUsersParams{
 		HTTPClient: client,
 	}
 }
 
-/*AuthServiceGetUsersParams contains all the parameters to send to the API endpoint
-for the auth service get users operation typically these are written to a http.Request
+/* AuthServiceGetUsersParams contains all the parameters to send to the API endpoint
+   for the auth service get users operation.
+
+   Typically these are written to a http.Request.
 */
 type AuthServiceGetUsersParams struct {
 
-	/*Limit*/
+	// Limit.
+	//
+	// Format: int32
 	Limit *int32
-	/*Offset*/
+
+	// Offset.
+	//
+	// Format: int64
 	Offset *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the auth service get users params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceGetUsersParams) WithDefaults() *AuthServiceGetUsersParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the auth service get users params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceGetUsersParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the auth service get users params
@@ -138,32 +157,34 @@ func (o *AuthServiceGetUsersParams) WriteToRequest(r runtime.ClientRequest, reg 
 
 		// query param limit
 		var qrLimit int32
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := swag.FormatInt32(qrLimit)
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Offset != nil {
 
 		// query param offset
 		var qrOffset string
+
 		if o.Offset != nil {
 			qrOffset = *o.Offset
 		}
 		qOffset := qrOffset
 		if qOffset != "" {
+
 			if err := r.SetQueryParam("offset", qOffset); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

@@ -52,7 +52,7 @@ func NewFunctionsServiceUpdateFunction2OK() *FunctionsServiceUpdateFunction2OK {
 	return &FunctionsServiceUpdateFunction2OK{}
 }
 
-/*FunctionsServiceUpdateFunction2OK handles this case with default header values.
+/* FunctionsServiceUpdateFunction2OK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type FunctionsServiceUpdateFunction2OK struct {
 func (o *FunctionsServiceUpdateFunction2OK) Error() string {
 	return fmt.Sprintf("[PATCH /api/func/v1/function/{function.id}][%d] functionsServiceUpdateFunction2OK  %+v", 200, o.Payload)
 }
-
 func (o *FunctionsServiceUpdateFunction2OK) GetPayload() models.FunctionsUpdateFunctionResponse {
 	return o.Payload
 }
@@ -83,7 +82,7 @@ func NewFunctionsServiceUpdateFunction2NotFound() *FunctionsServiceUpdateFunctio
 	return &FunctionsServiceUpdateFunction2NotFound{}
 }
 
-/*FunctionsServiceUpdateFunction2NotFound handles this case with default header values.
+/* FunctionsServiceUpdateFunction2NotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -94,7 +93,6 @@ type FunctionsServiceUpdateFunction2NotFound struct {
 func (o *FunctionsServiceUpdateFunction2NotFound) Error() string {
 	return fmt.Sprintf("[PATCH /api/func/v1/function/{function.id}][%d] functionsServiceUpdateFunction2NotFound  %+v", 404, o.Payload)
 }
-
 func (o *FunctionsServiceUpdateFunction2NotFound) GetPayload() string {
 	return o.Payload
 }
@@ -116,7 +114,7 @@ func NewFunctionsServiceUpdateFunction2Default(code int) *FunctionsServiceUpdate
 	}
 }
 
-/*FunctionsServiceUpdateFunction2Default handles this case with default header values.
+/* FunctionsServiceUpdateFunction2Default describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -134,7 +132,6 @@ func (o *FunctionsServiceUpdateFunction2Default) Code() int {
 func (o *FunctionsServiceUpdateFunction2Default) Error() string {
 	return fmt.Sprintf("[PATCH /api/func/v1/function/{function.id}][%d] FunctionsService_UpdateFunction2 default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *FunctionsServiceUpdateFunction2Default) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

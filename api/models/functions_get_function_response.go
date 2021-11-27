@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -42,7 +44,6 @@ func (m *FunctionsGetFunctionResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *FunctionsGetFunctionResponse) validateFunction(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Function) { // not required
 		return nil
 	}
@@ -51,6 +52,8 @@ func (m *FunctionsGetFunctionResponse) validateFunction(formats strfmt.Registry)
 		if err := m.Function.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("function")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("function")
 			}
 			return err
 		}
@@ -60,7 +63,6 @@ func (m *FunctionsGetFunctionResponse) validateFunction(formats strfmt.Registry)
 }
 
 func (m *FunctionsGetFunctionResponse) validateResult(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Result) { // not required
 		return nil
 	}
@@ -69,6 +71,58 @@ func (m *FunctionsGetFunctionResponse) validateResult(formats strfmt.Registry) e
 		if err := m.Result.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("result")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("result")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this functions get function response based on the context it is used
+func (m *FunctionsGetFunctionResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFunction(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateResult(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *FunctionsGetFunctionResponse) contextValidateFunction(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Function != nil {
+		if err := m.Function.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("function")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("function")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FunctionsGetFunctionResponse) contextValidateResult(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Result != nil {
+		if err := m.Result.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("result")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("result")
 			}
 			return err
 		}

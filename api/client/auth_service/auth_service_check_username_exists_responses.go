@@ -64,7 +64,7 @@ func NewAuthServiceCheckUsernameExistsOK() *AuthServiceCheckUsernameExistsOK {
 	return &AuthServiceCheckUsernameExistsOK{}
 }
 
-/*AuthServiceCheckUsernameExistsOK handles this case with default header values.
+/* AuthServiceCheckUsernameExistsOK describes a response with status code 200, with default header values.
 
 Returned when check was performed successfuly.
 */
@@ -75,7 +75,6 @@ type AuthServiceCheckUsernameExistsOK struct {
 func (o *AuthServiceCheckUsernameExistsOK) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/check-username-exists][%d] authServiceCheckUsernameExistsOK  %+v", 200, o.Payload)
 }
-
 func (o *AuthServiceCheckUsernameExistsOK) GetPayload() *models.V1CheckUsernameExistsResponse {
 	return o.Payload
 }
@@ -97,7 +96,7 @@ func NewAuthServiceCheckUsernameExistsForbidden() *AuthServiceCheckUsernameExist
 	return &AuthServiceCheckUsernameExistsForbidden{}
 }
 
-/*AuthServiceCheckUsernameExistsForbidden handles this case with default header values.
+/* AuthServiceCheckUsernameExistsForbidden describes a response with status code 403, with default header values.
 
 Returned when the caller is not allowed to perform this call.
 */
@@ -108,7 +107,6 @@ type AuthServiceCheckUsernameExistsForbidden struct {
 func (o *AuthServiceCheckUsernameExistsForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/check-username-exists][%d] authServiceCheckUsernameExistsForbidden  %+v", 403, o.Payload)
 }
-
 func (o *AuthServiceCheckUsernameExistsForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -128,7 +126,7 @@ func NewAuthServiceCheckUsernameExistsNotFound() *AuthServiceCheckUsernameExists
 	return &AuthServiceCheckUsernameExistsNotFound{}
 }
 
-/*AuthServiceCheckUsernameExistsNotFound handles this case with default header values.
+/* AuthServiceCheckUsernameExistsNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -139,7 +137,6 @@ type AuthServiceCheckUsernameExistsNotFound struct {
 func (o *AuthServiceCheckUsernameExistsNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/check-username-exists][%d] authServiceCheckUsernameExistsNotFound  %+v", 404, o.Payload)
 }
-
 func (o *AuthServiceCheckUsernameExistsNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -159,7 +156,7 @@ func NewAuthServiceCheckUsernameExistsInternalServerError() *AuthServiceCheckUse
 	return &AuthServiceCheckUsernameExistsInternalServerError{}
 }
 
-/*AuthServiceCheckUsernameExistsInternalServerError handles this case with default header values.
+/* AuthServiceCheckUsernameExistsInternalServerError describes a response with status code 500, with default header values.
 
 Returned whenever an internall error occurs.
 */
@@ -170,7 +167,6 @@ type AuthServiceCheckUsernameExistsInternalServerError struct {
 func (o *AuthServiceCheckUsernameExistsInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/check-username-exists][%d] authServiceCheckUsernameExistsInternalServerError  %+v", 500, o.Payload)
 }
-
 func (o *AuthServiceCheckUsernameExistsInternalServerError) GetPayload() interface{} {
 	return o.Payload
 }
@@ -192,7 +188,7 @@ func NewAuthServiceCheckUsernameExistsDefault(code int) *AuthServiceCheckUsernam
 	}
 }
 
-/*AuthServiceCheckUsernameExistsDefault handles this case with default header values.
+/* AuthServiceCheckUsernameExistsDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -210,7 +206,6 @@ func (o *AuthServiceCheckUsernameExistsDefault) Code() int {
 func (o *AuthServiceCheckUsernameExistsDefault) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/check-username-exists][%d] AuthService_CheckUsernameExists default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *AuthServiceCheckUsernameExistsDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

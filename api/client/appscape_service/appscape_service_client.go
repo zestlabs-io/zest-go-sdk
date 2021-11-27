@@ -23,15 +23,18 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AppscapeServiceGetLogLabels(params *AppscapeServiceGetLogLabelsParams) (*AppscapeServiceGetLogLabelsOK, error)
+	AppscapeServiceGetLogLabels(params *AppscapeServiceGetLogLabelsParams, opts ...ClientOption) (*AppscapeServiceGetLogLabelsOK, error)
 
-	AppscapeServiceGetMetricsMeta(params *AppscapeServiceGetMetricsMetaParams) (*AppscapeServiceGetMetricsMetaOK, error)
+	AppscapeServiceGetMetricsMeta(params *AppscapeServiceGetMetricsMetaParams, opts ...ClientOption) (*AppscapeServiceGetMetricsMetaOK, error)
 
-	AppscapeServiceQueryLogs(params *AppscapeServiceQueryLogsParams) (*AppscapeServiceQueryLogsOK, error)
+	AppscapeServiceQueryLogs(params *AppscapeServiceQueryLogsParams, opts ...ClientOption) (*AppscapeServiceQueryLogsOK, error)
 
-	AppscapeServiceQueryMetrics(params *AppscapeServiceQueryMetricsParams) (*AppscapeServiceQueryMetricsOK, error)
+	AppscapeServiceQueryMetrics(params *AppscapeServiceQueryMetricsParams, opts ...ClientOption) (*AppscapeServiceQueryMetricsOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -39,13 +42,12 @@ type ClientService interface {
 /*
   AppscapeServiceGetLogLabels retrieves all labels and possible values currently used to index the logs
 */
-func (a *Client) AppscapeServiceGetLogLabels(params *AppscapeServiceGetLogLabelsParams) (*AppscapeServiceGetLogLabelsOK, error) {
+func (a *Client) AppscapeServiceGetLogLabels(params *AppscapeServiceGetLogLabelsParams, opts ...ClientOption) (*AppscapeServiceGetLogLabelsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAppscapeServiceGetLogLabelsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AppscapeService_GetLogLabels",
 		Method:             "GET",
 		PathPattern:        "/api/appscape/v1/logs/labels",
@@ -56,7 +58,12 @@ func (a *Client) AppscapeServiceGetLogLabels(params *AppscapeServiceGetLogLabels
 		Reader:             &AppscapeServiceGetLogLabelsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -72,13 +79,12 @@ func (a *Client) AppscapeServiceGetLogLabels(params *AppscapeServiceGetLogLabels
 /*
   AppscapeServiceGetMetricsMeta lists all available metrics in the system returning metric name and short description
 */
-func (a *Client) AppscapeServiceGetMetricsMeta(params *AppscapeServiceGetMetricsMetaParams) (*AppscapeServiceGetMetricsMetaOK, error) {
+func (a *Client) AppscapeServiceGetMetricsMeta(params *AppscapeServiceGetMetricsMetaParams, opts ...ClientOption) (*AppscapeServiceGetMetricsMetaOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAppscapeServiceGetMetricsMetaParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AppscapeService_GetMetricsMeta",
 		Method:             "GET",
 		PathPattern:        "/api/appscape/v1/metrics/meta",
@@ -89,7 +95,12 @@ func (a *Client) AppscapeServiceGetMetricsMeta(params *AppscapeServiceGetMetrics
 		Reader:             &AppscapeServiceGetMetricsMetaReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -105,13 +116,12 @@ func (a *Client) AppscapeServiceGetMetricsMeta(params *AppscapeServiceGetMetrics
 /*
   AppscapeServiceQueryLogs retrieves all logs that match the provided filters
 */
-func (a *Client) AppscapeServiceQueryLogs(params *AppscapeServiceQueryLogsParams) (*AppscapeServiceQueryLogsOK, error) {
+func (a *Client) AppscapeServiceQueryLogs(params *AppscapeServiceQueryLogsParams, opts ...ClientOption) (*AppscapeServiceQueryLogsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAppscapeServiceQueryLogsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AppscapeService_QueryLogs",
 		Method:             "POST",
 		PathPattern:        "/api/appscape/v1/logs/query",
@@ -122,7 +132,12 @@ func (a *Client) AppscapeServiceQueryLogs(params *AppscapeServiceQueryLogsParams
 		Reader:             &AppscapeServiceQueryLogsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -138,13 +153,12 @@ func (a *Client) AppscapeServiceQueryLogs(params *AppscapeServiceQueryLogsParams
 /*
   AppscapeServiceQueryMetrics retrieves data of a metrics matching the provided parameters
 */
-func (a *Client) AppscapeServiceQueryMetrics(params *AppscapeServiceQueryMetricsParams) (*AppscapeServiceQueryMetricsOK, error) {
+func (a *Client) AppscapeServiceQueryMetrics(params *AppscapeServiceQueryMetricsParams, opts ...ClientOption) (*AppscapeServiceQueryMetricsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAppscapeServiceQueryMetricsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AppscapeService_QueryMetrics",
 		Method:             "POST",
 		PathPattern:        "/api/appscape/v1/metrics/query",
@@ -155,7 +169,12 @@ func (a *Client) AppscapeServiceQueryMetrics(params *AppscapeServiceQueryMetrics
 		Reader:             &AppscapeServiceQueryMetricsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

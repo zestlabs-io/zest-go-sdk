@@ -16,52 +16,66 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewAppscapeServiceGetLogLabelsParams creates a new AppscapeServiceGetLogLabelsParams object
-// with the default values initialized.
+// NewAppscapeServiceGetLogLabelsParams creates a new AppscapeServiceGetLogLabelsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewAppscapeServiceGetLogLabelsParams() *AppscapeServiceGetLogLabelsParams {
-
 	return &AppscapeServiceGetLogLabelsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAppscapeServiceGetLogLabelsParamsWithTimeout creates a new AppscapeServiceGetLogLabelsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewAppscapeServiceGetLogLabelsParamsWithTimeout(timeout time.Duration) *AppscapeServiceGetLogLabelsParams {
-
 	return &AppscapeServiceGetLogLabelsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewAppscapeServiceGetLogLabelsParamsWithContext creates a new AppscapeServiceGetLogLabelsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewAppscapeServiceGetLogLabelsParamsWithContext(ctx context.Context) *AppscapeServiceGetLogLabelsParams {
-
 	return &AppscapeServiceGetLogLabelsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewAppscapeServiceGetLogLabelsParamsWithHTTPClient creates a new AppscapeServiceGetLogLabelsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewAppscapeServiceGetLogLabelsParamsWithHTTPClient(client *http.Client) *AppscapeServiceGetLogLabelsParams {
-
 	return &AppscapeServiceGetLogLabelsParams{
 		HTTPClient: client,
 	}
 }
 
-/*AppscapeServiceGetLogLabelsParams contains all the parameters to send to the API endpoint
-for the appscape service get log labels operation typically these are written to a http.Request
+/* AppscapeServiceGetLogLabelsParams contains all the parameters to send to the API endpoint
+   for the appscape service get log labels operation.
+
+   Typically these are written to a http.Request.
 */
 type AppscapeServiceGetLogLabelsParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the appscape service get log labels params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AppscapeServiceGetLogLabelsParams) WithDefaults() *AppscapeServiceGetLogLabelsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the appscape service get log labels params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AppscapeServiceGetLogLabelsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the appscape service get log labels params

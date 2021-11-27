@@ -52,7 +52,7 @@ func NewAuthServiceSetPasswordOK() *AuthServiceSetPasswordOK {
 	return &AuthServiceSetPasswordOK{}
 }
 
-/*AuthServiceSetPasswordOK handles this case with default header values.
+/* AuthServiceSetPasswordOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type AuthServiceSetPasswordOK struct {
 func (o *AuthServiceSetPasswordOK) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/set-password][%d] authServiceSetPasswordOK  %+v", 200, o.Payload)
 }
-
 func (o *AuthServiceSetPasswordOK) GetPayload() models.V1SetPasswordResponse {
 	return o.Payload
 }
@@ -83,7 +82,7 @@ func NewAuthServiceSetPasswordNotFound() *AuthServiceSetPasswordNotFound {
 	return &AuthServiceSetPasswordNotFound{}
 }
 
-/*AuthServiceSetPasswordNotFound handles this case with default header values.
+/* AuthServiceSetPasswordNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -94,7 +93,6 @@ type AuthServiceSetPasswordNotFound struct {
 func (o *AuthServiceSetPasswordNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/set-password][%d] authServiceSetPasswordNotFound  %+v", 404, o.Payload)
 }
-
 func (o *AuthServiceSetPasswordNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -116,7 +114,7 @@ func NewAuthServiceSetPasswordDefault(code int) *AuthServiceSetPasswordDefault {
 	}
 }
 
-/*AuthServiceSetPasswordDefault handles this case with default header values.
+/* AuthServiceSetPasswordDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -134,7 +132,6 @@ func (o *AuthServiceSetPasswordDefault) Code() int {
 func (o *AuthServiceSetPasswordDefault) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/set-password][%d] AuthService_SetPassword default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *AuthServiceSetPasswordDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

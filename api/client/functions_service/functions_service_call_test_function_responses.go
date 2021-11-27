@@ -52,7 +52,7 @@ func NewFunctionsServiceCallTestFunctionOK() *FunctionsServiceCallTestFunctionOK
 	return &FunctionsServiceCallTestFunctionOK{}
 }
 
-/*FunctionsServiceCallTestFunctionOK handles this case with default header values.
+/* FunctionsServiceCallTestFunctionOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type FunctionsServiceCallTestFunctionOK struct {
 func (o *FunctionsServiceCallTestFunctionOK) Error() string {
 	return fmt.Sprintf("[POST /api/func/v1/call-test/{id}][%d] functionsServiceCallTestFunctionOK  %+v", 200, o.Payload)
 }
-
 func (o *FunctionsServiceCallTestFunctionOK) GetPayload() *models.FunctionsCallFunctionResponse {
 	return o.Payload
 }
@@ -85,7 +84,7 @@ func NewFunctionsServiceCallTestFunctionNotFound() *FunctionsServiceCallTestFunc
 	return &FunctionsServiceCallTestFunctionNotFound{}
 }
 
-/*FunctionsServiceCallTestFunctionNotFound handles this case with default header values.
+/* FunctionsServiceCallTestFunctionNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -96,7 +95,6 @@ type FunctionsServiceCallTestFunctionNotFound struct {
 func (o *FunctionsServiceCallTestFunctionNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/func/v1/call-test/{id}][%d] functionsServiceCallTestFunctionNotFound  %+v", 404, o.Payload)
 }
-
 func (o *FunctionsServiceCallTestFunctionNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -118,7 +116,7 @@ func NewFunctionsServiceCallTestFunctionDefault(code int) *FunctionsServiceCallT
 	}
 }
 
-/*FunctionsServiceCallTestFunctionDefault handles this case with default header values.
+/* FunctionsServiceCallTestFunctionDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -136,7 +134,6 @@ func (o *FunctionsServiceCallTestFunctionDefault) Code() int {
 func (o *FunctionsServiceCallTestFunctionDefault) Error() string {
 	return fmt.Sprintf("[POST /api/func/v1/call-test/{id}][%d] FunctionsService_CallTestFunction default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *FunctionsServiceCallTestFunctionDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

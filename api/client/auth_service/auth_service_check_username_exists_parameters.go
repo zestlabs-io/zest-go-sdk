@@ -18,56 +18,70 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewAuthServiceCheckUsernameExistsParams creates a new AuthServiceCheckUsernameExistsParams object
-// with the default values initialized.
+// NewAuthServiceCheckUsernameExistsParams creates a new AuthServiceCheckUsernameExistsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewAuthServiceCheckUsernameExistsParams() *AuthServiceCheckUsernameExistsParams {
-	var ()
 	return &AuthServiceCheckUsernameExistsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAuthServiceCheckUsernameExistsParamsWithTimeout creates a new AuthServiceCheckUsernameExistsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewAuthServiceCheckUsernameExistsParamsWithTimeout(timeout time.Duration) *AuthServiceCheckUsernameExistsParams {
-	var ()
 	return &AuthServiceCheckUsernameExistsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewAuthServiceCheckUsernameExistsParamsWithContext creates a new AuthServiceCheckUsernameExistsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewAuthServiceCheckUsernameExistsParamsWithContext(ctx context.Context) *AuthServiceCheckUsernameExistsParams {
-	var ()
 	return &AuthServiceCheckUsernameExistsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewAuthServiceCheckUsernameExistsParamsWithHTTPClient creates a new AuthServiceCheckUsernameExistsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewAuthServiceCheckUsernameExistsParamsWithHTTPClient(client *http.Client) *AuthServiceCheckUsernameExistsParams {
-	var ()
 	return &AuthServiceCheckUsernameExistsParams{
 		HTTPClient: client,
 	}
 }
 
-/*AuthServiceCheckUsernameExistsParams contains all the parameters to send to the API endpoint
-for the auth service check username exists operation typically these are written to a http.Request
+/* AuthServiceCheckUsernameExistsParams contains all the parameters to send to the API endpoint
+   for the auth service check username exists operation.
+
+   Typically these are written to a http.Request.
 */
 type AuthServiceCheckUsernameExistsParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.V1CheckUsernameExistsRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the auth service check username exists params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceCheckUsernameExistsParams) WithDefaults() *AuthServiceCheckUsernameExistsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the auth service check username exists params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceCheckUsernameExistsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the auth service check username exists params
@@ -121,7 +135,6 @@ func (o *AuthServiceCheckUsernameExistsParams) WriteToRequest(r runtime.ClientRe
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

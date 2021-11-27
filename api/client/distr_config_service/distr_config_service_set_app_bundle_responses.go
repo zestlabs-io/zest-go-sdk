@@ -52,7 +52,7 @@ func NewDistrConfigServiceSetAppBundleOK() *DistrConfigServiceSetAppBundleOK {
 	return &DistrConfigServiceSetAppBundleOK{}
 }
 
-/*DistrConfigServiceSetAppBundleOK handles this case with default header values.
+/* DistrConfigServiceSetAppBundleOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type DistrConfigServiceSetAppBundleOK struct {
 func (o *DistrConfigServiceSetAppBundleOK) Error() string {
 	return fmt.Sprintf("[POST /api/distribution/v1/app/{id}/bundle][%d] distrConfigServiceSetAppBundleOK  %+v", 200, o.Payload)
 }
-
 func (o *DistrConfigServiceSetAppBundleOK) GetPayload() models.DistrconfigSetAppBundleResponse {
 	return o.Payload
 }
@@ -83,7 +82,7 @@ func NewDistrConfigServiceSetAppBundleNotFound() *DistrConfigServiceSetAppBundle
 	return &DistrConfigServiceSetAppBundleNotFound{}
 }
 
-/*DistrConfigServiceSetAppBundleNotFound handles this case with default header values.
+/* DistrConfigServiceSetAppBundleNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -94,7 +93,6 @@ type DistrConfigServiceSetAppBundleNotFound struct {
 func (o *DistrConfigServiceSetAppBundleNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/distribution/v1/app/{id}/bundle][%d] distrConfigServiceSetAppBundleNotFound  %+v", 404, o.Payload)
 }
-
 func (o *DistrConfigServiceSetAppBundleNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -116,7 +114,7 @@ func NewDistrConfigServiceSetAppBundleDefault(code int) *DistrConfigServiceSetAp
 	}
 }
 
-/*DistrConfigServiceSetAppBundleDefault handles this case with default header values.
+/* DistrConfigServiceSetAppBundleDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -134,7 +132,6 @@ func (o *DistrConfigServiceSetAppBundleDefault) Code() int {
 func (o *DistrConfigServiceSetAppBundleDefault) Error() string {
 	return fmt.Sprintf("[POST /api/distribution/v1/app/{id}/bundle][%d] DistrConfigService_SetAppBundle default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *DistrConfigServiceSetAppBundleDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

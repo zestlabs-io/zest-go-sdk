@@ -23,57 +23,60 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	DistrConfigServiceActivatePool(params *DistrConfigServiceActivatePoolParams) (*DistrConfigServiceActivatePoolOK, error)
+	DistrConfigServiceActivatePool(params *DistrConfigServiceActivatePoolParams, opts ...ClientOption) (*DistrConfigServiceActivatePoolOK, error)
 
-	DistrConfigServiceAssignAppToUsers(params *DistrConfigServiceAssignAppToUsersParams) (*DistrConfigServiceAssignAppToUsersOK, error)
+	DistrConfigServiceAssignAppToUsers(params *DistrConfigServiceAssignAppToUsersParams, opts ...ClientOption) (*DistrConfigServiceAssignAppToUsersOK, error)
 
-	DistrConfigServiceAssignPoolsToApp(params *DistrConfigServiceAssignPoolsToAppParams) (*DistrConfigServiceAssignPoolsToAppOK, error)
+	DistrConfigServiceAssignPoolsToApp(params *DistrConfigServiceAssignPoolsToAppParams, opts ...ClientOption) (*DistrConfigServiceAssignPoolsToAppOK, error)
 
-	DistrConfigServiceAssignTagToUser(params *DistrConfigServiceAssignTagToUserParams) (*DistrConfigServiceAssignTagToUserOK, error)
+	DistrConfigServiceAssignTagToUser(params *DistrConfigServiceAssignTagToUserParams, opts ...ClientOption) (*DistrConfigServiceAssignTagToUserOK, error)
 
-	DistrConfigServiceCreateApp(params *DistrConfigServiceCreateAppParams) (*DistrConfigServiceCreateAppOK, error)
+	DistrConfigServiceCreateApp(params *DistrConfigServiceCreateAppParams, opts ...ClientOption) (*DistrConfigServiceCreateAppOK, error)
 
-	DistrConfigServiceCreatePool(params *DistrConfigServiceCreatePoolParams) (*DistrConfigServiceCreatePoolOK, error)
+	DistrConfigServiceCreatePool(params *DistrConfigServiceCreatePoolParams, opts ...ClientOption) (*DistrConfigServiceCreatePoolOK, error)
 
-	DistrConfigServiceCreatePools(params *DistrConfigServiceCreatePoolsParams) (*DistrConfigServiceCreatePoolsOK, error)
+	DistrConfigServiceCreatePools(params *DistrConfigServiceCreatePoolsParams, opts ...ClientOption) (*DistrConfigServiceCreatePoolsOK, error)
 
-	DistrConfigServiceCreateUser(params *DistrConfigServiceCreateUserParams) (*DistrConfigServiceCreateUserOK, error)
+	DistrConfigServiceCreateUser(params *DistrConfigServiceCreateUserParams, opts ...ClientOption) (*DistrConfigServiceCreateUserOK, error)
 
-	DistrConfigServiceDeleteApp(params *DistrConfigServiceDeleteAppParams) (*DistrConfigServiceDeleteAppOK, error)
+	DistrConfigServiceDeleteApp(params *DistrConfigServiceDeleteAppParams, opts ...ClientOption) (*DistrConfigServiceDeleteAppOK, error)
 
-	DistrConfigServiceDeletePool(params *DistrConfigServiceDeletePoolParams) (*DistrConfigServiceDeletePoolOK, error)
+	DistrConfigServiceDeletePool(params *DistrConfigServiceDeletePoolParams, opts ...ClientOption) (*DistrConfigServiceDeletePoolOK, error)
 
-	DistrConfigServiceDeleteUser(params *DistrConfigServiceDeleteUserParams) (*DistrConfigServiceDeleteUserOK, error)
+	DistrConfigServiceDeleteUser(params *DistrConfigServiceDeleteUserParams, opts ...ClientOption) (*DistrConfigServiceDeleteUserOK, error)
 
-	DistrConfigServiceGetApp(params *DistrConfigServiceGetAppParams) (*DistrConfigServiceGetAppOK, error)
+	DistrConfigServiceGetApp(params *DistrConfigServiceGetAppParams, opts ...ClientOption) (*DistrConfigServiceGetAppOK, error)
 
-	DistrConfigServiceGetApps(params *DistrConfigServiceGetAppsParams) (*DistrConfigServiceGetAppsOK, error)
+	DistrConfigServiceGetApps(params *DistrConfigServiceGetAppsParams, opts ...ClientOption) (*DistrConfigServiceGetAppsOK, error)
 
-	DistrConfigServiceGetPool(params *DistrConfigServiceGetPoolParams) (*DistrConfigServiceGetPoolOK, error)
+	DistrConfigServiceGetPool(params *DistrConfigServiceGetPoolParams, opts ...ClientOption) (*DistrConfigServiceGetPoolOK, error)
 
-	DistrConfigServiceGetPoolDistribution(params *DistrConfigServiceGetPoolDistributionParams) (*DistrConfigServiceGetPoolDistributionOK, error)
+	DistrConfigServiceGetPoolDistribution(params *DistrConfigServiceGetPoolDistributionParams, opts ...ClientOption) (*DistrConfigServiceGetPoolDistributionOK, error)
 
-	DistrConfigServiceGetPools(params *DistrConfigServiceGetPoolsParams) (*DistrConfigServiceGetPoolsOK, error)
+	DistrConfigServiceGetPools(params *DistrConfigServiceGetPoolsParams, opts ...ClientOption) (*DistrConfigServiceGetPoolsOK, error)
 
-	DistrConfigServiceGetUser(params *DistrConfigServiceGetUserParams) (*DistrConfigServiceGetUserOK, error)
+	DistrConfigServiceGetUser(params *DistrConfigServiceGetUserParams, opts ...ClientOption) (*DistrConfigServiceGetUserOK, error)
 
-	DistrConfigServiceGetUsers(params *DistrConfigServiceGetUsersParams) (*DistrConfigServiceGetUsersOK, error)
+	DistrConfigServiceGetUsers(params *DistrConfigServiceGetUsersParams, opts ...ClientOption) (*DistrConfigServiceGetUsersOK, error)
 
-	DistrConfigServiceSetAppBundle(params *DistrConfigServiceSetAppBundleParams) (*DistrConfigServiceSetAppBundleOK, error)
+	DistrConfigServiceSetAppBundle(params *DistrConfigServiceSetAppBundleParams, opts ...ClientOption) (*DistrConfigServiceSetAppBundleOK, error)
 
-	DistrConfigServiceUnassignAppFromUsers(params *DistrConfigServiceUnassignAppFromUsersParams) (*DistrConfigServiceUnassignAppFromUsersOK, error)
+	DistrConfigServiceUnassignAppFromUsers(params *DistrConfigServiceUnassignAppFromUsersParams, opts ...ClientOption) (*DistrConfigServiceUnassignAppFromUsersOK, error)
 
-	DistrConfigServiceUnassignPoolsFromApp(params *DistrConfigServiceUnassignPoolsFromAppParams) (*DistrConfigServiceUnassignPoolsFromAppOK, error)
+	DistrConfigServiceUnassignPoolsFromApp(params *DistrConfigServiceUnassignPoolsFromAppParams, opts ...ClientOption) (*DistrConfigServiceUnassignPoolsFromAppOK, error)
 
-	DistrConfigServiceUnassignTagFromUser(params *DistrConfigServiceUnassignTagFromUserParams) (*DistrConfigServiceUnassignTagFromUserOK, error)
+	DistrConfigServiceUnassignTagFromUser(params *DistrConfigServiceUnassignTagFromUserParams, opts ...ClientOption) (*DistrConfigServiceUnassignTagFromUserOK, error)
 
-	DistrConfigServiceUpdatePool(params *DistrConfigServiceUpdatePoolParams) (*DistrConfigServiceUpdatePoolOK, error)
+	DistrConfigServiceUpdatePool(params *DistrConfigServiceUpdatePoolParams, opts ...ClientOption) (*DistrConfigServiceUpdatePoolOK, error)
 
-	DistrConfigServiceUpdatePool2(params *DistrConfigServiceUpdatePool2Params) (*DistrConfigServiceUpdatePool2OK, error)
+	DistrConfigServiceUpdatePool2(params *DistrConfigServiceUpdatePool2Params, opts ...ClientOption) (*DistrConfigServiceUpdatePool2OK, error)
 
-	DistrConfigServiceValidatePoolData(params *DistrConfigServiceValidatePoolDataParams) (*DistrConfigServiceValidatePoolDataOK, error)
+	DistrConfigServiceValidatePoolData(params *DistrConfigServiceValidatePoolDataParams, opts ...ClientOption) (*DistrConfigServiceValidatePoolDataOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -87,13 +90,12 @@ type ClientService interface {
 - 403    Returned when the caller is not allowed to perform this call
 - 500    Returned whenever an internall error occurs
 */
-func (a *Client) DistrConfigServiceActivatePool(params *DistrConfigServiceActivatePoolParams) (*DistrConfigServiceActivatePoolOK, error) {
+func (a *Client) DistrConfigServiceActivatePool(params *DistrConfigServiceActivatePoolParams, opts ...ClientOption) (*DistrConfigServiceActivatePoolOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDistrConfigServiceActivatePoolParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DistrConfigService_ActivatePool",
 		Method:             "POST",
 		PathPattern:        "/api/distribution/v1/pool/activate",
@@ -104,7 +106,12 @@ func (a *Client) DistrConfigServiceActivatePool(params *DistrConfigServiceActiva
 		Reader:             &DistrConfigServiceActivatePoolReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -120,13 +127,12 @@ func (a *Client) DistrConfigServiceActivatePool(params *DistrConfigServiceActiva
 /*
   DistrConfigServiceAssignAppToUsers assigns mobile application to users
 */
-func (a *Client) DistrConfigServiceAssignAppToUsers(params *DistrConfigServiceAssignAppToUsersParams) (*DistrConfigServiceAssignAppToUsersOK, error) {
+func (a *Client) DistrConfigServiceAssignAppToUsers(params *DistrConfigServiceAssignAppToUsersParams, opts ...ClientOption) (*DistrConfigServiceAssignAppToUsersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDistrConfigServiceAssignAppToUsersParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DistrConfigService_AssignAppToUsers",
 		Method:             "POST",
 		PathPattern:        "/api/distribution/v1/app/users/assign",
@@ -137,7 +143,12 @@ func (a *Client) DistrConfigServiceAssignAppToUsers(params *DistrConfigServiceAs
 		Reader:             &DistrConfigServiceAssignAppToUsersReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -153,13 +164,12 @@ func (a *Client) DistrConfigServiceAssignAppToUsers(params *DistrConfigServiceAs
 /*
   DistrConfigServiceAssignPoolsToApp assigns data pools to mobile application
 */
-func (a *Client) DistrConfigServiceAssignPoolsToApp(params *DistrConfigServiceAssignPoolsToAppParams) (*DistrConfigServiceAssignPoolsToAppOK, error) {
+func (a *Client) DistrConfigServiceAssignPoolsToApp(params *DistrConfigServiceAssignPoolsToAppParams, opts ...ClientOption) (*DistrConfigServiceAssignPoolsToAppOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDistrConfigServiceAssignPoolsToAppParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DistrConfigService_AssignPoolsToApp",
 		Method:             "POST",
 		PathPattern:        "/api/distribution/v1/app/pools/assign",
@@ -170,7 +180,12 @@ func (a *Client) DistrConfigServiceAssignPoolsToApp(params *DistrConfigServiceAs
 		Reader:             &DistrConfigServiceAssignPoolsToAppReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -186,13 +201,12 @@ func (a *Client) DistrConfigServiceAssignPoolsToApp(params *DistrConfigServiceAs
 /*
   DistrConfigServiceAssignTagToUser assigns filtering tag to user
 */
-func (a *Client) DistrConfigServiceAssignTagToUser(params *DistrConfigServiceAssignTagToUserParams) (*DistrConfigServiceAssignTagToUserOK, error) {
+func (a *Client) DistrConfigServiceAssignTagToUser(params *DistrConfigServiceAssignTagToUserParams, opts ...ClientOption) (*DistrConfigServiceAssignTagToUserOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDistrConfigServiceAssignTagToUserParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DistrConfigService_AssignTagToUser",
 		Method:             "POST",
 		PathPattern:        "/api/distribution/v1/user/tags/assign",
@@ -203,7 +217,12 @@ func (a *Client) DistrConfigServiceAssignTagToUser(params *DistrConfigServiceAss
 		Reader:             &DistrConfigServiceAssignTagToUserReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -219,13 +238,12 @@ func (a *Client) DistrConfigServiceAssignTagToUser(params *DistrConfigServiceAss
 /*
   DistrConfigServiceCreateApp creates mobile application
 */
-func (a *Client) DistrConfigServiceCreateApp(params *DistrConfigServiceCreateAppParams) (*DistrConfigServiceCreateAppOK, error) {
+func (a *Client) DistrConfigServiceCreateApp(params *DistrConfigServiceCreateAppParams, opts ...ClientOption) (*DistrConfigServiceCreateAppOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDistrConfigServiceCreateAppParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DistrConfigService_CreateApp",
 		Method:             "POST",
 		PathPattern:        "/api/distribution/v1/app",
@@ -236,7 +254,12 @@ func (a *Client) DistrConfigServiceCreateApp(params *DistrConfigServiceCreateApp
 		Reader:             &DistrConfigServiceCreateAppReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -257,13 +280,12 @@ func (a *Client) DistrConfigServiceCreateApp(params *DistrConfigServiceCreateApp
 - 403    Returned when the caller is not allowed to perform this call
 - 500    Returned whenever an internall error occurs
 */
-func (a *Client) DistrConfigServiceCreatePool(params *DistrConfigServiceCreatePoolParams) (*DistrConfigServiceCreatePoolOK, error) {
+func (a *Client) DistrConfigServiceCreatePool(params *DistrConfigServiceCreatePoolParams, opts ...ClientOption) (*DistrConfigServiceCreatePoolOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDistrConfigServiceCreatePoolParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DistrConfigService_CreatePool",
 		Method:             "POST",
 		PathPattern:        "/api/distribution/v1/pool",
@@ -274,7 +296,12 @@ func (a *Client) DistrConfigServiceCreatePool(params *DistrConfigServiceCreatePo
 		Reader:             &DistrConfigServiceCreatePoolReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -295,13 +322,12 @@ func (a *Client) DistrConfigServiceCreatePool(params *DistrConfigServiceCreatePo
 - 403    Returned when the caller is not allowed to perform this call
 - 500    Returned whenever an internall error occurs
 */
-func (a *Client) DistrConfigServiceCreatePools(params *DistrConfigServiceCreatePoolsParams) (*DistrConfigServiceCreatePoolsOK, error) {
+func (a *Client) DistrConfigServiceCreatePools(params *DistrConfigServiceCreatePoolsParams, opts ...ClientOption) (*DistrConfigServiceCreatePoolsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDistrConfigServiceCreatePoolsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DistrConfigService_CreatePools",
 		Method:             "POST",
 		PathPattern:        "/api/distribution/v1/pools",
@@ -312,7 +338,12 @@ func (a *Client) DistrConfigServiceCreatePools(params *DistrConfigServiceCreateP
 		Reader:             &DistrConfigServiceCreatePoolsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -328,13 +359,12 @@ func (a *Client) DistrConfigServiceCreatePools(params *DistrConfigServiceCreateP
 /*
   DistrConfigServiceCreateUser registers user in distribution database
 */
-func (a *Client) DistrConfigServiceCreateUser(params *DistrConfigServiceCreateUserParams) (*DistrConfigServiceCreateUserOK, error) {
+func (a *Client) DistrConfigServiceCreateUser(params *DistrConfigServiceCreateUserParams, opts ...ClientOption) (*DistrConfigServiceCreateUserOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDistrConfigServiceCreateUserParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DistrConfigService_CreateUser",
 		Method:             "POST",
 		PathPattern:        "/api/distribution/v1/user",
@@ -345,7 +375,12 @@ func (a *Client) DistrConfigServiceCreateUser(params *DistrConfigServiceCreateUs
 		Reader:             &DistrConfigServiceCreateUserReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -361,13 +396,12 @@ func (a *Client) DistrConfigServiceCreateUser(params *DistrConfigServiceCreateUs
 /*
   DistrConfigServiceDeleteApp deletes mobile application
 */
-func (a *Client) DistrConfigServiceDeleteApp(params *DistrConfigServiceDeleteAppParams) (*DistrConfigServiceDeleteAppOK, error) {
+func (a *Client) DistrConfigServiceDeleteApp(params *DistrConfigServiceDeleteAppParams, opts ...ClientOption) (*DistrConfigServiceDeleteAppOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDistrConfigServiceDeleteAppParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DistrConfigService_DeleteApp",
 		Method:             "DELETE",
 		PathPattern:        "/api/distribution/v1/app/{id}",
@@ -378,7 +412,12 @@ func (a *Client) DistrConfigServiceDeleteApp(params *DistrConfigServiceDeleteApp
 		Reader:             &DistrConfigServiceDeleteAppReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -399,13 +438,12 @@ func (a *Client) DistrConfigServiceDeleteApp(params *DistrConfigServiceDeleteApp
 - 403    Returned when the caller is not allowed to perform this call
 - 500    Returned whenever an internall error occurs
 */
-func (a *Client) DistrConfigServiceDeletePool(params *DistrConfigServiceDeletePoolParams) (*DistrConfigServiceDeletePoolOK, error) {
+func (a *Client) DistrConfigServiceDeletePool(params *DistrConfigServiceDeletePoolParams, opts ...ClientOption) (*DistrConfigServiceDeletePoolOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDistrConfigServiceDeletePoolParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DistrConfigService_DeletePool",
 		Method:             "DELETE",
 		PathPattern:        "/api/distribution/v1/pool/{id}",
@@ -416,7 +454,12 @@ func (a *Client) DistrConfigServiceDeletePool(params *DistrConfigServiceDeletePo
 		Reader:             &DistrConfigServiceDeletePoolReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -432,13 +475,12 @@ func (a *Client) DistrConfigServiceDeletePool(params *DistrConfigServiceDeletePo
 /*
   DistrConfigServiceDeleteUser deletes user from distribution db
 */
-func (a *Client) DistrConfigServiceDeleteUser(params *DistrConfigServiceDeleteUserParams) (*DistrConfigServiceDeleteUserOK, error) {
+func (a *Client) DistrConfigServiceDeleteUser(params *DistrConfigServiceDeleteUserParams, opts ...ClientOption) (*DistrConfigServiceDeleteUserOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDistrConfigServiceDeleteUserParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DistrConfigService_DeleteUser",
 		Method:             "DELETE",
 		PathPattern:        "/api/distribution/v1/user/{id}",
@@ -449,7 +491,12 @@ func (a *Client) DistrConfigServiceDeleteUser(params *DistrConfigServiceDeleteUs
 		Reader:             &DistrConfigServiceDeleteUserReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -465,13 +512,12 @@ func (a *Client) DistrConfigServiceDeleteUser(params *DistrConfigServiceDeleteUs
 /*
   DistrConfigServiceGetApp gets a mobile application
 */
-func (a *Client) DistrConfigServiceGetApp(params *DistrConfigServiceGetAppParams) (*DistrConfigServiceGetAppOK, error) {
+func (a *Client) DistrConfigServiceGetApp(params *DistrConfigServiceGetAppParams, opts ...ClientOption) (*DistrConfigServiceGetAppOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDistrConfigServiceGetAppParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DistrConfigService_GetApp",
 		Method:             "GET",
 		PathPattern:        "/api/distribution/v1/app/{id}",
@@ -482,7 +528,12 @@ func (a *Client) DistrConfigServiceGetApp(params *DistrConfigServiceGetAppParams
 		Reader:             &DistrConfigServiceGetAppReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -498,13 +549,12 @@ func (a *Client) DistrConfigServiceGetApp(params *DistrConfigServiceGetAppParams
 /*
   DistrConfigServiceGetApps gets all mobile applications
 */
-func (a *Client) DistrConfigServiceGetApps(params *DistrConfigServiceGetAppsParams) (*DistrConfigServiceGetAppsOK, error) {
+func (a *Client) DistrConfigServiceGetApps(params *DistrConfigServiceGetAppsParams, opts ...ClientOption) (*DistrConfigServiceGetAppsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDistrConfigServiceGetAppsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DistrConfigService_GetApps",
 		Method:             "GET",
 		PathPattern:        "/api/distribution/v1/apps",
@@ -515,7 +565,12 @@ func (a *Client) DistrConfigServiceGetApps(params *DistrConfigServiceGetAppsPara
 		Reader:             &DistrConfigServiceGetAppsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -536,13 +591,12 @@ func (a *Client) DistrConfigServiceGetApps(params *DistrConfigServiceGetAppsPara
 - 403    Returned when the caller is not allowed to perform this call
 - 500    Returned whenever an internall error occurs
 */
-func (a *Client) DistrConfigServiceGetPool(params *DistrConfigServiceGetPoolParams) (*DistrConfigServiceGetPoolOK, error) {
+func (a *Client) DistrConfigServiceGetPool(params *DistrConfigServiceGetPoolParams, opts ...ClientOption) (*DistrConfigServiceGetPoolOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDistrConfigServiceGetPoolParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DistrConfigService_GetPool",
 		Method:             "GET",
 		PathPattern:        "/api/distribution/v1/pool/{id}",
@@ -553,7 +607,12 @@ func (a *Client) DistrConfigServiceGetPool(params *DistrConfigServiceGetPoolPara
 		Reader:             &DistrConfigServiceGetPoolReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -574,13 +633,12 @@ func (a *Client) DistrConfigServiceGetPool(params *DistrConfigServiceGetPoolPara
 - 403    Returned when the caller is not allowed to perform this call
 - 500    Returned whenever an internall error occurs
 */
-func (a *Client) DistrConfigServiceGetPoolDistribution(params *DistrConfigServiceGetPoolDistributionParams) (*DistrConfigServiceGetPoolDistributionOK, error) {
+func (a *Client) DistrConfigServiceGetPoolDistribution(params *DistrConfigServiceGetPoolDistributionParams, opts ...ClientOption) (*DistrConfigServiceGetPoolDistributionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDistrConfigServiceGetPoolDistributionParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DistrConfigService_GetPoolDistribution",
 		Method:             "GET",
 		PathPattern:        "/api/distribution/v1/pool/distribution/{id}",
@@ -591,7 +649,12 @@ func (a *Client) DistrConfigServiceGetPoolDistribution(params *DistrConfigServic
 		Reader:             &DistrConfigServiceGetPoolDistributionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -611,13 +674,12 @@ func (a *Client) DistrConfigServiceGetPoolDistribution(params *DistrConfigServic
 - 403    Returned when the caller is not allowed to perform this call
 - 500    Returned whenever an internall error occurs
 */
-func (a *Client) DistrConfigServiceGetPools(params *DistrConfigServiceGetPoolsParams) (*DistrConfigServiceGetPoolsOK, error) {
+func (a *Client) DistrConfigServiceGetPools(params *DistrConfigServiceGetPoolsParams, opts ...ClientOption) (*DistrConfigServiceGetPoolsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDistrConfigServiceGetPoolsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DistrConfigService_GetPools",
 		Method:             "GET",
 		PathPattern:        "/api/distribution/v1/pools",
@@ -628,7 +690,12 @@ func (a *Client) DistrConfigServiceGetPools(params *DistrConfigServiceGetPoolsPa
 		Reader:             &DistrConfigServiceGetPoolsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -644,13 +711,12 @@ func (a *Client) DistrConfigServiceGetPools(params *DistrConfigServiceGetPoolsPa
 /*
   DistrConfigServiceGetUser fetches the user with the given ID
 */
-func (a *Client) DistrConfigServiceGetUser(params *DistrConfigServiceGetUserParams) (*DistrConfigServiceGetUserOK, error) {
+func (a *Client) DistrConfigServiceGetUser(params *DistrConfigServiceGetUserParams, opts ...ClientOption) (*DistrConfigServiceGetUserOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDistrConfigServiceGetUserParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DistrConfigService_GetUser",
 		Method:             "GET",
 		PathPattern:        "/api/distribution/v1/user/{userID}",
@@ -661,7 +727,12 @@ func (a *Client) DistrConfigServiceGetUser(params *DistrConfigServiceGetUserPara
 		Reader:             &DistrConfigServiceGetUserReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -677,13 +748,12 @@ func (a *Client) DistrConfigServiceGetUser(params *DistrConfigServiceGetUserPara
 /*
   DistrConfigServiceGetUsers fetches all users in account distribution db
 */
-func (a *Client) DistrConfigServiceGetUsers(params *DistrConfigServiceGetUsersParams) (*DistrConfigServiceGetUsersOK, error) {
+func (a *Client) DistrConfigServiceGetUsers(params *DistrConfigServiceGetUsersParams, opts ...ClientOption) (*DistrConfigServiceGetUsersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDistrConfigServiceGetUsersParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DistrConfigService_GetUsers",
 		Method:             "GET",
 		PathPattern:        "/api/distribution/v1/users",
@@ -694,7 +764,12 @@ func (a *Client) DistrConfigServiceGetUsers(params *DistrConfigServiceGetUsersPa
 		Reader:             &DistrConfigServiceGetUsersReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -710,13 +785,12 @@ func (a *Client) DistrConfigServiceGetUsers(params *DistrConfigServiceGetUsersPa
 /*
   DistrConfigServiceSetAppBundle sets the mobile application bundle
 */
-func (a *Client) DistrConfigServiceSetAppBundle(params *DistrConfigServiceSetAppBundleParams) (*DistrConfigServiceSetAppBundleOK, error) {
+func (a *Client) DistrConfigServiceSetAppBundle(params *DistrConfigServiceSetAppBundleParams, opts ...ClientOption) (*DistrConfigServiceSetAppBundleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDistrConfigServiceSetAppBundleParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DistrConfigService_SetAppBundle",
 		Method:             "POST",
 		PathPattern:        "/api/distribution/v1/app/{id}/bundle",
@@ -727,7 +801,12 @@ func (a *Client) DistrConfigServiceSetAppBundle(params *DistrConfigServiceSetApp
 		Reader:             &DistrConfigServiceSetAppBundleReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -743,13 +822,12 @@ func (a *Client) DistrConfigServiceSetAppBundle(params *DistrConfigServiceSetApp
 /*
   DistrConfigServiceUnassignAppFromUsers unassigns mobile application from users
 */
-func (a *Client) DistrConfigServiceUnassignAppFromUsers(params *DistrConfigServiceUnassignAppFromUsersParams) (*DistrConfigServiceUnassignAppFromUsersOK, error) {
+func (a *Client) DistrConfigServiceUnassignAppFromUsers(params *DistrConfigServiceUnassignAppFromUsersParams, opts ...ClientOption) (*DistrConfigServiceUnassignAppFromUsersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDistrConfigServiceUnassignAppFromUsersParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DistrConfigService_UnassignAppFromUsers",
 		Method:             "POST",
 		PathPattern:        "/api/distribution/v1/app/users/unassign",
@@ -760,7 +838,12 @@ func (a *Client) DistrConfigServiceUnassignAppFromUsers(params *DistrConfigServi
 		Reader:             &DistrConfigServiceUnassignAppFromUsersReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -776,13 +859,12 @@ func (a *Client) DistrConfigServiceUnassignAppFromUsers(params *DistrConfigServi
 /*
   DistrConfigServiceUnassignPoolsFromApp unassigns data pool from mobile application
 */
-func (a *Client) DistrConfigServiceUnassignPoolsFromApp(params *DistrConfigServiceUnassignPoolsFromAppParams) (*DistrConfigServiceUnassignPoolsFromAppOK, error) {
+func (a *Client) DistrConfigServiceUnassignPoolsFromApp(params *DistrConfigServiceUnassignPoolsFromAppParams, opts ...ClientOption) (*DistrConfigServiceUnassignPoolsFromAppOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDistrConfigServiceUnassignPoolsFromAppParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DistrConfigService_UnassignPoolsFromApp",
 		Method:             "POST",
 		PathPattern:        "/api/distribution/v1/app/pools/unassign",
@@ -793,7 +875,12 @@ func (a *Client) DistrConfigServiceUnassignPoolsFromApp(params *DistrConfigServi
 		Reader:             &DistrConfigServiceUnassignPoolsFromAppReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -809,13 +896,12 @@ func (a *Client) DistrConfigServiceUnassignPoolsFromApp(params *DistrConfigServi
 /*
   DistrConfigServiceUnassignTagFromUser unassigns filtering tag from user
 */
-func (a *Client) DistrConfigServiceUnassignTagFromUser(params *DistrConfigServiceUnassignTagFromUserParams) (*DistrConfigServiceUnassignTagFromUserOK, error) {
+func (a *Client) DistrConfigServiceUnassignTagFromUser(params *DistrConfigServiceUnassignTagFromUserParams, opts ...ClientOption) (*DistrConfigServiceUnassignTagFromUserOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDistrConfigServiceUnassignTagFromUserParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DistrConfigService_UnassignTagFromUser",
 		Method:             "POST",
 		PathPattern:        "/api/distribution/v1/user/tags/unassign",
@@ -826,7 +912,12 @@ func (a *Client) DistrConfigServiceUnassignTagFromUser(params *DistrConfigServic
 		Reader:             &DistrConfigServiceUnassignTagFromUserReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -848,13 +939,12 @@ func (a *Client) DistrConfigServiceUnassignTagFromUser(params *DistrConfigServic
 - 403    Returned when the caller is not allowed to perform this call
 - 500    Returned whenever an internall error occurs
 */
-func (a *Client) DistrConfigServiceUpdatePool(params *DistrConfigServiceUpdatePoolParams) (*DistrConfigServiceUpdatePoolOK, error) {
+func (a *Client) DistrConfigServiceUpdatePool(params *DistrConfigServiceUpdatePoolParams, opts ...ClientOption) (*DistrConfigServiceUpdatePoolOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDistrConfigServiceUpdatePoolParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DistrConfigService_UpdatePool",
 		Method:             "PUT",
 		PathPattern:        "/api/distribution/v1/pool",
@@ -865,7 +955,12 @@ func (a *Client) DistrConfigServiceUpdatePool(params *DistrConfigServiceUpdatePo
 		Reader:             &DistrConfigServiceUpdatePoolReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -887,13 +982,12 @@ func (a *Client) DistrConfigServiceUpdatePool(params *DistrConfigServiceUpdatePo
 - 403    Returned when the caller is not allowed to perform this call
 - 500    Returned whenever an internall error occurs
 */
-func (a *Client) DistrConfigServiceUpdatePool2(params *DistrConfigServiceUpdatePool2Params) (*DistrConfigServiceUpdatePool2OK, error) {
+func (a *Client) DistrConfigServiceUpdatePool2(params *DistrConfigServiceUpdatePool2Params, opts ...ClientOption) (*DistrConfigServiceUpdatePool2OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDistrConfigServiceUpdatePool2Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DistrConfigService_UpdatePool2",
 		Method:             "PATCH",
 		PathPattern:        "/api/distribution/v1/pool/{dataPool.id}",
@@ -904,7 +998,12 @@ func (a *Client) DistrConfigServiceUpdatePool2(params *DistrConfigServiceUpdateP
 		Reader:             &DistrConfigServiceUpdatePool2Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -925,13 +1024,12 @@ func (a *Client) DistrConfigServiceUpdatePool2(params *DistrConfigServiceUpdateP
 - 403    Returned when the caller is not allowed to perform this call
 - 500    Returned whenever an internall error occurs
 */
-func (a *Client) DistrConfigServiceValidatePoolData(params *DistrConfigServiceValidatePoolDataParams) (*DistrConfigServiceValidatePoolDataOK, error) {
+func (a *Client) DistrConfigServiceValidatePoolData(params *DistrConfigServiceValidatePoolDataParams, opts ...ClientOption) (*DistrConfigServiceValidatePoolDataOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewDistrConfigServiceValidatePoolDataParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "DistrConfigService_ValidatePoolData",
 		Method:             "POST",
 		PathPattern:        "/api/distribution/v1/pool/validate",
@@ -942,7 +1040,12 @@ func (a *Client) DistrConfigServiceValidatePoolData(params *DistrConfigServiceVa
 		Reader:             &DistrConfigServiceValidatePoolDataReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

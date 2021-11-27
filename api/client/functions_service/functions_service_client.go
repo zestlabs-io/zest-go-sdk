@@ -23,25 +23,28 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	FunctionsServiceCallAsyncFunction(params *FunctionsServiceCallAsyncFunctionParams) (*FunctionsServiceCallAsyncFunctionOK, error)
+	FunctionsServiceCallAsyncFunction(params *FunctionsServiceCallAsyncFunctionParams, opts ...ClientOption) (*FunctionsServiceCallAsyncFunctionOK, error)
 
-	FunctionsServiceCallSyncFunction(params *FunctionsServiceCallSyncFunctionParams) (*FunctionsServiceCallSyncFunctionOK, error)
+	FunctionsServiceCallSyncFunction(params *FunctionsServiceCallSyncFunctionParams, opts ...ClientOption) (*FunctionsServiceCallSyncFunctionOK, error)
 
-	FunctionsServiceCallTestFunction(params *FunctionsServiceCallTestFunctionParams) (*FunctionsServiceCallTestFunctionOK, error)
+	FunctionsServiceCallTestFunction(params *FunctionsServiceCallTestFunctionParams, opts ...ClientOption) (*FunctionsServiceCallTestFunctionOK, error)
 
-	FunctionsServiceCreateFunction(params *FunctionsServiceCreateFunctionParams) (*FunctionsServiceCreateFunctionOK, error)
+	FunctionsServiceCreateFunction(params *FunctionsServiceCreateFunctionParams, opts ...ClientOption) (*FunctionsServiceCreateFunctionOK, error)
 
-	FunctionsServiceDeleteFunction(params *FunctionsServiceDeleteFunctionParams) (*FunctionsServiceDeleteFunctionOK, error)
+	FunctionsServiceDeleteFunction(params *FunctionsServiceDeleteFunctionParams, opts ...ClientOption) (*FunctionsServiceDeleteFunctionOK, error)
 
-	FunctionsServiceGetFunction(params *FunctionsServiceGetFunctionParams) (*FunctionsServiceGetFunctionOK, error)
+	FunctionsServiceGetFunction(params *FunctionsServiceGetFunctionParams, opts ...ClientOption) (*FunctionsServiceGetFunctionOK, error)
 
-	FunctionsServiceGetFunctions(params *FunctionsServiceGetFunctionsParams) (*FunctionsServiceGetFunctionsOK, error)
+	FunctionsServiceGetFunctions(params *FunctionsServiceGetFunctionsParams, opts ...ClientOption) (*FunctionsServiceGetFunctionsOK, error)
 
-	FunctionsServiceUpdateFunction(params *FunctionsServiceUpdateFunctionParams) (*FunctionsServiceUpdateFunctionOK, error)
+	FunctionsServiceUpdateFunction(params *FunctionsServiceUpdateFunctionParams, opts ...ClientOption) (*FunctionsServiceUpdateFunctionOK, error)
 
-	FunctionsServiceUpdateFunction2(params *FunctionsServiceUpdateFunction2Params) (*FunctionsServiceUpdateFunction2OK, error)
+	FunctionsServiceUpdateFunction2(params *FunctionsServiceUpdateFunction2Params, opts ...ClientOption) (*FunctionsServiceUpdateFunction2OK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -49,13 +52,12 @@ type ClientService interface {
 /*
   FunctionsServiceCallAsyncFunction posts function for execution in async way
 */
-func (a *Client) FunctionsServiceCallAsyncFunction(params *FunctionsServiceCallAsyncFunctionParams) (*FunctionsServiceCallAsyncFunctionOK, error) {
+func (a *Client) FunctionsServiceCallAsyncFunction(params *FunctionsServiceCallAsyncFunctionParams, opts ...ClientOption) (*FunctionsServiceCallAsyncFunctionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFunctionsServiceCallAsyncFunctionParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "FunctionsService_CallAsyncFunction",
 		Method:             "POST",
 		PathPattern:        "/api/func/v1/post-call/{reason}/{call.id}",
@@ -66,7 +68,12 @@ func (a *Client) FunctionsServiceCallAsyncFunction(params *FunctionsServiceCallA
 		Reader:             &FunctionsServiceCallAsyncFunctionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -82,13 +89,12 @@ func (a *Client) FunctionsServiceCallAsyncFunction(params *FunctionsServiceCallA
 /*
   FunctionsServiceCallSyncFunction calls a function synchroniously
 */
-func (a *Client) FunctionsServiceCallSyncFunction(params *FunctionsServiceCallSyncFunctionParams) (*FunctionsServiceCallSyncFunctionOK, error) {
+func (a *Client) FunctionsServiceCallSyncFunction(params *FunctionsServiceCallSyncFunctionParams, opts ...ClientOption) (*FunctionsServiceCallSyncFunctionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFunctionsServiceCallSyncFunctionParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "FunctionsService_CallSyncFunction",
 		Method:             "POST",
 		PathPattern:        "/api/func/v1/call-sync/{id}",
@@ -99,7 +105,12 @@ func (a *Client) FunctionsServiceCallSyncFunction(params *FunctionsServiceCallSy
 		Reader:             &FunctionsServiceCallSyncFunctionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -115,13 +126,12 @@ func (a *Client) FunctionsServiceCallSyncFunction(params *FunctionsServiceCallSy
 /*
   FunctionsServiceCallTestFunction tests a function call
 */
-func (a *Client) FunctionsServiceCallTestFunction(params *FunctionsServiceCallTestFunctionParams) (*FunctionsServiceCallTestFunctionOK, error) {
+func (a *Client) FunctionsServiceCallTestFunction(params *FunctionsServiceCallTestFunctionParams, opts ...ClientOption) (*FunctionsServiceCallTestFunctionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFunctionsServiceCallTestFunctionParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "FunctionsService_CallTestFunction",
 		Method:             "POST",
 		PathPattern:        "/api/func/v1/call-test/{id}",
@@ -132,7 +142,12 @@ func (a *Client) FunctionsServiceCallTestFunction(params *FunctionsServiceCallTe
 		Reader:             &FunctionsServiceCallTestFunctionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -148,13 +163,12 @@ func (a *Client) FunctionsServiceCallTestFunction(params *FunctionsServiceCallTe
 /*
   FunctionsServiceCreateFunction creates function
 */
-func (a *Client) FunctionsServiceCreateFunction(params *FunctionsServiceCreateFunctionParams) (*FunctionsServiceCreateFunctionOK, error) {
+func (a *Client) FunctionsServiceCreateFunction(params *FunctionsServiceCreateFunctionParams, opts ...ClientOption) (*FunctionsServiceCreateFunctionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFunctionsServiceCreateFunctionParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "FunctionsService_CreateFunction",
 		Method:             "POST",
 		PathPattern:        "/api/func/v1/function",
@@ -165,7 +179,12 @@ func (a *Client) FunctionsServiceCreateFunction(params *FunctionsServiceCreateFu
 		Reader:             &FunctionsServiceCreateFunctionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -181,13 +200,12 @@ func (a *Client) FunctionsServiceCreateFunction(params *FunctionsServiceCreateFu
 /*
   FunctionsServiceDeleteFunction deletes function
 */
-func (a *Client) FunctionsServiceDeleteFunction(params *FunctionsServiceDeleteFunctionParams) (*FunctionsServiceDeleteFunctionOK, error) {
+func (a *Client) FunctionsServiceDeleteFunction(params *FunctionsServiceDeleteFunctionParams, opts ...ClientOption) (*FunctionsServiceDeleteFunctionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFunctionsServiceDeleteFunctionParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "FunctionsService_DeleteFunction",
 		Method:             "DELETE",
 		PathPattern:        "/api/func/v1/function/{id}",
@@ -198,7 +216,12 @@ func (a *Client) FunctionsServiceDeleteFunction(params *FunctionsServiceDeleteFu
 		Reader:             &FunctionsServiceDeleteFunctionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -214,13 +237,12 @@ func (a *Client) FunctionsServiceDeleteFunction(params *FunctionsServiceDeleteFu
 /*
   FunctionsServiceGetFunction gets function
 */
-func (a *Client) FunctionsServiceGetFunction(params *FunctionsServiceGetFunctionParams) (*FunctionsServiceGetFunctionOK, error) {
+func (a *Client) FunctionsServiceGetFunction(params *FunctionsServiceGetFunctionParams, opts ...ClientOption) (*FunctionsServiceGetFunctionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFunctionsServiceGetFunctionParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "FunctionsService_GetFunction",
 		Method:             "GET",
 		PathPattern:        "/api/func/v1/function/{id}",
@@ -231,7 +253,12 @@ func (a *Client) FunctionsServiceGetFunction(params *FunctionsServiceGetFunction
 		Reader:             &FunctionsServiceGetFunctionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -247,13 +274,12 @@ func (a *Client) FunctionsServiceGetFunction(params *FunctionsServiceGetFunction
 /*
   FunctionsServiceGetFunctions fetches all functions
 */
-func (a *Client) FunctionsServiceGetFunctions(params *FunctionsServiceGetFunctionsParams) (*FunctionsServiceGetFunctionsOK, error) {
+func (a *Client) FunctionsServiceGetFunctions(params *FunctionsServiceGetFunctionsParams, opts ...ClientOption) (*FunctionsServiceGetFunctionsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFunctionsServiceGetFunctionsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "FunctionsService_GetFunctions",
 		Method:             "GET",
 		PathPattern:        "/api/func/v1/functions",
@@ -264,7 +290,12 @@ func (a *Client) FunctionsServiceGetFunctions(params *FunctionsServiceGetFunctio
 		Reader:             &FunctionsServiceGetFunctionsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -280,13 +311,12 @@ func (a *Client) FunctionsServiceGetFunctions(params *FunctionsServiceGetFunctio
 /*
   FunctionsServiceUpdateFunction updates function
 */
-func (a *Client) FunctionsServiceUpdateFunction(params *FunctionsServiceUpdateFunctionParams) (*FunctionsServiceUpdateFunctionOK, error) {
+func (a *Client) FunctionsServiceUpdateFunction(params *FunctionsServiceUpdateFunctionParams, opts ...ClientOption) (*FunctionsServiceUpdateFunctionOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFunctionsServiceUpdateFunctionParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "FunctionsService_UpdateFunction",
 		Method:             "PUT",
 		PathPattern:        "/api/func/v1/function",
@@ -297,7 +327,12 @@ func (a *Client) FunctionsServiceUpdateFunction(params *FunctionsServiceUpdateFu
 		Reader:             &FunctionsServiceUpdateFunctionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -313,13 +348,12 @@ func (a *Client) FunctionsServiceUpdateFunction(params *FunctionsServiceUpdateFu
 /*
   FunctionsServiceUpdateFunction2 updates function
 */
-func (a *Client) FunctionsServiceUpdateFunction2(params *FunctionsServiceUpdateFunction2Params) (*FunctionsServiceUpdateFunction2OK, error) {
+func (a *Client) FunctionsServiceUpdateFunction2(params *FunctionsServiceUpdateFunction2Params, opts ...ClientOption) (*FunctionsServiceUpdateFunction2OK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewFunctionsServiceUpdateFunction2Params()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "FunctionsService_UpdateFunction2",
 		Method:             "PATCH",
 		PathPattern:        "/api/func/v1/function/{function.id}",
@@ -330,7 +364,12 @@ func (a *Client) FunctionsServiceUpdateFunction2(params *FunctionsServiceUpdateF
 		Reader:             &FunctionsServiceUpdateFunction2Reader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

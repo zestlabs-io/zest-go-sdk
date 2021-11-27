@@ -52,7 +52,7 @@ func NewAuthServiceUpdateAccountOK() *AuthServiceUpdateAccountOK {
 	return &AuthServiceUpdateAccountOK{}
 }
 
-/*AuthServiceUpdateAccountOK handles this case with default header values.
+/* AuthServiceUpdateAccountOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type AuthServiceUpdateAccountOK struct {
 func (o *AuthServiceUpdateAccountOK) Error() string {
 	return fmt.Sprintf("[PUT /api/auth/v1/account/{account.accountID}][%d] authServiceUpdateAccountOK  %+v", 200, o.Payload)
 }
-
 func (o *AuthServiceUpdateAccountOK) GetPayload() models.V1UpdateAccountResponse {
 	return o.Payload
 }
@@ -83,7 +82,7 @@ func NewAuthServiceUpdateAccountNotFound() *AuthServiceUpdateAccountNotFound {
 	return &AuthServiceUpdateAccountNotFound{}
 }
 
-/*AuthServiceUpdateAccountNotFound handles this case with default header values.
+/* AuthServiceUpdateAccountNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -94,7 +93,6 @@ type AuthServiceUpdateAccountNotFound struct {
 func (o *AuthServiceUpdateAccountNotFound) Error() string {
 	return fmt.Sprintf("[PUT /api/auth/v1/account/{account.accountID}][%d] authServiceUpdateAccountNotFound  %+v", 404, o.Payload)
 }
-
 func (o *AuthServiceUpdateAccountNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -116,7 +114,7 @@ func NewAuthServiceUpdateAccountDefault(code int) *AuthServiceUpdateAccountDefau
 	}
 }
 
-/*AuthServiceUpdateAccountDefault handles this case with default header values.
+/* AuthServiceUpdateAccountDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -134,7 +132,6 @@ func (o *AuthServiceUpdateAccountDefault) Code() int {
 func (o *AuthServiceUpdateAccountDefault) Error() string {
 	return fmt.Sprintf("[PUT /api/auth/v1/account/{account.accountID}][%d] AuthService_UpdateAccount default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *AuthServiceUpdateAccountDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

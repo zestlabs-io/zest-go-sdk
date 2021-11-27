@@ -52,7 +52,7 @@ func NewAuthServiceResetPasswordOK() *AuthServiceResetPasswordOK {
 	return &AuthServiceResetPasswordOK{}
 }
 
-/*AuthServiceResetPasswordOK handles this case with default header values.
+/* AuthServiceResetPasswordOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type AuthServiceResetPasswordOK struct {
 func (o *AuthServiceResetPasswordOK) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/reset-password][%d] authServiceResetPasswordOK  %+v", 200, o.Payload)
 }
-
 func (o *AuthServiceResetPasswordOK) GetPayload() models.V1ResetPasswordResponse {
 	return o.Payload
 }
@@ -83,7 +82,7 @@ func NewAuthServiceResetPasswordNotFound() *AuthServiceResetPasswordNotFound {
 	return &AuthServiceResetPasswordNotFound{}
 }
 
-/*AuthServiceResetPasswordNotFound handles this case with default header values.
+/* AuthServiceResetPasswordNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -94,7 +93,6 @@ type AuthServiceResetPasswordNotFound struct {
 func (o *AuthServiceResetPasswordNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/reset-password][%d] authServiceResetPasswordNotFound  %+v", 404, o.Payload)
 }
-
 func (o *AuthServiceResetPasswordNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -116,7 +114,7 @@ func NewAuthServiceResetPasswordDefault(code int) *AuthServiceResetPasswordDefau
 	}
 }
 
-/*AuthServiceResetPasswordDefault handles this case with default header values.
+/* AuthServiceResetPasswordDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -134,7 +132,6 @@ func (o *AuthServiceResetPasswordDefault) Code() int {
 func (o *AuthServiceResetPasswordDefault) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/reset-password][%d] AuthService_ResetPassword default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *AuthServiceResetPasswordDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

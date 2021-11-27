@@ -52,7 +52,7 @@ func NewDistrConfigServiceActivatePoolOK() *DistrConfigServiceActivatePoolOK {
 	return &DistrConfigServiceActivatePoolOK{}
 }
 
-/*DistrConfigServiceActivatePoolOK handles this case with default header values.
+/* DistrConfigServiceActivatePoolOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type DistrConfigServiceActivatePoolOK struct {
 func (o *DistrConfigServiceActivatePoolOK) Error() string {
 	return fmt.Sprintf("[POST /api/distribution/v1/pool/activate][%d] distrConfigServiceActivatePoolOK  %+v", 200, o.Payload)
 }
-
 func (o *DistrConfigServiceActivatePoolOK) GetPayload() models.DistrconfigActivatePoolResponse {
 	return o.Payload
 }
@@ -83,7 +82,7 @@ func NewDistrConfigServiceActivatePoolNotFound() *DistrConfigServiceActivatePool
 	return &DistrConfigServiceActivatePoolNotFound{}
 }
 
-/*DistrConfigServiceActivatePoolNotFound handles this case with default header values.
+/* DistrConfigServiceActivatePoolNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -94,7 +93,6 @@ type DistrConfigServiceActivatePoolNotFound struct {
 func (o *DistrConfigServiceActivatePoolNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/distribution/v1/pool/activate][%d] distrConfigServiceActivatePoolNotFound  %+v", 404, o.Payload)
 }
-
 func (o *DistrConfigServiceActivatePoolNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -116,7 +114,7 @@ func NewDistrConfigServiceActivatePoolDefault(code int) *DistrConfigServiceActiv
 	}
 }
 
-/*DistrConfigServiceActivatePoolDefault handles this case with default header values.
+/* DistrConfigServiceActivatePoolDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -134,7 +132,6 @@ func (o *DistrConfigServiceActivatePoolDefault) Code() int {
 func (o *DistrConfigServiceActivatePoolDefault) Error() string {
 	return fmt.Sprintf("[POST /api/distribution/v1/pool/activate][%d] DistrConfigService_ActivatePool default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *DistrConfigServiceActivatePoolDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

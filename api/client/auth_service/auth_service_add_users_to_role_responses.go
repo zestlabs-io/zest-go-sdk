@@ -52,7 +52,7 @@ func NewAuthServiceAddUsersToRoleOK() *AuthServiceAddUsersToRoleOK {
 	return &AuthServiceAddUsersToRoleOK{}
 }
 
-/*AuthServiceAddUsersToRoleOK handles this case with default header values.
+/* AuthServiceAddUsersToRoleOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type AuthServiceAddUsersToRoleOK struct {
 func (o *AuthServiceAddUsersToRoleOK) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/role/users/add][%d] authServiceAddUsersToRoleOK  %+v", 200, o.Payload)
 }
-
 func (o *AuthServiceAddUsersToRoleOK) GetPayload() *models.V1AddUsersToRoleResponse {
 	return o.Payload
 }
@@ -85,7 +84,7 @@ func NewAuthServiceAddUsersToRoleNotFound() *AuthServiceAddUsersToRoleNotFound {
 	return &AuthServiceAddUsersToRoleNotFound{}
 }
 
-/*AuthServiceAddUsersToRoleNotFound handles this case with default header values.
+/* AuthServiceAddUsersToRoleNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -96,7 +95,6 @@ type AuthServiceAddUsersToRoleNotFound struct {
 func (o *AuthServiceAddUsersToRoleNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/role/users/add][%d] authServiceAddUsersToRoleNotFound  %+v", 404, o.Payload)
 }
-
 func (o *AuthServiceAddUsersToRoleNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -118,7 +116,7 @@ func NewAuthServiceAddUsersToRoleDefault(code int) *AuthServiceAddUsersToRoleDef
 	}
 }
 
-/*AuthServiceAddUsersToRoleDefault handles this case with default header values.
+/* AuthServiceAddUsersToRoleDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -136,7 +134,6 @@ func (o *AuthServiceAddUsersToRoleDefault) Code() int {
 func (o *AuthServiceAddUsersToRoleDefault) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/role/users/add][%d] AuthService_AddUsersToRole default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *AuthServiceAddUsersToRoleDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

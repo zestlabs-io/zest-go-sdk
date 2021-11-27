@@ -52,7 +52,7 @@ func NewAuthServiceGetRoleOK() *AuthServiceGetRoleOK {
 	return &AuthServiceGetRoleOK{}
 }
 
-/*AuthServiceGetRoleOK handles this case with default header values.
+/* AuthServiceGetRoleOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type AuthServiceGetRoleOK struct {
 func (o *AuthServiceGetRoleOK) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/role/{roleID}][%d] authServiceGetRoleOK  %+v", 200, o.Payload)
 }
-
 func (o *AuthServiceGetRoleOK) GetPayload() *models.V1GetRoleResponse {
 	return o.Payload
 }
@@ -85,7 +84,7 @@ func NewAuthServiceGetRoleNotFound() *AuthServiceGetRoleNotFound {
 	return &AuthServiceGetRoleNotFound{}
 }
 
-/*AuthServiceGetRoleNotFound handles this case with default header values.
+/* AuthServiceGetRoleNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -96,7 +95,6 @@ type AuthServiceGetRoleNotFound struct {
 func (o *AuthServiceGetRoleNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/role/{roleID}][%d] authServiceGetRoleNotFound  %+v", 404, o.Payload)
 }
-
 func (o *AuthServiceGetRoleNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -118,7 +116,7 @@ func NewAuthServiceGetRoleDefault(code int) *AuthServiceGetRoleDefault {
 	}
 }
 
-/*AuthServiceGetRoleDefault handles this case with default header values.
+/* AuthServiceGetRoleDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -136,7 +134,6 @@ func (o *AuthServiceGetRoleDefault) Code() int {
 func (o *AuthServiceGetRoleDefault) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/role/{roleID}][%d] AuthService_GetRole default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *AuthServiceGetRoleDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

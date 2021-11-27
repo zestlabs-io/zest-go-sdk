@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -37,7 +38,6 @@ func (m *V1GetUserAccessKeysResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *V1GetUserAccessKeysResponse) validateKeys(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Keys) { // not required
 		return nil
 	}
@@ -51,6 +51,42 @@ func (m *V1GetUserAccessKeysResponse) validateKeys(formats strfmt.Registry) erro
 			if err := m.Keys[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("keys" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("keys" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this v1 get user access keys response based on the context it is used
+func (m *V1GetUserAccessKeysResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateKeys(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *V1GetUserAccessKeysResponse) contextValidateKeys(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Keys); i++ {
+
+		if m.Keys[i] != nil {
+			if err := m.Keys[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("keys" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("keys" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

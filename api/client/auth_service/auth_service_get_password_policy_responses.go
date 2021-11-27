@@ -52,7 +52,7 @@ func NewAuthServiceGetPasswordPolicyOK() *AuthServiceGetPasswordPolicyOK {
 	return &AuthServiceGetPasswordPolicyOK{}
 }
 
-/*AuthServiceGetPasswordPolicyOK handles this case with default header values.
+/* AuthServiceGetPasswordPolicyOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type AuthServiceGetPasswordPolicyOK struct {
 func (o *AuthServiceGetPasswordPolicyOK) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/password-policy][%d] authServiceGetPasswordPolicyOK  %+v", 200, o.Payload)
 }
-
 func (o *AuthServiceGetPasswordPolicyOK) GetPayload() *models.V1GetPasswordPolicyResponse {
 	return o.Payload
 }
@@ -85,7 +84,7 @@ func NewAuthServiceGetPasswordPolicyNotFound() *AuthServiceGetPasswordPolicyNotF
 	return &AuthServiceGetPasswordPolicyNotFound{}
 }
 
-/*AuthServiceGetPasswordPolicyNotFound handles this case with default header values.
+/* AuthServiceGetPasswordPolicyNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -96,7 +95,6 @@ type AuthServiceGetPasswordPolicyNotFound struct {
 func (o *AuthServiceGetPasswordPolicyNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/password-policy][%d] authServiceGetPasswordPolicyNotFound  %+v", 404, o.Payload)
 }
-
 func (o *AuthServiceGetPasswordPolicyNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -118,7 +116,7 @@ func NewAuthServiceGetPasswordPolicyDefault(code int) *AuthServiceGetPasswordPol
 	}
 }
 
-/*AuthServiceGetPasswordPolicyDefault handles this case with default header values.
+/* AuthServiceGetPasswordPolicyDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -136,7 +134,6 @@ func (o *AuthServiceGetPasswordPolicyDefault) Code() int {
 func (o *AuthServiceGetPasswordPolicyDefault) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/password-policy][%d] AuthService_GetPasswordPolicy default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *AuthServiceGetPasswordPolicyDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

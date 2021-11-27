@@ -70,7 +70,7 @@ func NewAppscapeServiceQueryMetricsOK() *AppscapeServiceQueryMetricsOK {
 	return &AppscapeServiceQueryMetricsOK{}
 }
 
-/*AppscapeServiceQueryMetricsOK handles this case with default header values.
+/* AppscapeServiceQueryMetricsOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -81,7 +81,6 @@ type AppscapeServiceQueryMetricsOK struct {
 func (o *AppscapeServiceQueryMetricsOK) Error() string {
 	return fmt.Sprintf("[POST /api/appscape/v1/metrics/query][%d] appscapeServiceQueryMetricsOK  %+v", 200, o.Payload)
 }
-
 func (o *AppscapeServiceQueryMetricsOK) GetPayload() *models.V1QueryMetricsResponse {
 	return o.Payload
 }
@@ -103,7 +102,7 @@ func NewAppscapeServiceQueryMetricsBadRequest() *AppscapeServiceQueryMetricsBadR
 	return &AppscapeServiceQueryMetricsBadRequest{}
 }
 
-/*AppscapeServiceQueryMetricsBadRequest handles this case with default header values.
+/* AppscapeServiceQueryMetricsBadRequest describes a response with status code 400, with default header values.
 
 Returned when the caller provided incorrect request parameters.
 */
@@ -114,7 +113,6 @@ type AppscapeServiceQueryMetricsBadRequest struct {
 func (o *AppscapeServiceQueryMetricsBadRequest) Error() string {
 	return fmt.Sprintf("[POST /api/appscape/v1/metrics/query][%d] appscapeServiceQueryMetricsBadRequest  %+v", 400, o.Payload)
 }
-
 func (o *AppscapeServiceQueryMetricsBadRequest) GetPayload() string {
 	return o.Payload
 }
@@ -134,7 +132,7 @@ func NewAppscapeServiceQueryMetricsForbidden() *AppscapeServiceQueryMetricsForbi
 	return &AppscapeServiceQueryMetricsForbidden{}
 }
 
-/*AppscapeServiceQueryMetricsForbidden handles this case with default header values.
+/* AppscapeServiceQueryMetricsForbidden describes a response with status code 403, with default header values.
 
 Returned when the caller is not authorised to perform this call.
 */
@@ -145,7 +143,6 @@ type AppscapeServiceQueryMetricsForbidden struct {
 func (o *AppscapeServiceQueryMetricsForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/appscape/v1/metrics/query][%d] appscapeServiceQueryMetricsForbidden  %+v", 403, o.Payload)
 }
-
 func (o *AppscapeServiceQueryMetricsForbidden) GetPayload() string {
 	return o.Payload
 }
@@ -165,7 +162,7 @@ func NewAppscapeServiceQueryMetricsNotFound() *AppscapeServiceQueryMetricsNotFou
 	return &AppscapeServiceQueryMetricsNotFound{}
 }
 
-/*AppscapeServiceQueryMetricsNotFound handles this case with default header values.
+/* AppscapeServiceQueryMetricsNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -176,7 +173,6 @@ type AppscapeServiceQueryMetricsNotFound struct {
 func (o *AppscapeServiceQueryMetricsNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/appscape/v1/metrics/query][%d] appscapeServiceQueryMetricsNotFound  %+v", 404, o.Payload)
 }
-
 func (o *AppscapeServiceQueryMetricsNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -196,7 +192,7 @@ func NewAppscapeServiceQueryMetricsInternalServerError() *AppscapeServiceQueryMe
 	return &AppscapeServiceQueryMetricsInternalServerError{}
 }
 
-/*AppscapeServiceQueryMetricsInternalServerError handles this case with default header values.
+/* AppscapeServiceQueryMetricsInternalServerError describes a response with status code 500, with default header values.
 
 Returned when an error occurred while processing the process.
 */
@@ -207,7 +203,6 @@ type AppscapeServiceQueryMetricsInternalServerError struct {
 func (o *AppscapeServiceQueryMetricsInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /api/appscape/v1/metrics/query][%d] appscapeServiceQueryMetricsInternalServerError  %+v", 500, o.Payload)
 }
-
 func (o *AppscapeServiceQueryMetricsInternalServerError) GetPayload() string {
 	return o.Payload
 }
@@ -229,7 +224,7 @@ func NewAppscapeServiceQueryMetricsDefault(code int) *AppscapeServiceQueryMetric
 	}
 }
 
-/*AppscapeServiceQueryMetricsDefault handles this case with default header values.
+/* AppscapeServiceQueryMetricsDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -247,7 +242,6 @@ func (o *AppscapeServiceQueryMetricsDefault) Code() int {
 func (o *AppscapeServiceQueryMetricsDefault) Error() string {
 	return fmt.Sprintf("[POST /api/appscape/v1/metrics/query][%d] AppscapeService_QueryMetrics default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *AppscapeServiceQueryMetricsDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

@@ -52,7 +52,7 @@ func NewAuthServiceDeletePolicyOK() *AuthServiceDeletePolicyOK {
 	return &AuthServiceDeletePolicyOK{}
 }
 
-/*AuthServiceDeletePolicyOK handles this case with default header values.
+/* AuthServiceDeletePolicyOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type AuthServiceDeletePolicyOK struct {
 func (o *AuthServiceDeletePolicyOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/auth/v1/policy/{policyID}][%d] authServiceDeletePolicyOK  %+v", 200, o.Payload)
 }
-
 func (o *AuthServiceDeletePolicyOK) GetPayload() models.V1DeletePolicyResponse {
 	return o.Payload
 }
@@ -83,7 +82,7 @@ func NewAuthServiceDeletePolicyNotFound() *AuthServiceDeletePolicyNotFound {
 	return &AuthServiceDeletePolicyNotFound{}
 }
 
-/*AuthServiceDeletePolicyNotFound handles this case with default header values.
+/* AuthServiceDeletePolicyNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -94,7 +93,6 @@ type AuthServiceDeletePolicyNotFound struct {
 func (o *AuthServiceDeletePolicyNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/auth/v1/policy/{policyID}][%d] authServiceDeletePolicyNotFound  %+v", 404, o.Payload)
 }
-
 func (o *AuthServiceDeletePolicyNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -116,7 +114,7 @@ func NewAuthServiceDeletePolicyDefault(code int) *AuthServiceDeletePolicyDefault
 	}
 }
 
-/*AuthServiceDeletePolicyDefault handles this case with default header values.
+/* AuthServiceDeletePolicyDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -134,7 +132,6 @@ func (o *AuthServiceDeletePolicyDefault) Code() int {
 func (o *AuthServiceDeletePolicyDefault) Error() string {
 	return fmt.Sprintf("[DELETE /api/auth/v1/policy/{policyID}][%d] AuthService_DeletePolicy default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *AuthServiceDeletePolicyDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

@@ -18,56 +18,70 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewDistrConfigServiceCreateAppParams creates a new DistrConfigServiceCreateAppParams object
-// with the default values initialized.
+// NewDistrConfigServiceCreateAppParams creates a new DistrConfigServiceCreateAppParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDistrConfigServiceCreateAppParams() *DistrConfigServiceCreateAppParams {
-	var ()
 	return &DistrConfigServiceCreateAppParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDistrConfigServiceCreateAppParamsWithTimeout creates a new DistrConfigServiceCreateAppParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDistrConfigServiceCreateAppParamsWithTimeout(timeout time.Duration) *DistrConfigServiceCreateAppParams {
-	var ()
 	return &DistrConfigServiceCreateAppParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDistrConfigServiceCreateAppParamsWithContext creates a new DistrConfigServiceCreateAppParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDistrConfigServiceCreateAppParamsWithContext(ctx context.Context) *DistrConfigServiceCreateAppParams {
-	var ()
 	return &DistrConfigServiceCreateAppParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDistrConfigServiceCreateAppParamsWithHTTPClient creates a new DistrConfigServiceCreateAppParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDistrConfigServiceCreateAppParamsWithHTTPClient(client *http.Client) *DistrConfigServiceCreateAppParams {
-	var ()
 	return &DistrConfigServiceCreateAppParams{
 		HTTPClient: client,
 	}
 }
 
-/*DistrConfigServiceCreateAppParams contains all the parameters to send to the API endpoint
-for the distr config service create app operation typically these are written to a http.Request
+/* DistrConfigServiceCreateAppParams contains all the parameters to send to the API endpoint
+   for the distr config service create app operation.
+
+   Typically these are written to a http.Request.
 */
 type DistrConfigServiceCreateAppParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.DistrconfigMobileApp
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the distr config service create app params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DistrConfigServiceCreateAppParams) WithDefaults() *DistrConfigServiceCreateAppParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the distr config service create app params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DistrConfigServiceCreateAppParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the distr config service create app params
@@ -121,7 +135,6 @@ func (o *DistrConfigServiceCreateAppParams) WriteToRequest(r runtime.ClientReque
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

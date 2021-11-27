@@ -52,7 +52,7 @@ func NewDistrConfigServiceGetPoolOK() *DistrConfigServiceGetPoolOK {
 	return &DistrConfigServiceGetPoolOK{}
 }
 
-/*DistrConfigServiceGetPoolOK handles this case with default header values.
+/* DistrConfigServiceGetPoolOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type DistrConfigServiceGetPoolOK struct {
 func (o *DistrConfigServiceGetPoolOK) Error() string {
 	return fmt.Sprintf("[GET /api/distribution/v1/pool/{id}][%d] distrConfigServiceGetPoolOK  %+v", 200, o.Payload)
 }
-
 func (o *DistrConfigServiceGetPoolOK) GetPayload() *models.DistrconfigGetPoolResponse {
 	return o.Payload
 }
@@ -85,7 +84,7 @@ func NewDistrConfigServiceGetPoolNotFound() *DistrConfigServiceGetPoolNotFound {
 	return &DistrConfigServiceGetPoolNotFound{}
 }
 
-/*DistrConfigServiceGetPoolNotFound handles this case with default header values.
+/* DistrConfigServiceGetPoolNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -96,7 +95,6 @@ type DistrConfigServiceGetPoolNotFound struct {
 func (o *DistrConfigServiceGetPoolNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/distribution/v1/pool/{id}][%d] distrConfigServiceGetPoolNotFound  %+v", 404, o.Payload)
 }
-
 func (o *DistrConfigServiceGetPoolNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -118,7 +116,7 @@ func NewDistrConfigServiceGetPoolDefault(code int) *DistrConfigServiceGetPoolDef
 	}
 }
 
-/*DistrConfigServiceGetPoolDefault handles this case with default header values.
+/* DistrConfigServiceGetPoolDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -136,7 +134,6 @@ func (o *DistrConfigServiceGetPoolDefault) Code() int {
 func (o *DistrConfigServiceGetPoolDefault) Error() string {
 	return fmt.Sprintf("[GET /api/distribution/v1/pool/{id}][%d] DistrConfigService_GetPool default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *DistrConfigServiceGetPoolDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

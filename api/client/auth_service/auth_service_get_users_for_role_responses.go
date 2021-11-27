@@ -52,7 +52,7 @@ func NewAuthServiceGetUsersForRoleOK() *AuthServiceGetUsersForRoleOK {
 	return &AuthServiceGetUsersForRoleOK{}
 }
 
-/*AuthServiceGetUsersForRoleOK handles this case with default header values.
+/* AuthServiceGetUsersForRoleOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type AuthServiceGetUsersForRoleOK struct {
 func (o *AuthServiceGetUsersForRoleOK) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/role/users/{roleID}][%d] authServiceGetUsersForRoleOK  %+v", 200, o.Payload)
 }
-
 func (o *AuthServiceGetUsersForRoleOK) GetPayload() *models.V1GetUsersForRoleResponse {
 	return o.Payload
 }
@@ -85,7 +84,7 @@ func NewAuthServiceGetUsersForRoleNotFound() *AuthServiceGetUsersForRoleNotFound
 	return &AuthServiceGetUsersForRoleNotFound{}
 }
 
-/*AuthServiceGetUsersForRoleNotFound handles this case with default header values.
+/* AuthServiceGetUsersForRoleNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -96,7 +95,6 @@ type AuthServiceGetUsersForRoleNotFound struct {
 func (o *AuthServiceGetUsersForRoleNotFound) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/role/users/{roleID}][%d] authServiceGetUsersForRoleNotFound  %+v", 404, o.Payload)
 }
-
 func (o *AuthServiceGetUsersForRoleNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -118,7 +116,7 @@ func NewAuthServiceGetUsersForRoleDefault(code int) *AuthServiceGetUsersForRoleD
 	}
 }
 
-/*AuthServiceGetUsersForRoleDefault handles this case with default header values.
+/* AuthServiceGetUsersForRoleDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -136,7 +134,6 @@ func (o *AuthServiceGetUsersForRoleDefault) Code() int {
 func (o *AuthServiceGetUsersForRoleDefault) Error() string {
 	return fmt.Sprintf("[GET /api/auth/v1/role/users/{roleID}][%d] AuthService_GetUsersForRole default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *AuthServiceGetUsersForRoleDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

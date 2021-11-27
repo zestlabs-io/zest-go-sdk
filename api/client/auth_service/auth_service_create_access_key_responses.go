@@ -52,7 +52,7 @@ func NewAuthServiceCreateAccessKeyOK() *AuthServiceCreateAccessKeyOK {
 	return &AuthServiceCreateAccessKeyOK{}
 }
 
-/*AuthServiceCreateAccessKeyOK handles this case with default header values.
+/* AuthServiceCreateAccessKeyOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type AuthServiceCreateAccessKeyOK struct {
 func (o *AuthServiceCreateAccessKeyOK) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/accesskey][%d] authServiceCreateAccessKeyOK  %+v", 200, o.Payload)
 }
-
 func (o *AuthServiceCreateAccessKeyOK) GetPayload() *models.V1CreateAccessKeyResponse {
 	return o.Payload
 }
@@ -85,7 +84,7 @@ func NewAuthServiceCreateAccessKeyNotFound() *AuthServiceCreateAccessKeyNotFound
 	return &AuthServiceCreateAccessKeyNotFound{}
 }
 
-/*AuthServiceCreateAccessKeyNotFound handles this case with default header values.
+/* AuthServiceCreateAccessKeyNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -96,7 +95,6 @@ type AuthServiceCreateAccessKeyNotFound struct {
 func (o *AuthServiceCreateAccessKeyNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/accesskey][%d] authServiceCreateAccessKeyNotFound  %+v", 404, o.Payload)
 }
-
 func (o *AuthServiceCreateAccessKeyNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -118,7 +116,7 @@ func NewAuthServiceCreateAccessKeyDefault(code int) *AuthServiceCreateAccessKeyD
 	}
 }
 
-/*AuthServiceCreateAccessKeyDefault handles this case with default header values.
+/* AuthServiceCreateAccessKeyDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -136,7 +134,6 @@ func (o *AuthServiceCreateAccessKeyDefault) Code() int {
 func (o *AuthServiceCreateAccessKeyDefault) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/accesskey][%d] AuthService_CreateAccessKey default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *AuthServiceCreateAccessKeyDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

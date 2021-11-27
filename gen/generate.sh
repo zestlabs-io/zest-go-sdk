@@ -24,8 +24,13 @@ swagger-merger -i ${DIR}/fullRef.json -o ${DIR}/fullSchema.json
 # docker pull quay.io/goswagger/swagger
 # docker run --rm -it -e GOPATH=$HOME/go:/go -v $HOME:$HOME -w $(pwd) quay.io/goswagger/swagger generate client -f ./gen/fullSchema.json -t api
 
-brew tap go-swagger/go-swagger
-brew install go-swagger
+if [ ! -f /usr/local/bin/swagger ]; then
+  download_url=$(curl -s https://api.github.com/repos/go-swagger/go-swagger/releases/latest | \
+    jq -r '.assets[] | select(.name | contains("'"$(uname | tr '[:upper:]' '[:lower:]')"'_amd64")) | .browser_download_url')
+  sudo curl -o /usr/local/bin/swagger -L'#' "$download_url"
+  sudo chmod +x /usr/local/bin/swagger
+fi
+
 swagger generate client -f ./gen/fullSchema.json -t api
 # Generate
 # openapi-generator generate --remove-operation-id-prefix -i ${DIR}/fullSchema.json -g go -o ${PDIR}/openapi

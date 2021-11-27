@@ -16,58 +16,73 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewFunctionsServiceCallTestFunctionParams creates a new FunctionsServiceCallTestFunctionParams object
-// with the default values initialized.
+// NewFunctionsServiceCallTestFunctionParams creates a new FunctionsServiceCallTestFunctionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewFunctionsServiceCallTestFunctionParams() *FunctionsServiceCallTestFunctionParams {
-	var ()
 	return &FunctionsServiceCallTestFunctionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewFunctionsServiceCallTestFunctionParamsWithTimeout creates a new FunctionsServiceCallTestFunctionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewFunctionsServiceCallTestFunctionParamsWithTimeout(timeout time.Duration) *FunctionsServiceCallTestFunctionParams {
-	var ()
 	return &FunctionsServiceCallTestFunctionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewFunctionsServiceCallTestFunctionParamsWithContext creates a new FunctionsServiceCallTestFunctionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewFunctionsServiceCallTestFunctionParamsWithContext(ctx context.Context) *FunctionsServiceCallTestFunctionParams {
-	var ()
 	return &FunctionsServiceCallTestFunctionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewFunctionsServiceCallTestFunctionParamsWithHTTPClient creates a new FunctionsServiceCallTestFunctionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewFunctionsServiceCallTestFunctionParamsWithHTTPClient(client *http.Client) *FunctionsServiceCallTestFunctionParams {
-	var ()
 	return &FunctionsServiceCallTestFunctionParams{
 		HTTPClient: client,
 	}
 }
 
-/*FunctionsServiceCallTestFunctionParams contains all the parameters to send to the API endpoint
-for the functions service call test function operation typically these are written to a http.Request
+/* FunctionsServiceCallTestFunctionParams contains all the parameters to send to the API endpoint
+   for the functions service call test function operation.
+
+   Typically these are written to a http.Request.
 */
 type FunctionsServiceCallTestFunctionParams struct {
 
-	/*Body*/
+	// Body.
 	Body interface{}
-	/*ID*/
+
+	// ID.
 	ID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the functions service call test function params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *FunctionsServiceCallTestFunctionParams) WithDefaults() *FunctionsServiceCallTestFunctionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the functions service call test function params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *FunctionsServiceCallTestFunctionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the functions service call test function params
@@ -132,7 +147,6 @@ func (o *FunctionsServiceCallTestFunctionParams) WriteToRequest(r runtime.Client
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

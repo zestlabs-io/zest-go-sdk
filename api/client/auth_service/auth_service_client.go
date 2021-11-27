@@ -23,91 +23,94 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	AuthServiceAddPoliciesToRole(params *AuthServiceAddPoliciesToRoleParams) (*AuthServiceAddPoliciesToRoleOK, error)
+	AuthServiceAddPoliciesToRole(params *AuthServiceAddPoliciesToRoleParams, opts ...ClientOption) (*AuthServiceAddPoliciesToRoleOK, error)
 
-	AuthServiceAddPoliciesToUser(params *AuthServiceAddPoliciesToUserParams) (*AuthServiceAddPoliciesToUserOK, error)
+	AuthServiceAddPoliciesToUser(params *AuthServiceAddPoliciesToUserParams, opts ...ClientOption) (*AuthServiceAddPoliciesToUserOK, error)
 
-	AuthServiceAddUsersToRole(params *AuthServiceAddUsersToRoleParams) (*AuthServiceAddUsersToRoleOK, error)
+	AuthServiceAddUsersToRole(params *AuthServiceAddUsersToRoleParams, opts ...ClientOption) (*AuthServiceAddUsersToRoleOK, error)
 
-	AuthServiceCheckHMACAuth(params *AuthServiceCheckHMACAuthParams) (*AuthServiceCheckHMACAuthOK, error)
+	AuthServiceCheckHMACAuth(params *AuthServiceCheckHMACAuthParams, opts ...ClientOption) (*AuthServiceCheckHMACAuthOK, error)
 
-	AuthServiceCheckTokenAuth(params *AuthServiceCheckTokenAuthParams) (*AuthServiceCheckTokenAuthOK, error)
+	AuthServiceCheckTokenAuth(params *AuthServiceCheckTokenAuthParams, opts ...ClientOption) (*AuthServiceCheckTokenAuthOK, error)
 
-	AuthServiceCheckUsernameExists(params *AuthServiceCheckUsernameExistsParams) (*AuthServiceCheckUsernameExistsOK, error)
+	AuthServiceCheckUsernameExists(params *AuthServiceCheckUsernameExistsParams, opts ...ClientOption) (*AuthServiceCheckUsernameExistsOK, error)
 
-	AuthServiceCreateAccessKey(params *AuthServiceCreateAccessKeyParams) (*AuthServiceCreateAccessKeyOK, error)
+	AuthServiceCreateAccessKey(params *AuthServiceCreateAccessKeyParams, opts ...ClientOption) (*AuthServiceCreateAccessKeyOK, error)
 
-	AuthServiceCreateClient(params *AuthServiceCreateClientParams) (*AuthServiceCreateClientOK, error)
+	AuthServiceCreateClient(params *AuthServiceCreateClientParams, opts ...ClientOption) (*AuthServiceCreateClientOK, error)
 
-	AuthServiceCreateFederationConfig(params *AuthServiceCreateFederationConfigParams) (*AuthServiceCreateFederationConfigOK, error)
+	AuthServiceCreateFederationConfig(params *AuthServiceCreateFederationConfigParams, opts ...ClientOption) (*AuthServiceCreateFederationConfigOK, error)
 
-	AuthServiceCreatePolicy(params *AuthServiceCreatePolicyParams) (*AuthServiceCreatePolicyOK, error)
+	AuthServiceCreatePolicy(params *AuthServiceCreatePolicyParams, opts ...ClientOption) (*AuthServiceCreatePolicyOK, error)
 
-	AuthServiceCreateRole(params *AuthServiceCreateRoleParams) (*AuthServiceCreateRoleOK, error)
+	AuthServiceCreateRole(params *AuthServiceCreateRoleParams, opts ...ClientOption) (*AuthServiceCreateRoleOK, error)
 
-	AuthServiceCreateUser(params *AuthServiceCreateUserParams) (*AuthServiceCreateUserOK, error)
+	AuthServiceCreateUser(params *AuthServiceCreateUserParams, opts ...ClientOption) (*AuthServiceCreateUserOK, error)
 
-	AuthServiceDeleteAccessKey(params *AuthServiceDeleteAccessKeyParams) (*AuthServiceDeleteAccessKeyOK, error)
+	AuthServiceDeleteAccessKey(params *AuthServiceDeleteAccessKeyParams, opts ...ClientOption) (*AuthServiceDeleteAccessKeyOK, error)
 
-	AuthServiceDeleteClient(params *AuthServiceDeleteClientParams) (*AuthServiceDeleteClientOK, error)
+	AuthServiceDeleteClient(params *AuthServiceDeleteClientParams, opts ...ClientOption) (*AuthServiceDeleteClientOK, error)
 
-	AuthServiceDeletePolicy(params *AuthServiceDeletePolicyParams) (*AuthServiceDeletePolicyOK, error)
+	AuthServiceDeletePolicy(params *AuthServiceDeletePolicyParams, opts ...ClientOption) (*AuthServiceDeletePolicyOK, error)
 
-	AuthServiceDeleteRole(params *AuthServiceDeleteRoleParams) (*AuthServiceDeleteRoleOK, error)
+	AuthServiceDeleteRole(params *AuthServiceDeleteRoleParams, opts ...ClientOption) (*AuthServiceDeleteRoleOK, error)
 
-	AuthServiceDeleteUser(params *AuthServiceDeleteUserParams) (*AuthServiceDeleteUserOK, error)
+	AuthServiceDeleteUser(params *AuthServiceDeleteUserParams, opts ...ClientOption) (*AuthServiceDeleteUserOK, error)
 
-	AuthServiceGetClient(params *AuthServiceGetClientParams) (*AuthServiceGetClientOK, error)
+	AuthServiceGetClient(params *AuthServiceGetClientParams, opts ...ClientOption) (*AuthServiceGetClientOK, error)
 
-	AuthServiceGetClients(params *AuthServiceGetClientsParams) (*AuthServiceGetClientsOK, error)
+	AuthServiceGetClients(params *AuthServiceGetClientsParams, opts ...ClientOption) (*AuthServiceGetClientsOK, error)
 
-	AuthServiceGetDefaultPolicies(params *AuthServiceGetDefaultPoliciesParams) (*AuthServiceGetDefaultPoliciesOK, error)
+	AuthServiceGetDefaultPolicies(params *AuthServiceGetDefaultPoliciesParams, opts ...ClientOption) (*AuthServiceGetDefaultPoliciesOK, error)
 
-	AuthServiceGetOwnAccount(params *AuthServiceGetOwnAccountParams) (*AuthServiceGetOwnAccountOK, error)
+	AuthServiceGetOwnAccount(params *AuthServiceGetOwnAccountParams, opts ...ClientOption) (*AuthServiceGetOwnAccountOK, error)
 
-	AuthServiceGetPasswordPolicy(params *AuthServiceGetPasswordPolicyParams) (*AuthServiceGetPasswordPolicyOK, error)
+	AuthServiceGetPasswordPolicy(params *AuthServiceGetPasswordPolicyParams, opts ...ClientOption) (*AuthServiceGetPasswordPolicyOK, error)
 
-	AuthServiceGetPolicies(params *AuthServiceGetPoliciesParams) (*AuthServiceGetPoliciesOK, error)
+	AuthServiceGetPolicies(params *AuthServiceGetPoliciesParams, opts ...ClientOption) (*AuthServiceGetPoliciesOK, error)
 
-	AuthServiceGetPolicy(params *AuthServiceGetPolicyParams) (*AuthServiceGetPolicyOK, error)
+	AuthServiceGetPolicy(params *AuthServiceGetPolicyParams, opts ...ClientOption) (*AuthServiceGetPolicyOK, error)
 
-	AuthServiceGetRole(params *AuthServiceGetRoleParams) (*AuthServiceGetRoleOK, error)
+	AuthServiceGetRole(params *AuthServiceGetRoleParams, opts ...ClientOption) (*AuthServiceGetRoleOK, error)
 
-	AuthServiceGetRoles(params *AuthServiceGetRolesParams) (*AuthServiceGetRolesOK, error)
+	AuthServiceGetRoles(params *AuthServiceGetRolesParams, opts ...ClientOption) (*AuthServiceGetRolesOK, error)
 
-	AuthServiceGetUser(params *AuthServiceGetUserParams) (*AuthServiceGetUserOK, error)
+	AuthServiceGetUser(params *AuthServiceGetUserParams, opts ...ClientOption) (*AuthServiceGetUserOK, error)
 
-	AuthServiceGetUserAccessKeys(params *AuthServiceGetUserAccessKeysParams) (*AuthServiceGetUserAccessKeysOK, error)
+	AuthServiceGetUserAccessKeys(params *AuthServiceGetUserAccessKeysParams, opts ...ClientOption) (*AuthServiceGetUserAccessKeysOK, error)
 
-	AuthServiceGetUserIDByEmail(params *AuthServiceGetUserIDByEmailParams) (*AuthServiceGetUserIDByEmailOK, error)
+	AuthServiceGetUserIDByEmail(params *AuthServiceGetUserIDByEmailParams, opts ...ClientOption) (*AuthServiceGetUserIDByEmailOK, error)
 
-	AuthServiceGetUserInfo(params *AuthServiceGetUserInfoParams) (*AuthServiceGetUserInfoOK, error)
+	AuthServiceGetUserInfo(params *AuthServiceGetUserInfoParams, opts ...ClientOption) (*AuthServiceGetUserInfoOK, error)
 
-	AuthServiceGetUsers(params *AuthServiceGetUsersParams) (*AuthServiceGetUsersOK, error)
+	AuthServiceGetUsers(params *AuthServiceGetUsersParams, opts ...ClientOption) (*AuthServiceGetUsersOK, error)
 
-	AuthServiceGetUsersForRole(params *AuthServiceGetUsersForRoleParams) (*AuthServiceGetUsersForRoleOK, error)
+	AuthServiceGetUsersForRole(params *AuthServiceGetUsersForRoleParams, opts ...ClientOption) (*AuthServiceGetUsersForRoleOK, error)
 
-	AuthServiceRemovePoliciesFromRole(params *AuthServiceRemovePoliciesFromRoleParams) (*AuthServiceRemovePoliciesFromRoleOK, error)
+	AuthServiceRemovePoliciesFromRole(params *AuthServiceRemovePoliciesFromRoleParams, opts ...ClientOption) (*AuthServiceRemovePoliciesFromRoleOK, error)
 
-	AuthServiceRemovePoliciesFromUser(params *AuthServiceRemovePoliciesFromUserParams) (*AuthServiceRemovePoliciesFromUserOK, error)
+	AuthServiceRemovePoliciesFromUser(params *AuthServiceRemovePoliciesFromUserParams, opts ...ClientOption) (*AuthServiceRemovePoliciesFromUserOK, error)
 
-	AuthServiceRemoveUsersFromRole(params *AuthServiceRemoveUsersFromRoleParams) (*AuthServiceRemoveUsersFromRoleOK, error)
+	AuthServiceRemoveUsersFromRole(params *AuthServiceRemoveUsersFromRoleParams, opts ...ClientOption) (*AuthServiceRemoveUsersFromRoleOK, error)
 
-	AuthServiceResetPassword(params *AuthServiceResetPasswordParams) (*AuthServiceResetPasswordOK, error)
+	AuthServiceResetPassword(params *AuthServiceResetPasswordParams, opts ...ClientOption) (*AuthServiceResetPasswordOK, error)
 
-	AuthServiceSetPassword(params *AuthServiceSetPasswordParams) (*AuthServiceSetPasswordOK, error)
+	AuthServiceSetPassword(params *AuthServiceSetPasswordParams, opts ...ClientOption) (*AuthServiceSetPasswordOK, error)
 
-	AuthServiceUpdateAccount(params *AuthServiceUpdateAccountParams) (*AuthServiceUpdateAccountOK, error)
+	AuthServiceUpdateAccount(params *AuthServiceUpdateAccountParams, opts ...ClientOption) (*AuthServiceUpdateAccountOK, error)
 
-	AuthServiceUpdateClient(params *AuthServiceUpdateClientParams) (*AuthServiceUpdateClientOK, error)
+	AuthServiceUpdateClient(params *AuthServiceUpdateClientParams, opts ...ClientOption) (*AuthServiceUpdateClientOK, error)
 
-	AuthServiceUpdatePolicy(params *AuthServiceUpdatePolicyParams) (*AuthServiceUpdatePolicyOK, error)
+	AuthServiceUpdatePolicy(params *AuthServiceUpdatePolicyParams, opts ...ClientOption) (*AuthServiceUpdatePolicyOK, error)
 
-	AuthServiceUpdateRole(params *AuthServiceUpdateRoleParams) (*AuthServiceUpdateRoleOK, error)
+	AuthServiceUpdateRole(params *AuthServiceUpdateRoleParams, opts ...ClientOption) (*AuthServiceUpdateRoleOK, error)
 
-	AuthServiceUpdateUser(params *AuthServiceUpdateUserParams) (*AuthServiceUpdateUserOK, error)
+	AuthServiceUpdateUser(params *AuthServiceUpdateUserParams, opts ...ClientOption) (*AuthServiceUpdateUserOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -115,13 +118,12 @@ type ClientService interface {
 /*
   AuthServiceAddPoliciesToRole auth service add policies to role API
 */
-func (a *Client) AuthServiceAddPoliciesToRole(params *AuthServiceAddPoliciesToRoleParams) (*AuthServiceAddPoliciesToRoleOK, error) {
+func (a *Client) AuthServiceAddPoliciesToRole(params *AuthServiceAddPoliciesToRoleParams, opts ...ClientOption) (*AuthServiceAddPoliciesToRoleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceAddPoliciesToRoleParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_AddPoliciesToRole",
 		Method:             "POST",
 		PathPattern:        "/api/auth/v1/role/policies/add",
@@ -132,7 +134,12 @@ func (a *Client) AuthServiceAddPoliciesToRole(params *AuthServiceAddPoliciesToRo
 		Reader:             &AuthServiceAddPoliciesToRoleReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -148,13 +155,12 @@ func (a *Client) AuthServiceAddPoliciesToRole(params *AuthServiceAddPoliciesToRo
 /*
   AuthServiceAddPoliciesToUser auth service add policies to user API
 */
-func (a *Client) AuthServiceAddPoliciesToUser(params *AuthServiceAddPoliciesToUserParams) (*AuthServiceAddPoliciesToUserOK, error) {
+func (a *Client) AuthServiceAddPoliciesToUser(params *AuthServiceAddPoliciesToUserParams, opts ...ClientOption) (*AuthServiceAddPoliciesToUserOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceAddPoliciesToUserParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_AddPoliciesToUser",
 		Method:             "POST",
 		PathPattern:        "/api/auth/v1/user/policies/add",
@@ -165,7 +171,12 @@ func (a *Client) AuthServiceAddPoliciesToUser(params *AuthServiceAddPoliciesToUs
 		Reader:             &AuthServiceAddPoliciesToUserReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -181,13 +192,12 @@ func (a *Client) AuthServiceAddPoliciesToUser(params *AuthServiceAddPoliciesToUs
 /*
   AuthServiceAddUsersToRole auth service add users to role API
 */
-func (a *Client) AuthServiceAddUsersToRole(params *AuthServiceAddUsersToRoleParams) (*AuthServiceAddUsersToRoleOK, error) {
+func (a *Client) AuthServiceAddUsersToRole(params *AuthServiceAddUsersToRoleParams, opts ...ClientOption) (*AuthServiceAddUsersToRoleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceAddUsersToRoleParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_AddUsersToRole",
 		Method:             "POST",
 		PathPattern:        "/api/auth/v1/role/users/add",
@@ -198,7 +208,12 @@ func (a *Client) AuthServiceAddUsersToRole(params *AuthServiceAddUsersToRolePara
 		Reader:             &AuthServiceAddUsersToRoleReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -214,13 +229,12 @@ func (a *Client) AuthServiceAddUsersToRole(params *AuthServiceAddUsersToRolePara
 /*
   AuthServiceCheckHMACAuth auths API
 */
-func (a *Client) AuthServiceCheckHMACAuth(params *AuthServiceCheckHMACAuthParams) (*AuthServiceCheckHMACAuthOK, error) {
+func (a *Client) AuthServiceCheckHMACAuth(params *AuthServiceCheckHMACAuthParams, opts ...ClientOption) (*AuthServiceCheckHMACAuthOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceCheckHMACAuthParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_CheckHMACAuth",
 		Method:             "POST",
 		PathPattern:        "/api/auth/v1/check-hmac",
@@ -231,7 +245,12 @@ func (a *Client) AuthServiceCheckHMACAuth(params *AuthServiceCheckHMACAuthParams
 		Reader:             &AuthServiceCheckHMACAuthReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -247,13 +266,12 @@ func (a *Client) AuthServiceCheckHMACAuth(params *AuthServiceCheckHMACAuthParams
 /*
   AuthServiceCheckTokenAuth auth service check token auth API
 */
-func (a *Client) AuthServiceCheckTokenAuth(params *AuthServiceCheckTokenAuthParams) (*AuthServiceCheckTokenAuthOK, error) {
+func (a *Client) AuthServiceCheckTokenAuth(params *AuthServiceCheckTokenAuthParams, opts ...ClientOption) (*AuthServiceCheckTokenAuthOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceCheckTokenAuthParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_CheckTokenAuth",
 		Method:             "POST",
 		PathPattern:        "/api/auth/v1/check-token",
@@ -264,7 +282,12 @@ func (a *Client) AuthServiceCheckTokenAuth(params *AuthServiceCheckTokenAuthPara
 		Reader:             &AuthServiceCheckTokenAuthReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -285,13 +308,12 @@ func (a *Client) AuthServiceCheckTokenAuth(params *AuthServiceCheckTokenAuthPara
 		Call:				`CheckUsernameExists`
 		Scope:			`*`
 */
-func (a *Client) AuthServiceCheckUsernameExists(params *AuthServiceCheckUsernameExistsParams) (*AuthServiceCheckUsernameExistsOK, error) {
+func (a *Client) AuthServiceCheckUsernameExists(params *AuthServiceCheckUsernameExistsParams, opts ...ClientOption) (*AuthServiceCheckUsernameExistsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceCheckUsernameExistsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_CheckUsernameExists",
 		Method:             "POST",
 		PathPattern:        "/api/auth/v1/check-username-exists",
@@ -302,7 +324,12 @@ func (a *Client) AuthServiceCheckUsernameExists(params *AuthServiceCheckUsername
 		Reader:             &AuthServiceCheckUsernameExistsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -323,13 +350,12 @@ func (a *Client) AuthServiceCheckUsernameExists(params *AuthServiceCheckUsername
 		Call:				`CreateAccessKey`
 		Scope:			user ID
 */
-func (a *Client) AuthServiceCreateAccessKey(params *AuthServiceCreateAccessKeyParams) (*AuthServiceCreateAccessKeyOK, error) {
+func (a *Client) AuthServiceCreateAccessKey(params *AuthServiceCreateAccessKeyParams, opts ...ClientOption) (*AuthServiceCreateAccessKeyOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceCreateAccessKeyParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_CreateAccessKey",
 		Method:             "POST",
 		PathPattern:        "/api/auth/v1/accesskey",
@@ -340,7 +366,12 @@ func (a *Client) AuthServiceCreateAccessKey(params *AuthServiceCreateAccessKeyPa
 		Reader:             &AuthServiceCreateAccessKeyReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -361,13 +392,12 @@ func (a *Client) AuthServiceCreateAccessKey(params *AuthServiceCreateAccessKeyPa
 		Call:				`CreateClient`
 		Scope:
 */
-func (a *Client) AuthServiceCreateClient(params *AuthServiceCreateClientParams) (*AuthServiceCreateClientOK, error) {
+func (a *Client) AuthServiceCreateClient(params *AuthServiceCreateClientParams, opts ...ClientOption) (*AuthServiceCreateClientOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceCreateClientParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_CreateClient",
 		Method:             "POST",
 		PathPattern:        "/api/auth/v1/client",
@@ -378,7 +408,12 @@ func (a *Client) AuthServiceCreateClient(params *AuthServiceCreateClientParams) 
 		Reader:             &AuthServiceCreateClientReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -399,13 +434,12 @@ func (a *Client) AuthServiceCreateClient(params *AuthServiceCreateClientParams) 
 		Call:				`CreateFederationConfig`
 		Scope:
 */
-func (a *Client) AuthServiceCreateFederationConfig(params *AuthServiceCreateFederationConfigParams) (*AuthServiceCreateFederationConfigOK, error) {
+func (a *Client) AuthServiceCreateFederationConfig(params *AuthServiceCreateFederationConfigParams, opts ...ClientOption) (*AuthServiceCreateFederationConfigOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceCreateFederationConfigParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_CreateFederationConfig",
 		Method:             "POST",
 		PathPattern:        "/api/auth/v1/federation",
@@ -416,7 +450,12 @@ func (a *Client) AuthServiceCreateFederationConfig(params *AuthServiceCreateFede
 		Reader:             &AuthServiceCreateFederationConfigReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -432,13 +471,12 @@ func (a *Client) AuthServiceCreateFederationConfig(params *AuthServiceCreateFede
 /*
   AuthServiceCreatePolicy auth service create policy API
 */
-func (a *Client) AuthServiceCreatePolicy(params *AuthServiceCreatePolicyParams) (*AuthServiceCreatePolicyOK, error) {
+func (a *Client) AuthServiceCreatePolicy(params *AuthServiceCreatePolicyParams, opts ...ClientOption) (*AuthServiceCreatePolicyOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceCreatePolicyParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_CreatePolicy",
 		Method:             "POST",
 		PathPattern:        "/api/auth/v1/policy",
@@ -449,7 +487,12 @@ func (a *Client) AuthServiceCreatePolicy(params *AuthServiceCreatePolicyParams) 
 		Reader:             &AuthServiceCreatePolicyReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -465,13 +508,12 @@ func (a *Client) AuthServiceCreatePolicy(params *AuthServiceCreatePolicyParams) 
 /*
   AuthServiceCreateRole auth service create role API
 */
-func (a *Client) AuthServiceCreateRole(params *AuthServiceCreateRoleParams) (*AuthServiceCreateRoleOK, error) {
+func (a *Client) AuthServiceCreateRole(params *AuthServiceCreateRoleParams, opts ...ClientOption) (*AuthServiceCreateRoleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceCreateRoleParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_CreateRole",
 		Method:             "POST",
 		PathPattern:        "/api/auth/v1/role",
@@ -482,7 +524,12 @@ func (a *Client) AuthServiceCreateRole(params *AuthServiceCreateRoleParams) (*Au
 		Reader:             &AuthServiceCreateRoleReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -498,13 +545,12 @@ func (a *Client) AuthServiceCreateRole(params *AuthServiceCreateRoleParams) (*Au
 /*
   AuthServiceCreateUser auth service create user API
 */
-func (a *Client) AuthServiceCreateUser(params *AuthServiceCreateUserParams) (*AuthServiceCreateUserOK, error) {
+func (a *Client) AuthServiceCreateUser(params *AuthServiceCreateUserParams, opts ...ClientOption) (*AuthServiceCreateUserOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceCreateUserParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_CreateUser",
 		Method:             "POST",
 		PathPattern:        "/api/auth/v1/user",
@@ -515,7 +561,12 @@ func (a *Client) AuthServiceCreateUser(params *AuthServiceCreateUserParams) (*Au
 		Reader:             &AuthServiceCreateUserReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -536,13 +587,12 @@ func (a *Client) AuthServiceCreateUser(params *AuthServiceCreateUserParams) (*Au
 		Call:				`DeleteAccessKey`
 		Scope:			user ID
 */
-func (a *Client) AuthServiceDeleteAccessKey(params *AuthServiceDeleteAccessKeyParams) (*AuthServiceDeleteAccessKeyOK, error) {
+func (a *Client) AuthServiceDeleteAccessKey(params *AuthServiceDeleteAccessKeyParams, opts ...ClientOption) (*AuthServiceDeleteAccessKeyOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceDeleteAccessKeyParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_DeleteAccessKey",
 		Method:             "DELETE",
 		PathPattern:        "/api/auth/v1/accesskey/{accessKeyID}",
@@ -553,7 +603,12 @@ func (a *Client) AuthServiceDeleteAccessKey(params *AuthServiceDeleteAccessKeyPa
 		Reader:             &AuthServiceDeleteAccessKeyReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -574,13 +629,12 @@ func (a *Client) AuthServiceDeleteAccessKey(params *AuthServiceDeleteAccessKeyPa
 		Call:				`DeleteClient`
 		Scope:			client ID
 */
-func (a *Client) AuthServiceDeleteClient(params *AuthServiceDeleteClientParams) (*AuthServiceDeleteClientOK, error) {
+func (a *Client) AuthServiceDeleteClient(params *AuthServiceDeleteClientParams, opts ...ClientOption) (*AuthServiceDeleteClientOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceDeleteClientParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_DeleteClient",
 		Method:             "DELETE",
 		PathPattern:        "/api/auth/v1/client/{id}",
@@ -591,7 +645,12 @@ func (a *Client) AuthServiceDeleteClient(params *AuthServiceDeleteClientParams) 
 		Reader:             &AuthServiceDeleteClientReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -607,13 +666,12 @@ func (a *Client) AuthServiceDeleteClient(params *AuthServiceDeleteClientParams) 
 /*
   AuthServiceDeletePolicy auth service delete policy API
 */
-func (a *Client) AuthServiceDeletePolicy(params *AuthServiceDeletePolicyParams) (*AuthServiceDeletePolicyOK, error) {
+func (a *Client) AuthServiceDeletePolicy(params *AuthServiceDeletePolicyParams, opts ...ClientOption) (*AuthServiceDeletePolicyOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceDeletePolicyParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_DeletePolicy",
 		Method:             "DELETE",
 		PathPattern:        "/api/auth/v1/policy/{policyID}",
@@ -624,7 +682,12 @@ func (a *Client) AuthServiceDeletePolicy(params *AuthServiceDeletePolicyParams) 
 		Reader:             &AuthServiceDeletePolicyReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -640,13 +703,12 @@ func (a *Client) AuthServiceDeletePolicy(params *AuthServiceDeletePolicyParams) 
 /*
   AuthServiceDeleteRole auth service delete role API
 */
-func (a *Client) AuthServiceDeleteRole(params *AuthServiceDeleteRoleParams) (*AuthServiceDeleteRoleOK, error) {
+func (a *Client) AuthServiceDeleteRole(params *AuthServiceDeleteRoleParams, opts ...ClientOption) (*AuthServiceDeleteRoleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceDeleteRoleParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_DeleteRole",
 		Method:             "DELETE",
 		PathPattern:        "/api/auth/v1/role/{roleID}",
@@ -657,7 +719,12 @@ func (a *Client) AuthServiceDeleteRole(params *AuthServiceDeleteRoleParams) (*Au
 		Reader:             &AuthServiceDeleteRoleReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -673,13 +740,12 @@ func (a *Client) AuthServiceDeleteRole(params *AuthServiceDeleteRoleParams) (*Au
 /*
   AuthServiceDeleteUser auth service delete user API
 */
-func (a *Client) AuthServiceDeleteUser(params *AuthServiceDeleteUserParams) (*AuthServiceDeleteUserOK, error) {
+func (a *Client) AuthServiceDeleteUser(params *AuthServiceDeleteUserParams, opts ...ClientOption) (*AuthServiceDeleteUserOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceDeleteUserParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_DeleteUser",
 		Method:             "DELETE",
 		PathPattern:        "/api/auth/v1/user/{userID}",
@@ -690,7 +756,12 @@ func (a *Client) AuthServiceDeleteUser(params *AuthServiceDeleteUserParams) (*Au
 		Reader:             &AuthServiceDeleteUserReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -711,13 +782,12 @@ func (a *Client) AuthServiceDeleteUser(params *AuthServiceDeleteUserParams) (*Au
 		Call:				`GetClient`
 		Scope:			`clientID`
 */
-func (a *Client) AuthServiceGetClient(params *AuthServiceGetClientParams) (*AuthServiceGetClientOK, error) {
+func (a *Client) AuthServiceGetClient(params *AuthServiceGetClientParams, opts ...ClientOption) (*AuthServiceGetClientOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceGetClientParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_GetClient",
 		Method:             "GET",
 		PathPattern:        "/api/auth/v1/client/{clientID}",
@@ -728,7 +798,12 @@ func (a *Client) AuthServiceGetClient(params *AuthServiceGetClientParams) (*Auth
 		Reader:             &AuthServiceGetClientReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -749,13 +824,12 @@ func (a *Client) AuthServiceGetClient(params *AuthServiceGetClientParams) (*Auth
 		Call:				`GetClients`
 		Scope:			``
 */
-func (a *Client) AuthServiceGetClients(params *AuthServiceGetClientsParams) (*AuthServiceGetClientsOK, error) {
+func (a *Client) AuthServiceGetClients(params *AuthServiceGetClientsParams, opts ...ClientOption) (*AuthServiceGetClientsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceGetClientsParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_GetClients",
 		Method:             "GET",
 		PathPattern:        "/api/auth/v1/clients",
@@ -766,7 +840,12 @@ func (a *Client) AuthServiceGetClients(params *AuthServiceGetClientsParams) (*Au
 		Reader:             &AuthServiceGetClientsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -782,13 +861,12 @@ func (a *Client) AuthServiceGetClients(params *AuthServiceGetClientsParams) (*Au
 /*
   AuthServiceGetDefaultPolicies auth service get default policies API
 */
-func (a *Client) AuthServiceGetDefaultPolicies(params *AuthServiceGetDefaultPoliciesParams) (*AuthServiceGetDefaultPoliciesOK, error) {
+func (a *Client) AuthServiceGetDefaultPolicies(params *AuthServiceGetDefaultPoliciesParams, opts ...ClientOption) (*AuthServiceGetDefaultPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceGetDefaultPoliciesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_GetDefaultPolicies",
 		Method:             "GET",
 		PathPattern:        "/api/auth/v1/default-policies",
@@ -799,7 +877,12 @@ func (a *Client) AuthServiceGetDefaultPolicies(params *AuthServiceGetDefaultPoli
 		Reader:             &AuthServiceGetDefaultPoliciesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -815,13 +898,12 @@ func (a *Client) AuthServiceGetDefaultPolicies(params *AuthServiceGetDefaultPoli
 /*
   AuthServiceGetOwnAccount auth service get own account API
 */
-func (a *Client) AuthServiceGetOwnAccount(params *AuthServiceGetOwnAccountParams) (*AuthServiceGetOwnAccountOK, error) {
+func (a *Client) AuthServiceGetOwnAccount(params *AuthServiceGetOwnAccountParams, opts ...ClientOption) (*AuthServiceGetOwnAccountOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceGetOwnAccountParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_GetOwnAccount",
 		Method:             "GET",
 		PathPattern:        "/api/auth/v1/account",
@@ -832,7 +914,12 @@ func (a *Client) AuthServiceGetOwnAccount(params *AuthServiceGetOwnAccountParams
 		Reader:             &AuthServiceGetOwnAccountReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -848,13 +935,12 @@ func (a *Client) AuthServiceGetOwnAccount(params *AuthServiceGetOwnAccountParams
 /*
   AuthServiceGetPasswordPolicy auth service get password policy API
 */
-func (a *Client) AuthServiceGetPasswordPolicy(params *AuthServiceGetPasswordPolicyParams) (*AuthServiceGetPasswordPolicyOK, error) {
+func (a *Client) AuthServiceGetPasswordPolicy(params *AuthServiceGetPasswordPolicyParams, opts ...ClientOption) (*AuthServiceGetPasswordPolicyOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceGetPasswordPolicyParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_GetPasswordPolicy",
 		Method:             "GET",
 		PathPattern:        "/api/auth/v1/password-policy",
@@ -865,7 +951,12 @@ func (a *Client) AuthServiceGetPasswordPolicy(params *AuthServiceGetPasswordPoli
 		Reader:             &AuthServiceGetPasswordPolicyReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -881,13 +972,12 @@ func (a *Client) AuthServiceGetPasswordPolicy(params *AuthServiceGetPasswordPoli
 /*
   AuthServiceGetPolicies auth service get policies API
 */
-func (a *Client) AuthServiceGetPolicies(params *AuthServiceGetPoliciesParams) (*AuthServiceGetPoliciesOK, error) {
+func (a *Client) AuthServiceGetPolicies(params *AuthServiceGetPoliciesParams, opts ...ClientOption) (*AuthServiceGetPoliciesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceGetPoliciesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_GetPolicies",
 		Method:             "GET",
 		PathPattern:        "/api/auth/v1/policies",
@@ -898,7 +988,12 @@ func (a *Client) AuthServiceGetPolicies(params *AuthServiceGetPoliciesParams) (*
 		Reader:             &AuthServiceGetPoliciesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -914,13 +1009,12 @@ func (a *Client) AuthServiceGetPolicies(params *AuthServiceGetPoliciesParams) (*
 /*
   AuthServiceGetPolicy rs b a c API
 */
-func (a *Client) AuthServiceGetPolicy(params *AuthServiceGetPolicyParams) (*AuthServiceGetPolicyOK, error) {
+func (a *Client) AuthServiceGetPolicy(params *AuthServiceGetPolicyParams, opts ...ClientOption) (*AuthServiceGetPolicyOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceGetPolicyParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_GetPolicy",
 		Method:             "GET",
 		PathPattern:        "/api/auth/v1/policy/{policyID}",
@@ -931,7 +1025,12 @@ func (a *Client) AuthServiceGetPolicy(params *AuthServiceGetPolicyParams) (*Auth
 		Reader:             &AuthServiceGetPolicyReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -947,13 +1046,12 @@ func (a *Client) AuthServiceGetPolicy(params *AuthServiceGetPolicyParams) (*Auth
 /*
   AuthServiceGetRole auth service get role API
 */
-func (a *Client) AuthServiceGetRole(params *AuthServiceGetRoleParams) (*AuthServiceGetRoleOK, error) {
+func (a *Client) AuthServiceGetRole(params *AuthServiceGetRoleParams, opts ...ClientOption) (*AuthServiceGetRoleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceGetRoleParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_GetRole",
 		Method:             "GET",
 		PathPattern:        "/api/auth/v1/role/{roleID}",
@@ -964,7 +1062,12 @@ func (a *Client) AuthServiceGetRole(params *AuthServiceGetRoleParams) (*AuthServ
 		Reader:             &AuthServiceGetRoleReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -980,13 +1083,12 @@ func (a *Client) AuthServiceGetRole(params *AuthServiceGetRoleParams) (*AuthServ
 /*
   AuthServiceGetRoles auth service get roles API
 */
-func (a *Client) AuthServiceGetRoles(params *AuthServiceGetRolesParams) (*AuthServiceGetRolesOK, error) {
+func (a *Client) AuthServiceGetRoles(params *AuthServiceGetRolesParams, opts ...ClientOption) (*AuthServiceGetRolesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceGetRolesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_GetRoles",
 		Method:             "GET",
 		PathPattern:        "/api/auth/v1/roles",
@@ -997,7 +1099,12 @@ func (a *Client) AuthServiceGetRoles(params *AuthServiceGetRolesParams) (*AuthSe
 		Reader:             &AuthServiceGetRolesReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -1013,13 +1120,12 @@ func (a *Client) AuthServiceGetRoles(params *AuthServiceGetRolesParams) (*AuthSe
 /*
   AuthServiceGetUser auth service get user API
 */
-func (a *Client) AuthServiceGetUser(params *AuthServiceGetUserParams) (*AuthServiceGetUserOK, error) {
+func (a *Client) AuthServiceGetUser(params *AuthServiceGetUserParams, opts ...ClientOption) (*AuthServiceGetUserOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceGetUserParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_GetUser",
 		Method:             "GET",
 		PathPattern:        "/api/auth/v1/user/{userID}",
@@ -1030,7 +1136,12 @@ func (a *Client) AuthServiceGetUser(params *AuthServiceGetUserParams) (*AuthServ
 		Reader:             &AuthServiceGetUserReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -1051,13 +1162,12 @@ func (a *Client) AuthServiceGetUser(params *AuthServiceGetUserParams) (*AuthServ
 		Call:				`GetUserAccessKeys`
 		Scope:			`*`
 */
-func (a *Client) AuthServiceGetUserAccessKeys(params *AuthServiceGetUserAccessKeysParams) (*AuthServiceGetUserAccessKeysOK, error) {
+func (a *Client) AuthServiceGetUserAccessKeys(params *AuthServiceGetUserAccessKeysParams, opts ...ClientOption) (*AuthServiceGetUserAccessKeysOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceGetUserAccessKeysParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_GetUserAccessKeys",
 		Method:             "GET",
 		PathPattern:        "/api/auth/v1/user/accesskeys/{userID}",
@@ -1068,7 +1178,12 @@ func (a *Client) AuthServiceGetUserAccessKeys(params *AuthServiceGetUserAccessKe
 		Reader:             &AuthServiceGetUserAccessKeysReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -1084,13 +1199,12 @@ func (a *Client) AuthServiceGetUserAccessKeys(params *AuthServiceGetUserAccessKe
 /*
   AuthServiceGetUserIDByEmail auth service get user ID by email API
 */
-func (a *Client) AuthServiceGetUserIDByEmail(params *AuthServiceGetUserIDByEmailParams) (*AuthServiceGetUserIDByEmailOK, error) {
+func (a *Client) AuthServiceGetUserIDByEmail(params *AuthServiceGetUserIDByEmailParams, opts ...ClientOption) (*AuthServiceGetUserIDByEmailOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceGetUserIDByEmailParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_GetUserIDByEmail",
 		Method:             "GET",
 		PathPattern:        "/api/auth/v1/user-id-by-email/{email}",
@@ -1101,7 +1215,12 @@ func (a *Client) AuthServiceGetUserIDByEmail(params *AuthServiceGetUserIDByEmail
 		Reader:             &AuthServiceGetUserIDByEmailReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -1117,13 +1236,12 @@ func (a *Client) AuthServiceGetUserIDByEmail(params *AuthServiceGetUserIDByEmail
 /*
   AuthServiceGetUserInfo users API
 */
-func (a *Client) AuthServiceGetUserInfo(params *AuthServiceGetUserInfoParams) (*AuthServiceGetUserInfoOK, error) {
+func (a *Client) AuthServiceGetUserInfo(params *AuthServiceGetUserInfoParams, opts ...ClientOption) (*AuthServiceGetUserInfoOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceGetUserInfoParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_GetUserInfo",
 		Method:             "GET",
 		PathPattern:        "/api/auth/v1/userinfo",
@@ -1134,7 +1252,12 @@ func (a *Client) AuthServiceGetUserInfo(params *AuthServiceGetUserInfoParams) (*
 		Reader:             &AuthServiceGetUserInfoReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -1150,13 +1273,12 @@ func (a *Client) AuthServiceGetUserInfo(params *AuthServiceGetUserInfoParams) (*
 /*
   AuthServiceGetUsers auth service get users API
 */
-func (a *Client) AuthServiceGetUsers(params *AuthServiceGetUsersParams) (*AuthServiceGetUsersOK, error) {
+func (a *Client) AuthServiceGetUsers(params *AuthServiceGetUsersParams, opts ...ClientOption) (*AuthServiceGetUsersOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceGetUsersParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_GetUsers",
 		Method:             "GET",
 		PathPattern:        "/api/auth/v1/users",
@@ -1167,7 +1289,12 @@ func (a *Client) AuthServiceGetUsers(params *AuthServiceGetUsersParams) (*AuthSe
 		Reader:             &AuthServiceGetUsersReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -1183,13 +1310,12 @@ func (a *Client) AuthServiceGetUsers(params *AuthServiceGetUsersParams) (*AuthSe
 /*
   AuthServiceGetUsersForRole auth service get users for role API
 */
-func (a *Client) AuthServiceGetUsersForRole(params *AuthServiceGetUsersForRoleParams) (*AuthServiceGetUsersForRoleOK, error) {
+func (a *Client) AuthServiceGetUsersForRole(params *AuthServiceGetUsersForRoleParams, opts ...ClientOption) (*AuthServiceGetUsersForRoleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceGetUsersForRoleParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_GetUsersForRole",
 		Method:             "GET",
 		PathPattern:        "/api/auth/v1/role/users/{roleID}",
@@ -1200,7 +1326,12 @@ func (a *Client) AuthServiceGetUsersForRole(params *AuthServiceGetUsersForRolePa
 		Reader:             &AuthServiceGetUsersForRoleReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -1216,13 +1347,12 @@ func (a *Client) AuthServiceGetUsersForRole(params *AuthServiceGetUsersForRolePa
 /*
   AuthServiceRemovePoliciesFromRole auth service remove policies from role API
 */
-func (a *Client) AuthServiceRemovePoliciesFromRole(params *AuthServiceRemovePoliciesFromRoleParams) (*AuthServiceRemovePoliciesFromRoleOK, error) {
+func (a *Client) AuthServiceRemovePoliciesFromRole(params *AuthServiceRemovePoliciesFromRoleParams, opts ...ClientOption) (*AuthServiceRemovePoliciesFromRoleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceRemovePoliciesFromRoleParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_RemovePoliciesFromRole",
 		Method:             "POST",
 		PathPattern:        "/api/auth/v1/role/policies/remove",
@@ -1233,7 +1363,12 @@ func (a *Client) AuthServiceRemovePoliciesFromRole(params *AuthServiceRemovePoli
 		Reader:             &AuthServiceRemovePoliciesFromRoleReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -1249,13 +1384,12 @@ func (a *Client) AuthServiceRemovePoliciesFromRole(params *AuthServiceRemovePoli
 /*
   AuthServiceRemovePoliciesFromUser auth service remove policies from user API
 */
-func (a *Client) AuthServiceRemovePoliciesFromUser(params *AuthServiceRemovePoliciesFromUserParams) (*AuthServiceRemovePoliciesFromUserOK, error) {
+func (a *Client) AuthServiceRemovePoliciesFromUser(params *AuthServiceRemovePoliciesFromUserParams, opts ...ClientOption) (*AuthServiceRemovePoliciesFromUserOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceRemovePoliciesFromUserParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_RemovePoliciesFromUser",
 		Method:             "POST",
 		PathPattern:        "/api/auth/v1/user/policies/remove",
@@ -1266,7 +1400,12 @@ func (a *Client) AuthServiceRemovePoliciesFromUser(params *AuthServiceRemovePoli
 		Reader:             &AuthServiceRemovePoliciesFromUserReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -1282,13 +1421,12 @@ func (a *Client) AuthServiceRemovePoliciesFromUser(params *AuthServiceRemovePoli
 /*
   AuthServiceRemoveUsersFromRole auth service remove users from role API
 */
-func (a *Client) AuthServiceRemoveUsersFromRole(params *AuthServiceRemoveUsersFromRoleParams) (*AuthServiceRemoveUsersFromRoleOK, error) {
+func (a *Client) AuthServiceRemoveUsersFromRole(params *AuthServiceRemoveUsersFromRoleParams, opts ...ClientOption) (*AuthServiceRemoveUsersFromRoleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceRemoveUsersFromRoleParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_RemoveUsersFromRole",
 		Method:             "POST",
 		PathPattern:        "/api/auth/v1/role/users/remove",
@@ -1299,7 +1437,12 @@ func (a *Client) AuthServiceRemoveUsersFromRole(params *AuthServiceRemoveUsersFr
 		Reader:             &AuthServiceRemoveUsersFromRoleReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -1315,13 +1458,12 @@ func (a *Client) AuthServiceRemoveUsersFromRole(params *AuthServiceRemoveUsersFr
 /*
   AuthServiceResetPassword auth service reset password API
 */
-func (a *Client) AuthServiceResetPassword(params *AuthServiceResetPasswordParams) (*AuthServiceResetPasswordOK, error) {
+func (a *Client) AuthServiceResetPassword(params *AuthServiceResetPasswordParams, opts ...ClientOption) (*AuthServiceResetPasswordOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceResetPasswordParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_ResetPassword",
 		Method:             "POST",
 		PathPattern:        "/api/auth/v1/reset-password",
@@ -1332,7 +1474,12 @@ func (a *Client) AuthServiceResetPassword(params *AuthServiceResetPasswordParams
 		Reader:             &AuthServiceResetPasswordReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -1348,13 +1495,12 @@ func (a *Client) AuthServiceResetPassword(params *AuthServiceResetPasswordParams
 /*
   AuthServiceSetPassword passwords API
 */
-func (a *Client) AuthServiceSetPassword(params *AuthServiceSetPasswordParams) (*AuthServiceSetPasswordOK, error) {
+func (a *Client) AuthServiceSetPassword(params *AuthServiceSetPasswordParams, opts ...ClientOption) (*AuthServiceSetPasswordOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceSetPasswordParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_SetPassword",
 		Method:             "POST",
 		PathPattern:        "/api/auth/v1/set-password",
@@ -1365,7 +1511,12 @@ func (a *Client) AuthServiceSetPassword(params *AuthServiceSetPasswordParams) (*
 		Reader:             &AuthServiceSetPasswordReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -1381,13 +1532,12 @@ func (a *Client) AuthServiceSetPassword(params *AuthServiceSetPasswordParams) (*
 /*
   AuthServiceUpdateAccount auth service update account API
 */
-func (a *Client) AuthServiceUpdateAccount(params *AuthServiceUpdateAccountParams) (*AuthServiceUpdateAccountOK, error) {
+func (a *Client) AuthServiceUpdateAccount(params *AuthServiceUpdateAccountParams, opts ...ClientOption) (*AuthServiceUpdateAccountOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceUpdateAccountParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_UpdateAccount",
 		Method:             "PUT",
 		PathPattern:        "/api/auth/v1/account/{account.accountID}",
@@ -1398,7 +1548,12 @@ func (a *Client) AuthServiceUpdateAccount(params *AuthServiceUpdateAccountParams
 		Reader:             &AuthServiceUpdateAccountReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -1419,13 +1574,12 @@ func (a *Client) AuthServiceUpdateAccount(params *AuthServiceUpdateAccountParams
 		Call:				`UpdateClient`
 		Scope:			`id`
 */
-func (a *Client) AuthServiceUpdateClient(params *AuthServiceUpdateClientParams) (*AuthServiceUpdateClientOK, error) {
+func (a *Client) AuthServiceUpdateClient(params *AuthServiceUpdateClientParams, opts ...ClientOption) (*AuthServiceUpdateClientOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceUpdateClientParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_UpdateClient",
 		Method:             "PUT",
 		PathPattern:        "/api/auth/v1/client/{id}",
@@ -1436,7 +1590,12 @@ func (a *Client) AuthServiceUpdateClient(params *AuthServiceUpdateClientParams) 
 		Reader:             &AuthServiceUpdateClientReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -1452,13 +1611,12 @@ func (a *Client) AuthServiceUpdateClient(params *AuthServiceUpdateClientParams) 
 /*
   AuthServiceUpdatePolicy auth service update policy API
 */
-func (a *Client) AuthServiceUpdatePolicy(params *AuthServiceUpdatePolicyParams) (*AuthServiceUpdatePolicyOK, error) {
+func (a *Client) AuthServiceUpdatePolicy(params *AuthServiceUpdatePolicyParams, opts ...ClientOption) (*AuthServiceUpdatePolicyOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceUpdatePolicyParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_UpdatePolicy",
 		Method:             "PUT",
 		PathPattern:        "/api/auth/v1/policy",
@@ -1469,7 +1627,12 @@ func (a *Client) AuthServiceUpdatePolicy(params *AuthServiceUpdatePolicyParams) 
 		Reader:             &AuthServiceUpdatePolicyReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -1485,13 +1648,12 @@ func (a *Client) AuthServiceUpdatePolicy(params *AuthServiceUpdatePolicyParams) 
 /*
   AuthServiceUpdateRole auth service update role API
 */
-func (a *Client) AuthServiceUpdateRole(params *AuthServiceUpdateRoleParams) (*AuthServiceUpdateRoleOK, error) {
+func (a *Client) AuthServiceUpdateRole(params *AuthServiceUpdateRoleParams, opts ...ClientOption) (*AuthServiceUpdateRoleOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceUpdateRoleParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_UpdateRole",
 		Method:             "PUT",
 		PathPattern:        "/api/auth/v1/role",
@@ -1502,7 +1664,12 @@ func (a *Client) AuthServiceUpdateRole(params *AuthServiceUpdateRoleParams) (*Au
 		Reader:             &AuthServiceUpdateRoleReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}
@@ -1518,13 +1685,12 @@ func (a *Client) AuthServiceUpdateRole(params *AuthServiceUpdateRoleParams) (*Au
 /*
   AuthServiceUpdateUser auth service update user API
 */
-func (a *Client) AuthServiceUpdateUser(params *AuthServiceUpdateUserParams) (*AuthServiceUpdateUserOK, error) {
+func (a *Client) AuthServiceUpdateUser(params *AuthServiceUpdateUserParams, opts ...ClientOption) (*AuthServiceUpdateUserOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewAuthServiceUpdateUserParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "AuthService_UpdateUser",
 		Method:             "PUT",
 		PathPattern:        "/api/auth/v1/user/{user.userID}",
@@ -1535,7 +1701,12 @@ func (a *Client) AuthServiceUpdateUser(params *AuthServiceUpdateUserParams) (*Au
 		Reader:             &AuthServiceUpdateUserReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

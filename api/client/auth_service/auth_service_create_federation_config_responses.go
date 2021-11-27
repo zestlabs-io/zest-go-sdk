@@ -70,7 +70,7 @@ func NewAuthServiceCreateFederationConfigOK() *AuthServiceCreateFederationConfig
 	return &AuthServiceCreateFederationConfigOK{}
 }
 
-/*AuthServiceCreateFederationConfigOK handles this case with default header values.
+/* AuthServiceCreateFederationConfigOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -81,7 +81,6 @@ type AuthServiceCreateFederationConfigOK struct {
 func (o *AuthServiceCreateFederationConfigOK) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/federation][%d] authServiceCreateFederationConfigOK  %+v", 200, o.Payload)
 }
-
 func (o *AuthServiceCreateFederationConfigOK) GetPayload() *models.V1CreateFederationConfigResponse {
 	return o.Payload
 }
@@ -103,7 +102,7 @@ func NewAuthServiceCreateFederationConfigBadRequest() *AuthServiceCreateFederati
 	return &AuthServiceCreateFederationConfigBadRequest{}
 }
 
-/*AuthServiceCreateFederationConfigBadRequest handles this case with default header values.
+/* AuthServiceCreateFederationConfigBadRequest describes a response with status code 400, with default header values.
 
 Returned when no valid client ID is provided in the request, or the account has already has 3 federation configs.
 */
@@ -114,7 +113,6 @@ type AuthServiceCreateFederationConfigBadRequest struct {
 func (o *AuthServiceCreateFederationConfigBadRequest) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/federation][%d] authServiceCreateFederationConfigBadRequest  %+v", 400, o.Payload)
 }
-
 func (o *AuthServiceCreateFederationConfigBadRequest) GetPayload() interface{} {
 	return o.Payload
 }
@@ -134,7 +132,7 @@ func NewAuthServiceCreateFederationConfigForbidden() *AuthServiceCreateFederatio
 	return &AuthServiceCreateFederationConfigForbidden{}
 }
 
-/*AuthServiceCreateFederationConfigForbidden handles this case with default header values.
+/* AuthServiceCreateFederationConfigForbidden describes a response with status code 403, with default header values.
 
 Returned when the caller is not allowed to perform this call.
 */
@@ -145,7 +143,6 @@ type AuthServiceCreateFederationConfigForbidden struct {
 func (o *AuthServiceCreateFederationConfigForbidden) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/federation][%d] authServiceCreateFederationConfigForbidden  %+v", 403, o.Payload)
 }
-
 func (o *AuthServiceCreateFederationConfigForbidden) GetPayload() interface{} {
 	return o.Payload
 }
@@ -165,7 +162,7 @@ func NewAuthServiceCreateFederationConfigNotFound() *AuthServiceCreateFederation
 	return &AuthServiceCreateFederationConfigNotFound{}
 }
 
-/*AuthServiceCreateFederationConfigNotFound handles this case with default header values.
+/* AuthServiceCreateFederationConfigNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -176,7 +173,6 @@ type AuthServiceCreateFederationConfigNotFound struct {
 func (o *AuthServiceCreateFederationConfigNotFound) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/federation][%d] authServiceCreateFederationConfigNotFound  %+v", 404, o.Payload)
 }
-
 func (o *AuthServiceCreateFederationConfigNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -196,7 +192,7 @@ func NewAuthServiceCreateFederationConfigInternalServerError() *AuthServiceCreat
 	return &AuthServiceCreateFederationConfigInternalServerError{}
 }
 
-/*AuthServiceCreateFederationConfigInternalServerError handles this case with default header values.
+/* AuthServiceCreateFederationConfigInternalServerError describes a response with status code 500, with default header values.
 
 Returned whenever an internall error occurs.
 */
@@ -207,7 +203,6 @@ type AuthServiceCreateFederationConfigInternalServerError struct {
 func (o *AuthServiceCreateFederationConfigInternalServerError) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/federation][%d] authServiceCreateFederationConfigInternalServerError  %+v", 500, o.Payload)
 }
-
 func (o *AuthServiceCreateFederationConfigInternalServerError) GetPayload() interface{} {
 	return o.Payload
 }
@@ -229,7 +224,7 @@ func NewAuthServiceCreateFederationConfigDefault(code int) *AuthServiceCreateFed
 	}
 }
 
-/*AuthServiceCreateFederationConfigDefault handles this case with default header values.
+/* AuthServiceCreateFederationConfigDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -247,7 +242,6 @@ func (o *AuthServiceCreateFederationConfigDefault) Code() int {
 func (o *AuthServiceCreateFederationConfigDefault) Error() string {
 	return fmt.Sprintf("[POST /api/auth/v1/federation][%d] AuthService_CreateFederationConfig default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *AuthServiceCreateFederationConfigDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

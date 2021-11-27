@@ -52,7 +52,7 @@ func NewDistrConfigServiceDeletePoolOK() *DistrConfigServiceDeletePoolOK {
 	return &DistrConfigServiceDeletePoolOK{}
 }
 
-/*DistrConfigServiceDeletePoolOK handles this case with default header values.
+/* DistrConfigServiceDeletePoolOK describes a response with status code 200, with default header values.
 
 A successful response.
 */
@@ -63,7 +63,6 @@ type DistrConfigServiceDeletePoolOK struct {
 func (o *DistrConfigServiceDeletePoolOK) Error() string {
 	return fmt.Sprintf("[DELETE /api/distribution/v1/pool/{id}][%d] distrConfigServiceDeletePoolOK  %+v", 200, o.Payload)
 }
-
 func (o *DistrConfigServiceDeletePoolOK) GetPayload() models.DistrconfigDeletePoolResponse {
 	return o.Payload
 }
@@ -83,7 +82,7 @@ func NewDistrConfigServiceDeletePoolNotFound() *DistrConfigServiceDeletePoolNotF
 	return &DistrConfigServiceDeletePoolNotFound{}
 }
 
-/*DistrConfigServiceDeletePoolNotFound handles this case with default header values.
+/* DistrConfigServiceDeletePoolNotFound describes a response with status code 404, with default header values.
 
 Returned when the resource does not exist.
 */
@@ -94,7 +93,6 @@ type DistrConfigServiceDeletePoolNotFound struct {
 func (o *DistrConfigServiceDeletePoolNotFound) Error() string {
 	return fmt.Sprintf("[DELETE /api/distribution/v1/pool/{id}][%d] distrConfigServiceDeletePoolNotFound  %+v", 404, o.Payload)
 }
-
 func (o *DistrConfigServiceDeletePoolNotFound) GetPayload() string {
 	return o.Payload
 }
@@ -116,7 +114,7 @@ func NewDistrConfigServiceDeletePoolDefault(code int) *DistrConfigServiceDeleteP
 	}
 }
 
-/*DistrConfigServiceDeletePoolDefault handles this case with default header values.
+/* DistrConfigServiceDeletePoolDefault describes a response with status code -1, with default header values.
 
 An unexpected error response
 */
@@ -134,7 +132,6 @@ func (o *DistrConfigServiceDeletePoolDefault) Code() int {
 func (o *DistrConfigServiceDeletePoolDefault) Error() string {
 	return fmt.Sprintf("[DELETE /api/distribution/v1/pool/{id}][%d] DistrConfigService_DeletePool default  %+v", o._statusCode, o.Payload)
 }
-
 func (o *DistrConfigServiceDeletePoolDefault) GetPayload() *models.RuntimeError {
 	return o.Payload
 }

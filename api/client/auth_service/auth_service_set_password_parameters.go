@@ -18,56 +18,70 @@ import (
 	"github.com/zestlabs-io/zest-go-sdk/api/models"
 )
 
-// NewAuthServiceSetPasswordParams creates a new AuthServiceSetPasswordParams object
-// with the default values initialized.
+// NewAuthServiceSetPasswordParams creates a new AuthServiceSetPasswordParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewAuthServiceSetPasswordParams() *AuthServiceSetPasswordParams {
-	var ()
 	return &AuthServiceSetPasswordParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewAuthServiceSetPasswordParamsWithTimeout creates a new AuthServiceSetPasswordParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewAuthServiceSetPasswordParamsWithTimeout(timeout time.Duration) *AuthServiceSetPasswordParams {
-	var ()
 	return &AuthServiceSetPasswordParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewAuthServiceSetPasswordParamsWithContext creates a new AuthServiceSetPasswordParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewAuthServiceSetPasswordParamsWithContext(ctx context.Context) *AuthServiceSetPasswordParams {
-	var ()
 	return &AuthServiceSetPasswordParams{
-
 		Context: ctx,
 	}
 }
 
 // NewAuthServiceSetPasswordParamsWithHTTPClient creates a new AuthServiceSetPasswordParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewAuthServiceSetPasswordParamsWithHTTPClient(client *http.Client) *AuthServiceSetPasswordParams {
-	var ()
 	return &AuthServiceSetPasswordParams{
 		HTTPClient: client,
 	}
 }
 
-/*AuthServiceSetPasswordParams contains all the parameters to send to the API endpoint
-for the auth service set password operation typically these are written to a http.Request
+/* AuthServiceSetPasswordParams contains all the parameters to send to the API endpoint
+   for the auth service set password operation.
+
+   Typically these are written to a http.Request.
 */
 type AuthServiceSetPasswordParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.V1SetPasswordRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the auth service set password params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceSetPasswordParams) WithDefaults() *AuthServiceSetPasswordParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the auth service set password params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *AuthServiceSetPasswordParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the auth service set password params
@@ -121,7 +135,6 @@ func (o *AuthServiceSetPasswordParams) WriteToRequest(r runtime.ClientRequest, r
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -16,69 +16,85 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPoolDataServiceDeleteAttachmentParams creates a new PoolDataServiceDeleteAttachmentParams object
-// with the default values initialized.
+// NewPoolDataServiceDeleteAttachmentParams creates a new PoolDataServiceDeleteAttachmentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPoolDataServiceDeleteAttachmentParams() *PoolDataServiceDeleteAttachmentParams {
-	var ()
 	return &PoolDataServiceDeleteAttachmentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPoolDataServiceDeleteAttachmentParamsWithTimeout creates a new PoolDataServiceDeleteAttachmentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPoolDataServiceDeleteAttachmentParamsWithTimeout(timeout time.Duration) *PoolDataServiceDeleteAttachmentParams {
-	var ()
 	return &PoolDataServiceDeleteAttachmentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPoolDataServiceDeleteAttachmentParamsWithContext creates a new PoolDataServiceDeleteAttachmentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPoolDataServiceDeleteAttachmentParamsWithContext(ctx context.Context) *PoolDataServiceDeleteAttachmentParams {
-	var ()
 	return &PoolDataServiceDeleteAttachmentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPoolDataServiceDeleteAttachmentParamsWithHTTPClient creates a new PoolDataServiceDeleteAttachmentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPoolDataServiceDeleteAttachmentParamsWithHTTPClient(client *http.Client) *PoolDataServiceDeleteAttachmentParams {
-	var ()
 	return &PoolDataServiceDeleteAttachmentParams{
 		HTTPClient: client,
 	}
 }
 
-/*PoolDataServiceDeleteAttachmentParams contains all the parameters to send to the API endpoint
-for the pool data service delete attachment operation typically these are written to a http.Request
+/* PoolDataServiceDeleteAttachmentParams contains all the parameters to send to the API endpoint
+   for the pool data service delete attachment operation.
+
+   Typically these are written to a http.Request.
 */
 type PoolDataServiceDeleteAttachmentParams struct {
 
-	/*Attname
-	  Attachment name
+	/* Attname.
 
+	   Attachment name
 	*/
 	Attname string
-	/*ID
-	  The ID (Primary Key) of the record
 
+	/* ID.
+
+	   The ID (Primary Key) of the record
 	*/
 	ID string
-	/*PoolID
-	  Pool ID (e.g. orders)
 
+	/* PoolID.
+
+	   Pool ID (e.g. orders)
 	*/
 	PoolID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the pool data service delete attachment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PoolDataServiceDeleteAttachmentParams) WithDefaults() *PoolDataServiceDeleteAttachmentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the pool data service delete attachment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PoolDataServiceDeleteAttachmentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the pool data service delete attachment params
