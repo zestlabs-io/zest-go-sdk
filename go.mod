@@ -19,3 +19,10 @@ require (
 	golang.org/x/net v0.0.0-20211123203042-d83791d6bcd9 // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
 )
+
+// So far we don't support backward compatability - as soon as we do, we will jump to v2.0.0 with v2 package
+retract (
+	v1.0.1
+	v1.2.0
+	v1.2.1
+)
